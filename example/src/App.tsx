@@ -3,7 +3,7 @@ import { enableScreens } from 'react-native-screens';
 import { Provider, DefaultTheme } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import {configureLog} from 'roqay-react-native-common-components';
+import { configureLog } from '@eslam-elmeniawy/react-native-common-components';
 
 import HomeScreen from './HomeScreen';
 // import AlertDialogScreen from './AlertDialogScreen';
@@ -25,13 +25,13 @@ enableScreens();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // React.useEffect(() => {
-  //   configureLog({
-  //     appName: 'roqay-react-native-common-components',
-  //     firebaseLogLevels: ['INFO', 'LOG', 'WARN', 'ERROR'],
-  //     isLocalLogEnable: true,
-  //   });
-  // });
+  React.useEffect(() => {
+    configureLog({
+      appName: 'react-native-common-components',
+      firebaseLogLevels: ['INFO', 'LOG', 'WARN', 'ERROR'],
+      isLocalLogEnable: true,
+    });
+  });
 
   return (
     <Provider theme={DefaultTheme}>
