@@ -23,21 +23,21 @@ const AlertDialog = (props: PropsWithTheme): React.ReactElement => {
     theme,
   } = props;
 
-  const { style: dialogStyle, ...dialogOther } = dialogProps || {};
-  const { type: titleType, size: titleSize, ...titleOther } = titleProps || {};
+  const { style: dialogStyle, ...dialogOther } = dialogProps ?? {};
+  const { type: titleType, size: titleSize, ...titleOther } = titleProps ?? {};
 
   return (
     <Dialog style={[styles.dialog, dialogStyle]} {...dialogOther}>
       {Boolean(title) && (
-        <Text type={titleType || 'bold'} size={titleSize || 18} {...titleOther}>
+        <Text type={titleType ?? 'bold'} size={titleSize ?? 18} {...titleOther}>
           {title}
         </Text>
       )}
-      {Boolean(message) && <Text {...(messageProps || {})}>{message}</Text>}
+      {Boolean(message) && <Text {...(messageProps ?? {})}>{message}</Text>}
       <View
         style={[
           styles.actionsContainer,
-          (actions?.length || 0) > 2
+          (actions?.length ?? 0) > 2
             ? styles.actionsContainerColumn
             : styles.actionsContainerRow,
         ]}
@@ -48,17 +48,17 @@ const AlertDialog = (props: PropsWithTheme): React.ReactElement => {
               style: actionStyle,
               textProps: actionTextProps,
               ...actionOther
-            } = action.actionProps || {};
+            } = action.actionProps ?? {};
 
             const { style: actionTextStyle, ...actionTextOther } =
-              actionTextProps || {};
+              actionTextProps ?? {};
 
             return (
               <Button
                 key={action.action}
                 style={[
                   styles.action,
-                  (actions?.length || 0) > 2 ? undefined : styles.actionRow,
+                  (actions?.length ?? 0) > 2 ? undefined : styles.actionRow,
                   actionStyle,
                 ]}
                 textProps={{

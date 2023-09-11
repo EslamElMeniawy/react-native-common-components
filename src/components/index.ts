@@ -4,4 +4,5 @@ export * from './Card';
 export * from './Checkbox';
 export * from './Dialog';
 export * from './IconButton';
+export * from './LoadingDialog';
 export * from './Text';

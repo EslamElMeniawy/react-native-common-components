@@ -35,7 +35,7 @@ const Button = (props: PropsWithTheme): React.ReactElement => {
     ...other
   } = props;
 
-  const { style: textStyle, type, ...rest } = textProps || {};
+  const { style: textStyle, type, ...rest } = textProps ?? {};
 
   const enabledStyle = {
     opacity: disabled ? 0.5 : 1.0,
@@ -50,12 +50,12 @@ const Button = (props: PropsWithTheme): React.ReactElement => {
       style == null || style === undefined
         ? buttonDefaultBackgroundStyle
         : style
-    ).backgroundColor?.toString() || theme.colors.primary;
+    ).backgroundColor?.toString() ?? theme.colors.primary;
 
   const textColor =
     StyleSheet.flatten(
       textStyle == null || textStyle === undefined ? styles.text : textStyle
-    ).color?.toString() ||
+    ).color?.toString() ??
     (theme.isV3
       ? theme.colors.onPrimary
       : tinyColor(buttonColor).isDark()

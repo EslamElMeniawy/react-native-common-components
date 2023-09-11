@@ -30,7 +30,7 @@ const Checkbox = (props: PropsWithTheme): React.ReactElement => {
     ...other
   } = props;
 
-  const { style: textStyle, ...rest } = textProps || {};
+  const { style: textStyle, ...rest } = textProps ?? {};
 
   const notNullCheckedColor: string =
     checkedColor == null || checkedColor === undefined
@@ -78,7 +78,7 @@ const Checkbox = (props: PropsWithTheme): React.ReactElement => {
               paddingEnd,
               paddingRight,
               paddingLeft,
-              alignItems: contentAlign || 'center',
+              alignItems: contentAlign ?? 'center',
             },
           ]}
         >

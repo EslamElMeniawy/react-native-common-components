@@ -156,8 +156,8 @@ const connectConsoleToReactotron = (): void => {
 };
 
 export const configureLog = (options?: Options): void => {
-  firebaseLogLevels = options?.firebaseLogLevels || [];
-  isLocalLogEnable = options?.isLocalLogEnable || false;
+  firebaseLogLevels = options?.firebaseLogLevels ?? [];
+  isLocalLogEnable = options?.isLocalLogEnable ?? false;
   configureReactotron(options?.appName);
   connectConsoleToReactotron();
 };
