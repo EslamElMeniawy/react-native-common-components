@@ -1,5 +1,5 @@
 // External imports.
-import React from 'react';
+import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
   withTheme,
@@ -9,10 +9,10 @@ import {
 import tinyColor from 'tinycolor2';
 
 // Types imports.
-import type { PropsWithTheme } from './Checkbox.types';
+import type { PropsWithTheme } from './CompoundButton.types';
 
 // Internal imports.
-import styles from './Checkbox.styles';
+import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 
 const Checkbox = (props: PropsWithTheme): React.ReactElement => {

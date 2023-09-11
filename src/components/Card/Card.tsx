@@ -1,5 +1,5 @@
 // External imports.
-import React from 'react';
+import * as React from 'react';
 import { withTheme, Card as PaperCard } from 'react-native-paper';
 
 // Types imports.

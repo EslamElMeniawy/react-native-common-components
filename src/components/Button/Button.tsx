@@ -1,5 +1,5 @@
 // External imports.
-import React from 'react';
+import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { withTheme, TouchableRipple } from 'react-native-paper';
 import { ms } from 'react-native-size-matters';

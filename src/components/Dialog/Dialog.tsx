@@ -1,5 +1,5 @@
 // External imports.
-import React from 'react';
+import * as React from 'react';
 import { Pressable, BackHandler } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { withTheme, Portal } from 'react-native-paper';

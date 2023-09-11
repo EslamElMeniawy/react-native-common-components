@@ -1,5 +1,5 @@
 // External imports.
-import React from 'react';
+import * as React from 'react';
 import { Image } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ms } from 'react-native-size-matters';

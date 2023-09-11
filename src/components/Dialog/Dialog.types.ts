@@ -1,5 +1,5 @@
 // External imports.
-import React from 'react';
+import * as React from 'react';
 
 // Types imports.
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
