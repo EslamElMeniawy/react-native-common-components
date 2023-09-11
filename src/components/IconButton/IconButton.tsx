@@ -12,7 +12,7 @@ import type { PropsWithTheme } from './IconButton.types';
 import styles from './IconButton.styles';
 import Icon from './Icon';
 
-const IconButton = (props: PropsWithTheme): React.ReactElement => {
+const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
     image,
     vector,
@@ -85,6 +85,6 @@ const IconButton = (props: PropsWithTheme): React.ReactElement => {
       </TouchableRipple>
     </View>
   );
-};
+});
 
 export default withTheme(IconButton);

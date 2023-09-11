@@ -12,7 +12,7 @@ import { Dialog } from '../Dialog';
 import { Text } from '../Text';
 import { Button } from '../Button';
 
-const AlertDialog = (props: PropsWithTheme): React.ReactElement => {
+const AlertDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
     dialogProps,
     title,
@@ -76,6 +76,6 @@ const AlertDialog = (props: PropsWithTheme): React.ReactElement => {
       </View>
     </Dialog>
   );
-};
+});
 
 export default withTheme(AlertDialog);

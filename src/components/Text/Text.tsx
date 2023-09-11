@@ -11,7 +11,7 @@ import { ms } from 'react-native-size-matters';
 // Types imports.
 import type { PropsWithTheme } from './Text.types';
 
-const Text = (props: PropsWithTheme): React.ReactElement => {
+const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { size, type, variant, style, children, theme, ...other } = props;
   let defaultTextSize: number = 13;
 
@@ -91,6 +91,6 @@ const Text = (props: PropsWithTheme): React.ReactElement => {
         </PaperText>
       );
   }
-};
+});
 
 export default withTheme(Text);

@@ -10,7 +10,7 @@ import type { IconProps } from '../IconButton';
 // Internal imports.
 import styles from './Button.styles';
 
-const Icon = (props: IconProps): null | React.ReactElement => {
+const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   const { image, vector, iconName, size, color } = props;
   const iconSize: number = ms(size);
 
@@ -46,6 +46,6 @@ const Icon = (props: IconProps): null | React.ReactElement => {
   }
 
   return null;
-};
+});
 
 export default Icon;

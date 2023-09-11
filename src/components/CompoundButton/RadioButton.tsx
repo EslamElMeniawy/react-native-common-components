@@ -15,7 +15,7 @@ import type { PropsWithTheme } from './CompoundButton.types';
 import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 
-const RadioButton = (props: PropsWithTheme): React.ReactElement => {
+const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
     text,
     checked,
@@ -99,6 +99,6 @@ const RadioButton = (props: PropsWithTheme): React.ReactElement => {
       </TouchableRipple>
     </View>
   );
-};
+});
 
 export default withTheme(RadioButton);

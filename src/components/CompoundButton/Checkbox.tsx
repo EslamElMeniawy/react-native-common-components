@@ -15,7 +15,7 @@ import type { PropsWithTheme } from './CompoundButton.types';
 import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 
-const Checkbox = (props: PropsWithTheme): React.ReactElement => {
+const Checkbox = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
     text,
     checked,
@@ -98,6 +98,6 @@ const Checkbox = (props: PropsWithTheme): React.ReactElement => {
       </TouchableRipple>
     </View>
   );
-};
+});
 
 export default withTheme(Checkbox);

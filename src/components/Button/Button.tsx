@@ -13,7 +13,7 @@ import styles from './Button.styles';
 import { Text } from '../Text';
 import Icon from './Icon';
 
-const Button = (props: PropsWithTheme): React.ReactElement => {
+const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
     text,
     startImage,
@@ -147,6 +147,6 @@ const Button = (props: PropsWithTheme): React.ReactElement => {
       </TouchableRipple>
     </View>
   );
-};
+});
 
 export default withTheme(Button);
