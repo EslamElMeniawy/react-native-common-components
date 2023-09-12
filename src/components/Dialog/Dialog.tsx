@@ -5,9 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { withTheme, Portal } from 'react-native-paper';
 
 // Types imports.
+import type { PropsWithTheme, State } from './Dialog.types';
 import type { NativeEventSubscription } from 'react-native';
 import type { Edge } from 'react-native-safe-area-context';
-import type { PropsWithTheme, State } from './Dialog.types';
 
 // Internal imports.
 import styles from './Dialog.styles';

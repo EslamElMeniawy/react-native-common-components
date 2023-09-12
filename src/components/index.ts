@@ -5,6 +5,7 @@ export * from './CompoundButton';
 export * from './Dialog';
 export * from './FlatList';
 export * from './IconButton';
+export * from './ImagePlaceholder';
 export * from './LoadingDialog';
 export * from './ScrollView';
 export * from './Text';
