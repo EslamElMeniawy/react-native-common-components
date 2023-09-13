@@ -8,4 +8,6 @@ export * from './IconButton';
 export * from './ImagePlaceholder';
 export * from './LoadingDialog';
 export * from './ScrollView';
+export * from './SelectDialog';
 export * from './Text';
+export * from './TextInput';

@@ -20,7 +20,7 @@ const Placeholder = React.memo(
     } = props;
 
     if (!source || isError || isLoading) {
-      const notNullResizeMode = resizeMode || 'cover';
+      const notNullResizeMode = resizeMode ?? 'cover';
 
       if (placeholder) {
         return (
