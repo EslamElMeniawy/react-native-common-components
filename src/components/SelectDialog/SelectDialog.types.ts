@@ -40,4 +40,9 @@ export interface NoDataProps {
   noDataComponent?: React.ReactElement;
 }
 
-export interface ListProps {}
+export interface ListProps {
+  items: SelectItem[];
+  theme: MD2Theme | MD3Theme;
+  onItemPressed: (item: SelectItem) => void;
+  isItemSelected: (item: SelectItem) => boolean;
+}

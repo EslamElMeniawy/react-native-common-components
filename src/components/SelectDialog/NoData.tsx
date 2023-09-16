@@ -16,13 +16,13 @@ const NoData = React.memo((props: NoDataProps): React.ReactElement => {
     return noDataComponent;
   }
 
-  const isArabic =
+  const _isArabic =
     (I18nManager.getConstants().localeIdentifier?.indexOf('ar') ?? -1) > -1;
 
   return (
     <Text style={styles.noDataText} size={15}>
       {noDataMessage === undefined
-        ? isArabic
+        ? _isArabic
           ? 'لا تتوافر بيانات!'
           : 'No data available'
         : noDataMessage}

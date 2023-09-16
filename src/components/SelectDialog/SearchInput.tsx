@@ -14,7 +14,7 @@ const SearchInput = React.memo(
       return searchComponent;
     }
 
-    const isArabic =
+    const _isArabic =
       (I18nManager.getConstants().localeIdentifier?.indexOf('ar') ?? -1) > -1;
 
     return (
@@ -22,7 +22,7 @@ const SearchInput = React.memo(
         mode="outlined"
         label={
           searchLabel === undefined
-            ? isArabic
+            ? _isArabic
               ? 'ابحث عن'
               : 'Look for'
             : searchLabel

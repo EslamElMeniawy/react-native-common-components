@@ -147,12 +147,18 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
   };
 
   _getContent = (): React.ReactElement => {
-    const { noDataMessage, noDataComponent } = this.props;
+    const { noDataMessage, noDataComponent, theme } = this.props;
     const items = this._getFilterList();
 
     if (items && items.length) {
-      // TODO: Add props.
-      return <List />;
+      return (
+        <List
+          items={items}
+          theme={theme}
+          onItemPressed={this._onItemPressed}
+          isItemSelected={this._isItemSelected}
+        />
+      );
     }
 
     return (
