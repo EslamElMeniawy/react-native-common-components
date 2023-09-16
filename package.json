@@ -93,7 +93,8 @@
     "react-native": "*",
     "react-native-paper": "*",
     "react-native-safe-area-context": "*",
-    "react-native-vector-icons": "*"
+    "react-native-vector-icons": "*",
+    "@expo/vector-icons": "*"
   },
   "engines": {
     "node": ">= 16.0.0"

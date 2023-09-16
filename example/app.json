@@ -38,6 +38,12 @@
             "useFrameworks": "static"
           }
         }
+      ],
+      [
+        "@zamplyy/react-native-vector-image-plugin",
+        {
+          "customEntryFile": "App.js"
+        }
       ]
     ]
   }

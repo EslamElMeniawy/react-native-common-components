@@ -3,7 +3,6 @@ apply plugin: "com.facebook.react"
 
 def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
 
-apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 apply from: "../../node_modules/react-native-vector-image/strip_svgs.gradle"
 
 /**

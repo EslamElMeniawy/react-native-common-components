@@ -6,19 +6,19 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { configureLog } from '@eslam-elmeniawy/react-native-common-components';
 
 import HomeScreen from './HomeScreen';
-// import AlertDialogScreen from './AlertDialogScreen';
-// import ButtonScreen from './ButtonScreen';
-// import CardScreen from './CardScreen';
-// import CheckboxScreen from './CheckboxScreen';
-// import DialogScreen from './DialogScreen';
-// import IconButtonScreen from './IconButtonScreen';
-// import ImagePlaceholderScreen from './ImagePlaceholderScreen';
-// import LoadingDialogScreen from './LoadingDialogScreen';
-// import RadioButtonScreen from './RadioButtonScreen';
-// import SelectDialogScreen from './SelectDialogScreen';
-// import TextInputScreen from './TextInputScreen';
-// import TextScreen from './TextScreen';
-// import UtilsScreen from './UtilsScreen';
+import AlertDialogScreen from './AlertDialogScreen';
+import ButtonScreen from './ButtonScreen';
+import CardScreen from './CardScreen';
+import CheckboxScreen from './CheckboxScreen';
+import DialogScreen from './DialogScreen';
+import IconButtonScreen from './IconButtonScreen';
+import ImagePlaceholderScreen from './ImagePlaceholderScreen';
+import LoadingDialogScreen from './LoadingDialogScreen';
+import RadioButtonScreen from './RadioButtonScreen';
+import SelectDialogScreen from './SelectDialogScreen';
+import TextInputScreen from './TextInputScreen';
+import TextScreen from './TextScreen';
+import UtilsScreen from './UtilsScreen';
 
 enableScreens();
 
@@ -31,14 +31,14 @@ export default function App() {
       firebaseLogLevels: ['INFO', 'LOG', 'WARN', 'ERROR'],
       isLocalLogEnable: true,
     });
-  });
+  }, []);
 
   return (
     <Provider theme={DefaultTheme}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
-          {/*<Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
+          <Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
           <Stack.Screen name="Button" component={ButtonScreen} />
           <Stack.Screen name="Card" component={CardScreen} />
           <Stack.Screen name="Checkbox" component={CheckboxScreen} />
@@ -53,7 +53,7 @@ export default function App() {
           <Stack.Screen name="SelectDialog" component={SelectDialogScreen} />
           <Stack.Screen name="TextInput" component={TextInputScreen} />
           <Stack.Screen name="Text" component={TextScreen} />
-          <Stack.Screen name="Utils" component={UtilsScreen} /> */}
+          <Stack.Screen name="Utils" component={UtilsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

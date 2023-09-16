@@ -17,11 +17,13 @@
     "postinstall": "patch-package && yarn pods && yarn android-clean && yarn ios-clean"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@klarna/react-native-vector-drawable": "^0.4.0",
     "@react-native-firebase/app": "^18.3.2",
     "@react-native-firebase/crashlytics": "^18.3.2",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
+    "@zamplyy/react-native-vector-image-plugin": "^0.1.2",
     "expo": "~49.0.8",
     "expo-build-properties": "~0.8.3",
     "expo-dev-client": "~2.4.8",
@@ -38,7 +40,6 @@
     "react-native-screens": "~3.22.0",
     "react-native-size-matters": "^0.4.0",
     "react-native-svg": "13.9.0",
-    "react-native-vector-icons": "^10.0.0",
     "react-native-vector-image": "^0.4.4",
     "react-native-web": "~0.19.6"
   },
