@@ -13,22 +13,22 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   const { image, vector, iconName, size, color, iconPercent, noIconTint } =
     props;
 
-  const notNullIconPercent: number =
+  const _iconPercent: number =
     iconPercent == null || iconPercent === undefined ? 60 : iconPercent;
 
-  const iconSize: number = (size * notNullIconPercent) / 100;
+  const _iconSize: number = (size * _iconPercent) / 100;
 
-  const iconStyle = [
+  const _iconStyle = [
     styles.icon,
     {
-      width: iconSize,
-      height: iconSize,
+      width: _iconSize,
+      height: _iconSize,
       tintColor: noIconTint ? undefined : color,
     },
   ];
 
   if (image) {
-    return <Image source={image} style={iconStyle} resizeMode="contain" />;
+    return <Image source={image} style={_iconStyle} resizeMode="contain" />;
   }
 
   if (vector) {
@@ -36,7 +36,7 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
       const VectorImage = require('react-native-vector-image').default;
 
       return (
-        <VectorImage source={vector} style={iconStyle} resizeMode="contain" />
+        <VectorImage source={vector} style={_iconStyle} resizeMode="contain" />
       );
     } catch (error) {
       return null;
@@ -45,7 +45,7 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
 
   if (iconName) {
     return (
-      <MaterialCommunityIcons name={iconName} color={color} size={iconSize} />
+      <MaterialCommunityIcons name={iconName} color={color} size={_iconSize} />
     );
   }
 

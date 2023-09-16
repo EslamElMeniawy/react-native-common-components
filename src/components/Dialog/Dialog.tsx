@@ -14,18 +14,18 @@ import styles from './Dialog.styles';
 
 class Dialog extends React.PureComponent<PropsWithTheme, State> {
   // Variable for mount state.
-  isComponentMounted: boolean = false;
+  _isComponentMounted: boolean = false;
 
   // Variable for android back handler.
-  backHandlerSubscription: null | NativeEventSubscription = null;
+  _backHandlerSubscription: null | NativeEventSubscription = null;
 
   // #region Lifecycle
   componentDidMount() {
     // Set is mounted.
-    this.isComponentMounted = true;
+    this._isComponentMounted = true;
 
     // Register subscription for back handler.
-    this.backHandlerSubscription = BackHandler.addEventListener(
+    this._backHandlerSubscription = BackHandler.addEventListener(
       'hardwareBackPress',
       this._onBackPress
     );
@@ -33,10 +33,10 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
 
   componentWillUnmount() {
     // Clear is mounted.
-    this.isComponentMounted = false;
+    this._isComponentMounted = false;
 
     // Remove subscription for back handler.
-    this.backHandlerSubscription?.remove();
+    this._backHandlerSubscription?.remove();
   }
   // #endregion
 

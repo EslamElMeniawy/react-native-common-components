@@ -13,7 +13,7 @@ import Image from './Image';
 
 class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
   // Variable for mount state.
-  isComponentMounted: boolean = false;
+  _isComponentMounted: boolean = false;
 
   constructor(props: PropsWithTheme) {
     super(props);
@@ -29,35 +29,35 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
   // #region Lifecycle
   componentDidMount() {
     // Set is mounted.
-    this.isComponentMounted = true;
+    this._isComponentMounted = true;
   }
 
   componentWillUnmount() {
     // Clear is mounted.
-    this.isComponentMounted = false;
+    this._isComponentMounted = false;
   }
   // #endregion
 
   _setLoadingState = (isLoading: boolean): void => {
-    if (this.isComponentMounted) {
+    if (this._isComponentMounted) {
       this.setState({ isLoading });
     }
   };
 
   _setErrorState = (isError: boolean): void => {
-    if (this.isComponentMounted) {
+    if (this._isComponentMounted) {
       this.setState({ isError, isLoading: false });
     }
   };
 
   _setProgressState = (progress: number): void => {
-    if (this.isComponentMounted) {
+    if (this._isComponentMounted) {
       this.setState({ progress });
     }
   };
 
   _setProgressSizeState = (progressSize: number): void => {
-    if (this.isComponentMounted) {
+    if (this._isComponentMounted) {
       this.setState({ progressSize });
     }
   };

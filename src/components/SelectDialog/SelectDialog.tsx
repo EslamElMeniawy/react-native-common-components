@@ -17,7 +17,7 @@ import { Button } from '../Button';
 
 class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
   // Variable for mount state.
-  isComponentMounted: boolean = false;
+  _isComponentMounted: boolean = false;
 
   constructor(props: PropsWithTheme) {
     super(props);
@@ -38,12 +38,12 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
 
   componentDidMount() {
     // Set is mounted.
-    this.isComponentMounted = true;
+    this._isComponentMounted = true;
   }
 
   componentWillUnmount() {
     // Clear is mounted.
-    this.isComponentMounted = false;
+    this._isComponentMounted = false;
   }
   // #endregion
 

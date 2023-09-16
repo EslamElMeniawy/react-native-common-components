@@ -28,7 +28,7 @@ const TopLabel = React.memo(
         alignSelf,
       } = inputStyle ?? {};
 
-      const widthHorizontalMarginStyle = {
+      const _widthHorizontalMarginStyle = {
         width,
         marginHorizontal,
         marginStart,
@@ -48,7 +48,7 @@ const TopLabel = React.memo(
               color: theme.isV3 ? theme.colors.onBackground : theme.colors.text,
               marginTop: marginVertical ?? marginTop,
             },
-            widthHorizontalMarginStyle,
+            _widthHorizontalMarginStyle,
             style,
           ]}
           {...other}

@@ -16,33 +16,33 @@ const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { topLabelProps, errorProps } = props;
   const { marginVertical, marginTop, marginBottom } = props.style ?? {};
 
-  let inputStyle;
+  let _inputStyle;
 
   if (topLabelProps && errorProps) {
-    inputStyle = [
+    _inputStyle = [
       styles.noVerticalMargin,
       omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
     ];
   } else if (topLabelProps) {
-    inputStyle = [
+    _inputStyle = [
       styles.noVerticalMargin,
       omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
       { marginBottom: marginVertical ?? marginBottom },
     ];
   } else if (errorProps) {
-    inputStyle = [
+    _inputStyle = [
       styles.noVerticalMargin,
       omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
       { marginTop: marginVertical ?? marginTop },
     ];
   } else {
-    inputStyle = props.style;
+    _inputStyle = props.style;
   }
 
   return (
     <>
       <TopLabel {...props} />
-      <Input {...set(props, 'style', inputStyle)} />
+      <Input {...set(props, 'style', _inputStyle)} />
       <Error {...props} />
     </>
   );

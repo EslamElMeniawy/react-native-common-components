@@ -37,40 +37,40 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   const { style: textStyle, type, ...rest } = textProps ?? {};
 
-  const enabledStyle = {
+  const _enabledStyle = {
     opacity: disabled ? 0.5 : 1.0,
   };
 
-  const buttonDefaultBackgroundStyle = {
+  const _buttonDefaultBackgroundStyle = {
     backgroundColor: theme.colors.primary,
   };
 
-  const buttonColor =
+  const _buttonColor =
     StyleSheet.flatten(
       style == null || style === undefined
-        ? buttonDefaultBackgroundStyle
+        ? _buttonDefaultBackgroundStyle
         : style
     ).backgroundColor?.toString() ?? theme.colors.primary;
 
-  const textColor =
+  const _textColor =
     StyleSheet.flatten(
       textStyle == null || textStyle === undefined ? styles.text : textStyle
     ).color?.toString() ??
     (theme.isV3
       ? theme.colors.onPrimary
-      : tinyColor(buttonColor).isDark()
+      : tinyColor(_buttonColor).isDark()
       ? '#ffffff'
       : '#000000');
 
-  const rippleColor = tinyColor(textColor).setAlpha(0.25).toHex8String();
+  const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
 
-  const notNullIconSize: number = ms(
+  const _iconSize: number = ms(
     iconSize == null || iconSize === undefined ? 24 : iconSize
   );
 
-  const iconColor = noIconTint ? undefined : textColor;
+  const _iconColor = noIconTint ? undefined : _textColor;
 
-  const flattenStyle = StyleSheet.flatten(
+  const _flattenStyle = StyleSheet.flatten(
     style == null || style === undefined ? {} : style
   );
 
@@ -84,7 +84,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
     paddingEnd,
     paddingRight,
     paddingLeft,
-  } = flattenStyle;
+  } = _flattenStyle;
 
   return (
     <View
@@ -92,7 +92,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
         styles.container,
         { backgroundColor: theme.colors.primary },
         style,
-        enabledStyle,
+        _enabledStyle,
         styles.noPadding,
       ]}
       {...other}
@@ -103,8 +103,8 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
         onPressIn={onPressIn}
         onPressOut={onPressOut}
         disabled={disabled}
-        rippleColor={rippleColor}
-        underlayColor={rippleColor}
+        rippleColor={_rippleColor}
+        underlayColor={_rippleColor}
       >
         <View
           style={[
@@ -126,11 +126,11 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
             image={startImage}
             vector={startVector}
             iconName={startIconName}
-            size={notNullIconSize}
-            color={iconColor}
+            size={_iconSize}
+            color={_iconColor}
           />
           <Text
-            style={[styles.text, { color: textColor }, textStyle]}
+            style={[styles.text, { color: _textColor }, textStyle]}
             type={type == null || type === undefined ? 'bold' : type}
             {...rest}
           >
@@ -140,8 +140,8 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
             image={endImage}
             vector={endVector}
             iconName={endIconName}
-            size={notNullIconSize}
-            color={iconColor}
+            size={_iconSize}
+            color={_iconColor}
           />
         </View>
       </TouchableRipple>

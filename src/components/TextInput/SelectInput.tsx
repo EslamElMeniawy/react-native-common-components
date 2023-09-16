@@ -13,7 +13,7 @@ class SelectInput extends React.PureComponent<
   SelectInputState
 > {
   // Variable for mount state.
-  isComponentMounted: boolean = false;
+  _isComponentMounted: boolean = false;
 
   constructor(props: PropsWithTheme) {
     super(props);

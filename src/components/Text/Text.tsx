@@ -13,28 +13,28 @@ import type { PropsWithTheme } from './Text.types';
 
 const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { size, type, variant, style, children, theme, ...other } = props;
-  let defaultTextSize: number = 13;
+  let _textSize: number = 13;
 
   switch (type) {
     case 'caption':
-      defaultTextSize = 11;
+      _textSize = 11;
       break;
 
     case 'bold':
-      defaultTextSize = 15;
+      _textSize = 15;
       break;
 
     default:
-      defaultTextSize = 13;
+      _textSize = 13;
       break;
   }
 
-  const textStyle = [
+  const _textStyle = [
     {
       fontSize:
         (size == null || size === undefined) &&
         (variant == null || variant === undefined)
-          ? ms(defaultTextSize)
+          ? ms(_textSize)
           : size
           ? ms(size)
           : variant && theme.isV3
@@ -43,7 +43,7 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
       lineHeight:
         (size == null || size === undefined) &&
         (variant == null || variant === undefined)
-          ? ms(defaultTextSize) * 2
+          ? ms(_textSize) * 2
           : size
           ? ms(size) * 2
           : variant && theme.isV3
@@ -55,7 +55,7 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   if (variant) {
     return (
-      <PaperText style={textStyle} variant={variant} {...other}>
+      <PaperText style={_textStyle} variant={variant} {...other}>
         {children}
       </PaperText>
     );
@@ -64,29 +64,29 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
   switch (type) {
     case 'caption':
       return theme.isV3 ? (
-        <PaperText style={textStyle} variant="bodySmall" {...other}>
+        <PaperText style={_textStyle} variant="bodySmall" {...other}>
           {children}
         </PaperText>
       ) : (
-        <Caption style={textStyle} {...other}>
+        <Caption style={_textStyle} {...other}>
           {children}
         </Caption>
       );
 
     case 'bold':
       return theme.isV3 ? (
-        <PaperText style={textStyle} variant="titleMedium" {...other}>
+        <PaperText style={_textStyle} variant="titleMedium" {...other}>
           {children}
         </PaperText>
       ) : (
-        <Title style={textStyle} {...other}>
+        <Title style={_textStyle} {...other}>
           {children}
         </Title>
       );
 
     default:
       return (
-        <PaperText style={textStyle} variant="bodyMedium" {...other}>
+        <PaperText style={_textStyle} variant="bodyMedium" {...other}>
           {children}
         </PaperText>
       );

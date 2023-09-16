@@ -20,14 +20,14 @@ const Placeholder = React.memo(
     } = props;
 
     if (!source || isError || isLoading) {
-      const notNullResizeMode = resizeMode ?? 'cover';
+      const _resizeMode = resizeMode ?? 'cover';
 
       if (placeholder) {
         return (
           <Image
             source={placeholder}
-            style={[styles.image, { resizeMode: notNullResizeMode }]}
-            resizeMode={notNullResizeMode}
+            style={[styles.image, { resizeMode: _resizeMode }]}
+            resizeMode={_resizeMode}
           />
         );
       }
@@ -39,8 +39,8 @@ const Placeholder = React.memo(
           return (
             <VectorImage
               source={vectorPlaceholder}
-              style={[styles.image, { resizeMode: notNullResizeMode }]}
-              resizeMode={notNullResizeMode}
+              style={[styles.image, { resizeMode: _resizeMode }]}
+              resizeMode={_resizeMode}
             />
           );
         } catch (error) {

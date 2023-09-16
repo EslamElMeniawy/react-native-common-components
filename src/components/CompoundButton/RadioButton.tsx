@@ -32,16 +32,14 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   const { style: textStyle, ...rest } = textProps ?? {};
 
-  const notNullCheckedColor: string =
+  const _checkedColor: string =
     checkedColor == null || checkedColor === undefined
       ? theme.colors.primary
       : checkedColor;
 
-  const rippleColor = tinyColor(notNullCheckedColor)
-    .setAlpha(0.25)
-    .toHex8String();
+  const _rippleColor = tinyColor(_checkedColor).setAlpha(0.25).toHex8String();
 
-  const flattenStyle = StyleSheet.flatten(
+  const _flattenStyle = StyleSheet.flatten(
     style == null || style === undefined ? {} : style
   );
 
@@ -55,15 +53,15 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     paddingEnd,
     paddingRight,
     paddingLeft,
-  } = flattenStyle;
+  } = _flattenStyle;
 
   return (
     <View style={[styles.container, style, styles.noPadding]} {...other}>
       <TouchableRipple
         onPress={onPress}
         disabled={disabled}
-        rippleColor={rippleColor}
-        underlayColor={rippleColor}
+        rippleColor={_rippleColor}
+        underlayColor={_rippleColor}
       >
         <View
           style={[
@@ -86,7 +84,7 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
             value={text == null || text === undefined ? 'radio' : text}
             status={checked ? 'checked' : 'unchecked'}
             onPress={onPress}
-            color={notNullCheckedColor}
+            color={_checkedColor}
             uncheckedColor={uncheckedColor}
             disabled={disabled}
           />

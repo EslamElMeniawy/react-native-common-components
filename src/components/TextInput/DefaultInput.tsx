@@ -48,7 +48,7 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
     ...other
   } = props;
 
-  const newProps = omit(other, [
+  const _newProps = omit(other, [
     'topLabelProps',
     'isRequired',
     'label',
@@ -57,22 +57,22 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
     'scrollEnabled',
   ]);
 
-  const label = getLabel(props);
-  let height;
+  const _label = getLabel(props);
+  let _height;
 
   if (!multiline) {
-    if (label) {
+    if (_label) {
       if (props.mode === 'outlined') {
-        height = ms(35);
+        _height = ms(35);
       } else {
-        height = ms(45);
+        _height = ms(45);
       }
     } else {
-      height = ms(35);
+      _height = ms(35);
     }
   }
 
-  const handleTextChange: ((text: string) => void) & Function = (
+  const _handleTextChange: ((text: string) => void) & Function = (
     text: string
   ) => {
     let editedText = text;
@@ -111,7 +111,7 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       autoCapitalize={autoCapitalize === undefined ? 'none' : autoCapitalize}
       autoCorrect={autoCorrect === undefined ? false : autoCorrect}
       error={errorProps?.errorMessage ? true : error}
-      label={label}
+      label={_label}
       placeholder={getPlaceholder(props)}
       multiline={secureTextEntry || hasPasswordToggle ? false : true}
       numberOfLines={
@@ -127,16 +127,16 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       returnKeyType={returnKeyType === undefined ? 'done' : returnKeyType}
       style={[
         styles.input,
-        { height: height, minHeight: multiline ? ms(70) : undefined },
+        { height: _height, minHeight: multiline ? ms(70) : undefined },
         style,
       ]}
       keyboardType={keyboardType}
-      onChangeText={handleTextChange}
+      onChangeText={_handleTextChange}
       secureTextEntry={secureTextEntry}
       scrollEnabled={
         secureTextEntry || hasPasswordToggle ? false : Boolean(multiline)
       }
-      {...newProps}
+      {..._newProps}
     />
   );
 });

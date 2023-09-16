@@ -31,32 +31,30 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     ...other
   } = props;
 
-  const notNullSize: number = ms(
-    size == null || size === undefined ? 36 : size
-  );
+  const _size: number = ms(size == null || size === undefined ? 36 : size);
 
-  const notNullColor: string =
+  const _color: string =
     color == null || color === undefined ? theme.colors.primary : color;
 
-  const enabledStyle = {
+  const _enabledStyle = {
     opacity: disabled ? 0.5 : 1.0,
   };
 
-  const rippleColor = tinyColor(notNullColor).setAlpha(0.25).toHex8String();
+  const _rippleColor = tinyColor(_color).setAlpha(0.25).toHex8String();
 
   return (
     <View
       style={[
         styles.container,
         {
-          borderRadius: notNullSize / 2,
+          borderRadius: _size / 2,
         },
         style,
         {
-          width: notNullSize,
-          height: notNullSize,
+          width: _size,
+          height: _size,
         },
-        enabledStyle,
+        _enabledStyle,
         styles.noPadding,
       ]}
       {...other}
@@ -68,16 +66,16 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
         onPressIn={onPressIn}
         onPressOut={onPressOut}
         disabled={disabled}
-        rippleColor={rippleColor}
-        underlayColor={rippleColor}
+        rippleColor={_rippleColor}
+        underlayColor={_rippleColor}
       >
         <View style={[styles.ripple, styles.rippleView]}>
           <Icon
             image={image}
             vector={vector}
             iconName={iconName}
-            size={notNullSize}
-            color={notNullColor}
+            size={_size}
+            color={_color}
             iconPercent={iconPercent}
             noIconTint={noIconTint}
           />

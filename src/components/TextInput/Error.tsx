@@ -27,7 +27,7 @@ const Error = React.memo((props: PropsWithTheme): null | React.ReactElement => {
       alignSelf,
     } = inputStyle ?? {};
 
-    const widthHorizontalMarginStyle = {
+    const _widthHorizontalMarginStyle = {
       width,
       marginHorizontal,
       marginStart,
@@ -46,7 +46,7 @@ const Error = React.memo((props: PropsWithTheme): null | React.ReactElement => {
             color: theme.colors.error,
             marginBottom: marginVertical ?? marginBottom,
           },
-          widthHorizontalMarginStyle,
+          _widthHorizontalMarginStyle,
           style,
         ]}
         {...rest}

@@ -33,55 +33,55 @@ const Image = React.memo((props: ImageProps): null | React.ReactElement => {
       setProgressSizeState,
     } = props;
 
-    let notNullResizeMode;
+    let _resizeMode;
 
     switch (resizeMode) {
       case 'contain':
-        notNullResizeMode = FastImage.resizeMode.contain;
+        _resizeMode = FastImage.resizeMode.contain;
         break;
       case 'stretch':
-        notNullResizeMode = FastImage.resizeMode.stretch;
+        _resizeMode = FastImage.resizeMode.stretch;
         break;
       case 'center':
-        notNullResizeMode = FastImage.resizeMode.center;
+        _resizeMode = FastImage.resizeMode.center;
         break;
       default:
-        notNullResizeMode = FastImage.resizeMode.cover;
+        _resizeMode = FastImage.resizeMode.cover;
         break;
     }
 
-    let notNullPriority;
+    let _priority;
 
     switch (priority) {
       case 'low':
-        notNullPriority = FastImage.priority.low;
+        _priority = FastImage.priority.low;
         break;
       case 'high':
-        notNullPriority = FastImage.priority.high;
+        _priority = FastImage.priority.high;
         break;
       default:
-        notNullPriority = FastImage.priority.normal;
+        _priority = FastImage.priority.normal;
         break;
     }
 
-    let notNullCache;
+    let _cache;
 
     switch (cache) {
       case 'web':
-        notNullCache = FastImage.cacheControl.web;
+        _cache = FastImage.cacheControl.web;
         break;
       case 'cacheOnly':
-        notNullCache = FastImage.cacheControl.cacheOnly;
+        _cache = FastImage.cacheControl.cacheOnly;
         break;
       default:
-        notNullCache = FastImage.cacheControl.immutable;
+        _cache = FastImage.cacheControl.immutable;
         break;
     }
 
-    let shouldDisplayLoading: boolean = isLoading;
+    let _shouldDisplayLoading: boolean = isLoading;
 
     if (loadingProps?.showLoading === false) {
-      shouldDisplayLoading = false;
+      _shouldDisplayLoading = false;
     }
 
     return (
@@ -101,10 +101,10 @@ const Image = React.memo((props: ImageProps): null | React.ReactElement => {
             style={styles.image}
             source={{
               uri: source,
-              priority: notNullPriority,
-              cache: notNullCache,
+              priority: _priority,
+              cache: _cache,
             }}
-            resizeMode={notNullResizeMode}
+            resizeMode={_resizeMode}
             onLoadStart={() => setLoadingState(true)}
             onLoadEnd={() => setLoadingState(false)}
             onError={() => setErrorState(true)}
@@ -119,7 +119,7 @@ const Image = React.memo((props: ImageProps): null | React.ReactElement => {
             }
           />
         )}
-        {shouldDisplayLoading && (
+        {_shouldDisplayLoading && (
           <Loading
             loadingProps={loadingProps}
             theme={theme}
