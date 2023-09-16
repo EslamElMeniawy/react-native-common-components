@@ -9,7 +9,7 @@ import type { PropsWithTheme } from './TextInput.types';
 // Internal imports.
 import styles from './TextInput.styles';
 import TopLabel from './TopLabel';
-import Input from './Input';
+import TextInputInput from './TextInputInput';
 import Error from './Error';
 
 const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
@@ -42,7 +42,7 @@ const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
   return (
     <>
       <TopLabel {...props} />
-      <Input {...set(props, 'style', _inputStyle)} />
+      <TextInputInput {...set(props, 'style', _inputStyle)} />
       <Error {...props} />
     </>
   );

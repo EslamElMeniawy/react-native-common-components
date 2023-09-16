@@ -32,8 +32,8 @@ const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
         refreshControl ?? onRefresh ? (
           <RefreshControl
             colors={refreshColor ? [refreshColor] : [theme.colors.primary]}
-            tintColor={refreshColor || theme.colors.primary}
-            refreshing={refreshing || false}
+            tintColor={refreshColor ?? theme.colors.primary}
+            refreshing={refreshing ?? false}
             onRefresh={onRefresh}
           />
         ) : undefined

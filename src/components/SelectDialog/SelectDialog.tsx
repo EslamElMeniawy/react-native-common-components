@@ -170,7 +170,7 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
     const { closeText, theme } = this.props;
 
     const isArabic =
-      (I18nManager.getConstants().localeIdentifier?.indexOf('ar') || -1) > -1;
+      (I18nManager.getConstants().localeIdentifier?.indexOf('ar') ?? -1) > -1;
 
     return (
       <Button
