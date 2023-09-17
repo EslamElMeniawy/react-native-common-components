@@ -1,6 +1,21 @@
 # ReactNative Common Components
 
-Common [`ReactNative`](https://reactnative.dev) components used by [`Eslam ElMeniawy`](https://github.com/EslamElMeniawy) packed in library for usage in future projects.
+<p>
+  <a href="https://www.npmjs.com/package/@eslam-elmeniawy/react-native-common-components">
+    <img alt="npm Version" src="https://img.shields.io/npm/v/@eslam-elmeniawy/react-native-common-components.svg" />
+  </a>
+  <a href="https://github.com/EslamElMeniawy/react-native-common-components#readme">
+    <img alt="Documentation" src="https://img.shields.io/badge/Documented%3F-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/EslamElMeniawy/react-native-common-components/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/EslamElMeniawy/react-native-common-components/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
+
+> Common [`ReactNative`](https://reactnative.dev) components used by [`Eslam ElMeniawy`](https://github.com/EslamElMeniawy) packed in library for usage in future projects.
 
 ## Installation
 
@@ -14,7 +29,7 @@ The package depends on some third party packages that needs to be installed on t
 yarn add react-native-paper react-native-safe-area-context
 ```
 
-As the package depends on `react-native-paper`, your root component must be wrapped with `Provider` from `react-native-paper`.  
+As the package depends on `react-native-paper`, your root component must be wrapped with `Provider` from `react-native-paper`.
 See [React Native Paper Getting Started](https://callstack.github.io/react-native-paper/getting-started.html) for more details about adding `react-native-paper` to your project.
 
 As mentioned in [React Native Paper Getting Started](https://callstack.github.io/react-native-paper/getting-started.html), `react-native-paper` also depends on `react-native-vector-icons` so make sure to add it to your project as well.
