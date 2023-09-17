@@ -13,7 +13,6 @@
     "ios-clean:macos": "cd ios && rm -rf build && xcodebuild clean && cd ..",
     "ios-clean:default": "echo '\"ios-clean\" command available on mac only!'",
     "ios": "expo run:ios",
-    "web": "expo start --web",
     "postinstall": "patch-package && yarn pods && yarn android-clean && yarn ios-clean"
   },
   "dependencies": {

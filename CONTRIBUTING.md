@@ -34,12 +34,6 @@ To run the example app on iOS:
 yarn example ios
 ```
 
-To run the example app on Web:
-
-```sh
-yarn example web
-```
-
 Make sure your code passes TypeScript and ESLint. Run the following to verify:
 
 ```sh
@@ -58,7 +52,6 @@ Remember to add tests for your change if possible. Run the unit tests by:
 ```sh
 yarn test
 ```
-
 
 ### Commit message convention
 
