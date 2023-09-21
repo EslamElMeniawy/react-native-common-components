@@ -54,25 +54,33 @@ const MyComponent = () => {
 ### visible
 
 Type: `boolean`
+
 Default value: `false`
+
 Determines whether the dialog is visible.
 
 ### position
 
 Type: `'top' | 'bottom' | 'center'`
+
 Default value: `'center'`
+
 Determines the position of the dialog.
 
 ### onDismiss
 
 Type: `() => void`
+
 Callback that is called when the user dismisses the dialog.
 
 ### dismissable
 
 Type: `boolean`
+
 Default value: `true`
+
 Determines whether clicking outside the dialog dismiss it.
+
 Also affects the Android hardware back button click while the dialog is open.
 
 ### style
@@ -82,10 +90,13 @@ Type: `StyleProp<ViewStyle>`
 ### overlayColor
 
 Type: `string`
+
 The overlay color that displays behind the dialog.
+
 If not passed a default value from `react-native-paper` theme is used equivalent to `theme.colors.onSurface` with alpha `70%`.
 
 ### children
 
 Type: `React.ReactNode`
+
 Content of the dialog.

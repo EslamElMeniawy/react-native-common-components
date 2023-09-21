@@ -6,7 +6,8 @@ Custom type to be used for [`FlatList`](FlatList.md) item.
 
 ### key (Required)
 
-Type: `string`  
+Type: `string`
+
 The key to use for [`FlatList`](FlatList.md) key extractor prop.
 
 ### [...Key-Value pairs with `key` of type `string` and `value` of type `any`]

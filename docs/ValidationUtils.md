@@ -51,26 +51,31 @@ const MyComponent = () => {
 ### nameRegExp
 
 Type: `RegExp`
+
 Matches characters only.
 
 ### fullNameRegExp
 
 Type: `RegExp`
+
 Matches case insensitive first name, optional unlimited number of middle names and last name separated with space format.
 
 ### emailRegExp
 
 Type: `RegExp`
+
 Matches email addresses.
 
 ### phoneRegExp
 
 Type: `RegExp`
+
 Matches international phone numbers.
 
 ### strictPasswordRegExp
 
 Type: `RegExp`
+
 Matches strict passwords with following rules:
 
 - Minimum 8 characters.

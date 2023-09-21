@@ -46,15 +46,19 @@ const MyComponent = () => {
 ### visible
 
 Type: `boolean`
+
 Default value: `false`
+
 Determines whether the dialog is visible.
 
 ### dialogProps
 
 Type: [Dialog props](Dialog.md#props)
+
 The props to add to the `Dialog` component used.
 
 ### activityIndicatorProps
 
 Type: [ActivityIndicator props](https://callstack.github.io/react-native-paper/docs/components/ActivityIndicator#props)
+
 The props to add to the `ActivityIndicator` component used.

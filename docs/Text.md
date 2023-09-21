@@ -1,6 +1,8 @@
 # Text
 
-Text component that uses `Text`, `Title` and `Caption` components from `react-native-paper` alongside `react-native-size-matters` for scalable text size. Also adding line height based on size to fix text cuts on iPad.
+Text component that uses `Text`, `Title` and `Caption` components from `react-native-paper` alongside `react-native-size-matters` for scalable text size.
+
+Also adding line height based on size to fix text cuts on iPad.
 
 ## Images
 
@@ -39,13 +41,17 @@ const MyComponent = () => {
 ### size
 
 Type: `number`
+
 Default value: `11` for type `caption`, `13` for type `normal` and `15` for type `bold`
+
 Determines the font size of the text.
 
 ### type
 
 Type: `'caption' | 'normal' | 'bold'`
+
 Default value: `'normal'`
+
 Determines the type of the text.
 
 ### [...Text props](https://reactnative.dev/docs/text#props)

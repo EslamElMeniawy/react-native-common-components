@@ -54,26 +54,31 @@ const MyComponent = () => {
 ### size
 
 Type: `number`
+
 Determines the size of the image to be used as `width` and `height`. If not added then `width` and `height` are taken from the `style` prop.
 
 ### source
 
 Type: `string`
+
 The image URL to load.
 
 ### placeholder
 
 Type: `number` - opaque type returned by something like `require('./image.jpg')`
+
 The non `.svg` image to display while loading and in case of error.
 
 ### vectorPlaceholder
 
 Type: `number` - opaque type returned by something like `require('./image.svg')`
+
 The `.svg` image to display while loading and in case of error.
 
 ### resizeMode
 
 Type: `'cover' | 'contain' | 'stretch' | 'center'`
+
 Default value: `'cover'`
 
 - `'cover'` - Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
@@ -84,6 +89,7 @@ Default value: `'cover'`
 ### priority
 
 Type: `'low' | 'normal' | 'high'`
+
 Default value: `'normal'`
 
 - `'low'` - Low Priority.
@@ -93,6 +99,7 @@ Default value: `'normal'`
 ### cache
 
 Type: `'immutable' | 'web' | 'cacheOnly'`
+
 Default value: `'immutable'`
 
 - `'immutable'` - Only updates if url changes.
@@ -102,24 +109,31 @@ Default value: `'immutable'`
 ### loadingProps
 
 Type: `LoadingProps`
+
 Props for loading indicator.
 
 #### LoadingProps.showLoading
 
 Type: `boolean`
+
 Default value: `true`
+
 Whether to show loading indicator while the image is loading or not.
 
 #### LoadingProps.color
 
 Type: `string`
+
 Custom color for loading indicator.
+
 If not passed a default value from `react-native-paper` theme is used equivalent to `theme.colors.surface`.
 
 #### LoadingProps.backgroundColor
 
 Type: `string`
+
 Custom color for loading indicator background.
+
 If not passed a default value from `react-native-paper` theme is used equivalent to `theme.colors.backdrop`.
 
 ### [...View props](https://reactnative.dev/docs/view#props)
