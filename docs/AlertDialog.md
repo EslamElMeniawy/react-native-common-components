@@ -56,39 +56,47 @@ const MyComponent = () => {
 ### dialogProps
 
 Type: [Dialog props](Dialog.md#props)
+
 The props to add to the `Dialog` component used.
 
 ### title
 
 Type: `string`
+
 The title text to display in the dialog.
 
 ### titleProps
 
 Type: [Text props](Text.md#props)
+
 The props to add to the `Text` component used to render title text.
 
 ### message
 
 Type: `string`
+
 The message text to display in the dialog.
 
 ### messageProps
 
 Type: [Text props](Text.md#props)
+
 The props to add to the `Text` component used to render message text.
 
 ### actions
 
 Type: `Array<Action>`
+
 An `Array` of type `Action` to be displayed for the user as action buttons in the dialog.
 
 #### Action.action
 
 Type: `string`
+
 The text to display in the action button.
 
 #### Action.actionProps
 
 Type: [Button props](Button.md#props)
+
 The props to add to the `Button` component used to render action.

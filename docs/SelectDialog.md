@@ -101,59 +101,75 @@ const MyComponent = () => {
 ### items
 
 Type: `Array<SelectItem>`
+
 An `Array` of type [`SelectItem`](SelectItem.md) to be displayed for the user.
 
 ### selectedItems
 
 Type: `Array<SelectItem>`
+
 An `Array` of type [`SelectItem`](SelectItem.md) to be marked as selected for the user.
 
 ### allowMultiSelect
 
 Type: `boolean`
+
 Default value: `false`
+
 Determines whether multi select mode is enabled or not.
 
 ### onItemsSelected
 
 Type: `(selectedItems: Array<SelectItem>) => void`
+
 Callback that is called when the user press an item in the dialog.
 
 ### visible
 
 Type: `boolean`
+
 Default value: `false`
+
 Determines whether the dialog is visible.
 
 ### onDismiss
 
 Type: `() => void`
+
 Callback that is called when the user dismisses the dialog.
 
 ### searchLabel
 
 Type: `string`
+
 Default value: `'Look for'`
+
 The label text to display for the search input.
 
 ### searchComponent
 
 Type: `React.ReactElement`
+
 The component to display instead of the search input.
 
 ### noDataMessage
 
 Type: `string`
+
 Default value: `'No data available'`
+
 The text to display when no data available that match the search.
 
 ### noDataComponent
 
 Type: `React.ReactElement`
+
 The component to display instead of the no data message.
 
 ### closeText
 
 Type: `string`
+
 Default value: `'Done'`
+
 The text to display for the close button.

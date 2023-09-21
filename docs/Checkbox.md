@@ -41,44 +41,55 @@ const MyComponent = () => {
 ### text
 
 Type: `string`
+
 The text to display beside the checkbox.
 
 ### checked
 
 Type: `boolean`
+
 Default value: `false`
+
 Determines whether the checkbox is checked.
 
 ### onPress
 
 Type: `() => void`
+
 Callback that is called when the user press the checkbox.
 
 ### disabled
 
 Type: `boolean`
+
 Default value: `false`
+
 Determines whether checkbox is disabled.
 
 ### checkedColor
 
 Type: `string`
+
 Custom color for checked checkbox.
+
 If not passed a default value from `react-native-paper` theme is used equivalent to `theme.colors.primary`.
 
 ### uncheckedColor
 
 Type: `string`
+
 Custom color for unchecked checkbox.
 
 ### textProps
 
 Type: [Text props](Text.md#props)
+
 The props to add to the `Text` component used to render checkbox text.
 
 ### contentAlign
 
 Type: `FlexAlignType`
+
 Aligns children in the cross direction.
 
 ### [...View props](https://reactnative.dev/docs/view#props)

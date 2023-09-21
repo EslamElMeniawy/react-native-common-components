@@ -44,16 +44,21 @@ Type: `(options?: Options) => void`
 #### Options.appName
 
 Type: `string`
+
 The app name to use when configuring `reactotron`.
 
 #### Options.firebaseLogLevels
 
 Type: `Array<'INFO' | 'LOG' | 'WARN' | 'ERROR'>`
+
 Default value: `[]`
+
 Log levels to add to firebase `crashlytics` logs.
 
 #### Options.isLocalLogEnable
 
 Type: `boolean`
+
 Default value: `false`
+
 Whether to enable local log or not.
