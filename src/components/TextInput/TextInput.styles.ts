@@ -1,8 +1,9 @@
 // External imports.
-import { ScaledSheet, ms } from 'react-native-size-matters';
+import { StyleSheet } from 'react-native';
+import { ms } from 'react-native-size-matters';
 import { I18nManager } from 'react-native';
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   input: {
     width: '100%',
     textAlign: I18nManager.isRTL ? 'right' : 'left',

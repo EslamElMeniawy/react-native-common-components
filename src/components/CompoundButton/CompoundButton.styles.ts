@@ -1,7 +1,8 @@
 // External imports.
-import { ScaledSheet, ms, s } from 'react-native-size-matters';
+import { StyleSheet } from 'react-native';
+import { ms, s } from 'react-native-size-matters';
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
     borderRadius: ms(8),
     overflow: 'hidden',

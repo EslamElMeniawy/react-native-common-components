@@ -1,7 +1,7 @@
 // External imports.
-import { ScaledSheet } from 'react-native-size-matters';
+import { StyleSheet } from 'react-native';
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   dialog: {
     backgroundColor: 'transparent',
   },

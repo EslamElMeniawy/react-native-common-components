@@ -52,15 +52,16 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
         : style
     ).backgroundColor?.toString() ?? theme.colors.primary;
 
+  const _defaultTextColor = theme.isV3
+    ? theme.colors.onPrimary
+    : tinyColor(_buttonColor).isDark()
+    ? '#ffffff'
+    : '#000000';
+
   const _textColor =
-    StyleSheet.flatten(
-      textStyle == null || textStyle === undefined ? styles.text : textStyle
-    ).color?.toString() ??
-    (theme.isV3
-      ? theme.colors.onPrimary
-      : tinyColor(_buttonColor).isDark()
-      ? '#ffffff'
-      : '#000000');
+    textStyle == null || textStyle === undefined
+      ? _defaultTextColor
+      : StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor;
 
   const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
 
