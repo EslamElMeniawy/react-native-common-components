@@ -89,13 +89,13 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   return (
     <View
-      style={[
+      style={StyleSheet.flatten([
         styles.container,
         { backgroundColor: theme.colors.primary },
         style,
         _enabledStyle,
         styles.noPadding,
-      ]}
+      ])}
       {...other}
     >
       <TouchableRipple
@@ -108,7 +108,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
         underlayColor={_rippleColor}
       >
         <View
-          style={[
+          style={StyleSheet.flatten([
             styles.rippleView,
             {
               padding,
@@ -121,7 +121,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
               paddingRight,
               paddingLeft,
             },
-          ]}
+          ])}
         >
           <Icon
             image={startImage}
@@ -131,7 +131,11 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
             color={_iconColor}
           />
           <Text
-            style={[styles.text, { color: _textColor }, textStyle]}
+            style={StyleSheet.flatten([
+              styles.text,
+              { color: _textColor },
+              textStyle,
+            ])}
             type={type == null || type === undefined ? 'bold' : type}
             {...rest}
           >

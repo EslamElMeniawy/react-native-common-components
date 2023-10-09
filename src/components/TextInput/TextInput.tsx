@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { set, omit } from 'lodash';
 
@@ -19,22 +20,22 @@ const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
   let _inputStyle;
 
   if (topLabelProps && errorProps) {
-    _inputStyle = [
+    _inputStyle = StyleSheet.flatten([
       styles.noVerticalMargin,
       omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
-    ];
+    ]);
   } else if (topLabelProps) {
-    _inputStyle = [
+    _inputStyle = StyleSheet.flatten([
       styles.noVerticalMargin,
       omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
       { marginBottom: marginVertical ?? marginBottom },
-    ];
+    ]);
   } else if (errorProps) {
-    _inputStyle = [
+    _inputStyle = StyleSheet.flatten([
       styles.noVerticalMargin,
       omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
       { marginTop: marginVertical ?? marginTop },
-    ];
+    ]);
   } else {
     _inputStyle = props.style;
   }

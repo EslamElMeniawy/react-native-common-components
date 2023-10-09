@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ms } from 'react-native-size-matters';
 import { withTheme } from 'react-native-paper';
 
@@ -84,12 +84,12 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
 
     return (
       <View
-        style={[
+        style={StyleSheet.flatten([
           styles.container,
           style,
           { width: scaledSize, height: scaledSize },
           styles.noPadding,
-        ]}
+        ])}
         {...other}
       >
         <Image

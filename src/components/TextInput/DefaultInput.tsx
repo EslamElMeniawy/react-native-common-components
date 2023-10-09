@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { omit } from 'lodash';
 import { ms } from 'react-native-size-matters';
@@ -125,11 +126,11 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       }
       blurOnSubmit={multiline ? false : true}
       returnKeyType={returnKeyType === undefined ? 'done' : returnKeyType}
-      style={[
+      style={StyleSheet.flatten([
         styles.input,
         { height: _height, minHeight: multiline ? ms(70) : undefined },
         style,
-      ]}
+      ])}
       keyboardType={keyboardType}
       onChangeText={_handleTextChange}
       secureTextEntry={secureTextEntry}

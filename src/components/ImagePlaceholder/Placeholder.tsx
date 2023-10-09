@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 // Types imports.
 import type { PlaceholderProps } from './ImagePlaceholder.types';
@@ -26,7 +26,10 @@ const Placeholder = React.memo(
         return (
           <Image
             source={placeholder}
-            style={[styles.image, { resizeMode: _resizeMode }]}
+            style={StyleSheet.flatten([
+              styles.image,
+              { resizeMode: _resizeMode },
+            ])}
             resizeMode={_resizeMode}
           />
         );
@@ -39,7 +42,10 @@ const Placeholder = React.memo(
           return (
             <VectorImage
               source={vectorPlaceholder}
-              style={[styles.image, { resizeMode: _resizeMode }]}
+              style={StyleSheet.flatten([
+                styles.image,
+                { resizeMode: _resizeMode },
+              ])}
               resizeMode={_resizeMode}
             />
           );

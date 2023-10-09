@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { Pressable, BackHandler } from 'react-native';
+import { Pressable, BackHandler, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { withTheme, Portal } from 'react-native-paper';
 
@@ -99,7 +99,7 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
       const isDialogDismissable =
         dismissable == null || dismissable === undefined ? true : dismissable;
 
-      const overlayStyle = [
+      const overlayStyle = StyleSheet.flatten([
         styles.overlay,
         {
           backgroundColor:
@@ -107,7 +107,7 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
               ? theme.colors.backdrop
               : overlayColor,
         },
-      ];
+      ]);
 
       return (
         <Portal>
@@ -117,14 +117,17 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
           >
             <SafeAreaView
               edges={edges}
-              style={[styles.safeArea, { justifyContent: justifyContent }]}
+              style={StyleSheet.flatten([
+                styles.safeArea,
+                { justifyContent: justifyContent },
+              ])}
             >
               <Pressable
-                style={[
+                style={StyleSheet.flatten([
                   styles.dialog,
                   { backgroundColor: theme.colors.surface },
                   style,
-                ]}
+                ])}
                 onPress={() => {}}
               >
                 {children}

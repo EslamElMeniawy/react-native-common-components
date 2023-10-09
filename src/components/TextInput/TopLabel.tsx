@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 
 // Types imports.
 import type { PropsWithTheme } from './TextInput.types';
@@ -42,7 +43,7 @@ const TopLabel = React.memo(
         <Text
           type={type ?? 'bold'}
           size={size ?? 13}
-          style={[
+          style={StyleSheet.flatten([
             styles.noVerticalMargin,
             {
               color: theme.isV3 ? theme.colors.onBackground : theme.colors.text,
@@ -50,7 +51,7 @@ const TopLabel = React.memo(
             },
             _widthHorizontalMarginStyle,
             style,
-          ]}
+          ])}
           {...other}
         >
           {label}

@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { omit } from 'lodash';
 
@@ -27,7 +28,7 @@ const SelectInputInput = React.memo(
             right
           )
         }
-        style={[
+        style={StyleSheet.flatten([
           styles.noVerticalMargin,
           omit(style ?? {}, [
             'marginVertical',
@@ -35,7 +36,7 @@ const SelectInputInput = React.memo(
             'marginBottom',
             'width',
           ]),
-        ]}
+        ])}
         {..._inputProps}
       />
     );

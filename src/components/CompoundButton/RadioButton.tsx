@@ -56,7 +56,10 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   } = _flattenStyle;
 
   return (
-    <View style={[styles.container, style, styles.noPadding]} {...other}>
+    <View
+      style={StyleSheet.flatten([styles.container, style, styles.noPadding])}
+      {...other}
+    >
       <TouchableRipple
         onPress={onPress}
         disabled={disabled}
@@ -64,7 +67,7 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
         underlayColor={_rippleColor}
       >
         <View
-          style={[
+          style={StyleSheet.flatten([
             styles.rippleView,
             {
               padding,
@@ -78,7 +81,7 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
               paddingLeft,
               alignItems: contentAlign ?? 'center',
             },
-          ]}
+          ])}
         >
           <PaperRadioButton.Android
             value={text == null || text === undefined ? 'radio' : text}
@@ -89,7 +92,10 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
             disabled={disabled}
           />
           {Boolean(text) && Boolean(text?.length) && (
-            <Text style={[styles.text, textStyle]} {...rest}>
+            <Text
+              style={StyleSheet.flatten([styles.text, textStyle])}
+              {...rest}
+            >
               {text}
             </Text>
           )}

@@ -1,7 +1,7 @@
 // External imports.
 import * as React from 'react';
 import { withTheme } from 'react-native-paper';
-import { View, I18nManager } from 'react-native';
+import { View, I18nManager, StyleSheet } from 'react-native';
 
 // Types imports.
 import type { PropsWithTheme, State, Props } from './SelectDialog.types';
@@ -176,7 +176,10 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
       <Button
         text={closeText === undefined ? (isArabic ? 'تم' : 'Done') : closeText}
         onPress={this._dismissDialog}
-        style={[styles.closeButton, { backgroundColor: theme.colors.surface }]}
+        style={StyleSheet.flatten([
+          styles.closeButton,
+          { backgroundColor: theme.colors.surface },
+        ])}
         textProps={{
           style: { color: theme.colors.onSurface },
         }}
@@ -195,10 +198,10 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
       >
         <>
           <View
-            style={[
+            style={StyleSheet.flatten([
               styles.container,
               { backgroundColor: theme.colors.surface },
-            ]}
+            ])}
           >
             {this._getSearchInput()}
             {this._getContent()}

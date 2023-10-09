@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 
 // Types imports.
 import type { PropsWithTheme } from './TextInput.types';
@@ -40,7 +41,7 @@ const Error = React.memo((props: PropsWithTheme): null | React.ReactElement => {
     return (
       <Text
         type={type ?? 'caption'}
-        style={[
+        style={StyleSheet.flatten([
           styles.noVerticalMargin,
           {
             color: theme.colors.error,
@@ -48,7 +49,7 @@ const Error = React.memo((props: PropsWithTheme): null | React.ReactElement => {
           },
           _widthHorizontalMarginStyle,
           style,
-        ]}
+        ])}
         {...rest}
       >
         {errorMessage}
