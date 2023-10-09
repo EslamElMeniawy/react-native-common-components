@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { withTheme, TouchableRipple } from 'react-native-paper';
 import { ms } from 'react-native-size-matters';
 import tinyColor from 'tinycolor2';
@@ -44,7 +44,7 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   return (
     <View
-      style={[
+      style={StyleSheet.flatten([
         styles.container,
         {
           borderRadius: _size / 2,
@@ -56,7 +56,7 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
         },
         _enabledStyle,
         styles.noPadding,
-      ]}
+      ])}
       {...other}
     >
       <TouchableRipple
@@ -69,7 +69,7 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
         rippleColor={_rippleColor}
         underlayColor={_rippleColor}
       >
-        <View style={[styles.ripple, styles.rippleView]}>
+        <View style={StyleSheet.flatten([styles.ripple, styles.rippleView])}>
           <Icon
             image={image}
             vector={vector}

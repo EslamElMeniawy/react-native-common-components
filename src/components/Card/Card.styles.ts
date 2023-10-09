@@ -1,7 +1,8 @@
 // External imports.
-import { ScaledSheet, ms } from 'react-native-size-matters';
+import { StyleSheet } from 'react-native';
+import { ms } from 'react-native-size-matters';
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   card: {
     width: '95%',
     marginHorizontal: '2.5%',

@@ -1,7 +1,7 @@
 // External imports.
 import * as React from 'react';
 import { TouchableRipple } from 'react-native-paper';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { omit } from 'lodash';
 
 // Types imports.
@@ -197,14 +197,14 @@ class SelectInput extends React.PureComponent<
         <TouchableRipple
           disabled={editable === false}
           onPress={isSelectVisible ? this._dismissSelect : this._showSelect}
-          style={[
+          style={StyleSheet.flatten([
             styles.noVerticalMargin,
             {
               marginTop: marginVertical ?? marginTop,
               marginBottom: marginVertical ?? marginBottom,
             },
             widthHorizontalMarginStyle,
-          ]}
+          ])}
         >
           <View pointerEvents="box-only">
             {selectProps?.mode === 'dropdown' ? (

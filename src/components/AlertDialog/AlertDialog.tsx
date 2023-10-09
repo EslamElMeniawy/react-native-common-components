@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
@@ -27,7 +27,10 @@ const AlertDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { type: titleType, size: titleSize, ...titleOther } = titleProps ?? {};
 
   return (
-    <Dialog style={[styles.dialog, dialogStyle]} {...dialogOther}>
+    <Dialog
+      style={StyleSheet.flatten([styles.dialog, dialogStyle])}
+      {...dialogOther}
+    >
       {Boolean(title) && (
         <Text type={titleType ?? 'bold'} size={titleSize ?? 18} {...titleOther}>
           {title}
@@ -35,12 +38,12 @@ const AlertDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
       )}
       {Boolean(message) && <Text {...(messageProps ?? {})}>{message}</Text>}
       <View
-        style={[
+        style={StyleSheet.flatten([
           styles.actionsContainer,
           (actions?.length ?? 0) > 2
             ? styles.actionsContainerColumn
             : styles.actionsContainerRow,
-        ]}
+        ])}
       >
         {actions?.map((action) => {
           if (action.action) {
@@ -56,13 +59,16 @@ const AlertDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
             return (
               <Button
                 key={action.action}
-                style={[
+                style={StyleSheet.flatten([
                   styles.action,
                   (actions?.length ?? 0) > 2 ? undefined : styles.actionRow,
                   actionStyle,
-                ]}
+                ])}
                 textProps={{
-                  style: [{ color: theme.colors.primary }, actionTextStyle],
+                  style: StyleSheet.flatten([
+                    { color: theme.colors.primary },
+                    actionTextStyle,
+                  ]),
                   ...actionTextOther,
                 }}
                 text={action.action}

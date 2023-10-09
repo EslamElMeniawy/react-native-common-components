@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Card,
@@ -7,11 +8,11 @@ import {
 import styles from './styles';
 
 export default function CardScreen() {
-  const _cardStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.marginHorizontal5perc as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _cardStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.marginHorizontal5perc,
+    styles.marginVertical8vs,
+  ]);
 
   return (
     <ScrollView>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Text,
@@ -25,17 +26,17 @@ export default function UtilsScreen() {
     crashlytics().crash();
   };
 
-  const _textStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _textStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
-  const _buttonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _buttonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
   return (
     <ScrollView>

@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Types imports.
@@ -18,14 +18,14 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
 
   const _iconSize: number = (size * _iconPercent) / 100;
 
-  const _iconStyle = [
+  const _iconStyle = StyleSheet.flatten([
     styles.icon,
     {
       width: _iconSize,
       height: _iconSize,
       tintColor: noIconTint ? undefined : color,
     },
-  ];
+  ]);
 
   if (image) {
     return <Image source={image} style={_iconStyle} resizeMode="contain" />;

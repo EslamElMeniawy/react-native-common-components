@@ -1,6 +1,10 @@
 // External imports.
 import * as React from 'react';
-import { FlatList as NativeFlatList, RefreshControl } from 'react-native';
+import {
+  FlatList as NativeFlatList,
+  RefreshControl,
+  StyleSheet,
+} from 'react-native';
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
@@ -43,10 +47,13 @@ const FlatList = React.memo((props: PropsWithTheme): React.ReactElement => {
           ? 0.01
           : onEndReachedThreshold
       }
-      style={[styles.list, style]}
+      style={StyleSheet.compose(styles.list, style)}
       contentContainerStyle={
         horizontal
-          ? [styles.horizontalContainerStyle, contentContainerStyle]
+          ? StyleSheet.compose(
+              styles.horizontalContainerStyle,
+              contentContainerStyle
+            )
           : contentContainerStyle
       }
       refreshing={refreshing}

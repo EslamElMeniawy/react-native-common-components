@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   withTheme,
   Text as PaperText,
@@ -29,7 +30,7 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
       break;
   }
 
-  const _textStyle = [
+  const _textStyle = StyleSheet.flatten([
     {
       fontSize:
         (size == null || size === undefined) &&
@@ -51,7 +52,7 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
           : undefined,
     },
     style,
-  ];
+  ]);
 
   if (variant) {
     return (

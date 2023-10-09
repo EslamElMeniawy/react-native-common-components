@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Text,
@@ -9,15 +10,15 @@ import styles from './styles';
 export default function IconButtonScreen() {
   const _onPress = () => {};
 
-  const _textStyle = {
-    ...(styles.marginTop8vs as object),
-    ...(styles.alignSelfCenter as object),
-  };
+  const _textStyle = StyleSheet.flatten([
+    styles.marginTop8vs,
+    styles.alignSelfCenter,
+  ]);
 
-  const _iconStyle = {
-    ...(styles.marginBottom8vs as object),
-    ...(styles.alignSelfCenter as object),
-  };
+  const _iconStyle = StyleSheet.flatten([
+    styles.marginBottom8vs,
+    styles.alignSelfCenter,
+  ]);
 
   return (
     <ScrollView>

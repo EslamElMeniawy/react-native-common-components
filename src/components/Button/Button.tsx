@@ -52,15 +52,16 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
         : style
     ).backgroundColor?.toString() ?? theme.colors.primary;
 
+  const _defaultTextColor = theme.isV3
+    ? theme.colors.onPrimary
+    : tinyColor(_buttonColor).isDark()
+    ? '#ffffff'
+    : '#000000';
+
   const _textColor =
-    StyleSheet.flatten(
-      textStyle == null || textStyle === undefined ? styles.text : textStyle
-    ).color?.toString() ??
-    (theme.isV3
-      ? theme.colors.onPrimary
-      : tinyColor(_buttonColor).isDark()
-      ? '#ffffff'
-      : '#000000');
+    textStyle == null || textStyle === undefined
+      ? _defaultTextColor
+      : StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor;
 
   const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
 
@@ -88,13 +89,13 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   return (
     <View
-      style={[
+      style={StyleSheet.flatten([
         styles.container,
         { backgroundColor: theme.colors.primary },
         style,
         _enabledStyle,
         styles.noPadding,
-      ]}
+      ])}
       {...other}
     >
       <TouchableRipple
@@ -107,7 +108,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
         underlayColor={_rippleColor}
       >
         <View
-          style={[
+          style={StyleSheet.flatten([
             styles.rippleView,
             {
               padding,
@@ -120,7 +121,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
               paddingRight,
               paddingLeft,
             },
-          ]}
+          ])}
         >
           <Icon
             image={startImage}
@@ -130,7 +131,11 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
             color={_iconColor}
           />
           <Text
-            style={[styles.text, { color: _textColor }, textStyle]}
+            style={StyleSheet.flatten([
+              styles.text,
+              { color: _textColor },
+              textStyle,
+            ])}
             type={type == null || type === undefined ? 'bold' : type}
             {...rest}
           >

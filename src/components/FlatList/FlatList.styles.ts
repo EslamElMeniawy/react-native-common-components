@@ -1,7 +1,8 @@
 // External imports.
-import { ScaledSheet, vs } from 'react-native-size-matters';
+import { StyleSheet } from 'react-native';
+import { vs } from 'react-native-size-matters';
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   list: {
     flex: 1,
     width: '100%',

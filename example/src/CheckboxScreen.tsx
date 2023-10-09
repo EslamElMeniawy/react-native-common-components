@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Checkbox,
@@ -9,11 +10,11 @@ export default function CheckboxScreen() {
   const [checked, setChecked] = React.useState(false);
   const _onPress = () => setChecked(!checked);
 
-  const _checkboxStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _checkboxStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
   return (
     <ScrollView>

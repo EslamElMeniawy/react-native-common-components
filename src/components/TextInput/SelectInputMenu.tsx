@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import { Menu } from 'react-native-paper';
 
 // Types imports.
@@ -36,14 +37,14 @@ const SelectInputMenu = React.memo(
         anchor={
           <SelectInputInput value={value} selectProps={selectProps} {...rest} />
         }
-        style={[
+        style={StyleSheet.flatten([
           styles.noVerticalMargin,
           {
             marginTop: marginVertical ?? marginTop,
             marginBottom: marginVertical ?? marginBottom,
           },
           widthHorizontalMarginStyle,
-        ]}
+        ])}
       >
         {selectProps?.items?.map((item) => (
           <SelectInputMenuItem

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   AlertDialog,
@@ -34,11 +35,11 @@ export default function AlertDialogScreen() {
   const _hideThreeActionsAlertDialog = () =>
     setThreeActionsAlertDialogVisible(false);
 
-  const _buttonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _buttonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
   return (
     <>

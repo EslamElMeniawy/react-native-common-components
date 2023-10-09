@@ -1,5 +1,6 @@
 // External imports.
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import { withTheme, ActivityIndicator } from 'react-native-paper';
 
 // Types imports.
@@ -26,7 +27,7 @@ const LoadingDialog = React.memo(
       <Dialog
         visible={visible}
         dismissable={dismissable ?? false}
-        style={[styles.dialog, dialogStyle]}
+        style={StyleSheet.flatten([styles.dialog, dialogStyle])}
         {...restDialogProps}
       >
         <ActivityIndicator

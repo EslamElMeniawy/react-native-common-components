@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Button,
@@ -8,11 +9,11 @@ import styles from './styles';
 export default function HomeScreen({ navigation }: { navigation: any }) {
   const _openScreen = (screenName: string) => navigation.navigate(screenName);
 
-  const _buttonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _buttonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
   return (
     <ScrollView>

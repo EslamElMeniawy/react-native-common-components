@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 // Types imports.
 import type { ImageLoadingProps } from './ImagePlaceholder.types';
@@ -25,7 +25,7 @@ const Loading = React.memo(
 
       return (
         <View
-          style={[
+          style={StyleSheet.flatten([
             styles.image,
             styles.loadingContainer,
             {
@@ -35,7 +35,7 @@ const Loading = React.memo(
                   ? theme.colors.backdrop
                   : loadingProps?.backgroundColor,
             },
-          ]}
+          ])}
           onLayout={(event: LayoutChangeEvent) =>
             setProgressSizeState(
               (event.nativeEvent.layout.width > event.nativeEvent.layout.height

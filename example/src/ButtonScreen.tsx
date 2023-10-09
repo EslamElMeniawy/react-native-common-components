@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Button,
@@ -8,19 +9,19 @@ import styles from './styles';
 export default function ButtonScreen() {
   const _onPress = () => {};
 
-  const _buttonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _buttonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
-  const _customButtonStyle = {
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-    ...(styles.paddingHorizontal16s as object),
-    ...(styles.paddingVertical4vs as object),
-    ...(styles.borderRadius8ms as object),
-  };
+  const _customButtonStyle = StyleSheet.flatten([
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+    styles.paddingHorizontal16s,
+    styles.paddingVertical4vs,
+    styles.borderRadius8ms,
+  ]);
 
   return (
     <ScrollView>
