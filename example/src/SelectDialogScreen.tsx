@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   SelectDialog,
@@ -91,18 +92,18 @@ export default function SelectDialogScreen() {
     },
   ];
 
-  const _buttonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginTop8vs as object),
-  };
+  const _buttonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginTop8vs,
+  ]);
 
-  const _textStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginTop2vs as object),
-    ...(styles.marginBottom8vs as object),
-  };
+  const _textStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginTop2vs,
+    styles.marginBottom8vs,
+  ]);
 
   return (
     <>

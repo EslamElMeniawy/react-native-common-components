@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   Dialog,
@@ -24,13 +25,13 @@ export default function DialogScreen() {
 
   const _hideBottomDialog = () => setBottomDialogVisible(false);
 
-  const _buttonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _buttonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
-  const _textStyle = { ...(styles.marginVertical16vs as object) };
+  const _textStyle = styles.marginVertical16vs;
 
   return (
     <>

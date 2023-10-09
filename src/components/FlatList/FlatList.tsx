@@ -47,13 +47,13 @@ const FlatList = React.memo((props: PropsWithTheme): React.ReactElement => {
           ? 0.01
           : onEndReachedThreshold
       }
-      style={StyleSheet.flatten([styles.list, style])}
+      style={StyleSheet.compose(styles.list, style)}
       contentContainerStyle={
         horizontal
-          ? StyleSheet.flatten([
+          ? StyleSheet.compose(
               styles.horizontalContainerStyle,
-              contentContainerStyle,
-            ])
+              contentContainerStyle
+            )
           : contentContainerStyle
       }
       refreshing={refreshing}

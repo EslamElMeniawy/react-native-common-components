@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   ScrollView,
   RadioButton,
@@ -10,11 +11,11 @@ export default function RadioButtonScreen() {
 
   const _onPress = () => setChecked(!checked);
 
-  const _radioButtonStyle = {
-    ...(styles.width90perc as object),
-    ...(styles.alignSelfCenter as object),
-    ...(styles.marginVertical8vs as object),
-  };
+  const _radioButtonStyle = StyleSheet.flatten([
+    styles.width90perc,
+    styles.alignSelfCenter,
+    styles.marginVertical8vs,
+  ]);
 
   return (
     <ScrollView>

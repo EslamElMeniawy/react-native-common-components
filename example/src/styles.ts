@@ -1,6 +1,7 @@
-import { ScaledSheet, vs, s, ms } from 'react-native-size-matters';
+import { StyleSheet } from 'react-native';
+import { vs, s, ms } from 'react-native-size-matters';
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   width90perc: {
     width: '90%',
   },
