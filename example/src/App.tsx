@@ -26,7 +26,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   React.useEffect(() => {
-    configureLog({
+    configureLog?.({
       appName: 'react-native-common-components',
       firebaseLogLevels: ['INFO', 'LOG', 'WARN', 'ERROR'],
       isLocalLogEnable: true,
