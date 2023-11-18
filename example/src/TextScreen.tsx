@@ -27,9 +27,6 @@ export default function TextScreen() {
       <Text style={_textStyle} variant="displayLarge">
         Display Large
       </Text>
-      <Text style={_textStyle} variant="displayLarge">
-        Display Large
-      </Text>
       <Text style={_textStyle} variant="displayMedium">
         Display Medium
       </Text>
