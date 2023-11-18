@@ -2870,7 +2870,6 @@ __metadata:
     expo-status-bar: ~1.6.0
     expo-system-ui: ~2.4.0
     patch-package: ^8.0.0
-    postinstall-postinstall: ^2.1.0
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.72.6
@@ -16147,13 +16146,6 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 1d8611341b073143ad90486fcdfeab49edd243377b1f51834dc4f6d028e82ce5190e4f11bb2633276864503654fb7cab28e67abdc0fbf9d1f88cad4a0ff0beea
-  languageName: node
-  linkType: hard
-
-"postinstall-postinstall@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "postinstall-postinstall@npm:2.1.0"
-  checksum: e1d34252cf8d2c5641c7d2db7426ec96e3d7a975f01c174c68f09ef5b8327bc8d5a9aa2001a45e693db2cdbf69577094d3fe6597b564ad2d2202b65fba76134b
   languageName: node
   linkType: hard
 
