@@ -1668,45 +1668,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslam-elmeniawy/react-native-common-components-example@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@eslam-elmeniawy/react-native-common-components-example@workspace:."
-  dependencies:
-    "@babel/core": ^7.20.0
-    "@expo/vector-icons": ^13.0.0
-    "@expo/webpack-config": ^19.0.0
-    "@klarna/react-native-vector-drawable": ^0.5.0
-    "@react-native-firebase/app": ^18.6.1
-    "@react-native-firebase/crashlytics": ^18.6.1
-    "@react-navigation/native": ^6.1.9
-    "@react-navigation/native-stack": ^6.9.17
-    "@zamplyy/react-native-vector-image-plugin": ^0.1.2
-    babel-loader: ^9.1.3
-    babel-plugin-module-resolver: ^5.0.0
-    expo: ~49.0.19
-    expo-build-properties: ~0.8.3
-    expo-dev-client: ~2.4.12
-    expo-splash-screen: ~0.20.5
-    expo-status-bar: ~1.6.0
-    expo-system-ui: ~2.4.0
-    patch-package: ^8.0.0
-    react: 18.2.0
-    react-dom: 18.2.0
-    react-native: 0.72.6
-    react-native-fast-image: ^8.6.3
-    react-native-paper: ^5.11.1
-    react-native-progress: ^5.0.1
-    react-native-safe-area-context: 4.6.3
-    react-native-screens: ~3.22.0
-    react-native-size-matters: ^0.4.2
-    react-native-svg: 13.9.0
-    react-native-vector-image: ^0.4.4
-    react-native-web: ~0.19.6
-    reactotron-react-native: ^5.0.3
-    run-script-os: ^1.1.6
-  languageName: unknown
-  linkType: soft
-
 "@expo/bunyan@npm:4.0.0, @expo/bunyan@npm:^4.0.0":
   version: 4.0.0
   resolution: "@expo/bunyan@npm:4.0.0"
@@ -1723,9 +1684,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/cli@npm:0.10.15":
-  version: 0.10.15
-  resolution: "@expo/cli@npm:0.10.15"
+"@expo/cli@npm:0.10.14":
+  version: 0.10.14
+  resolution: "@expo/cli@npm:0.10.14"
   dependencies:
     "@babel/runtime": ^7.20.0
     "@expo/code-signing-certificates": 0.0.5
@@ -1791,7 +1752,7 @@ __metadata:
     ws: ^8.12.1
   bin:
     expo-internal: build/bin/cli
-  checksum: 003756d786e4a8e08247b5ebbc73b9f0f221259a01908e6cee33773f299991e606320a2c54fd9d2ddd5294a17222f892372b7c562116da380a325fa81ac799d3
+  checksum: 88bda58114c47fb9f6371a9e688ff12fffac8c7ffc6e29baf1f0f9ab99ac4ed0595f332328e179319f6fbd5e08cbcdd169453e18a673d4032a29e6f1d1594c7c
   languageName: node
   linkType: hard
 
@@ -2315,13 +2276,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@klarna/react-native-vector-drawable@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@klarna/react-native-vector-drawable@npm:0.5.0"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: b8a09038b9ca9cd65df802359d2c24a6f79c741aabd3182e8a0d7fd7d51579e84ec3db7379f460227669c9f293ff141e4b208ee8aec1846162eca098a574b287
+"@klarna/react-native-vector-drawable@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@klarna/react-native-vector-drawable@npm:0.4.0"
+  checksum: d8202776c96777692591da0d21a9a125f57f95ff080798d411959bde81db0e75a4ff4659beccccb92a6a73e21522199c72dd3600dcc9ed27250ebb07f673ebfc
   languageName: node
   linkType: hard
 
@@ -2598,11 +2556,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-firebase/app@npm:^18.6.1":
-  version: 18.6.1
-  resolution: "@react-native-firebase/app@npm:18.6.1"
+"@react-native-firebase/app@npm:^18.5.0":
+  version: 18.5.0
+  resolution: "@react-native-firebase/app@npm:18.5.0"
   dependencies:
-    opencollective-postinstall: ^2.0.3
+    opencollective-postinstall: ^2.0.1
     superstruct: ^0.6.2
   peerDependencies:
     expo: ">=47.0.0"
@@ -2611,22 +2569,22 @@ __metadata:
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: 3655f29917b72deca20b4b6f835ea0895af4ea662748b9011b9b223c28e44675139d8068290d3ea200237907663ff9cf3577f1fc3d48cff04231d937d018060b
+  checksum: 784f0d8382145a2e2a92ad71bea2ba3570bb7f454e40d8e3cfbfb5dd206d55ec464dabe32311f21639df0d969f40ec26d1edef76ab6b9ab7d442b86f69f82def
   languageName: node
   linkType: hard
 
-"@react-native-firebase/crashlytics@npm:^18.6.1":
-  version: 18.6.1
-  resolution: "@react-native-firebase/crashlytics@npm:18.6.1"
+"@react-native-firebase/crashlytics@npm:^18.5.0":
+  version: 18.5.0
+  resolution: "@react-native-firebase/crashlytics@npm:18.5.0"
   dependencies:
-    stacktrace-js: ^2.0.2
+    stacktrace-js: ^2.0.0
   peerDependencies:
-    "@react-native-firebase/app": 18.6.1
+    "@react-native-firebase/app": 18.5.0
     expo: ">=47.0.0"
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: f44010b5db13541280143e75895c57eefd9c9cc59af9e3461963cfbae190f0b87f092f3d044f255e973f33d3325daf3dc54f4ce3c0e01e7536130b72fee1cd10
+  checksum: c1ddc51e54b001d8b416ae6abdbd556ff8311ed22fbc6e29321cc29f6e755d12864fb46d7d50f9bf436f670c642a7cffa1711ddaed950b4cbd5ae6b706855b92
   languageName: node
   linkType: hard
 
@@ -2714,23 +2672,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/elements@npm:^1.3.21":
-  version: 1.3.21
-  resolution: "@react-navigation/elements@npm:1.3.21"
+"@react-navigation/elements@npm:^1.3.20":
+  version: 1.3.20
+  resolution: "@react-navigation/elements@npm:1.3.20"
   peerDependencies:
     "@react-navigation/native": ^6.0.0
     react: "*"
     react-native: "*"
     react-native-safe-area-context: ">= 3.0.0"
-  checksum: 1bcff98e755a8a946570ba2d09b07b4038aa558e68dda7f93c89dfa6b37ead53a9da9adb1bd6c17ec4f1d1af36a24bd910b9c678c2c928d2ecea87dca080dc39
+  checksum: 7eb4be48ade6a03b19df2f5abc8d2d02d0ff1adad11eac6be494b338964cfc7854638fc112fa68e634ea5db9d5efc585bae5a0244fc7f45f94cbcbbad5afb938
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:^6.9.17":
-  version: 6.9.17
-  resolution: "@react-navigation/native-stack@npm:6.9.17"
+"@react-navigation/native-stack@npm:^6.9.15":
+  version: 6.9.15
+  resolution: "@react-navigation/native-stack@npm:6.9.15"
   dependencies:
-    "@react-navigation/elements": ^1.3.21
+    "@react-navigation/elements": ^1.3.20
     warn-once: ^0.1.0
   peerDependencies:
     "@react-navigation/native": ^6.0.0
@@ -2738,7 +2696,7 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: ">= 3.0.0"
     react-native-screens: ">= 3.0.0"
-  checksum: 6bb838b7ce19c521b1da12a147f78671259fb3921761f678d9b24d02f9e536428fffe82045ad66ef59dcd4920c1e5230b0d4aaba6f12a20726ffacfeba719f06
+  checksum: 77f1cbb479b230ffe9f7cc44dee812da95559dd2c55a1a87e34df3699ff7744b7551b648a892cbe2580aa9418b0484dbcaa5e89040d701757785956134cfbfc3
   languageName: node
   linkType: hard
 
@@ -5752,6 +5710,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"example@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "example@workspace:."
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@expo/vector-icons": ^13.0.0
+    "@expo/webpack-config": ^19.0.0
+    "@klarna/react-native-vector-drawable": ^0.4.0
+    "@react-native-firebase/app": ^18.5.0
+    "@react-native-firebase/crashlytics": ^18.5.0
+    "@react-navigation/native": ^6.1.9
+    "@react-navigation/native-stack": ^6.9.15
+    "@zamplyy/react-native-vector-image-plugin": ^0.1.2
+    babel-loader: ^9.1.3
+    babel-plugin-module-resolver: ^5.0.0
+    expo: ~49.0.16
+    expo-build-properties: ~0.8.3
+    expo-dev-client: ~2.4.11
+    expo-splash-screen: ~0.20.5
+    expo-status-bar: ~1.6.0
+    expo-system-ui: ~2.4.0
+    patch-package: ^8.0.0
+    postinstall-postinstall: ^2.1.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-native: 0.72.6
+    react-native-fast-image: ^8.6.3
+    react-native-paper: ^5.11.0
+    react-native-progress: ^5.0.0
+    react-native-safe-area-context: 4.6.3
+    react-native-screens: ~3.22.0
+    react-native-size-matters: ^0.4.2
+    react-native-svg: 13.9.0
+    react-native-vector-image: ^0.4.4
+    react-native-web: ~0.19.6
+    reactotron-react-native: ^5.0.3
+    run-script-os: ^1.1.6
+  languageName: unknown
+  linkType: soft
+
 "exec-async@npm:^2.2.0":
   version: 2.2.0
   resolution: "exec-async@npm:2.2.0"
@@ -5839,31 +5837,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-dev-client@npm:~2.4.12":
-  version: 2.4.12
-  resolution: "expo-dev-client@npm:2.4.12"
+"expo-dev-client@npm:~2.4.11":
+  version: 2.4.11
+  resolution: "expo-dev-client@npm:2.4.11"
   dependencies:
-    expo-dev-launcher: 2.4.14
-    expo-dev-menu: 3.2.2
+    expo-dev-launcher: 2.4.13
+    expo-dev-menu: 3.2.1
     expo-dev-menu-interface: 1.3.0
     expo-manifests: ~0.7.0
     expo-updates-interface: ~0.10.0
   peerDependencies:
     expo: "*"
-  checksum: 08d67234cc2c38a4fb69828d2e27edd9b3b8f206d01e9a667e752e7e537d0cd27726e3d66b5789978ce7cba8b2d81bb2e9bdf272c101b64fba28c12fcd3bc73d
+  checksum: 21ca1cb1af75db1dea9d241629167283bddd42077d44c537649cc05c62b3805223b00218201ccb13655bba007a28d9c7d9625a0df1cef25f19c9017be891380f
   languageName: node
   linkType: hard
 
-"expo-dev-launcher@npm:2.4.14":
-  version: 2.4.14
-  resolution: "expo-dev-launcher@npm:2.4.14"
+"expo-dev-launcher@npm:2.4.13":
+  version: 2.4.13
+  resolution: "expo-dev-launcher@npm:2.4.13"
   dependencies:
-    expo-dev-menu: 3.2.2
+    expo-dev-menu: 3.2.1
     resolve-from: ^5.0.0
     semver: ^7.5.3
   peerDependencies:
     expo: "*"
-  checksum: 577ca5b74475c7d4180b9ac8aa86a78f4cbe60019d91b7181da0f2106101d0d9d9e022ab4fe16b7bdd54f03af7fd46cf46b54ab94de1e268b9af92024254118a
+  checksum: 9985306aa0b6730354ef6b08cf64f0e2619771ca23b1daab1ca51f09459465502dafa3b8aff9d6e6320609b575d6085ccc1e2f3c31431f6350b92120150f3b1d
   languageName: node
   linkType: hard
 
@@ -5876,15 +5874,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-dev-menu@npm:3.2.2":
-  version: 3.2.2
-  resolution: "expo-dev-menu@npm:3.2.2"
+"expo-dev-menu@npm:3.2.1":
+  version: 3.2.1
+  resolution: "expo-dev-menu@npm:3.2.1"
   dependencies:
     expo-dev-menu-interface: 1.3.0
     semver: ^7.5.3
   peerDependencies:
     expo: "*"
-  checksum: 72f15549a2b8b79b2dd5415556f893041f850628c24bf2fb0fd7f007c527f85b8f360b794b6afa3267c780a0d174b72862f05fae88e6396729febea6e0ea83c8
+  checksum: 48c19a5fca34a861b3243e30754e2f9dde0f0c5b60e43162302218504256e8ddc8f5695e54fde328f96c8cfe344ce9386f13474dac138b1e93a07c3dd688af5a
   languageName: node
   linkType: hard
 
@@ -5951,13 +5949,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-modules-core@npm:1.5.12":
-  version: 1.5.12
-  resolution: "expo-modules-core@npm:1.5.12"
+"expo-modules-core@npm:1.5.11":
+  version: 1.5.11
+  resolution: "expo-modules-core@npm:1.5.11"
   dependencies:
     compare-versions: ^3.4.0
     invariant: ^2.2.4
-  checksum: 9f41c103fb4bba2c63776d053be6c2492b21f5dd1896b711df8877c6a8385dc86a9e59f69bb57895ec4b98a11ecfd829ff2f53f91c2d473835e82c4788f8fca5
+  checksum: 85a48a6d1983671458a37ddece9e151ff8179814dd368d67b39dcf34fcdc6b44419d045ac8efcdd8179848d826b67678ce706f5533314ff8ab84537befcf7915
   languageName: node
   linkType: hard
 
@@ -6016,12 +6014,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:~49.0.19":
-  version: 49.0.19
-  resolution: "expo@npm:49.0.19"
+"expo@npm:~49.0.16":
+  version: 49.0.16
+  resolution: "expo@npm:49.0.16"
   dependencies:
     "@babel/runtime": ^7.20.0
-    "@expo/cli": 0.10.15
+    "@expo/cli": 0.10.14
     "@expo/config": 8.1.2
     "@expo/config-plugins": 7.2.5
     "@expo/vector-icons": ^13.0.0
@@ -6033,7 +6031,7 @@ __metadata:
     expo-font: ~11.4.0
     expo-keep-awake: ~12.3.0
     expo-modules-autolinking: 1.5.1
-    expo-modules-core: 1.5.12
+    expo-modules-core: 1.5.11
     fbemitter: ^3.0.0
     invariant: ^2.2.4
     md5-file: ^3.2.3
@@ -6042,7 +6040,7 @@ __metadata:
     uuid: ^3.4.0
   bin:
     expo: bin/cli
-  checksum: fb6013edfc6a60c730742e815dc92687c1e5700368ba386fe0d947b64ceabab14770d455300cd71f2c15eb7fd4946dfb9dba43cba493138c730190f1cd4c1971
+  checksum: 5f65fd86a3a3bd13f8d186bcdedc80f3261b6db4c0605a6985c6bb16e2f4e2d50052daf93d6d9fce5892fbb598b2ab4f916d57d2b02064c0cc7807e93795acbf
   languageName: node
   linkType: hard
 
@@ -9493,7 +9491,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opencollective-postinstall@npm:^2.0.3":
+"opencollective-postinstall@npm:^2.0.1":
   version: 2.0.3
   resolution: "opencollective-postinstall@npm:2.0.3"
   bin:
@@ -10348,6 +10346,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postinstall-postinstall@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "postinstall-postinstall@npm:2.1.0"
+  checksum: e1d34252cf8d2c5641c7d2db7426ec96e3d7a975f01c174c68f09ef5b8327bc8d5a9aa2001a45e693db2cdbf69577094d3fe6597b564ad2d2202b65fba76134b
+  languageName: node
+  linkType: hard
+
 "pretty-bytes@npm:5.6.0":
   version: 5.6.0
   resolution: "pretty-bytes@npm:5.6.0"
@@ -10682,9 +10687,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:^5.11.1":
-  version: 5.11.1
-  resolution: "react-native-paper@npm:5.11.1"
+"react-native-paper@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "react-native-paper@npm:5.11.0"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.9
     color: ^3.1.2
@@ -10694,18 +10699,18 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: 26331e8d54205cb8b379db4e986c69fecbb82a14913974d9e22515025b44705f96af8919c19e8044eddb4545d3cb33174dbc6b9d465f751241fb14d3af877988
+  checksum: ae1d26bd36520ae759a386146a85765c2705460ccc874cb8062b15643988db6512b09db063c3826b328d2ed9a282f4730b07517b92984e3b91cd21a2709ee9ba
   languageName: node
   linkType: hard
 
-"react-native-progress@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "react-native-progress@npm:5.0.1"
+"react-native-progress@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "react-native-progress@npm:5.0.0"
   dependencies:
     prop-types: ^15.7.2
   peerDependencies:
     react-native-svg: "*"
-  checksum: fc9b68f1ca381b011859f8900c89595d62461cfa5b4faf65527639e8d8247d494cc75d5eb86e6dd393bca8dec18996b451775670d7ef2ae70247fa4079c9a8cf
+  checksum: c634373c9b667db763cb92bc3fb766aa399fc59e2621072b5fcf1671677563b46e8ff398e3bcbac3760c0e4400c469958b0c00d2434149010f94a3a5edc360f5
   languageName: node
   linkType: hard
 
@@ -11932,7 +11937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stacktrace-js@npm:^2.0.2":
+"stacktrace-js@npm:^2.0.0":
   version: 2.0.2
   resolution: "stacktrace-js@npm:2.0.2"
   dependencies:
