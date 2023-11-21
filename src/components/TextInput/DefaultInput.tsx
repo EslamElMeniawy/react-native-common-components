@@ -119,10 +119,10 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
         secureTextEntry || hasPasswordToggle
           ? 1
           : numberOfLines === undefined
-          ? multiline
-            ? 0
-            : 1
-          : numberOfLines
+            ? multiline
+              ? 0
+              : 1
+            : numberOfLines
       }
       blurOnSubmit={multiline ? false : true}
       returnKeyType={returnKeyType === undefined ? 'done' : returnKeyType}

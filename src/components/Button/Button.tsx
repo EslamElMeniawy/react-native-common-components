@@ -55,8 +55,8 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const _defaultTextColor = theme.isV3
     ? theme.colors.onPrimary
     : tinyColor(_buttonColor).isDark()
-    ? '#ffffff'
-    : '#000000';
+      ? '#ffffff'
+      : '#000000';
 
   const _textColor =
     textStyle == null || textStyle === undefined

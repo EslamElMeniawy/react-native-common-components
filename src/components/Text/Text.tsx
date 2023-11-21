@@ -37,19 +37,19 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
         (variant == null || variant === undefined)
           ? ms(_textSize)
           : size
-          ? ms(size)
-          : variant && theme.isV3
-          ? theme.fonts[variant].fontSize
-          : undefined,
+            ? ms(size)
+            : variant && theme.isV3
+              ? theme.fonts[variant].fontSize
+              : undefined,
       lineHeight:
         (size == null || size === undefined) &&
         (variant == null || variant === undefined)
           ? ms(_textSize) * 2
           : size
-          ? ms(size) * 2
-          : variant && theme.isV3
-          ? theme.fonts[variant].lineHeight
-          : undefined,
+            ? ms(size) * 2
+            : variant && theme.isV3
+              ? theme.fonts[variant].lineHeight
+              : undefined,
     },
     style,
   ]);
