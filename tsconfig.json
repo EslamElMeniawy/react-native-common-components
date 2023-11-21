@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "rootDir": ".",
     "paths": {
       "@eslam-elmeniawy/react-native-common-components": ["./src/index"]
     },
