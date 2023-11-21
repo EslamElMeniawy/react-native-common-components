@@ -1,6 +1,6 @@
 {
   "name": "@eslam-elmeniawy/react-native-common-components",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Common \"ReactNative\" components used by \"Eslam ElMeniawy\" packed in library for usage in future projects.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
