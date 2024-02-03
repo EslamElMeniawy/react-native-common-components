@@ -1,7 +1,6 @@
 // External imports.
 import * as React from 'react';
 import { Image, StyleSheet } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Types imports.
 import type { IconProps } from './IconButton.types';
@@ -44,9 +43,20 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   }
 
   if (iconName) {
-    return (
-      <MaterialCommunityIcons name={iconName} color={color} size={_iconSize} />
-    );
+    try {
+      const MaterialCommunityIcons =
+        require('react-native-vector-icons/MaterialCommunityIcons').default;
+
+      return (
+        <MaterialCommunityIcons
+          name={iconName}
+          color={color}
+          size={_iconSize}
+        />
+      );
+    } catch (error) {
+      return null;
+    }
   }
 
   return null;
