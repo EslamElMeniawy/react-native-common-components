@@ -11,6 +11,7 @@ import ButtonScreen from './ButtonScreen';
 import CardScreen from './CardScreen';
 import CheckboxScreen from './CheckboxScreen';
 import DialogScreen from './DialogScreen';
+import FlatListScreen from './FlatListScreen';
 import IconButtonScreen from './IconButtonScreen';
 import ImagePlaceholderScreen from './ImagePlaceholderScreen';
 import LoadingDialogScreen from './LoadingDialogScreen';
@@ -43,6 +44,7 @@ export default function App() {
           <Stack.Screen name="Card" component={CardScreen} />
           <Stack.Screen name="Checkbox" component={CheckboxScreen} />
           <Stack.Screen name="Dialog" component={DialogScreen} />
+          <Stack.Screen name="FlatList" component={FlatListScreen} />
           <Stack.Screen name="IconButton" component={IconButtonScreen} />
           <Stack.Screen
             name="ImagePlaceholder"

@@ -46,6 +46,11 @@ export default function HomeScreen({
       />
       <Button
         style={_buttonStyle}
+        onPress={() => _openScreen('FlatList')}
+        text="FlatList"
+      />
+      <Button
+        style={_buttonStyle}
         onPress={() => _openScreen('IconButton')}
         text="IconButton"
       />
