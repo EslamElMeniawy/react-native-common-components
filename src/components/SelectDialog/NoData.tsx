@@ -21,11 +21,7 @@ const NoData = React.memo((props: NoDataProps): React.ReactElement => {
 
   return (
     <Text style={styles.noDataText} size={15}>
-      {noDataMessage === undefined
-        ? _isArabic
-          ? 'لا تتوافر بيانات!'
-          : 'No data available'
-        : noDataMessage}
+      {noDataMessage ?? (_isArabic ? 'لا تتوافر بيانات!' : 'No data available')}
     </Text>
   );
 });

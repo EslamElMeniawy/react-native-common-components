@@ -31,17 +31,9 @@ const Checkbox = React.memo((props: PropsWithTheme): React.ReactElement => {
   } = props;
 
   const { style: textStyle, ...rest } = textProps ?? {};
-
-  const _checkedColor: string =
-    checkedColor == null || checkedColor === undefined
-      ? theme.colors.primary
-      : checkedColor;
-
+  const _checkedColor: string = checkedColor ?? theme.colors.primary;
   const _rippleColor = tinyColor(_checkedColor).setAlpha(0.25).toHex8String();
-
-  const _flattenStyle = StyleSheet.flatten(
-    style == null || style === undefined ? {} : style
-  );
+  const _flattenStyle = StyleSheet.flatten(style ?? {});
 
   const {
     padding,

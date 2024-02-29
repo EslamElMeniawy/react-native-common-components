@@ -73,6 +73,9 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
     }
   }
 
+  const _isPassword = secureTextEntry === true || hasPasswordToggle === true;
+  const _defaultNumberOfLines = multiline ? 0 : 1;
+
   const _handleTextChange: ((text: string) => void) & Function = (
     text: string
   ) => {
@@ -108,24 +111,16 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
 
   return (
     <TextInput
-      dense={dense === undefined ? true : dense}
-      autoCapitalize={autoCapitalize === undefined ? 'none' : autoCapitalize}
-      autoCorrect={autoCorrect === undefined ? false : autoCorrect}
+      dense={dense ?? true}
+      autoCapitalize={autoCapitalize ?? 'none'}
+      autoCorrect={autoCorrect ?? false}
       error={errorProps?.errorMessage ? true : error}
       label={_label}
       placeholder={getPlaceholder(props)}
-      multiline={secureTextEntry || hasPasswordToggle ? false : true}
-      numberOfLines={
-        secureTextEntry || hasPasswordToggle
-          ? 1
-          : numberOfLines === undefined
-            ? multiline
-              ? 0
-              : 1
-            : numberOfLines
-      }
-      blurOnSubmit={multiline ? false : true}
-      returnKeyType={returnKeyType === undefined ? 'done' : returnKeyType}
+      multiline={!_isPassword}
+      numberOfLines={_isPassword ? 1 : numberOfLines ?? _defaultNumberOfLines}
+      blurOnSubmit={!multiline}
+      returnKeyType={returnKeyType ?? 'done'}
       style={StyleSheet.flatten([
         styles.input,
         { height: _height, minHeight: multiline ? ms(70) : undefined },
@@ -134,9 +129,7 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       keyboardType={keyboardType}
       onChangeText={_handleTextChange}
       secureTextEntry={secureTextEntry}
-      scrollEnabled={
-        secureTextEntry || hasPasswordToggle ? false : Boolean(multiline)
-      }
+      scrollEnabled={_isPassword ? false : Boolean(multiline)}
       {..._newProps}
     />
   );

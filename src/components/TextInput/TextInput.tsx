@@ -11,7 +11,7 @@ import type { PropsWithTheme } from './TextInput.types';
 import styles from './TextInput.styles';
 import TopLabel from './TopLabel';
 import TextInputInput from './TextInputInput';
-import Error from './Error';
+import ErrorView from './ErrorView';
 
 const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { topLabelProps, errorProps } = props;
@@ -44,7 +44,7 @@ const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
     <>
       <TopLabel {...props} />
       <TextInputInput {...set(props, 'style', _inputStyle)} />
-      <Error {...props} />
+      <ErrorView {...props} />
     </>
   );
 });
