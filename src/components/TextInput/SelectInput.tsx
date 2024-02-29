@@ -183,7 +183,7 @@ class SelectInput extends React.PureComponent<
     } = style ?? {};
 
     const widthHorizontalMarginStyle = {
-      width: width === undefined ? '100%' : width,
+      width,
       marginHorizontal,
       marginStart,
       marginEnd,

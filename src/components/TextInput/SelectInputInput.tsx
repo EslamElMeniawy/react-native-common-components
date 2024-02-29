@@ -24,6 +24,7 @@ const SelectInputInput = React.memo(
         right={right ?? <TextInput.Icon icon="menu-down" />}
         style={StyleSheet.flatten([
           styles.noVerticalMargin,
+          styles.selectInputInput,
           omit(style ?? {}, [
             'marginVertical',
             'marginTop',

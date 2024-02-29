@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 0,
   },
+  selectInputInput: {
+    width: '100%',
+  },
   selectItem: {
     marginVertical: ms(4),
   },
