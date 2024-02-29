@@ -6,7 +6,9 @@ import {
 } from '@eslam-elmeniawy/react-native-common-components';
 import styles from './styles';
 
-export default function HomeScreen({ navigation }: { navigation: any }) {
+export default function HomeScreen({
+  navigation,
+}: Readonly<{ navigation: any }>) {
   const _openScreen = (screenName: string) => navigation.navigate(screenName);
 
   const _buttonStyle = StyleSheet.flatten([
