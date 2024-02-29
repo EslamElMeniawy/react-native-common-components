@@ -47,16 +47,16 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   const _buttonColor =
     StyleSheet.flatten(
-      style == null || style === undefined
-        ? _buttonDefaultBackgroundStyle
-        : style
+      style ?? _buttonDefaultBackgroundStyle
     ).backgroundColor?.toString() ?? theme.colors.primary;
+
+  const _defaultTextColorNonV3 = tinyColor(_buttonColor).isDark()
+    ? '#ffffff'
+    : '#000000';
 
   const _defaultTextColor = theme.isV3
     ? theme.colors.onPrimary
-    : tinyColor(_buttonColor).isDark()
-      ? '#ffffff'
-      : '#000000';
+    : _defaultTextColorNonV3;
 
   const _textColor =
     textStyle == null || textStyle === undefined
@@ -64,16 +64,9 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
       : StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor;
 
   const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
-
-  const _iconSize: number = ms(
-    iconSize == null || iconSize === undefined ? 24 : iconSize
-  );
-
+  const _iconSize: number = ms(iconSize ?? 24);
   const _iconColor = noIconTint ? undefined : _textColor;
-
-  const _flattenStyle = StyleSheet.flatten(
-    style == null || style === undefined ? {} : style
-  );
+  const _flattenStyle = StyleSheet.flatten(style ?? {});
 
   const {
     padding,
@@ -136,7 +129,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
               { color: _textColor },
               textStyle,
             ])}
-            type={type == null || type === undefined ? 'bold' : type}
+            type={type ?? 'bold'}
             {...rest}
           >
             {text}

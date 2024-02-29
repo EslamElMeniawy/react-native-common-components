@@ -7,7 +7,9 @@ import {
 import styles from './styles';
 
 export default function ButtonScreen() {
-  const _onPress = () => {};
+  const _onPress = () => {
+    console.info('ButtonScreen::_onPress');
+  };
 
   const _buttonStyle = StyleSheet.flatten([
     styles.width90perc,

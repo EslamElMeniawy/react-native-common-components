@@ -57,9 +57,9 @@ export interface SelectInputMenuProps
   value: string;
   isSelectVisible: boolean;
   dismissSelect: () => void;
-  marginVertical?: DimensionValue | undefined;
-  marginTop?: DimensionValue | undefined;
-  marginBottom?: DimensionValue | undefined;
+  marginVertical?: DimensionValue;
+  marginTop?: DimensionValue;
+  marginBottom?: DimensionValue;
   widthHorizontalMarginStyle: WidthHorizontalMarginStyleType;
 }
 
@@ -71,11 +71,11 @@ export interface SelectInputMenuItemProps {
 }
 
 interface WidthHorizontalMarginStyleType {
-  width?: DimensionValue | undefined;
-  marginHorizontal?: DimensionValue | undefined;
-  marginStart?: DimensionValue | undefined;
-  marginEnd?: DimensionValue | undefined;
-  marginLeft?: DimensionValue | undefined;
-  marginRight?: DimensionValue | undefined;
-  alignSelf?: 'auto' | FlexAlignType | undefined;
+  width?: DimensionValue;
+  marginHorizontal?: DimensionValue;
+  marginStart?: DimensionValue;
+  marginEnd?: DimensionValue;
+  marginLeft?: DimensionValue;
+  marginRight?: DimensionValue;
+  alignSelf?: 'auto' | FlexAlignType;
 }

@@ -16,9 +16,6 @@ import NoData from './NoData';
 import { Button } from '../Button';
 
 class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
-  // Variable for mount state.
-  _isComponentMounted: boolean = false;
-
   constructor(props: PropsWithTheme) {
     super(props);
 
@@ -34,16 +31,6 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
       ...state,
       selectedItems: props.selectedItems,
     };
-  }
-
-  componentDidMount() {
-    // Set is mounted.
-    this._isComponentMounted = true;
-  }
-
-  componentWillUnmount() {
-    // Clear is mounted.
-    this._isComponentMounted = false;
   }
   // #endregion
 
@@ -150,7 +137,7 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
     const { noDataMessage, noDataComponent, theme } = this.props;
     const items = this._getFilterList();
 
-    if (items && items.length) {
+    if (items?.length) {
       return (
         <List
           items={items}
@@ -174,7 +161,7 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
 
     return (
       <Button
-        text={closeText === undefined ? (isArabic ? 'تم' : 'Done') : closeText}
+        text={closeText ?? (isArabic ? 'تم' : 'Done')}
         onPress={this._dismissDialog}
         style={StyleSheet.flatten([
           styles.closeButton,

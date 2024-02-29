@@ -39,14 +39,8 @@ const FlatList = React.memo((props: PropsWithTheme): React.ReactElement => {
       horizontal={horizontal}
       keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? 'handled'}
       keyboardDismissMode={keyboardDismissMode ?? 'none'}
-      keyExtractor={
-        keyExtractor === undefined ? (item) => item.key : keyExtractor
-      }
-      onEndReachedThreshold={
-        onEndReachedThreshold == null || onEndReachedThreshold === undefined
-          ? 0.01
-          : onEndReachedThreshold
-      }
+      keyExtractor={keyExtractor ?? ((item) => item.key)}
+      onEndReachedThreshold={onEndReachedThreshold ?? 0.01}
       style={StyleSheet.compose(styles.list, style)}
       contentContainerStyle={
         horizontal

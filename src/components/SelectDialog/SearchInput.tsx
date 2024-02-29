@@ -20,13 +20,7 @@ const SearchInput = React.memo(
     return (
       <DefaultInput
         mode="outlined"
-        label={
-          searchLabel === undefined
-            ? _isArabic
-              ? 'ابحث عن'
-              : 'Look for'
-            : searchLabel
-        }
+        label={searchLabel ?? (_isArabic ? 'ابحث عن' : 'Look for')}
         onChangeText={onChangeText}
         style={{ backgroundColor: theme.colors.surface }}
       />

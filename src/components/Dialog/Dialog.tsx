@@ -13,17 +13,11 @@ import type { Edge } from 'react-native-safe-area-context';
 import styles from './Dialog.styles';
 
 class Dialog extends React.PureComponent<PropsWithTheme, State> {
-  // Variable for mount state.
-  _isComponentMounted: boolean = false;
-
   // Variable for android back handler.
   _backHandlerSubscription: null | NativeEventSubscription = null;
 
   // #region Lifecycle
   componentDidMount() {
-    // Set is mounted.
-    this._isComponentMounted = true;
-
     // Register subscription for back handler.
     this._backHandlerSubscription = BackHandler.addEventListener(
       'hardwareBackPress',
@@ -32,9 +26,6 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
   }
 
   componentWillUnmount() {
-    // Clear is mounted.
-    this._isComponentMounted = false;
-
     // Remove subscription for back handler.
     this._backHandlerSubscription?.remove();
   }
@@ -44,8 +35,7 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
     const { visible, onDismiss, dismissable } = this.props;
 
     if (visible) {
-      const isDialogDismissable =
-        dismissable == null || dismissable === undefined ? true : dismissable;
+      const isDialogDismissable = dismissable ?? true;
 
       if (isDialogDismissable && onDismiss) {
         onDismiss();
@@ -96,16 +86,12 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
           break;
       }
 
-      const isDialogDismissable =
-        dismissable == null || dismissable === undefined ? true : dismissable;
+      const isDialogDismissable = dismissable ?? true;
 
       const overlayStyle = StyleSheet.flatten([
         styles.overlay,
         {
-          backgroundColor:
-            overlayColor == null || overlayColor === undefined
-              ? theme.colors.backdrop
-              : overlayColor,
+          backgroundColor: overlayColor ?? theme.colors.backdrop,
         },
       ]);
 

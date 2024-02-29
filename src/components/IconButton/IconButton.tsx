@@ -31,10 +31,8 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     ...other
   } = props;
 
-  const _size: number = ms(size == null || size === undefined ? 36 : size);
-
-  const _color: string =
-    color == null || color === undefined ? theme.colors.primary : color;
+  const _size: number = ms(size ?? 36);
+  const _color: string = color ?? theme.colors.primary;
 
   const _enabledStyle = {
     opacity: disabled ? 0.5 : 1.0,

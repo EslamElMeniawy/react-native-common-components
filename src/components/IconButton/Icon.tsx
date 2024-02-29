@@ -12,9 +12,7 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   const { image, vector, iconName, size, color, iconPercent, noIconTint } =
     props;
 
-  const _iconPercent: number =
-    iconPercent == null || iconPercent === undefined ? 60 : iconPercent;
-
+  const _iconPercent: number = iconPercent ?? 60;
   const _iconSize: number = (size * _iconPercent) / 100;
 
   const _iconStyle = StyleSheet.flatten([

@@ -8,7 +8,9 @@ import {
 import styles from './styles';
 
 export default function IconButtonScreen() {
-  const _onPress = () => {};
+  const _onPress = () => {
+    console.info('IconButtonScreen::_onPress');
+  };
 
   const _textStyle = StyleSheet.flatten([
     styles.marginTop8vs,

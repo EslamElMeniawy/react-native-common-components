@@ -21,15 +21,10 @@ const SelectInputInput = React.memo(
       <DefaultInput
         editable={false}
         value={trimStringToLength(value, selectProps?.trimLength)}
-        right={
-          right == null || right === undefined ? (
-            <TextInput.Icon icon="menu-down" />
-          ) : (
-            right
-          )
-        }
+        right={right ?? <TextInput.Icon icon="menu-down" />}
         style={StyleSheet.flatten([
           styles.noVerticalMargin,
+          styles.selectInputInput,
           omit(style ?? {}, [
             'marginVertical',
             'marginTop',

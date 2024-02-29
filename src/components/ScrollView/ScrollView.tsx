@@ -38,11 +38,7 @@ const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
           />
         ) : undefined
       }
-      enableOnAndroid={
-        enableOnAndroid == null || enableOnAndroid === undefined
-          ? true
-          : enableOnAndroid
-      }
+      enableOnAndroid={enableOnAndroid ?? true}
       {...other}
     />
   );
