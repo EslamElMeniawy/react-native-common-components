@@ -4,7 +4,6 @@ import { ms } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   input: {
-    width: '100%',
     textAlign: I18nManager.isRTL ? 'right' : 'left',
     fontSize: ms(13),
     paddingHorizontal: ms(8),
