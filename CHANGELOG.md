@@ -1,5 +1,7 @@
 
 
+## [1.2.6](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.5...v1.2.6) (2024-05-26)
+
 ## [1.2.5](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.4...v1.2.5) (2024-02-29)
 
 
