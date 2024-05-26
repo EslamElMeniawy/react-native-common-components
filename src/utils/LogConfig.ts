@@ -1,6 +1,5 @@
 // External imports.
 import reactotron from 'reactotron-react-native';
-import { NativeModules } from 'react-native';
 
 // Types imports.
 import type { LogLevel, Options } from './LogConfig.types';
@@ -10,13 +9,10 @@ let isLocalLogEnable: boolean = false;
 
 const configureReactotron = (options?: Options): void => {
   const { appName, clientOptions, pluginCreators } = options ?? {};
-  const { name, host, ...restClientOptions } = clientOptions ?? {};
-  const { scriptURL } = NativeModules.SourceCode;
-  const scriptHostname = scriptURL.split('://')[1].split(':')[0];
+  const { name, ...restClientOptions } = clientOptions ?? {};
 
   reactotron.configure({
     name: name ?? appName,
-    host: host ?? scriptHostname,
     ...restClientOptions,
   });
 
