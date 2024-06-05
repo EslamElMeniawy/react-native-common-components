@@ -1,5 +1,12 @@
 
 
+## [1.2.7](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.6...v1.2.7) (2024-06-05)
+
+
+### Bug Fixes
+
+* make `ImagePlaceholder` appear correctly with no `size` prop provided ([a85ac77](https://github.com/EslamElMeniawy/react-native-common-components/commit/a85ac77a310d5bc3c0357e2c7c33f98b13a8443e))
+
 ## [1.2.6](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.5...v1.2.6) (2024-05-26)
 
 ## [1.2.5](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.4...v1.2.5) (2024-02-29)

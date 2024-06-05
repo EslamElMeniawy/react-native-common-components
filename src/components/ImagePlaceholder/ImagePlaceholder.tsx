@@ -86,9 +86,9 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
       <View
         style={StyleSheet.flatten([
           styles.container,
-          style,
           { width: scaledSize, height: scaledSize },
           styles.noPadding,
+          style,
         ])}
         {...other}
       >
