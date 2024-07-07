@@ -7,6 +7,22 @@ import type { LogLevel, Options } from './LogConfig.types';
 let firebaseLogLevels: LogLevel[] = [];
 let isLocalLogEnable: boolean = false;
 
+let originalInfo:
+  | ((message?: any, ...optionalParams: any[]) => void)
+  | undefined;
+
+let originalLog:
+  | ((message?: any, ...optionalParams: any[]) => void)
+  | undefined;
+
+let originalWarn:
+  | ((message?: any, ...optionalParams: any[]) => void)
+  | undefined;
+
+let originalError:
+  | ((message?: any, ...optionalParams: any[]) => void)
+  | undefined;
+
 const configureReactotron = (options?: Options): void => {
   const { appName, clientOptions, pluginCreators } = options ?? {};
   const { name, ...restClientOptions } = clientOptions ?? {};
@@ -23,7 +39,7 @@ const configureReactotron = (options?: Options): void => {
   reactotron.clear?.();
 };
 
-const info = (message: string, ...args: any[]): void => {
+const info = (message?: any, ...optionalParams: any[]): void => {
   const tag = 'INFO';
 
   if (firebaseLogLevels.includes(tag)) {
@@ -32,21 +48,23 @@ const info = (message: string, ...args: any[]): void => {
       const crashlytics = require('@react-native-firebase/crashlytics').default;
 
       crashlytics().log(
-        `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(args)}`
+        `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
       );
     } catch (e) {}
   }
 
   if (isLocalLogEnable) {
+    originalInfo?.(message, ...optionalParams);
+
     reactotron.display({
       name: tag,
-      preview: message,
-      value: { message, args },
+      preview: typeof message === 'string' ? message : JSON.stringify(message),
+      value: { message, optionalParams },
     });
   }
 };
 
-const log = (message: string, ...args: any[]): void => {
+const log = (message?: any, ...optionalParams: any[]): void => {
   const tag = 'LOG';
 
   if (firebaseLogLevels.includes(tag)) {
@@ -55,21 +73,23 @@ const log = (message: string, ...args: any[]): void => {
       const crashlytics = require('@react-native-firebase/crashlytics').default;
 
       crashlytics().log(
-        `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(args)}`
+        `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
       );
     } catch (e) {}
   }
 
   if (isLocalLogEnable) {
+    originalLog?.(message, ...optionalParams);
+
     reactotron.display({
       name: tag,
-      preview: message,
-      value: { message, args },
+      preview: typeof message === 'string' ? message : JSON.stringify(message),
+      value: { message, optionalParams },
     });
   }
 };
 
-const warn = (message: string, ...args: any[]): void => {
+const warn = (message?: any, ...optionalParams: any[]): void => {
   const tag = 'WARN';
 
   if (firebaseLogLevels.includes(tag)) {
@@ -78,22 +98,24 @@ const warn = (message: string, ...args: any[]): void => {
       const crashlytics = require('@react-native-firebase/crashlytics').default;
 
       crashlytics().log(
-        `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(args)}`
+        `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
       );
     } catch (e) {}
   }
 
   if (isLocalLogEnable) {
+    originalWarn?.(message, ...optionalParams);
+
     reactotron.display({
       name: tag,
-      preview: message,
-      value: { message, args },
+      preview: typeof message === 'string' ? message : JSON.stringify(message),
+      value: { message, optionalParams },
       important: true,
     });
   }
 };
 
-const error = (message: string, ...args: any[]): void => {
+const error = (message?: any, ...optionalParams: any[]): void => {
   const tag = 'ERROR';
 
   if (firebaseLogLevels.includes(tag)) {
@@ -103,23 +125,29 @@ const error = (message: string, ...args: any[]): void => {
 
       crashlytics().recordError(
         new Error(
-          `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(args)}`
+          `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
         )
       );
     } catch (e) {}
   }
 
   if (isLocalLogEnable) {
+    originalError?.(message, ...optionalParams);
+
     reactotron.display({
       name: tag,
-      preview: message,
-      value: { message, args },
+      preview: typeof message === 'string' ? message : JSON.stringify(message),
+      value: { message, optionalParams },
       important: true,
     });
   }
 };
 
 const connectConsoleToReactotron = (): void => {
+  originalInfo = console.info;
+  originalLog = console.log;
+  originalWarn = console.warn;
+  originalError = console.error;
   console.info = info;
   console.log = log;
   console.warn = warn;
