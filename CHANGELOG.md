@@ -1,5 +1,12 @@
 
 
+## [1.2.8](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.7...v1.2.8) (2024-07-07)
+
+
+### Bug Fixes
+
+* make logs appear outside `reactotron` as well ([08fb80e](https://github.com/EslamElMeniawy/react-native-common-components/commit/08fb80e7493b2355b5e0e51855fce36e782a50f8))
+
 ## [1.2.7](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.6...v1.2.7) (2024-06-05)
 
 
