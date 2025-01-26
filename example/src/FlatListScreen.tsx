@@ -1,18 +1,19 @@
-import * as React from 'react';
 import { StyleSheet, type ListRenderItemInfo } from 'react-native';
 import {
   FlatList,
-  Card,
   Text,
   type FlatListItem,
 } from '@eslam-elmeniawy/react-native-common-components';
 import styles from './styles';
+import { Card } from 'react-native-paper';
 
 export default function FlatListScreen() {
   const _cardStyle = StyleSheet.flatten([
     styles.width90perc,
     styles.marginHorizontal5perc,
     styles.marginVertical8vs,
+    styles.padding8ms,
+    styles.borderRadius8ms,
   ]);
 
   interface ListType extends FlatListItem {

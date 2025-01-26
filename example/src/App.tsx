@@ -4,11 +4,11 @@ import { Provider, DefaultTheme } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { configureLog } from '@eslam-elmeniawy/react-native-common-components';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import HomeScreen from './HomeScreen';
 import AlertDialogScreen from './AlertDialogScreen';
 import ButtonScreen from './ButtonScreen';
-import CardScreen from './CardScreen';
 import CheckboxScreen from './CheckboxScreen';
 import DialogScreen from './DialogScreen';
 import FlatListScreen from './FlatListScreen';
@@ -36,28 +36,32 @@ export default function App() {
 
   return (
     <Provider theme={DefaultTheme}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
-          <Stack.Screen name="Button" component={ButtonScreen} />
-          <Stack.Screen name="Card" component={CardScreen} />
-          <Stack.Screen name="Checkbox" component={CheckboxScreen} />
-          <Stack.Screen name="Dialog" component={DialogScreen} />
-          <Stack.Screen name="FlatList" component={FlatListScreen} />
-          <Stack.Screen name="IconButton" component={IconButtonScreen} />
-          <Stack.Screen
-            name="ImagePlaceholder"
-            component={ImagePlaceholderScreen}
-          />
-          <Stack.Screen name="LoadingDialog" component={LoadingDialogScreen} />
-          <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
-          <Stack.Screen name="SelectDialog" component={SelectDialogScreen} />
-          <Stack.Screen name="TextInput" component={TextInputScreen} />
-          <Stack.Screen name="Text" component={TextScreen} />
-          <Stack.Screen name="Utils" component={UtilsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <KeyboardProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
+            <Stack.Screen name="Button" component={ButtonScreen} />
+            <Stack.Screen name="Checkbox" component={CheckboxScreen} />
+            <Stack.Screen name="Dialog" component={DialogScreen} />
+            <Stack.Screen name="FlatList" component={FlatListScreen} />
+            <Stack.Screen name="IconButton" component={IconButtonScreen} />
+            <Stack.Screen
+              name="ImagePlaceholder"
+              component={ImagePlaceholderScreen}
+            />
+            <Stack.Screen
+              name="LoadingDialog"
+              component={LoadingDialogScreen}
+            />
+            <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
+            <Stack.Screen name="SelectDialog" component={SelectDialogScreen} />
+            <Stack.Screen name="TextInput" component={TextInputScreen} />
+            <Stack.Screen name="Text" component={TextScreen} />
+            <Stack.Screen name="Utils" component={UtilsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </KeyboardProvider>
     </Provider>
   );
 }

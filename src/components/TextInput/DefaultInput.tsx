@@ -118,8 +118,8 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       label={_label}
       placeholder={getPlaceholder(props)}
       multiline={!_isPassword}
-      numberOfLines={_isPassword ? 1 : numberOfLines ?? _defaultNumberOfLines}
-      blurOnSubmit={!multiline}
+      numberOfLines={_isPassword ? 1 : (numberOfLines ?? _defaultNumberOfLines)}
+      submitBehavior={multiline ? 'newline' : 'blurAndSubmit'}
       returnKeyType={returnKeyType ?? 'done'}
       style={StyleSheet.flatten([
         styles.input,

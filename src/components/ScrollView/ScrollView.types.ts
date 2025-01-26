@@ -1,6 +1,6 @@
 // External imports.
 import * as React from 'react';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 
 // Types imports.
 import type { MD2Theme, MD3Theme } from 'react-native-paper';

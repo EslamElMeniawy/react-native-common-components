@@ -52,7 +52,7 @@ const FlatList = React.memo((props: PropsWithTheme): React.ReactElement => {
       }
       refreshing={refreshing}
       refreshControl={
-        refreshControl ?? onRefresh ? (
+        (refreshControl ?? onRefresh) ? (
           <RefreshControl
             colors={refreshColor ? [refreshColor] : [theme.colors.primary]}
             tintColor={refreshColor ?? theme.colors.primary}
