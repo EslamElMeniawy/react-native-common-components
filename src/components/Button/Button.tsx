@@ -61,7 +61,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const _textColor =
     textStyle == null || textStyle === undefined
       ? _defaultTextColor
-      : StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor;
+      : (StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor);
 
   const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
   const _iconSize: number = ms(iconSize ?? 24);

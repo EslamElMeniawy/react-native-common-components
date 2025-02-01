@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import {
   ScrollView,
@@ -28,11 +27,6 @@ export default function HomeScreen({
         style={_buttonStyle}
         onPress={() => _openScreen('Button')}
         text="Button"
-      />
-      <Button
-        style={_buttonStyle}
-        onPress={() => _openScreen('Card')}
-        text="Card"
       />
       <Button
         style={_buttonStyle}

@@ -11,7 +11,7 @@ import Loading from './Loading';
 
 const Image = React.memo((props: ImageProps): null | React.ReactElement => {
   try {
-    const FastImage = require('react-native-fast-image');
+    const FastImage = require('@d11/react-native-fast-image').default;
     require('react-native-svg');
 
     const {

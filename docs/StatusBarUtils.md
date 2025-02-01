@@ -57,6 +57,10 @@ Type: `() => boolean`
 
 Type: `() => boolean`
 
+### isIPhone16Max
+
+Type: `() => boolean`
+
 ### isIPhoneWithMonobrow
 
 Type: `() => boolean`

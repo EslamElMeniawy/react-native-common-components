@@ -2,7 +2,8 @@
 import * as React from 'react';
 import { RefreshControl } from 'react-native';
 import { withTheme } from 'react-native-paper';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { vs } from 'react-native-size-matters';
 
 // Types imports.
 import type { PropsWithTheme } from './ScrollView.types';
@@ -17,7 +18,7 @@ const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
     keyboardShouldPersistTaps,
     keyboardDismissMode,
     refreshControl,
-    enableOnAndroid,
+    extraKeyboardSpace,
     theme,
     ...other
   } = props;
@@ -29,7 +30,7 @@ const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
       keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? 'handled'}
       keyboardDismissMode={keyboardDismissMode ?? 'none'}
       refreshControl={
-        refreshControl ?? onRefresh ? (
+        (refreshControl ?? onRefresh) ? (
           <RefreshControl
             colors={refreshColor ? [refreshColor] : [theme.colors.primary]}
             tintColor={refreshColor ?? theme.colors.primary}
@@ -38,7 +39,7 @@ const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
           />
         ) : undefined
       }
-      enableOnAndroid={enableOnAndroid ?? true}
+      extraKeyboardSpace={extraKeyboardSpace ?? vs(8)}
       {...other}
     />
   );

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { omit } from 'lodash';
-import { ms } from 'react-native-size-matters';
+import { vs } from 'react-native-size-matters';
 
 // Types imports.
 import type { Props } from './TextInput.types';
@@ -46,6 +46,7 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
     secureTextEntry,
     positiveNumbersOnly,
     hasPasswordToggle,
+    scrollEnabled,
     ...other
   } = props;
 
@@ -54,27 +55,11 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
     'isRequired',
     'label',
     'placeholder',
-    'blurOnSubmit',
-    'scrollEnabled',
   ]);
 
   const _label = getLabel(props);
-  let _height;
-
-  if (!multiline) {
-    if (_label) {
-      if (props.mode === 'outlined') {
-        _height = ms(35);
-      } else {
-        _height = ms(45);
-      }
-    } else {
-      _height = ms(35);
-    }
-  }
-
   const _isPassword = secureTextEntry === true || hasPasswordToggle === true;
-  const _defaultNumberOfLines = multiline ? 0 : 1;
+  const _defaultNumberOfLines = multiline ? undefined : 1;
 
   const _handleTextChange: ((text: string) => void) & Function = (
     text: string
@@ -117,19 +102,18 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       error={errorProps?.errorMessage ? true : error}
       label={_label}
       placeholder={getPlaceholder(props)}
-      multiline={!_isPassword}
-      numberOfLines={_isPassword ? 1 : numberOfLines ?? _defaultNumberOfLines}
-      blurOnSubmit={!multiline}
+      multiline={multiline}
+      numberOfLines={_isPassword ? 1 : (numberOfLines ?? _defaultNumberOfLines)}
       returnKeyType={returnKeyType ?? 'done'}
       style={StyleSheet.flatten([
         styles.input,
-        { height: _height, minHeight: multiline ? ms(70) : undefined },
+        { minHeight: multiline ? vs(70) : undefined },
         style,
       ])}
       keyboardType={keyboardType}
       onChangeText={_handleTextChange}
       secureTextEntry={secureTextEntry}
-      scrollEnabled={_isPassword ? false : Boolean(multiline)}
+      scrollEnabled={scrollEnabled ?? (_isPassword ? false : multiline)}
       {..._newProps}
     />
   );

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import {
   ScrollView,
@@ -9,6 +8,7 @@ import {
   isIPhone12Max,
   isIPhone14Pro,
   isIPhone14Max,
+  isIPhone16Max,
   isIPhoneWithMonobrow,
   getStatusBarHeight,
   Button,
@@ -75,6 +75,12 @@ export default function UtilsScreen() {
           isIPhone14Max:
         </Text>
         {` ${isIPhone14Max()}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          isIPhone16Max:
+        </Text>
+        {` ${isIPhone16Max()}`}
       </Text>
       <Text style={_textStyle}>
         <Text type="bold" size={13}>

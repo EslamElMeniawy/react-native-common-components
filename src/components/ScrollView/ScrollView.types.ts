@@ -1,11 +1,10 @@
 // External imports.
-import * as React from 'react';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import type { KeyboardAwareScrollViewProps } from 'react-native-keyboard-controller';
 
 // Types imports.
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
 
-export type Props = React.ComponentProps<typeof KeyboardAwareScrollView> & {
+export type Props = KeyboardAwareScrollViewProps & {
   refreshing?: boolean;
   onRefresh?: () => void;
   refreshColor?: string;

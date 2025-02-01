@@ -14,14 +14,15 @@ import { trimStringToLength } from '../../utils';
 
 const SelectInputInput = React.memo(
   (props: SelectInputInputProps): React.ReactElement => {
-    const { value, selectProps, right, style, ...other } = props;
+    const { value, selectProps, right, onPress, style, ...other } = props;
     const _inputProps = omit(other, ['editable', 'value']);
 
     return (
       <DefaultInput
+        onPress={onPress}
         editable={false}
         value={trimStringToLength(value, selectProps?.trimLength)}
-        right={right ?? <TextInput.Icon icon="menu-down" />}
+        right={right ?? <TextInput.Icon icon="menu-down" onPress={onPress} />}
         style={StyleSheet.flatten([
           styles.noVerticalMargin,
           styles.selectInputInput,

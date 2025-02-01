@@ -1,30 +1,16 @@
+# Changelog
 
+## 1.3.0 (2025-02-01)
 
-## [1.2.8](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.7...v1.2.8) (2024-07-07)
-
-
-### Bug Fixes
-
-* make logs appear outside `reactotron` as well ([08fb80e](https://github.com/EslamElMeniawy/react-native-common-components/commit/08fb80e7493b2355b5e0e51855fce36e782a50f8))
-
-## [1.2.7](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.6...v1.2.7) (2024-06-05)
-
-
-### Bug Fixes
-
-* make `ImagePlaceholder` appear correctly with no `size` prop provided ([a85ac77](https://github.com/EslamElMeniawy/react-native-common-components/commit/a85ac77a310d5bc3c0357e2c7c33f98b13a8443e))
-
-## [1.2.6](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.5...v1.2.6) (2024-05-26)
-
-## [1.2.5](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.4...v1.2.5) (2024-02-29)
-
-
-### Bug Fixes
-
-* select input styles ([dd69ad3](https://github.com/EslamElMeniawy/react-native-common-components/commit/dd69ad321509ae61ad7a83f8d19ebd9cedc35b89))
-
-## [1.2.4](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.3...v1.2.4) (2024-02-03)
-
-## [1.2.3](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.2...v1.2.3) (2023-12-28)
-
-## [1.2.2](https://github.com/EslamElMeniawy/react-native-common-components/compare/v1.2.1...v1.2.2) (2023-11-21)
+* build: add `@react-native-community/cli` dependencies ([ec82fef](https://github.com/EslamElMeniawy/react-native-common-components/commit/ec82fef))
+* build: add `react-native-gesture-handler` ([bcfa86d](https://github.com/EslamElMeniawy/react-native-common-components/commit/bcfa86d))
+* build: update `react-native-keyboard-controller` ([fa06208](https://github.com/EslamElMeniawy/react-native-common-components/commit/fa06208))
+* build: update dependencies ([f7b3f52](https://github.com/EslamElMeniawy/react-native-common-components/commit/f7b3f52))
+* ci: stop web build ci ([7a7782f](https://github.com/EslamElMeniawy/react-native-common-components/commit/7a7782f))
+* refactor: add expo version ([be33e02](https://github.com/EslamElMeniawy/react-native-common-components/commit/be33e02))
+* refactor: add status bar to example ([56784bc](https://github.com/EslamElMeniawy/react-native-common-components/commit/56784bc))
+* refactor: fix fast image import ([2920be3](https://github.com/EslamElMeniawy/react-native-common-components/commit/2920be3))
+* refactor: use types for `KeyboardAwareScrollView` ([e965ffc](https://github.com/EslamElMeniawy/react-native-common-components/commit/e965ffc))
+* fix: enhance `TextInput` component ([74e7dc1](https://github.com/EslamElMeniawy/react-native-common-components/commit/74e7dc1))
+* feat: add `isIPhone16Max` to `StatusBarHeight` ([58d2ff5](https://github.com/EslamElMeniawy/react-native-common-components/commit/58d2ff5))
+* feat: replace `react-native-fast-image` ([2f7325e](https://github.com/EslamElMeniawy/react-native-common-components/commit/2f7325e))

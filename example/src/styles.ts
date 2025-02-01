@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
   paddingVertical4vs: {
     paddingVertical: vs(4),
   },
+  padding8ms: {
+    padding: ms(8),
+  },
   borderRadius8ms: {
     borderRadius: ms(8),
   },

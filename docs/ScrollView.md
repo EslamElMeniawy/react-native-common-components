@@ -2,7 +2,7 @@
 
 ## Extra Installation
 
-To use the component, you need to add [`react-native-keyboard-aware-scroll-view`](https://github.com/APSL/react-native-keyboard-aware-scroll-view) to your project.
+To use the component, you need to add [`react-native-keyboard-controller`](https://github.com/kirillzyusko/react-native-keyboard-controller) to your project and follow the [installation steps](https://kirillzyusko.github.io/react-native-keyboard-controller/docs/installation) as well.
 
 ## Props
 
@@ -32,4 +32,4 @@ If not passed a default value from `react-native-paper` theme is used equivalent
 
 This prop is ignored when `refreshControl` prop is available.
 
-### [...KeyboardAwareScrollView props](https://github.com/APSL/react-native-keyboard-aware-scroll-view#props)
+### [...KeyboardAwareScrollView props](https://kirillzyusko.github.io/react-native-keyboard-controller/docs/api/components/keyboard-aware-scroll-view#props)

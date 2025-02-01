@@ -1,4 +1,4 @@
-# ReactNative Common Components
+# @eslam-elmeniawy/react-native-common-components
 
 <p>
   <a href="https://www.npmjs.com/package/@eslam-elmeniawy/react-native-common-components">
@@ -15,7 +15,7 @@
   </a>
 </p>
 
-> Common [`ReactNative`](https://reactnative.dev) components used by [`Eslam ElMeniawy`](https://github.com/EslamElMeniawy) packed in library for usage in future projects.
+> Common [`ReactNative`](https://reactnative.dev) components packed in library for usage in projects.
 
 ## Installation
 
@@ -43,11 +43,11 @@ If you intend using `.svg` images for components that support them then make sur
 
 ### Using [`ImagePlaceholder`](docs/ImagePlaceholder.md) component
 
-If you intend using [`ImagePlaceholder`](docs/ImagePlaceholder.md) component then make sure to add [`react-native-fast-image`](https://github.com/DylanVann/react-native-fast-image), [`react-native-progress`](https://github.com/oblador/react-native-progress) and [`react-native-svg`](https://github.com/react-native-svg/react-native-svg) to your project.
+If you intend using [`ImagePlaceholder`](docs/ImagePlaceholder.md) component then make sure to add [`@d11/react-native-fast-image`](https://github.com/dream-sports-labs/react-native-fast-image), [`react-native-progress`](https://github.com/oblador/react-native-progress) and [`react-native-svg`](https://github.com/react-native-svg/react-native-svg) to your project.
 
 ### Using [`ScrollView`](docs/ScrollView.md) component
 
-If you intend using [`ScrollView`](docs/ScrollView.md) component then make sure to add [`react-native-keyboard-aware-scroll-view`](https://github.com/APSL/react-native-keyboard-aware-scroll-view) to your project.
+If you intend using [`ScrollView`](docs/ScrollView.md) component then make sure to add [`react-native-keyboard-controller`](https://github.com/kirillzyusko/react-native-keyboard-controller) to your project and follow the [installation steps](https://kirillzyusko.github.io/react-native-keyboard-controller/docs/installation) as well.
 
 ### Using [`LogUtils`](docs/LogUtils.md)
 
@@ -60,10 +60,14 @@ Example is available in [example folder](example).
 To run the example run the following commands:
 
 ```sh
-cd example
+# setup project by installing dependencies.
 yarn
-yarn android
-yarn ios
+# start the Metro server for the example app.
+yarn example start
+# run the example app on Android.
+yarn example android
+# run the example app on iOS.
+yarn example ios
 ```
 
 ## Usage
@@ -74,7 +78,6 @@ Each component has its own usage part in the [documentation](docs).
 
 - [AlertDialog](docs/AlertDialog.md)
 - [Button](docs/Button.md)
-- [Card](docs/Card.md)
 - [Checkbox](docs/Checkbox.md)
 - [Dialog](docs/Dialog.md)
 - [FlatList](docs/FlatList.md)
