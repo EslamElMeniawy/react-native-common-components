@@ -35,9 +35,6 @@
       [
         "expo-build-properties",
         {
-          "android": {
-            "kotlinVersion": "1.6.21"
-          },
           "ios": {
             "useFrameworks": "static"
           }

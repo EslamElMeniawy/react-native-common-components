@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { configureLog } from '@eslam-elmeniawy/react-native-common-components';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { StatusBar } from 'expo-status-bar';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import HomeScreen from './HomeScreen';
@@ -40,6 +41,7 @@ export default function App() {
     <GestureHandlerRootView>
       <Provider theme={DefaultTheme}>
         <KeyboardProvider>
+          <StatusBar style="auto" />
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Home" component={HomeScreen} />
