@@ -264,7 +264,7 @@
     "@klarna/react-native-vector-drawable": "^0.5.1",
     "@react-native-firebase/app": "^21.7.1",
     "@react-native-firebase/crashlytics": "^21.7.1",
-    "react-native-keyboard-controller": "^1.15.2",
+    "react-native-keyboard-controller": "^1.16.1",
     "react-native-progress": "^5.0.1",
     "react-native-svg": "^15.11.1",
     "react-native-vector-image": "^0.4.5"

@@ -39,7 +39,7 @@ export default function App() {
   return (
     <GestureHandlerRootView>
       <Provider theme={DefaultTheme}>
-        <KeyboardProvider statusBarTranslucent>
+        <KeyboardProvider>
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Home" component={HomeScreen} />
