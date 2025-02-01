@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import * as React from 'react';
 import { enableScreens } from 'react-native-screens';
 import { Provider, DefaultTheme } from 'react-native-paper';
@@ -38,7 +39,7 @@ export default function App() {
   return (
     <GestureHandlerRootView>
       <Provider theme={DefaultTheme}>
-        <KeyboardProvider>
+        <KeyboardProvider statusBarTranslucent>
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Home" component={HomeScreen} />
