@@ -1,10 +1,11 @@
 // External imports.
-import { StyleSheet, I18nManager } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { ms } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   input: {
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    textAlign: 'auto',
+    lineHeight: undefined,
     fontSize: ms(13),
     paddingHorizontal: ms(8),
   },

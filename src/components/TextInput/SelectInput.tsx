@@ -70,6 +70,11 @@ class SelectInput extends React.PureComponent<
   // #endregion
 
   // #region Press events
+  _onPress = (): void => {
+    const { isSelectVisible } = this.state;
+    isSelectVisible ? this._dismissSelect() : this._showSelect();
+  };
+
   _onItemPressed = (item: SelectItem): void => {
     const { selectedItems } = this.state;
     const { selectProps } = this.props;
@@ -196,7 +201,7 @@ class SelectInput extends React.PureComponent<
       <>
         <TouchableRipple
           disabled={editable === false}
-          onPress={isSelectVisible ? this._dismissSelect : this._showSelect}
+          onPress={this._onPress}
           style={StyleSheet.flatten([
             styles.noVerticalMargin,
             {
@@ -218,11 +223,13 @@ class SelectInput extends React.PureComponent<
                 widthHorizontalMarginStyle={widthHorizontalMarginStyle}
                 onItemPressed={this._onItemPressed}
                 isItemSelected={this._isItemSelected}
+                onPress={this._onPress}
                 {...this.props}
               />
             ) : (
               <SelectInputInput
                 value={value}
+                onPress={this._onPress}
                 {...omit(this.props, ['theme'])}
               />
             )}

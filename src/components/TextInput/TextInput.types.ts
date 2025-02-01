@@ -2,7 +2,11 @@
 import type { TextInputProps, MD2Theme, MD3Theme } from 'react-native-paper';
 import type { TextProps } from '../Text';
 import type SelectItem from '../../types/SelectItem';
-import type { DimensionValue, FlexAlignType } from 'react-native';
+import type {
+  DimensionValue,
+  FlexAlignType,
+  GestureResponderEvent,
+} from 'react-native';
 
 export interface SelectProps {
   mode?: 'dialog' | 'dropdown';
@@ -49,6 +53,7 @@ export interface SelectInputState {
 
 export interface SelectInputInputProps extends Props {
   value: string;
+  onPress?: (e: GestureResponderEvent) => void;
 }
 
 export interface SelectInputMenuProps
@@ -61,6 +66,7 @@ export interface SelectInputMenuProps
   marginTop?: DimensionValue;
   marginBottom?: DimensionValue;
   widthHorizontalMarginStyle: WidthHorizontalMarginStyleType;
+  onPress?: (e: GestureResponderEvent) => void;
 }
 
 export interface SelectInputMenuItemProps {
