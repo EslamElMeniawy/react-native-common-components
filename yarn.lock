@@ -1840,11 +1840,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@d11/react-native-fast-image@npm:^8.9.1":
+  version: 8.9.1
+  resolution: "@d11/react-native-fast-image@npm:8.9.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 3b1bbe1f5e85651d79df6bc27146e293eb835d87b1f930a42c7c147769c797a04b88374567cb8707258f6c3cf0b4354bc57d29d47530f0010612e557f105c3a5
+  languageName: node
+  linkType: hard
+
 "@eslam-elmeniawy/react-native-common-components-example@workspace:example":
   version: 0.0.0-use.local
   resolution: "@eslam-elmeniawy/react-native-common-components-example@workspace:example"
   dependencies:
     "@babel/core": ^7.20.0
+    "@d11/react-native-fast-image": ^8.9.1
     "@expo/metro-runtime": ~4.0.1
     "@expo/vector-icons": ^14.0.2
     "@klarna/react-native-vector-drawable": ^0.5.1
@@ -1862,7 +1873,6 @@ __metadata:
     react-dom: 18.3.1
     react-native: 0.76.6
     react-native-builder-bob: ^0.32.0
-    react-native-fast-image: ^8.6.3
     react-native-keyboard-controller: ^1.15.2
     react-native-paper: ^5.13.1
     react-native-progress: ^5.0.1
@@ -1881,6 +1891,7 @@ __metadata:
   resolution: "@eslam-elmeniawy/react-native-common-components@workspace:."
   dependencies:
     "@commitlint/config-conventional": ^19.6.0
+    "@d11/react-native-fast-image": ^8.9.1
     "@evilmartians/lefthook": ^1.10.10
     "@klarna/react-native-vector-drawable": ^0.5.1
     "@react-native-firebase/app": ^21.7.1
@@ -1903,7 +1914,6 @@ __metadata:
     react: 18.3.1
     react-native: 0.76.6
     react-native-builder-bob: ^0.32.0
-    react-native-fast-image: ^8.6.3
     react-native-keyboard-controller: ^1.15.2
     react-native-paper: ^5.13.1
     react-native-progress: ^5.0.1
@@ -1923,13 +1933,13 @@ __metadata:
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
   dependenciesMeta:
+    "@d11/react-native-fast-image":
+      optional: true
     "@klarna/react-native-vector-drawable":
       optional: true
     "@react-native-firebase/app":
       optional: true
     "@react-native-firebase/crashlytics":
-      optional: true
-    react-native-fast-image:
       optional: true
     react-native-keyboard-controller:
       optional: true
@@ -13013,16 +13023,6 @@ __metadata:
   bin:
     bob: bin/bob
   checksum: 913301f523ec0c2e854682aebe0abd2e017f041273f5d141e231b499f79e5592ba9d68ba602c665a946e5ee1f6a072b872d53e6f29b51cb9c60ab2b65c3ee8ac
-  languageName: node
-  linkType: hard
-
-"react-native-fast-image@npm:^8.6.3":
-  version: 8.6.3
-  resolution: "react-native-fast-image@npm:8.6.3"
-  peerDependencies:
-    react: ^17 || ^18
-    react-native: ">=0.60.0"
-  checksum: 29289cb6b2eae0983c8922b22e2d9de3be07322bb7991c5def19f95eadefaedb0e308ff0b38cc1d0444e8bd4fe94a7621a99a2d3d9298100bcb60b3144677234
   languageName: node
   linkType: hard
 

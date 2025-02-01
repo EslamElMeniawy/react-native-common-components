@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -15,7 +15,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "eslamelmeniawy.reactnativecommoncomponents.example",
+      "bundleIdentifier": "eslam.elmeniawy.reactnativecommoncomponentsexample",
       "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
@@ -23,7 +23,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "eslamelmeniawy.reactnativecommoncomponents.example",
+      "package": "eslam.elmeniawy.reactnativecommoncomponentsexample",
       "googleServicesFile": "./google-services.json"
     },
     "web": {
@@ -35,6 +35,9 @@
       [
         "expo-build-properties",
         {
+          "android": {
+            "kotlinVersion": "1.6.21"
+          },
           "ios": {
             "useFrameworks": "static"
           }
