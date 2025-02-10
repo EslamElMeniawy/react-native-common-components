@@ -159,13 +159,15 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
     const isArabic =
       (I18nManager.getConstants().localeIdentifier?.indexOf('ar') ?? -1) > -1;
 
+    const borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
+
     return (
       <Button
         text={closeText ?? (isArabic ? 'تم' : 'Done')}
         onPress={this._dismissDialog}
         style={StyleSheet.flatten([
           styles.closeButton,
-          { backgroundColor: theme.colors.surface },
+          { backgroundColor: theme.colors.surface, borderRadius: borderRadius },
         ])}
         textProps={{
           style: { color: theme.colors.onSurface },
@@ -177,6 +179,8 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
   render(): React.ReactElement {
     const { visible, theme } = this.props;
 
+    const borderRadius = (theme.isV3 ? 7 : 1) * theme.roundness;
+
     return (
       <Dialog
         visible={visible}
@@ -187,7 +191,11 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
           <View
             style={StyleSheet.flatten([
               styles.container,
-              { backgroundColor: theme.colors.surface },
+              {
+                backgroundColor: theme.colors.surface,
+                borderRadius: borderRadius,
+                padding: borderRadius,
+              },
             ])}
           >
             {this._getSearchInput()}

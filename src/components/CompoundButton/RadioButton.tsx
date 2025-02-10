@@ -47,9 +47,16 @@ const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     paddingLeft,
   } = _flattenStyle;
 
+  const _borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
+
   return (
     <View
-      style={StyleSheet.flatten([styles.container, style, styles.noPadding])}
+      style={StyleSheet.flatten([
+        styles.container,
+        { borderRadius: _borderRadius },
+        style,
+        styles.noPadding,
+      ])}
       {...other}
     >
       <TouchableRipple

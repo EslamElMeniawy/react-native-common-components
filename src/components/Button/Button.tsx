@@ -80,11 +80,16 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
     paddingLeft,
   } = _flattenStyle;
 
+  const _borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
+
   return (
     <View
       style={StyleSheet.flatten([
         styles.container,
-        { backgroundColor: theme.colors.primary },
+        {
+          backgroundColor: theme.colors.primary,
+          borderRadius: _borderRadius,
+        },
         style,
         _enabledStyle,
         styles.noPadding,

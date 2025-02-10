@@ -95,6 +95,8 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
         },
       ]);
 
+      const borderRadius = (theme.isV3 ? 7 : 1) * theme.roundness;
+
       return (
         <Portal>
           <Pressable
@@ -111,7 +113,11 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
               <Pressable
                 style={StyleSheet.flatten([
                   styles.dialog,
-                  { backgroundColor: theme.colors.surface },
+                  {
+                    backgroundColor: theme.colors.surface,
+                    borderRadius: borderRadius,
+                    padding: borderRadius,
+                  },
                   style,
                 ])}
                 onPress={() => {}}

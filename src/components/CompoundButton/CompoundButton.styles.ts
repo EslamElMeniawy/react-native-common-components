@@ -1,10 +1,9 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { ms, s } from 'react-native-size-matters';
+import { s } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: ms(8),
     overflow: 'hidden',
   },
   noPadding: {
