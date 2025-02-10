@@ -9,6 +9,7 @@ import type { DialogProps } from '../Dialog';
 export interface Props {
   visible?: boolean;
   dialogProps?: Omit<DialogProps, 'visible'>;
+  loader?: React.ReactNode;
   activityIndicatorProps?: Omit<ActivityIndicatorProps, 'animating'>;
 }
 

@@ -12,7 +12,8 @@ import { Dialog } from '../Dialog';
 
 const LoadingDialog = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
-    const { visible, theme, dialogProps, activityIndicatorProps } = props;
+    const { visible, theme, dialogProps, loader, activityIndicatorProps } =
+      props;
 
     const {
       dismissable,
@@ -30,12 +31,14 @@ const LoadingDialog = React.memo(
         style={StyleSheet.flatten([styles.dialog, dialogStyle])}
         {...restDialogProps}
       >
-        <ActivityIndicator
-          animating={visible}
-          size={size ?? 'large'}
-          color={color ?? theme.colors.surface}
-          {...restActivityIndicatorProps}
-        />
+        {loader ?? (
+          <ActivityIndicator
+            animating={visible}
+            size={size ?? 'large'}
+            color={color ?? theme.colors.surface}
+            {...restActivityIndicatorProps}
+          />
+        )}
       </Dialog>
     );
   }

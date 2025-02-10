@@ -1,10 +1,9 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { ms } from 'react-native-size-matters';
+import { s } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: ms(16),
     overflow: 'hidden',
   },
   noPadding: {
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   text: {
-    marginHorizontal: ms(4),
+    marginHorizontal: s(4),
   },
 });
 
