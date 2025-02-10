@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0 (2025-02-10)
+
+* feat: add `loader` prop to `LoadingDialog` ([95c00c6](https://github.com/EslamElMeniawy/react-native-common-components/commit/95c00c6))
+* refactor: use theme roundness for components radius ([d70663c](https://github.com/EslamElMeniawy/react-native-common-components/commit/d70663c))
+* chore: change `@release-it/conventional-changelog` config ([937838c](https://github.com/EslamElMeniawy/react-native-common-components/commit/937838c))
+
 ## 1.3.0 (2025-02-01)
 
 * build: add `@react-native-community/cli` dependencies ([ec82fef](https://github.com/EslamElMeniawy/react-native-common-components/commit/ec82fef))
