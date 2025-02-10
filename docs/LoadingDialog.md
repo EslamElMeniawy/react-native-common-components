@@ -57,6 +57,14 @@ Type: [Dialog props](Dialog.md#props)
 
 The props to add to the `Dialog` component used.
 
+### loader
+
+Type: `React.ReactNode`
+
+If available will be used as the loader.
+
+If not available will use `ActivityIndicator` component from `react-native-paper` as a loader.
+
 ### activityIndicatorProps
 
 Type: [ActivityIndicator props](https://callstack.github.io/react-native-paper/docs/components/ActivityIndicator#props)
