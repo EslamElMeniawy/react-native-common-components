@@ -4,65 +4,15 @@ import { StyleSheet, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme, State } from './ImagePlaceholder.types';
+import type { PropsWithTheme } from './ImagePlaceholder.types';
 
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 import Image from './Image';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
-class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
-  // Variable for mount state.
-  _isComponentMounted: boolean = false;
-
-  constructor(props: PropsWithTheme) {
-    super(props);
-
-    this.state = {
-      isLoading: false,
-      isError: false,
-      progress: 0,
-      progressSize: 0,
-    };
-  }
-
-  // #region Lifecycle
-  componentDidMount() {
-    // Set is mounted.
-    this._isComponentMounted = true;
-  }
-
-  componentWillUnmount() {
-    // Clear is mounted.
-    this._isComponentMounted = false;
-  }
-  // #endregion
-
-  _setLoadingState = (isLoading: boolean): void => {
-    if (this._isComponentMounted) {
-      this.setState({ isLoading });
-    }
-  };
-
-  _setErrorState = (isError: boolean): void => {
-    if (this._isComponentMounted) {
-      this.setState({ isError, isLoading: false });
-    }
-  };
-
-  _setProgressState = (progress: number): void => {
-    if (this._isComponentMounted) {
-      this.setState({ progress });
-    }
-  };
-
-  _setProgressSizeState = (progressSize: number): void => {
-    if (this._isComponentMounted) {
-      this.setState({ progressSize });
-    }
-  };
-
-  render(): React.ReactElement {
+const ImagePlaceholder = React.memo(
+  (props: PropsWithTheme): React.ReactElement => {
     const {
       size,
       source,
@@ -75,11 +25,14 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
       style,
       theme,
       ...other
-    } = this.props;
+    } = props;
 
-    const { isLoading, isError, progress, progressSize } = this.state;
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [isError, setIsError] = React.useState(false);
+    const [progress, setProgress] = React.useState(0);
+    const [progressSize, setProgressSize] = React.useState(0);
 
-    const scaledSize: number | undefined =
+    const _scaledSize: number | undefined =
       size == null || size === undefined
         ? undefined
         : ResponsiveDimensions.ms(size);
@@ -88,7 +41,7 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
       <View
         style={StyleSheet.flatten([
           styles.container,
-          { width: scaledSize, height: scaledSize },
+          { width: _scaledSize, height: _scaledSize },
           styles.noPadding,
           style,
         ])}
@@ -107,14 +60,14 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
           isError={isError}
           progress={progress}
           progressSize={progressSize}
-          setLoadingState={this._setLoadingState}
-          setErrorState={this._setErrorState}
-          setProgressState={this._setProgressState}
-          setProgressSizeState={this._setProgressSizeState}
+          setLoadingState={setIsLoading}
+          setErrorState={setIsError}
+          setProgressState={setProgress}
+          setProgressSizeState={setProgressSize}
         />
       </View>
     );
   }
-}
+);
 
 export default withTheme(ImagePlaceholder);

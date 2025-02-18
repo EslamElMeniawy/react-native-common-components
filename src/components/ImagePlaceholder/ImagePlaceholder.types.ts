@@ -29,18 +29,15 @@ export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 
-export interface State {
-  isLoading: boolean;
-  isError: boolean;
-  progress: number;
-  progressSize: number;
-}
-
-export interface PlaceholderProps extends State {
+export interface PlaceholderProps {
   source?: string;
   placeholder?: number;
   vectorPlaceholder?: number;
   resizeMode?: ResizeModeType;
+  isLoading: boolean;
+  isError: boolean;
+  progress: number;
+  progressSize: number;
 }
 
 export interface ImageProps extends PlaceholderProps {
@@ -48,16 +45,16 @@ export interface ImageProps extends PlaceholderProps {
   cache?: CacheType;
   loadingProps?: LoadingProps;
   theme: MD2Theme | MD3Theme;
-  setLoadingState: (isLoading: boolean) => void;
-  setErrorState: (isError: boolean) => void;
-  setProgressState: (progress: number) => void;
-  setProgressSizeState: (progressSize: number) => void;
+  setLoadingState: React.Dispatch<React.SetStateAction<boolean>>;
+  setErrorState: React.Dispatch<React.SetStateAction<boolean>>;
+  setProgressState: React.Dispatch<React.SetStateAction<number>>;
+  setProgressSizeState: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ImageLoadingProps {
   loadingProps?: LoadingProps;
   theme: MD2Theme | MD3Theme;
-  setProgressSizeState: (progressSize: number) => void;
+  setProgressSizeState: React.Dispatch<React.SetStateAction<number>>;
   progress: number;
   progressSize: number;
 }
