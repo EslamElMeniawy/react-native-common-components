@@ -77,6 +77,44 @@ class ResponsiveDimension {
   static readonly ms = this.moderateScale;
 
   static readonly mvs = this.moderateVerticalScale;
+
+  /**
+   * Calculates the width as a percentage of the current window width.
+   *
+   * @param percent - The percentage of the window width to calculate. Must be between 0 and 100.
+   * @returns The calculated width in pixels.
+   * @throws Error if the percent is less than 0 or greater than 100.
+   */
+  static percentWidth(percent: number) {
+    if (percent < 0) {
+      throw new Error('percent must be positive numbers.');
+    }
+
+    if (percent > 100) {
+      throw new Error('percent must be less than or equal to 100.');
+    }
+
+    return (this.windowWidth * percent) / 100;
+  }
+
+  /**
+   * Calculates the height as a percentage of the current window height.
+   *
+   * @param percent - The percentage of the window height to calculate. Must be between 0 and 100.
+   * @returns The calculated height in pixels.
+   * @throws Error if the percent is less than 0 or greater than 100.
+   */
+  static percentHeight(percent: number) {
+    if (percent < 0) {
+      throw new Error('percent must be positive numbers.');
+    }
+
+    if (percent > 100) {
+      throw new Error('percent must be less than or equal to 100.');
+    }
+
+    return (this.windowHeight * percent) / 100;
+  }
 }
 
 export default ResponsiveDimension;
