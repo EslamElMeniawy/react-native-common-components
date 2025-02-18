@@ -23,11 +23,6 @@ export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 
-export interface State {
-  selectedItems?: SelectItem[];
-  searchText?: string;
-}
-
 export interface SearchInputProps {
   searchLabel?: string;
   searchComponent?: React.ReactElement;
