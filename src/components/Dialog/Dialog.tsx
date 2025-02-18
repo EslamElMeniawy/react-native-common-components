@@ -5,49 +5,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { withTheme, Portal } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme, State } from './Dialog.types';
-import type { NativeEventSubscription } from 'react-native';
+import type { PropsWithTheme } from './Dialog.types';
 import type { Edge } from 'react-native-safe-area-context';
 
 // Internal imports.
 import styles from './Dialog.styles';
 
-class Dialog extends React.PureComponent<PropsWithTheme, State> {
-  // Variable for android back handler.
-  _backHandlerSubscription: null | NativeEventSubscription = null;
-
-  // #region Lifecycle
-  componentDidMount() {
-    // Register subscription for back handler.
-    this._backHandlerSubscription = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this._onBackPress
-    );
-  }
-
-  componentWillUnmount() {
-    // Remove subscription for back handler.
-    this._backHandlerSubscription?.remove();
-  }
-  // #endregion
-
-  _onBackPress = (): boolean => {
-    const { visible, onDismiss, dismissable } = this.props;
-
-    if (visible) {
-      const isDialogDismissable = dismissable ?? true;
-
-      if (isDialogDismissable && onDismiss) {
-        onDismiss();
-      }
-
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  render(): null | React.ReactElement {
+const Dialog = React.memo(
+  (props: PropsWithTheme): null | React.ReactElement => {
     const {
       visible,
       position,
@@ -57,7 +22,32 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
       overlayColor,
       children,
       theme,
-    } = this.props;
+    } = props;
+
+    const _onBackPress = React.useCallback((): boolean => {
+      if (visible) {
+        const isDialogDismissable = dismissable ?? true;
+
+        if (isDialogDismissable && onDismiss) {
+          onDismiss();
+        }
+
+        return true;
+      } else {
+        return false;
+      }
+    }, [dismissable, onDismiss, visible]);
+
+    React.useEffect(() => {
+      const backHandlerSubscription = BackHandler.addEventListener(
+        'hardwareBackPress',
+        _onBackPress
+      );
+
+      return () => {
+        backHandlerSubscription?.remove();
+      };
+    }, [_onBackPress]);
 
     if (visible) {
       const edges: Edge[] = ['right', 'left'];
@@ -132,6 +122,6 @@ class Dialog extends React.PureComponent<PropsWithTheme, State> {
 
     return null;
   }
-}
+);
 
 export default withTheme(Dialog);
