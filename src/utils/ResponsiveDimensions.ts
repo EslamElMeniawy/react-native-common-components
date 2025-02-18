@@ -1,19 +1,28 @@
+// External imports.
 import { Dimensions } from 'react-native';
 
-class ResponsiveDimension {
+// Types imports.
+import type { BaseDimensions } from './ResponsiveDimensions.types';
+
+class ResponsiveDimensions {
   private static _baseWidth = 350;
   private static _baseHeight = 680;
 
   /**
-   * Sets the base dimensions for the responsive layout.
+   * Sets the base dimensions for scaling calculations.
    * This is the screen size on which the design is based.
    *
-   * @param width - The base width to be set.
-   * @param height - The base height to be set.
+   * @param width - The base width to set. If not provided, the existing base width remains unchanged.
+   * @param height - The base height to set. If not provided, the existing base height remains unchanged.
    */
-  static setBaseDimensions(width: number, height: number) {
-    this._baseWidth = width;
-    this._baseHeight = height;
+  static setBaseDimensions({ width, height }: BaseDimensions) {
+    if (width) {
+      this._baseWidth = width;
+    }
+
+    if (height) {
+      this._baseHeight = height;
+    }
   }
 
   static get windowWidth() {
@@ -115,6 +124,10 @@ class ResponsiveDimension {
 
     return (this.windowHeight * percent) / 100;
   }
+
+  static readonly pw = this.percentWidth;
+
+  static readonly ph = this.percentHeight;
 }
 
-export default ResponsiveDimension;
+export default ResponsiveDimensions;
