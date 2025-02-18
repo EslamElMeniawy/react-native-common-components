@@ -3,10 +3,12 @@ import * as React from 'react';
 import { RefreshControl } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
-import { vs } from 'react-native-size-matters';
 
 // Types imports.
 import type { PropsWithTheme } from './ScrollView.types';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
@@ -39,7 +41,7 @@ const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
           />
         ) : undefined
       }
-      extraKeyboardSpace={extraKeyboardSpace ?? vs(8)}
+      extraKeyboardSpace={extraKeyboardSpace ?? ResponsiveDimensions.vs(8)}
       {...other}
     />
   );

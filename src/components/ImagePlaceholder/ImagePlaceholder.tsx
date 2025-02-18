@@ -1,7 +1,6 @@
 // External imports.
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ms } from 'react-native-size-matters';
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
@@ -10,6 +9,7 @@ import type { PropsWithTheme, State } from './ImagePlaceholder.types';
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 import Image from './Image';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
   // Variable for mount state.
@@ -80,7 +80,9 @@ class ImagePlaceholder extends React.PureComponent<PropsWithTheme, State> {
     const { isLoading, isError, progress, progressSize } = this.state;
 
     const scaledSize: number | undefined =
-      size == null || size === undefined ? undefined : ms(size);
+      size == null || size === undefined
+        ? undefined
+        : ResponsiveDimensions.ms(size);
 
     return (
       <View

@@ -1,17 +1,17 @@
 // External imports.
 import * as React from 'react';
 import { Image, StyleSheet } from 'react-native';
-import { ms } from 'react-native-size-matters';
 
 // Types imports.
 import type { IconProps } from '../IconButton';
 
 // Internal imports.
 import styles from './Button.styles';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   const { image, vector, iconName, size, color } = props;
-  const _iconSize: number = ms(size);
+  const _iconSize: number = ResponsiveDimensions.ms(size);
 
   const _iconStyle = StyleSheet.flatten([
     styles.icon,

@@ -1,6 +1,6 @@
 # Text
 
-Text component that uses `Text`, `Title` and `Caption` components from `react-native-paper` alongside `react-native-size-matters` for scalable text size.
+Text component that uses `Text`, `Title` and `Caption` components from `react-native-paper` alongside `ResponsiveDimensions` for scalable text size.
 
 Also adding line height based on size to fix text cuts on iPad.
 

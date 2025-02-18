@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { withTheme, TouchableRipple } from 'react-native-paper';
-import { ms } from 'react-native-size-matters';
 import tinyColor from 'tinycolor2';
 
 // Types imports.
@@ -12,6 +11,7 @@ import type { PropsWithTheme } from './Button.types';
 import styles from './Button.styles';
 import { Text } from '../Text';
 import Icon from './Icon';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
@@ -64,7 +64,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
       : (StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor);
 
   const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
-  const _iconSize: number = ms(iconSize ?? 24);
+  const _iconSize: number = ResponsiveDimensions.ms(iconSize ?? 24);
   const _iconColor = noIconTint ? undefined : _textColor;
   const _flattenStyle = StyleSheet.flatten(style ?? {});
 

@@ -1,6 +1,8 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { s } from 'react-native-size-matters';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,10 +21,10 @@ const styles = StyleSheet.create({
   },
   rippleView: {
     flexDirection: 'row',
-    paddingHorizontal: s(8),
+    paddingHorizontal: ResponsiveDimensions.s(8),
   },
   text: {
-    marginStart: s(8),
+    marginStart: ResponsiveDimensions.s(8),
     flex: 1,
   },
 });

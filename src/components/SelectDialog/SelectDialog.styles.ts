@@ -1,6 +1,8 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { vs } from 'react-native-size-matters';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
   dialog: {
@@ -20,17 +22,17 @@ const styles = StyleSheet.create({
   noDataText: {
     alignSelf: 'center',
     textAlign: 'center',
-    marginTop: vs(16),
+    marginTop: ResponsiveDimensions.vs(16),
   },
   list: {
-    marginTop: vs(8),
+    marginTop: ResponsiveDimensions.vs(8),
   },
   selectItem: {
-    marginVertical: vs(4),
+    marginVertical: ResponsiveDimensions.vs(4),
   },
   closeButton: {
     width: '100%',
-    marginTop: vs(16),
+    marginTop: ResponsiveDimensions.vs(16),
   },
 });
 
