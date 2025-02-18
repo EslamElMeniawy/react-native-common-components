@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { omit } from 'lodash';
 
 // Types imports.
-import type { PropsWithTheme, SelectInputState } from './TextInput.types';
+import type { PropsWithTheme } from './TextInput.types';
 import type { SelectItem } from '../../types';
 
 // Internal imports.
@@ -14,243 +14,204 @@ import SelectInputMenu from './SelectInputMenu';
 import SelectInputInput from './SelectInputInput';
 import { SelectDialog } from '../SelectDialog';
 
-class SelectInput extends React.PureComponent<
-  PropsWithTheme,
-  SelectInputState
-> {
-  // Variable for mount state.
-  _isComponentMounted: boolean = false;
+const SelectInput = React.memo((props: PropsWithTheme): React.ReactElement => {
+  const { style, selectProps, value: propsValue, editable } = props;
 
-  constructor(props: PropsWithTheme) {
-    super(props);
+  const {
+    marginVertical,
+    marginTop,
+    marginBottom,
+    width,
+    marginHorizontal,
+    marginStart,
+    marginEnd,
+    marginLeft,
+    marginRight,
+    alignSelf,
+  } = style ?? {};
 
-    this.state = {
-      isSelectVisible: false,
-      value: props.value ?? '',
-      selectedItems: props.selectProps?.selectedItems,
-    };
-  }
+  const _widthHorizontalMarginStyle = {
+    width,
+    marginHorizontal,
+    marginStart,
+    marginEnd,
+    marginLeft,
+    marginRight,
+    alignSelf,
+  };
+
+  const [isSelectVisible, setIsSelectVisible] = React.useState(false);
+  const [value, setValue] = React.useState(propsValue ?? '');
+
+  const [selectedItems, setSelectedItems] = React.useState(
+    selectProps?.selectedItems
+  );
 
   // #region Lifecycle
-  static getDerivedStateFromProps(
-    props: PropsWithTheme,
-    state: SelectInputState
-  ): SelectInputState {
-    const selectedItems = props.selectProps?.selectedItems ?? [];
-    let value = '';
+  React.useEffect(() => {
+    setSelectedItems(selectProps?.selectedItems);
 
-    if (selectedItems.length) {
+    if ((selectProps?.selectedItems ?? []).length) {
       const names: string[] = [];
 
-      selectedItems.forEach((item) => {
+      (selectProps?.selectedItems ?? []).forEach((item) => {
         if (item) {
           names.push(item.dropdownTitle ?? '');
         }
       });
 
-      value = names.join(' - ');
+      setValue(names.join(' - '));
     }
-
-    return {
-      ...state,
-      value,
-      selectedItems: props.selectProps?.selectedItems,
-    };
-  }
-
-  componentDidMount() {
-    // Set is mounted.
-    this._isComponentMounted = true;
-  }
-
-  componentWillUnmount() {
-    // Clear is mounted.
-    this._isComponentMounted = false;
-  }
+  }, [selectProps]);
   // #endregion
+
+  const _showSelect = React.useCallback((): void => {
+    setIsSelectVisible(true);
+  }, []);
+
+  const _dismissSelect = React.useCallback((): void => {
+    setIsSelectVisible(false);
+  }, []);
+
+  const _setSelectedText = React.useCallback(
+    (items?: SelectItem[]): void => {
+      if (items?.length) {
+        const names: string[] = [];
+
+        items?.forEach((item) => {
+          if (item) {
+            names.push(item.dropdownTitle ?? '');
+          }
+        });
+
+        setValue(names.join(' - '));
+      } else {
+        setValue(propsValue ?? '');
+      }
+    },
+    [propsValue]
+  );
+
+  const _onItemsSelected = React.useCallback(
+    (items?: SelectItem[]): void => {
+      _setSelectedText(items);
+
+      if (selectProps?.onItemsSelected) {
+        selectProps?.onItemsSelected(items);
+      }
+    },
+    [_setSelectedText, selectProps]
+  );
+
+  const _isItemSelected = React.useCallback(
+    (item: SelectItem): boolean => {
+      let itemSelected = false;
+
+      selectedItems?.some((dataItem) => {
+        if (dataItem && dataItem.key === item.key) {
+          itemSelected = true;
+          return true;
+        }
+
+        return false;
+      });
+
+      return itemSelected;
+    },
+    [selectedItems]
+  );
 
   // #region Press events
-  _onPress = (): void => {
-    const { isSelectVisible } = this.state;
-    isSelectVisible ? this._dismissSelect() : this._showSelect();
-  };
+  const _onPress = React.useCallback((): void => {
+    isSelectVisible ? _dismissSelect() : _showSelect();
+  }, [_dismissSelect, _showSelect, isSelectVisible]);
 
-  _onItemPressed = (item: SelectItem): void => {
-    const { selectedItems } = this.state;
-    const { selectProps } = this.props;
-    let newSelectedItems: SelectItem[] = Array.from(selectedItems ?? []);
-    let index = -1;
+  const _onItemPressed = React.useCallback(
+    (item: SelectItem): void => {
+      let newSelectedItems: SelectItem[] = Array.from(selectedItems ?? []);
+      let index = -1;
 
-    newSelectedItems.some((dataItem, i) => {
-      if (dataItem && dataItem.key === item.key) {
-        index = i;
-        return true;
+      newSelectedItems.some((dataItem, i) => {
+        if (dataItem && dataItem.key === item.key) {
+          index = i;
+          return true;
+        }
+
+        return false;
+      });
+
+      if (index > -1) {
+        newSelectedItems.splice(index, 1);
+      } else if (selectProps?.allowMultiSelect) {
+        newSelectedItems.push(item);
+      } else {
+        newSelectedItems = [item];
       }
 
-      return false;
-    });
+      setSelectedItems(newSelectedItems);
+      _onItemsSelected(newSelectedItems);
 
-    if (index > -1) {
-      newSelectedItems.splice(index, 1);
-    } else if (selectProps?.allowMultiSelect) {
-      newSelectedItems.push(item);
-    } else {
-      newSelectedItems = [item];
-    }
-
-    if (this._isComponentMounted) {
-      this.setState({ selectedItems: newSelectedItems }, () => {
-        this._onItemsSelected(newSelectedItems);
-
-        if (!selectProps?.allowMultiSelect) {
-          this._dismissSelect();
-        }
-      });
-    }
-  };
+      if (!selectProps?.allowMultiSelect) {
+        _dismissSelect();
+      }
+    },
+    [_dismissSelect, _onItemsSelected, selectProps, selectedItems]
+  );
   // #endregion
 
-  _isItemSelected = (item: SelectItem): boolean => {
-    const { selectedItems } = this.state;
-    let itemSelected = false;
-
-    selectedItems?.some((dataItem) => {
-      if (dataItem && dataItem.key === item.key) {
-        itemSelected = true;
-        return true;
-      }
-
-      return false;
-    });
-
-    return itemSelected;
-  };
-
-  _showSelect = (): void => {
-    if (this._isComponentMounted) {
-      this.setState({ isSelectVisible: true });
-    }
-  };
-
-  _dismissSelect = (): void => {
-    if (this._isComponentMounted) {
-      this.setState({ isSelectVisible: false });
-    }
-  };
-
-  _onItemsSelected = (selectedItems?: SelectItem[]): void => {
-    this._setSelectedText(selectedItems);
-    const { selectProps } = this.props;
-
-    if (selectProps?.onItemsSelected) {
-      selectProps?.onItemsSelected(selectedItems);
-    }
-  };
-
-  _setSelectedText = (selectedItems?: SelectItem[]): void => {
-    let value: string;
-
-    if (selectedItems?.length) {
-      const names: string[] = [];
-
-      selectedItems?.forEach((item) => {
-        if (item) {
-          names.push(item.dropdownTitle ?? '');
-        }
-      });
-
-      value = names.join(' - ');
-    } else {
-      const { value: propsValue } = this.props;
-      value = propsValue ?? '';
-    }
-
-    if (this._isComponentMounted) {
-      this.setState({ value });
-    }
-  };
-
-  render(): React.ReactElement {
-    const { selectProps, editable, style } = this.props;
-    const { isSelectVisible, value } = this.state;
-
-    const {
-      marginVertical,
-      marginTop,
-      marginBottom,
-      width,
-      marginHorizontal,
-      marginStart,
-      marginEnd,
-      marginLeft,
-      marginRight,
-      alignSelf,
-    } = style ?? {};
-
-    const widthHorizontalMarginStyle = {
-      width,
-      marginHorizontal,
-      marginStart,
-      marginEnd,
-      marginLeft,
-      marginRight,
-      alignSelf,
-    };
-
-    return (
-      <>
-        <TouchableRipple
-          disabled={editable === false}
-          onPress={this._onPress}
-          style={StyleSheet.flatten([
-            styles.noVerticalMargin,
-            {
-              marginTop: marginVertical ?? marginTop,
-              marginBottom: marginVertical ?? marginBottom,
-            },
-            widthHorizontalMarginStyle,
-          ])}
-        >
-          <View pointerEvents="box-only">
-            {selectProps?.mode === 'dropdown' ? (
-              <SelectInputMenu
-                value={value}
-                isSelectVisible={isSelectVisible}
-                dismissSelect={this._dismissSelect}
-                marginVertical={marginVertical}
-                marginTop={marginTop}
-                marginBottom={marginBottom}
-                widthHorizontalMarginStyle={widthHorizontalMarginStyle}
-                onItemPressed={this._onItemPressed}
-                isItemSelected={this._isItemSelected}
-                onPress={this._onPress}
-                {...this.props}
-              />
-            ) : (
-              <SelectInputInput
-                value={value}
-                onPress={this._onPress}
-                {...omit(this.props, ['theme'])}
-              />
-            )}
-          </View>
-        </TouchableRipple>
-        {selectProps?.mode !== 'dropdown' && (
-          <SelectDialog
-            visible={isSelectVisible}
-            onDismiss={this._dismissSelect}
-            items={selectProps?.items}
-            selectedItems={selectProps?.selectedItems}
-            allowMultiSelect={selectProps?.allowMultiSelect}
-            onItemsSelected={this._onItemsSelected}
-            searchLabel={selectProps?.searchLabel}
-            noDataMessage={selectProps?.noDataMessage}
-            closeText={selectProps?.closeText}
-          />
-        )}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <TouchableRipple
+        disabled={editable === false}
+        onPress={_onPress}
+        style={StyleSheet.flatten([
+          styles.noVerticalMargin,
+          {
+            marginTop: marginVertical ?? marginTop,
+            marginBottom: marginVertical ?? marginBottom,
+          },
+          _widthHorizontalMarginStyle,
+        ])}
+      >
+        <View pointerEvents="box-only">
+          {selectProps?.mode === 'dropdown' ? (
+            <SelectInputMenu
+              value={value}
+              isSelectVisible={isSelectVisible}
+              dismissSelect={_dismissSelect}
+              marginVertical={marginVertical}
+              marginTop={marginTop}
+              marginBottom={marginBottom}
+              widthHorizontalMarginStyle={_widthHorizontalMarginStyle}
+              onItemPressed={_onItemPressed}
+              isItemSelected={_isItemSelected}
+              onPress={_onPress}
+              {...props}
+            />
+          ) : (
+            <SelectInputInput
+              value={value}
+              onPress={_onPress}
+              {...omit(props, ['theme'])}
+            />
+          )}
+        </View>
+      </TouchableRipple>
+      {selectProps?.mode !== 'dropdown' && (
+        <SelectDialog
+          visible={isSelectVisible}
+          onDismiss={_dismissSelect}
+          items={selectProps?.items}
+          selectedItems={selectProps?.selectedItems}
+          allowMultiSelect={selectProps?.allowMultiSelect}
+          onItemsSelected={_onItemsSelected}
+          searchLabel={selectProps?.searchLabel}
+          noDataMessage={selectProps?.noDataMessage}
+          closeText={selectProps?.closeText}
+        />
+      )}
+    </>
+  );
+});
 
 export default SelectInput;

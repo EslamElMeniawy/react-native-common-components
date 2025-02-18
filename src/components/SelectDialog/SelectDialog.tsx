@@ -67,9 +67,11 @@ const SelectDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
     }
   }, [onDismiss]);
 
+  // #region Lifecycle
   React.useEffect(() => {
     setSelectedItems(propsSelectedItems);
   }, [propsSelectedItems]);
+  // #endregion
 
   // #region Text change events
   const _onChangeTextSearchText = React.useCallback((text: string): void => {
