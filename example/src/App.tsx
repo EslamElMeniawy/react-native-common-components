@@ -4,7 +4,10 @@ import { enableScreens } from 'react-native-screens';
 import { Provider, DefaultTheme } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { configureLog } from '@eslam-elmeniawy/react-native-common-components';
+import {
+  configureLog,
+  ResponsiveDimensions,
+} from '@eslam-elmeniawy/react-native-common-components';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
@@ -35,6 +38,8 @@ export default function App() {
       firebaseLogLevels: ['INFO', 'LOG', 'WARN', 'ERROR'],
       isLocalLogEnable: true,
     });
+
+    ResponsiveDimensions.setBaseDimensions({ width: 375, height: 812 });
   }, []);
 
   return (
