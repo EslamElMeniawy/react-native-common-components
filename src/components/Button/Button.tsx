@@ -37,9 +37,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   const { style: textStyle, type, ...rest } = textProps ?? {};
 
-  const _enabledStyle = {
-    opacity: disabled ? 0.5 : 1.0,
-  };
+  const _enabledStyle = { opacity: disabled ? 0.5 : 1.0 };
 
   const _buttonDefaultBackgroundStyle = {
     backgroundColor: theme.colors.primary,
@@ -86,10 +84,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
     <View
       style={StyleSheet.flatten([
         styles.container,
-        {
-          backgroundColor: theme.colors.primary,
-          borderRadius: _borderRadius,
-        },
+        { backgroundColor: theme.colors.primary, borderRadius: _borderRadius },
         style,
         _enabledStyle,
         styles.noPadding,

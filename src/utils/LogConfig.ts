@@ -27,10 +27,7 @@ const configureReactotron = (options?: Options): void => {
   const { appName, clientOptions, pluginCreators } = options ?? {};
   const { name, ...restClientOptions } = clientOptions ?? {};
 
-  reactotron.configure({
-    name: name ?? appName,
-    ...restClientOptions,
-  });
+  reactotron.configure({ name: name ?? appName, ...restClientOptions });
 
   pluginCreators?.forEach((pluginCreator) => reactotron.use(pluginCreator));
   reactotron.useReactNative().connect();

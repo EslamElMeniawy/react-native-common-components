@@ -99,11 +99,7 @@ const Image = React.memo((props: ImageProps): null | React.ReactElement => {
         {Boolean(source) && !isError && (
           <FastImage
             style={styles.image}
-            source={{
-              uri: source,
-              priority: _priority,
-              cache: _cache,
-            }}
+            source={{ uri: source, priority: _priority, cache: _cache }}
             resizeMode={_resizeMode}
             onLoadStart={() => setLoadingState(true)}
             onLoadEnd={() => setLoadingState(false)}

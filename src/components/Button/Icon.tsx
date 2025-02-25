@@ -15,11 +15,7 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
 
   const _iconStyle = StyleSheet.flatten([
     styles.icon,
-    {
-      width: _iconSize,
-      height: _iconSize,
-      tintColor: color,
-    },
+    { width: _iconSize, height: _iconSize, tintColor: color },
   ]);
 
   if (image) {

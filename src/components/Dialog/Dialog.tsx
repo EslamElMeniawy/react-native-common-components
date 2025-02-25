@@ -80,9 +80,7 @@ const Dialog = React.memo(
 
       const overlayStyle = StyleSheet.flatten([
         styles.overlay,
-        {
-          backgroundColor: overlayColor ?? theme.colors.backdrop,
-        },
+        { backgroundColor: overlayColor ?? theme.colors.backdrop },
       ]);
 
       const borderRadius = (theme.isV3 ? 7 : 1) * theme.roundness;

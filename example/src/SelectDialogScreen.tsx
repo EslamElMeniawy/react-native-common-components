@@ -65,31 +65,11 @@ export default function SelectDialogScreen() {
   ];
 
   const multiSelectItems = [
-    {
-      id: 1,
-      key: 'multi-select-item-1',
-      dropdownTitle: 'Multi Select Item 1',
-    },
-    {
-      id: 2,
-      key: 'multi-select-item-2',
-      dropdownTitle: 'Multi Select Item 2',
-    },
-    {
-      id: 3,
-      key: 'multi-select-item-3',
-      dropdownTitle: 'Multi Select Item 3',
-    },
-    {
-      id: 4,
-      key: 'multi-select-item-4',
-      dropdownTitle: 'Multi Select Item 4',
-    },
-    {
-      id: 5,
-      key: 'multi-select-item-5',
-      dropdownTitle: 'Multi Select Item 5',
-    },
+    { id: 1, key: 'multi-select-item-1', dropdownTitle: 'Multi Select Item 1' },
+    { id: 2, key: 'multi-select-item-2', dropdownTitle: 'Multi Select Item 2' },
+    { id: 3, key: 'multi-select-item-3', dropdownTitle: 'Multi Select Item 3' },
+    { id: 4, key: 'multi-select-item-4', dropdownTitle: 'Multi Select Item 4' },
+    { id: 5, key: 'multi-select-item-5', dropdownTitle: 'Multi Select Item 5' },
   ];
 
   const _buttonStyle = StyleSheet.flatten([

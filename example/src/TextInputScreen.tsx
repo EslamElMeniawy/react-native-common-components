@@ -39,31 +39,11 @@ export default function TextInputScreen() {
     setDropdownSelectedItems(selectedItems);
 
   const dialogItems = [
-    {
-      id: 1,
-      key: 'dialog-item-1',
-      dropdownTitle: 'Dialog Item 1',
-    },
-    {
-      id: 2,
-      key: 'dialog-item-2',
-      dropdownTitle: 'Dialog Item 2',
-    },
-    {
-      id: 3,
-      key: 'dialog-item-3',
-      dropdownTitle: 'Dialog Item 3',
-    },
-    {
-      id: 4,
-      key: 'dialog-item-4',
-      dropdownTitle: 'Dialog Item 4',
-    },
-    {
-      id: 5,
-      key: 'dialog-item-5',
-      dropdownTitle: 'Dialog Item 5',
-    },
+    { id: 1, key: 'dialog-item-1', dropdownTitle: 'Dialog Item 1' },
+    { id: 2, key: 'dialog-item-2', dropdownTitle: 'Dialog Item 2' },
+    { id: 3, key: 'dialog-item-3', dropdownTitle: 'Dialog Item 3' },
+    { id: 4, key: 'dialog-item-4', dropdownTitle: 'Dialog Item 4' },
+    { id: 5, key: 'dialog-item-5', dropdownTitle: 'Dialog Item 5' },
     {
       id: 6,
       key: 'dialog-item-6',
@@ -73,31 +53,11 @@ export default function TextInputScreen() {
   ];
 
   const dropdownItems = [
-    {
-      id: 1,
-      key: 'dropdown-item-1',
-      dropdownTitle: 'Dropdown Item 1',
-    },
-    {
-      id: 2,
-      key: 'dropdown-item-2',
-      dropdownTitle: 'Dropdown Item 2',
-    },
-    {
-      id: 3,
-      key: 'dropdown-item-3',
-      dropdownTitle: 'Dropdown Item 3',
-    },
-    {
-      id: 4,
-      key: 'dropdown-item-4',
-      dropdownTitle: 'Dropdown Item 4',
-    },
-    {
-      id: 5,
-      key: 'dropdown-item-5',
-      dropdownTitle: 'Dropdown Item 5',
-    },
+    { id: 1, key: 'dropdown-item-1', dropdownTitle: 'Dropdown Item 1' },
+    { id: 2, key: 'dropdown-item-2', dropdownTitle: 'Dropdown Item 2' },
+    { id: 3, key: 'dropdown-item-3', dropdownTitle: 'Dropdown Item 3' },
+    { id: 4, key: 'dropdown-item-4', dropdownTitle: 'Dropdown Item 4' },
+    { id: 5, key: 'dropdown-item-5', dropdownTitle: 'Dropdown Item 5' },
     {
       id: 6,
       key: 'dropdown-item-6',
@@ -150,12 +110,8 @@ export default function TextInputScreen() {
         value={topLabelValue}
         onChangeText={_onChangeTextTopLabel}
         placeholder="Top Label"
-        errorProps={{
-          errorMessage: 'Error',
-        }}
-        topLabelProps={{
-          label: 'Top Label',
-        }}
+        errorProps={{ errorMessage: 'Error' }}
+        topLabelProps={{ label: 'Top Label' }}
       />
       <TextInput
         style={_inputStyle}
