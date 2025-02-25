@@ -45,12 +45,6 @@ export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 
-export interface SelectInputState {
-  isSelectVisible: boolean;
-  value: string;
-  selectedItems?: SelectItem[];
-}
-
 export interface SelectInputInputProps extends Props {
   value: string;
   onPress?: (e: GestureResponderEvent) => void;

@@ -3,13 +3,13 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { omit } from 'lodash';
-import { vs } from 'react-native-size-matters';
 
 // Types imports.
 import type { Props } from './TextInput.types';
 
 // Internal imports.
 import styles from './TextInput.styles';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const getLabel = (props: Props): undefined | string | React.ReactElement => {
   const { topLabelProps, isRequired, label } = props;
@@ -107,7 +107,7 @@ const DefaultInput = React.memo((props: Props): React.ReactElement => {
       returnKeyType={returnKeyType ?? 'done'}
       style={StyleSheet.flatten([
         styles.input,
-        { minHeight: multiline ? vs(70) : undefined },
+        { minHeight: multiline ? ResponsiveDimensions.vs(70) : undefined },
         style,
       ])}
       keyboardType={keyboardType}

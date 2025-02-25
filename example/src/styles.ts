@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { vs, s, ms } from 'react-native-size-matters';
+import { ResponsiveDimensions } from '@eslam-elmeniawy/react-native-common-components';
 
 const styles = StyleSheet.create({
   width90perc: {
@@ -9,34 +9,34 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   marginVertical8vs: {
-    marginVertical: vs(8),
+    marginVertical: ResponsiveDimensions.vs(8),
   },
   paddingHorizontal16s: {
-    paddingHorizontal: s(16),
+    paddingHorizontal: ResponsiveDimensions.s(16),
   },
   paddingVertical4vs: {
-    paddingVertical: vs(4),
+    paddingVertical: ResponsiveDimensions.vs(4),
   },
   padding8ms: {
-    padding: ms(8),
+    padding: ResponsiveDimensions.ms(8),
   },
   borderRadius8ms: {
-    borderRadius: ms(8),
+    borderRadius: ResponsiveDimensions.ms(8),
   },
   marginHorizontal5perc: {
     marginHorizontal: '5%',
   },
   marginVertical16vs: {
-    marginVertical: vs(16),
+    marginVertical: ResponsiveDimensions.vs(16),
   },
   marginTop8vs: {
-    marginTop: vs(8),
+    marginTop: ResponsiveDimensions.vs(8),
   },
   marginBottom8vs: {
-    marginBottom: vs(8),
+    marginBottom: ResponsiveDimensions.vs(8),
   },
   marginTop2vs: {
-    marginTop: vs(2),
+    marginTop: ResponsiveDimensions.vs(2),
   },
 });
 

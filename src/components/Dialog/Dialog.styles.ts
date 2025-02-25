@@ -1,6 +1,8 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { vs } from 'react-native-size-matters';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
   overlay: {
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
   },
   dialog: {
     width: '90%',
-    marginVertical: vs(8),
+    marginVertical: ResponsiveDimensions.vs(8),
     overflow: 'hidden',
     alignItems: 'center',
   },

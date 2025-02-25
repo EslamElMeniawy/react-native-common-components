@@ -4,7 +4,7 @@ import { withTheme } from 'react-native-paper';
 import { View, I18nManager, StyleSheet } from 'react-native';
 
 // Types imports.
-import type { PropsWithTheme, State, Props } from './SelectDialog.types';
+import type { PropsWithTheme } from './SelectDialog.types';
 import type SelectItem from '../../types/SelectItem';
 
 // Internal imports.
@@ -15,81 +15,36 @@ import List from './List';
 import NoData from './NoData';
 import { Button } from '../Button';
 
-class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
-  constructor(props: PropsWithTheme) {
-    super(props);
+const SelectDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
+  const {
+    items,
+    selectedItems: propsSelectedItems,
+    allowMultiSelect,
+    onItemsSelected,
+    visible,
+    onDismiss,
+    searchLabel,
+    searchComponent,
+    noDataMessage,
+    noDataComponent,
+    closeText,
+    theme,
+  } = props;
 
-    this.state = {
-      selectedItems: props.selectedItems,
-      searchText: undefined,
-    };
-  }
+  const _dialogBorderRadius = (theme.isV3 ? 7 : 1) * theme.roundness;
 
-  // #region Lifecycle
-  static getDerivedStateFromProps(props: Props, state: State): State {
-    return {
-      ...state,
-      selectedItems: props.selectedItems,
-    };
-  }
-  // #endregion
+  const isArabic =
+    (I18nManager.getConstants().localeIdentifier?.indexOf('ar') ?? -1) > -1;
 
-  // #region Text change events
-  _onChangeTextSearchText = (text: string): void => {
-    this.setState({ searchText: text });
-  };
-  // #endregion
+  const _closeButtonBorderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
 
-  // #region Press events
-  _onItemPressed = (item: SelectItem): void => {
-    const { selectedItems } = this.state;
-    const { allowMultiSelect, onItemsSelected } = this.props;
-    let newSelectedItems: SelectItem[] = Array.from(selectedItems ?? []);
-    let index = -1;
+  const [selectedItems, setSelectedItems] = React.useState(propsSelectedItems);
 
-    newSelectedItems.some((dataItem, i) => {
-      if (dataItem && dataItem.key === item.key) {
-        index = i;
-        return true;
-      }
+  const [searchText, setSearchText] = React.useState<string | undefined>(
+    undefined
+  );
 
-      return false;
-    });
-
-    if (index > -1) {
-      newSelectedItems.splice(index, 1);
-    } else if (allowMultiSelect) {
-      newSelectedItems.push(item);
-    } else {
-      newSelectedItems = [item];
-    }
-
-    this.setState({ selectedItems: newSelectedItems }, () => {
-      if (onItemsSelected) {
-        onItemsSelected(newSelectedItems);
-      }
-
-      if (!allowMultiSelect) {
-        this._dismissDialog();
-      }
-    });
-  };
-  // #endregion
-
-  _dismissDialog = (): void => {
-    const { onDismiss } = this.props;
-
-    this.setState({ searchText: undefined }, () => {
-      if (onDismiss) {
-        onDismiss();
-      }
-    });
-  };
-
-  _getFilterList = (): SelectItem[] | undefined => {
-    const { items } = this.props;
-    const { searchText } = this.state;
-
+  const _filteredList = React.useMemo((): SelectItem[] | undefined => {
     if (items && searchText) {
       const filteredItems = items.filter(
         (item) =>
@@ -102,110 +57,133 @@ class SelectDialog extends React.PureComponent<PropsWithTheme, State> {
     }
 
     return items;
-  };
+  }, [items, searchText]);
 
-  _isItemSelected = (item: SelectItem): boolean => {
-    const { selectedItems } = this.state;
-    let itemSelected = false;
+  const _dismissDialog = React.useCallback((): void => {
+    setSearchText(undefined);
 
-    selectedItems?.some((dataItem) => {
-      if (dataItem && dataItem.key === item.key) {
-        itemSelected = true;
-        return true;
+    if (onDismiss) {
+      onDismiss();
+    }
+  }, [onDismiss]);
+
+  // #region Lifecycle
+  React.useEffect(() => {
+    setSelectedItems(propsSelectedItems);
+  }, [propsSelectedItems]);
+  // #endregion
+
+  // #region Text change events
+  const _onChangeTextSearchText = React.useCallback((text: string): void => {
+    setSearchText(text);
+  }, []);
+  // #endregion
+
+  // #region Press events
+  const _onItemPressed = React.useCallback(
+    (item: SelectItem): void => {
+      let newSelectedItems: SelectItem[] = Array.from(selectedItems ?? []);
+      let index = -1;
+
+      newSelectedItems.some((dataItem, i) => {
+        if (dataItem && dataItem.key === item.key) {
+          index = i;
+          return true;
+        }
+
+        return false;
+      });
+
+      if (index > -1) {
+        newSelectedItems.splice(index, 1);
+      } else if (allowMultiSelect) {
+        newSelectedItems.push(item);
+      } else {
+        newSelectedItems = [item];
       }
 
-      return false;
-    });
+      setSelectedItems(newSelectedItems);
 
-    return itemSelected;
-  };
+      if (onItemsSelected) {
+        onItemsSelected(newSelectedItems);
+      }
 
-  _getSearchInput = (): React.ReactElement => {
-    const { theme, searchLabel, searchComponent } = this.props;
+      if (!allowMultiSelect) {
+        _dismissDialog();
+      }
+    },
+    [_dismissDialog, allowMultiSelect, onItemsSelected, selectedItems]
+  );
+  // #endregion
 
-    return (
-      <SearchInput
-        searchLabel={searchLabel}
-        searchComponent={searchComponent}
-        theme={theme}
-        onChangeText={this._onChangeTextSearchText}
-      />
-    );
-  };
+  const _isItemSelected = React.useCallback(
+    (item: SelectItem): boolean => {
+      let itemSelected = false;
 
-  _getContent = (): React.ReactElement => {
-    const { noDataMessage, noDataComponent, theme } = this.props;
-    const items = this._getFilterList();
+      selectedItems?.some((dataItem) => {
+        if (dataItem && dataItem.key === item.key) {
+          itemSelected = true;
+          return true;
+        }
 
-    if (items?.length) {
-      return (
-        <List
-          items={items}
-          theme={theme}
-          onItemPressed={this._onItemPressed}
-          isItemSelected={this._isItemSelected}
+        return false;
+      });
+
+      return itemSelected;
+    },
+    [selectedItems]
+  );
+
+  return (
+    <Dialog visible={visible} onDismiss={_dismissDialog} style={styles.dialog}>
+      <>
+        <View
+          style={StyleSheet.flatten([
+            styles.container,
+            {
+              backgroundColor: theme.colors.surface,
+              borderRadius: _dialogBorderRadius,
+              padding: _dialogBorderRadius,
+            },
+          ])}
+        >
+          <SearchInput
+            searchLabel={searchLabel}
+            searchComponent={searchComponent}
+            theme={theme}
+            onChangeText={_onChangeTextSearchText}
+          />
+          {_filteredList?.length ? (
+            <List
+              items={_filteredList}
+              theme={theme}
+              onItemPressed={_onItemPressed}
+              isItemSelected={_isItemSelected}
+            />
+          ) : (
+            <NoData
+              noDataMessage={noDataMessage}
+              noDataComponent={noDataComponent}
+            />
+          )}
+        </View>
+        <Button
+          text={closeText ?? (isArabic ? 'تم' : 'Done')}
+          onPress={_dismissDialog}
+          style={StyleSheet.flatten([
+            styles.closeButton,
+            {
+              backgroundColor: theme.colors.surface,
+              borderRadius: _closeButtonBorderRadius,
+            },
+          ])}
+          textProps={{
+            style: { color: theme.colors.onSurface },
+          }}
         />
-      );
-    }
-
-    return (
-      <NoData noDataMessage={noDataMessage} noDataComponent={noDataComponent} />
-    );
-  };
-
-  _getCloseButton = (): React.ReactElement => {
-    const { closeText, theme } = this.props;
-
-    const isArabic =
-      (I18nManager.getConstants().localeIdentifier?.indexOf('ar') ?? -1) > -1;
-
-    const borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
-
-    return (
-      <Button
-        text={closeText ?? (isArabic ? 'تم' : 'Done')}
-        onPress={this._dismissDialog}
-        style={StyleSheet.flatten([
-          styles.closeButton,
-          { backgroundColor: theme.colors.surface, borderRadius: borderRadius },
-        ])}
-        textProps={{
-          style: { color: theme.colors.onSurface },
-        }}
-      />
-    );
-  };
-
-  render(): React.ReactElement {
-    const { visible, theme } = this.props;
-
-    const borderRadius = (theme.isV3 ? 7 : 1) * theme.roundness;
-
-    return (
-      <Dialog
-        visible={visible}
-        onDismiss={this._dismissDialog}
-        style={styles.dialog}
-      >
-        <>
-          <View
-            style={StyleSheet.flatten([
-              styles.container,
-              {
-                backgroundColor: theme.colors.surface,
-                borderRadius: borderRadius,
-                padding: borderRadius,
-              },
-            ])}
-          >
-            {this._getSearchInput()}
-            {this._getContent()}
-          </View>
-          {this._getCloseButton()}
-        </>
-      </Dialog>
-    );
-  }
-}
+      </>
+    </Dialog>
+  );
+});
 
 export default withTheme(SelectDialog);

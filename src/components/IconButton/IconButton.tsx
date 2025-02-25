@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { withTheme, TouchableRipple } from 'react-native-paper';
-import { ms } from 'react-native-size-matters';
 import tinyColor from 'tinycolor2';
 
 // Types imports.
@@ -11,6 +10,7 @@ import type { PropsWithTheme } from './IconButton.types';
 // Internal imports.
 import styles from './IconButton.styles';
 import Icon from './Icon';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
@@ -31,7 +31,7 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     ...other
   } = props;
 
-  const _size: number = ms(size ?? 36);
+  const _size: number = ResponsiveDimensions.ms(size ?? 36);
   const _color: string = color ?? theme.colors.primary;
 
   const _enabledStyle = {
