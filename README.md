@@ -93,6 +93,7 @@ Each component has its own usage part in the [documentation](docs).
 ## Utils
 
 - [LogUtils](docs/LogUtils.md)
+- [ResponsiveDimensionsUtils](docs/ResponsiveDimensionsUtils.md)
 - [StatusBarUtils](docs/StatusBarUtils.md)
 - [StringUtils](docs/StringUtils.md)
 - [ValidationUtils](docs/ValidationUtils.md)
