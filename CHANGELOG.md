@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.5.0 (2025-02-25)
+
+* style: format code ([ec8fd04](https://github.com/EslamElMeniawy/react-native-common-components/commit/ec8fd04))
+* build: update dependencies ([dad36cd](https://github.com/EslamElMeniawy/react-native-common-components/commit/dad36cd))
+* build: update example dependencies ([b2f8f0f](https://github.com/EslamElMeniawy/react-native-common-components/commit/b2f8f0f))
+* build: update example dependencies ([f5abece](https://github.com/EslamElMeniawy/react-native-common-components/commit/f5abece))
+* docs: add `docstring` for `ResponsiveDimension` ([7b1700c](https://github.com/EslamElMeniawy/react-native-common-components/commit/7b1700c))
+* docs: add `ResponsiveDimensions` usage to example ([f61d001](https://github.com/EslamElMeniawy/react-native-common-components/commit/f61d001))
+* docs: add `ResponsiveDimensionsUtils.md` ([a43b4b4](https://github.com/EslamElMeniawy/react-native-common-components/commit/a43b4b4))
+* docs: re-add `KeyboardProvider` to example ([d0168a1](https://github.com/EslamElMeniawy/react-native-common-components/commit/d0168a1))
+* refactor: replace `react-native-size-matters` usage with `ResponsiveDimensions` ([4c444b6](https://github.com/EslamElMeniawy/react-native-common-components/commit/4c444b6))
+* refactor: use function component instead of class for `Dialog` ([080c534](https://github.com/EslamElMeniawy/react-native-common-components/commit/080c534))
+* refactor: use function component instead of class for `ImagePlaceholder` ([0e1e285](https://github.com/EslamElMeniawy/react-native-common-components/commit/0e1e285))
+* refactor: use function component instead of class for `SelectDialog` ([ef3ca65](https://github.com/EslamElMeniawy/react-native-common-components/commit/ef3ca65))
+* refactor: use function component instead of class for `SelectInput` ([90ce626](https://github.com/EslamElMeniawy/react-native-common-components/commit/90ce626))
+* feat: add `ResponsiveDimension` util ([55fcc4a](https://github.com/EslamElMeniawy/react-native-common-components/commit/55fcc4a))
+* feat: add percent dimensions calculation ([c877f58](https://github.com/EslamElMeniawy/react-native-common-components/commit/c877f58))
+
 ## 1.4.0 (2025-02-10)
 
 * feat: add `loader` prop to `LoadingDialog` ([95c00c6](https://github.com/EslamElMeniawy/react-native-common-components/commit/95c00c6))
