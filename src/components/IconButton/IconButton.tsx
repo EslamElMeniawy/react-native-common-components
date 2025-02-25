@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { withTheme, TouchableRipple } from 'react-native-paper';
-import { ms } from 'react-native-size-matters';
 import tinyColor from 'tinycolor2';
 
 // Types imports.
@@ -11,6 +10,7 @@ import type { PropsWithTheme } from './IconButton.types';
 // Internal imports.
 import styles from './IconButton.styles';
 import Icon from './Icon';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {
@@ -31,12 +31,10 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     ...other
   } = props;
 
-  const _size: number = ms(size ?? 36);
+  const _size: number = ResponsiveDimensions.ms(size ?? 36);
   const _color: string = color ?? theme.colors.primary;
 
-  const _enabledStyle = {
-    opacity: disabled ? 0.5 : 1.0,
-  };
+  const _enabledStyle = { opacity: disabled ? 0.5 : 1.0 };
 
   const _rippleColor = tinyColor(_color).setAlpha(0.25).toHex8String();
 
@@ -44,14 +42,9 @@ const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
     <View
       style={StyleSheet.flatten([
         styles.container,
-        {
-          borderRadius: _size / 2,
-        },
+        { borderRadius: _size / 2 },
         style,
-        {
-          width: _size,
-          height: _size,
-        },
+        { width: _size, height: _size },
         _enabledStyle,
         styles.noPadding,
       ])}

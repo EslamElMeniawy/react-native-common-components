@@ -1,11 +1,11 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { s } from 'react-native-size-matters';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
-  container: {
-    overflow: 'hidden',
-  },
+  container: { overflow: 'hidden' },
   noPadding: {
     padding: 0,
     paddingHorizontal: 0,
@@ -22,12 +22,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  icon: {
-    resizeMode: 'contain',
-  },
-  text: {
-    marginHorizontal: s(4),
-  },
+  icon: { resizeMode: 'contain' },
+  text: { marginHorizontal: ResponsiveDimensions.s(4) },
 });
 
 export default styles;

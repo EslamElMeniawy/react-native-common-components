@@ -7,10 +7,12 @@ import {
   Title,
   Caption,
 } from 'react-native-paper';
-import { ms } from 'react-native-size-matters';
 
 // Types imports.
 import type { PropsWithTheme } from './Text.types';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { size, type, variant, style, children, theme, ...other } = props;
@@ -35,18 +37,18 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
       fontSize:
         (size == null || size === undefined) &&
         (variant == null || variant === undefined)
-          ? ms(_textSize)
+          ? ResponsiveDimensions.ms(_textSize)
           : size
-            ? ms(size)
+            ? ResponsiveDimensions.ms(size)
             : variant && theme.isV3
               ? theme.fonts[variant].fontSize
               : undefined,
       lineHeight:
         (size == null || size === undefined) &&
         (variant == null || variant === undefined)
-          ? ms(_textSize) * 2
+          ? ResponsiveDimensions.ms(_textSize) * 2
           : size
-            ? ms(size) * 2
+            ? ResponsiveDimensions.ms(size) * 2
             : variant && theme.isV3
               ? theme.fonts[variant].lineHeight
               : undefined,

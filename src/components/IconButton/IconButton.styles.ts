@@ -2,9 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    overflow: 'hidden',
-  },
+  container: { overflow: 'hidden' },
   noPadding: {
     padding: 0,
     paddingHorizontal: 0,
@@ -16,16 +14,9 @@ const styles = StyleSheet.create({
     paddingRight: 0,
     paddingLeft: 0,
   },
-  ripple: {
-    flex: 1,
-  },
-  rippleView: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  icon: {
-    resizeMode: 'contain',
-  },
+  ripple: { flex: 1 },
+  rippleView: { alignItems: 'center', justifyContent: 'center' },
+  icon: { resizeMode: 'contain' },
 });
 
 export default styles;

@@ -119,3 +119,6 @@ GoogleService-Info.plist
 # Example native folders.
 example/android
 example/ios
+
+# Qodo Gen (Codium VS Code)
+.qodo/

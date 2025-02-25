@@ -1,6 +1,6 @@
 # TextInput
 
-TextInput component that uses `TextInput` component from `react-native-paper` alongside `react-native-size-matters` for scalable text size.
+TextInput component that uses `TextInput` component from `react-native-paper` alongside `ResponsiveDimensions` for scalable text size.
 
 Also adding line height based on size to fix text cuts on iPad.
 

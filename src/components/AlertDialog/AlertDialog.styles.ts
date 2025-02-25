@@ -1,32 +1,25 @@
 // External imports.
 import { StyleSheet } from 'react-native';
-import { ms } from 'react-native-size-matters';
+
+// Internal imports.
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
-  dialog: {
-    alignItems: 'stretch',
-  },
-  actionsContainer: {
-    marginTop: ms(32),
-  },
+  dialog: { alignItems: 'stretch' },
+  actionsContainer: { marginTop: ResponsiveDimensions.ms(32) },
   actionsContainerRow: {
     flexDirection: 'row-reverse',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
   },
-  actionsContainerColumn: {
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-  },
+  actionsContainerColumn: { flexDirection: 'column', alignItems: 'flex-end' },
   action: {
     backgroundColor: 'transparent',
-    paddingHorizontal: ms(8),
+    paddingHorizontal: ResponsiveDimensions.ms(8),
     maxWidth: '80%',
-    marginTop: ms(8),
+    marginTop: ResponsiveDimensions.ms(8),
   },
-  actionRow: {
-    marginStart: ms(8),
-  },
+  actionRow: { marginStart: ResponsiveDimensions.ms(8) },
 });
 
 export default styles;

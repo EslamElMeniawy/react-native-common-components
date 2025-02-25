@@ -2,9 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  dialog: {
-    backgroundColor: 'transparent',
-  },
+  dialog: { backgroundColor: 'transparent' },
 });
 
 export default styles;

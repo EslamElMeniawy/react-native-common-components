@@ -11,6 +11,7 @@ import {
   isIPhone16Max,
   isIPhoneWithMonobrow,
   getStatusBarHeight,
+  ResponsiveDimensions,
   Button,
 } from '@eslam-elmeniawy/react-native-common-components';
 import crashlytics from '@react-native-firebase/crashlytics';
@@ -93,6 +94,42 @@ export default function UtilsScreen() {
           getStatusBarHeight:
         </Text>
         {` ${getStatusBarHeight()}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          ResponsiveDimensions.s(24):
+        </Text>
+        {` ${ResponsiveDimensions.s(24)}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          ResponsiveDimensions.vs(24):
+        </Text>
+        {` ${ResponsiveDimensions.vs(24)}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          ResponsiveDimensions.ms(24):
+        </Text>
+        {` ${ResponsiveDimensions.ms(24)}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          ResponsiveDimensions.mvs(24):
+        </Text>
+        {` ${ResponsiveDimensions.mvs(24)}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          ResponsiveDimensions.pw(50):
+        </Text>
+        {` ${ResponsiveDimensions.pw(50)}`}
+      </Text>
+      <Text style={_textStyle}>
+        <Text type="bold" size={13}>
+          ResponsiveDimensions.ph(50):
+        </Text>
+        {` ${ResponsiveDimensions.ph(50)}`}
       </Text>
       <Button
         text="Add Log Message"

@@ -18,5 +18,3 @@ export interface Props {
 export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
-
-export interface State {}
