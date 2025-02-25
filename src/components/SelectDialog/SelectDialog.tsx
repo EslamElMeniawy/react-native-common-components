@@ -177,9 +177,7 @@ const SelectDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
               borderRadius: _closeButtonBorderRadius,
             },
           ])}
-          textProps={{
-            style: { color: theme.colors.onSurface },
-          }}
+          textProps={{ style: { color: theme.colors.onSurface } }}
         />
       </>
     </Dialog>

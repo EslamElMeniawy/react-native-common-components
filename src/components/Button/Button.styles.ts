@@ -5,9 +5,7 @@ import { StyleSheet } from 'react-native';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
-  container: {
-    overflow: 'hidden',
-  },
+  container: { overflow: 'hidden' },
   noPadding: {
     padding: 0,
     paddingHorizontal: 0,
@@ -24,12 +22,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  icon: {
-    resizeMode: 'contain',
-  },
-  text: {
-    marginHorizontal: ResponsiveDimensions.s(4),
-  },
+  icon: { resizeMode: 'contain' },
+  text: { marginHorizontal: ResponsiveDimensions.s(4) },
 });
 
 export default styles;

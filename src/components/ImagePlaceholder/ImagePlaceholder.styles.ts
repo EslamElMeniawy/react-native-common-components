@@ -2,9 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    overflow: 'hidden',
-  },
+  container: { overflow: 'hidden' },
   noPadding: {
     padding: 0,
     paddingHorizontal: 0,
@@ -16,15 +14,8 @@ const styles = StyleSheet.create({
     paddingRight: 0,
     paddingLeft: 0,
   },
-  image: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-  },
-  loadingContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  image: { position: 'absolute', width: '100%', height: '100%' },
+  loadingContainer: { alignItems: 'center', justifyContent: 'center' },
 });
 
 export default styles;

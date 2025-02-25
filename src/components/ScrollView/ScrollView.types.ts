@@ -10,6 +10,4 @@ export type Props = KeyboardAwareScrollViewProps & {
   refreshColor?: string;
 };
 
-export type PropsWithTheme = Props & {
-  theme: MD2Theme | MD3Theme;
-};
+export type PropsWithTheme = Props & { theme: MD2Theme | MD3Theme };

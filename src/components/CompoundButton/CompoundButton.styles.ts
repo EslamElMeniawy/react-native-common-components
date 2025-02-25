@@ -5,9 +5,7 @@ import { StyleSheet } from 'react-native';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
-  container: {
-    overflow: 'hidden',
-  },
+  container: { overflow: 'hidden' },
   noPadding: {
     padding: 0,
     paddingHorizontal: 0,
@@ -23,10 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: ResponsiveDimensions.s(8),
   },
-  text: {
-    marginStart: ResponsiveDimensions.s(8),
-    flex: 1,
-  },
+  text: { marginStart: ResponsiveDimensions.s(8), flex: 1 },
 });
 
 export default styles;

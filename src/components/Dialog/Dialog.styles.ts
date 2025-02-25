@@ -5,14 +5,8 @@ import { StyleSheet } from 'react-native';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
-  overlay: {
-    width: '100%',
-    height: '100%',
-  },
-  safeArea: {
-    flex: 1,
-    alignItems: 'center',
-  },
+  overlay: { width: '100%', height: '100%' },
+  safeArea: { flex: 1, alignItems: 'center' },
   dialog: {
     width: '90%',
     marginVertical: ResponsiveDimensions.vs(8),
