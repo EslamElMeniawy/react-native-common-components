@@ -1,5 +1,10 @@
 # Changelog
 
+## <small>1.5.1 (2025-02-26)</small>
+
+* fix: `Firebase` warning ([c23113d](https://github.com/EslamElMeniawy/react-native-common-components/commit/c23113d))
+* docs: add `ResponsiveDimensionsUtils` to `README` ([534f158](https://github.com/EslamElMeniawy/react-native-common-components/commit/534f158))
+
 ## 1.5.0 (2025-02-25)
 
 * style: format code ([ec8fd04](https://github.com/EslamElMeniawy/react-native-common-components/commit/ec8fd04))
