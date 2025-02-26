@@ -14,7 +14,7 @@ import {
   ResponsiveDimensions,
   Button,
 } from '@eslam-elmeniawy/react-native-common-components';
-import crashlytics from '@react-native-firebase/crashlytics';
+import { getCrashlytics, crash } from '@react-native-firebase/crashlytics';
 import styles from './styles';
 
 export default function UtilsScreen() {
@@ -24,7 +24,7 @@ export default function UtilsScreen() {
 
   const _onLogErrorPress = () => {
     console.error('Log error');
-    crashlytics().crash();
+    crash(getCrashlytics());
   };
 
   const _textStyle = StyleSheet.flatten([
