@@ -42,9 +42,14 @@ const info = (message?: any, ...optionalParams: any[]): void => {
   if (firebaseLogLevels.includes(tag)) {
     try {
       require('@react-native-firebase/app');
-      const crashlytics = require('@react-native-firebase/crashlytics').default;
 
-      crashlytics().log(
+      const getCrashlytics =
+        require('@react-native-firebase/crashlytics').getCrashlytics;
+
+      const crashlyticsLog = require('@react-native-firebase/crashlytics').log;
+
+      crashlyticsLog(
+        getCrashlytics(),
         `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
       );
     } catch (e) {}
@@ -67,9 +72,14 @@ const log = (message?: any, ...optionalParams: any[]): void => {
   if (firebaseLogLevels.includes(tag)) {
     try {
       require('@react-native-firebase/app');
-      const crashlytics = require('@react-native-firebase/crashlytics').default;
 
-      crashlytics().log(
+      const getCrashlytics =
+        require('@react-native-firebase/crashlytics').getCrashlytics;
+
+      const crashlyticsLog = require('@react-native-firebase/crashlytics').log;
+
+      crashlyticsLog(
+        getCrashlytics(),
         `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
       );
     } catch (e) {}
@@ -92,9 +102,14 @@ const warn = (message?: any, ...optionalParams: any[]): void => {
   if (firebaseLogLevels.includes(tag)) {
     try {
       require('@react-native-firebase/app');
-      const crashlytics = require('@react-native-firebase/crashlytics').default;
 
-      crashlytics().log(
+      const getCrashlytics =
+        require('@react-native-firebase/crashlytics').getCrashlytics;
+
+      const crashlyticsLog = require('@react-native-firebase/crashlytics').log;
+
+      crashlyticsLog(
+        getCrashlytics(),
         `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
       );
     } catch (e) {}
@@ -118,9 +133,15 @@ const error = (message?: any, ...optionalParams: any[]): void => {
   if (firebaseLogLevels.includes(tag)) {
     try {
       require('@react-native-firebase/app');
-      const crashlytics = require('@react-native-firebase/crashlytics').default;
 
-      crashlytics().recordError(
+      const getCrashlytics =
+        require('@react-native-firebase/crashlytics').getCrashlytics;
+
+      const crashlyticsRecordError =
+        require('@react-native-firebase/crashlytics').recordError;
+
+      crashlyticsRecordError(
+        getCrashlytics(),
         new Error(
           `## ${tag} ## Message: ${message} ## Data: ${JSON.stringify(optionalParams)}`
         )
