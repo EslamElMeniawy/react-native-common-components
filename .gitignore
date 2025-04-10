@@ -28,7 +28,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-example/ios/.xcode.env.local
+**/.xcode.env.local
 
 # Android/IJ
 #
@@ -122,3 +122,4 @@ example/ios
 
 # Qodo Gen (Codium VS Code)
 .qodo/
+.qodo
