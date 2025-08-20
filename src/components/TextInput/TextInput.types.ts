@@ -1,19 +1,19 @@
 // Types imports.
 import type { TextInputProps, MD2Theme, MD3Theme } from 'react-native-paper';
-import type { TextProps } from '../Text';
-import type SelectItem from '../../types/SelectItem';
+import type { TextProps } from '@src/components/Text';
+import type { SelectItem } from '@src/types/SelectItem';
 import type {
   DimensionValue,
   FlexAlignType,
   GestureResponderEvent,
 } from 'react-native';
 
-export interface SelectProps {
+export interface SelectProps<T extends SelectItem = SelectItem> {
   mode?: 'dialog' | 'dropdown';
-  items?: SelectItem[];
-  selectedItems?: SelectItem[];
+  items?: T[];
+  selectedItems?: T[];
   allowMultiSelect?: boolean;
-  onItemsSelected?: (selectedItems?: SelectItem[]) => void;
+  onItemsSelected?: (selectedItems?: T[]) => void;
   searchLabel?: string;
   noDataMessage?: string;
   closeText?: string;
@@ -63,11 +63,11 @@ export interface SelectInputMenuProps
   onPress?: (e: GestureResponderEvent) => void;
 }
 
-export interface SelectInputMenuItemProps {
+export interface SelectInputMenuItemProps<T extends SelectItem = SelectItem> {
   theme: MD2Theme | MD3Theme;
-  item: SelectItem;
-  onItemPressed: (item: SelectItem) => void;
-  isItemSelected: (item: SelectItem) => boolean;
+  item: T;
+  onItemPressed: (item: T) => void;
+  isItemSelected: (item: T) => boolean;
 }
 
 interface WidthHorizontalMarginStyleType {

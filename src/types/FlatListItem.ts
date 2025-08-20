@@ -1,4 +1,3 @@
-export default interface FlatListItem {
+export type FlatListItem<T = {}> = {
   key: string;
-  [key: string]: any | undefined;
-}
+} & T;

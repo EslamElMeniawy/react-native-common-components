@@ -1,6 +1,6 @@
 # IconButton
 
-Icon button component that renders a clickable icon and supports normal images, `.svg` images using [`react-native-vector-image`](https://github.com/oblador/react-native-vector-image) and [`MaterialCommunityIcons`](https://materialdesignicons.com) using [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons).
+Icon button component that renders a clickable icon and supports normal images, `.svg` images using [`react-native-vector-image`](https://github.com/oblador/react-native-vector-image) and [`MaterialDesignIcons`](https://oblador.github.io/react-native-vector-icons/#MaterialDesignIcons) using [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons).
 
 ## Images
 

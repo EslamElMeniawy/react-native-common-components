@@ -4,7 +4,7 @@ import { I18nManager } from 'react-native';
 
 // Types imports.
 import type { NoDataProps } from './SelectDialog.types';
-import { Text } from '../Text';
+import { Text } from '@src/components/Text';
 
 // Internal imports.
 import styles from './SelectDialog.styles';

@@ -8,6 +8,10 @@ import {
 import styles from './styles';
 
 export default function TextInputScreen() {
+  type SelectType = SelectItem<{
+    id?: number;
+  }>;
+
   const [normalValue, setNormalValue] = React.useState('');
   const [multilineValue, setMultilineValue] = React.useState('');
   const [requiredValue, setRequiredValue] = React.useState('');
@@ -15,11 +19,11 @@ export default function TextInputScreen() {
   const [topLabelValue, setTopLabelValue] = React.useState('');
 
   const [dialogSelectedItems, setDialogSelectedItems] = React.useState<
-    SelectItem[] | undefined
+    SelectType[] | undefined
   >(undefined);
 
   const [dropdownSelectedItems, setDropdownSelectedItems] = React.useState<
-    SelectItem[] | undefined
+    SelectType[] | undefined
   >(undefined);
 
   const _onChangeTextNormal = (text: string) => setNormalValue(text);
@@ -32,13 +36,13 @@ export default function TextInputScreen() {
 
   const _onChangeTextTopLabel = (text: string) => setTopLabelValue(text);
 
-  const _onDialogItemsSelected = (selectedItems?: SelectItem[]) =>
+  const _onDialogItemsSelected = (selectedItems?: SelectType[]) =>
     setDialogSelectedItems(selectedItems);
 
-  const _onDropdownItemsSelected = (selectedItems?: SelectItem[]) =>
+  const _onDropdownItemsSelected = (selectedItems?: SelectType[]) =>
     setDropdownSelectedItems(selectedItems);
 
-  const dialogItems = [
+  const dialogItems: SelectType[] = [
     { id: 1, key: 'dialog-item-1', dropdownTitle: 'Dialog Item 1' },
     { id: 2, key: 'dialog-item-2', dropdownTitle: 'Dialog Item 2' },
     { id: 3, key: 'dialog-item-3', dropdownTitle: 'Dialog Item 3' },
@@ -52,7 +56,7 @@ export default function TextInputScreen() {
     },
   ];
 
-  const dropdownItems = [
+  const dropdownItems: SelectType[] = [
     { id: 1, key: 'dropdown-item-1', dropdownTitle: 'Dropdown Item 1' },
     { id: 2, key: 'dropdown-item-2', dropdownTitle: 'Dropdown Item 2' },
     { id: 3, key: 'dropdown-item-3', dropdownTitle: 'Dropdown Item 3' },
