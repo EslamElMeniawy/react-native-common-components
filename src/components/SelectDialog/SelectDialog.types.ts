@@ -2,14 +2,14 @@
 import * as React from 'react';
 
 // Types imports.
-import type SelectItem from '../../types/SelectItem';
+import type { SelectItem } from '@src/types/SelectItem';
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
 
-export interface Props {
-  items?: SelectItem[];
-  selectedItems?: SelectItem[];
+export interface Props<T extends SelectItem = SelectItem> {
+  items?: T[];
+  selectedItems?: T[];
   allowMultiSelect?: boolean;
-  onItemsSelected?: (selectedItems?: SelectItem[]) => void;
+  onItemsSelected?: (selectedItems?: T[]) => void;
   visible?: boolean;
   onDismiss?: () => void;
   searchLabel?: string;
@@ -35,9 +35,9 @@ export interface NoDataProps {
   noDataComponent?: React.ReactElement;
 }
 
-export interface ListProps {
-  items: SelectItem[];
+export interface ListProps<T extends SelectItem = SelectItem> {
+  items: T[];
   theme: MD2Theme | MD3Theme;
-  onItemPressed: (item: SelectItem) => void;
-  isItemSelected: (item: SelectItem) => boolean;
+  onItemPressed: (item: T) => void;
+  isItemSelected: (item: T) => boolean;
 }

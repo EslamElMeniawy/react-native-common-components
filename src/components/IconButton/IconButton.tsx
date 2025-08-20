@@ -10,7 +10,7 @@ import type { PropsWithTheme } from './IconButton.types';
 // Internal imports.
 import styles from './IconButton.styles';
 import Icon from './Icon';
-import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
+import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
 
 const IconButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {

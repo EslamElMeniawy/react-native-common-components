@@ -33,9 +33,9 @@ yarn add react-native-paper react-native-safe-area-context
 
 As the package depends on `react-native-paper`, your root component must be wrapped with `Provider` from `react-native-paper`.
 
-See [React Native Paper Getting Started](https://callstack.github.io/react-native-paper/getting-started.html) for more details about adding `react-native-paper` to your project.
+See [React Native Paper Getting Started](https://callstack.github.io/react-native-paper/docs/guides/getting-started) for more details about adding `react-native-paper` to your project.
 
-As mentioned in [React Native Paper Getting Started](https://callstack.github.io/react-native-paper/getting-started.html), `react-native-paper` also depends on `react-native-vector-icons` so make sure to add it to your project as well.
+As mentioned in [React Native Paper Getting Started](https://callstack.github.io/react-native-paper/docs/guides/getting-started), `react-native-paper` also depends on `@react-native-vector-icons/material-design-icons` so make sure to add it to your project as well.
 
 ### Using `.svg` props available in some components
 

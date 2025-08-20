@@ -1,57 +1,54 @@
 // External imports.
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import {
-  withTheme,
-  Text as PaperText,
-  Title,
-  Caption,
-} from 'react-native-paper';
+import { withTheme, Text as PaperText } from 'react-native-paper';
 
 // Types imports.
 import type { PropsWithTheme } from './Text.types';
 
 // Internal imports.
-import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
+import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
 
 const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { size, type, variant, style, children, theme, ...other } = props;
-  let _textSize: number = 13;
 
-  switch (type) {
-    case 'caption':
-      _textSize = 11;
-      break;
+  const _calculateTextSize = () => {
+    switch (type) {
+      case 'caption':
+        return ResponsiveDimensions.ms(11);
+      case 'bold':
+        return ResponsiveDimensions.ms(15);
+      default:
+        return ResponsiveDimensions.ms(13);
+    }
+  };
 
-    case 'bold':
-      _textSize = 15;
-      break;
+  const _calculateFontSize = () => {
+    if (size) {
+      return ResponsiveDimensions.ms(size);
+    }
 
-    default:
-      _textSize = 13;
-      break;
-  }
+    if (variant && theme.isV3) {
+      return theme.fonts[variant].fontSize;
+    }
+
+    return _calculateTextSize();
+  };
+
+  const _fontSize = _calculateFontSize();
+
+  const _calculateLineHeight = () => {
+    if (variant && theme.isV3) {
+      return theme.fonts[variant].lineHeight;
+    }
+
+    return _fontSize * 2;
+  };
 
   const _textStyle = StyleSheet.flatten([
     {
-      fontSize:
-        (size == null || size === undefined) &&
-        (variant == null || variant === undefined)
-          ? ResponsiveDimensions.ms(_textSize)
-          : size
-            ? ResponsiveDimensions.ms(size)
-            : variant && theme.isV3
-              ? theme.fonts[variant].fontSize
-              : undefined,
-      lineHeight:
-        (size == null || size === undefined) &&
-        (variant == null || variant === undefined)
-          ? ResponsiveDimensions.ms(_textSize) * 2
-          : size
-            ? ResponsiveDimensions.ms(size) * 2
-            : variant && theme.isV3
-              ? theme.fonts[variant].lineHeight
-              : undefined,
+      fontSize: _fontSize,
+      lineHeight: _calculateLineHeight(),
     },
     style,
   ]);
@@ -66,25 +63,17 @@ const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
 
   switch (type) {
     case 'caption':
-      return theme.isV3 ? (
+      return (
         <PaperText style={_textStyle} variant="bodySmall" {...other}>
           {children}
         </PaperText>
-      ) : (
-        <Caption style={_textStyle} {...other}>
-          {children}
-        </Caption>
       );
 
     case 'bold':
-      return theme.isV3 ? (
-        <PaperText style={_textStyle} variant="titleMedium" {...other}>
+      return (
+        <PaperText style={_textStyle} variant="titleLarge" {...other}>
           {children}
         </PaperText>
-      ) : (
-        <Title style={_textStyle} {...other}>
-          {children}
-        </Title>
       );
 
     default:

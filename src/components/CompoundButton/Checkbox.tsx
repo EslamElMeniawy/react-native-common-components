@@ -13,7 +13,7 @@ import type { PropsWithTheme } from './CompoundButton.types';
 
 // Internal imports.
 import styles from './CompoundButton.styles';
-import { Text } from '../Text';
+import { Text } from '@src/components/Text';
 
 const Checkbox = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {

@@ -108,6 +108,9 @@ lib/
 ios/generated
 android/generated
 
+# React Native Nitro Modules
+nitrogen/
+
 # Android Keystore files
 *.jks
 *.keystore

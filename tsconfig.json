@@ -2,7 +2,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@eslam-elmeniawy/react-native-common-components": ["./src/index"]
+      "@eslam-elmeniawy/react-native-common-components": ["./src/index"],
+      "@src/*": ["./src/*"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

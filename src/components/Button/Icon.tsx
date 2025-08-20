@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
 // Types imports.
-import type { IconProps } from '../IconButton';
+import type { IconProps } from '@src/components/IconButton';
 
 // Internal imports.
 import styles from './Button.styles';
-import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
+import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
 
 const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   const { image, vector, iconName, size, color } = props;
@@ -30,23 +30,25 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
         <VectorImage source={vector} style={_iconStyle} resizeMode="contain" />
       );
     } catch (error) {
+      console.error('Error loading `react-native-vector-image`:', error);
       return null;
     }
   }
 
   if (iconName) {
     try {
-      const MaterialCommunityIcons =
-        require('react-native-vector-icons/MaterialCommunityIcons').default;
+      const MaterialDesignIcons =
+        require('@react-native-vector-icons/material-design-icons').MaterialDesignIcons;
 
       return (
-        <MaterialCommunityIcons
-          name={iconName}
-          color={color}
-          size={_iconSize}
-        />
+        <MaterialDesignIcons name={iconName} color={color} size={_iconSize} />
       );
     } catch (error) {
+      console.error(
+        'Error loading `@react-native-vector-icons/material-design-icons`:',
+        error
+      );
+
       return null;
     }
   }

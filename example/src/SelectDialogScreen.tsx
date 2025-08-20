@@ -10,33 +10,37 @@ import {
 import styles from './styles';
 
 export default function SelectDialogScreen() {
+  type SelectType = SelectItem<{
+    id?: number;
+  }>;
+
   const [singleSelectDialogVisible, setSingleSelectDialogVisible] =
     React.useState(false);
 
   const [singleSelectDialogSelectedItems, setSingleSelectDialogSelectedItems] =
-    React.useState<SelectItem[] | undefined>(undefined);
+    React.useState<SelectType[] | undefined>(undefined);
 
   const [multiSelectDialogVisible, setMultiSelectDialogVisible] =
     React.useState(false);
 
   const [multiSelectDialogSelectedItems, setMultiSelectDialogSelectedItems] =
-    React.useState<SelectItem[] | undefined>(undefined);
+    React.useState<SelectType[] | undefined>(undefined);
 
   const _showSingleSelectDialog = () => setSingleSelectDialogVisible(true);
 
   const _hideSingleSelectDialog = () => setSingleSelectDialogVisible(false);
 
-  const _onSingleSelectItemsSelected = (selectedItems?: SelectItem[]) =>
+  const _onSingleSelectItemsSelected = (selectedItems?: SelectType[]) =>
     setSingleSelectDialogSelectedItems(selectedItems);
 
   const _showMultiSelectDialog = () => setMultiSelectDialogVisible(true);
 
   const _hideMultiSelectDialog = () => setMultiSelectDialogVisible(false);
 
-  const _onMultiSelectItemsSelected = (selectedItems?: SelectItem[]) =>
+  const _onMultiSelectItemsSelected = (selectedItems?: SelectType[]) =>
     setMultiSelectDialogSelectedItems(selectedItems);
 
-  const singleSelectItems = [
+  const singleSelectItems: SelectType[] = [
     {
       id: 1,
       key: 'single-select-item-1',
@@ -64,7 +68,7 @@ export default function SelectDialogScreen() {
     },
   ];
 
-  const multiSelectItems = [
+  const multiSelectItems: SelectType[] = [
     { id: 1, key: 'multi-select-item-1', dropdownTitle: 'Multi Select Item 1' },
     { id: 2, key: 'multi-select-item-2', dropdownTitle: 'Multi Select Item 2' },
     { id: 3, key: 'multi-select-item-3', dropdownTitle: 'Multi Select Item 3' },
