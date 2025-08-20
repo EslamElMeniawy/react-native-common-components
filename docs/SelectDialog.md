@@ -33,19 +33,23 @@ import {
 } from '@eslam-elmeniawy/react-native-common-components';
 
 const MyComponent = () => {
+  type SelectType = SelectItem<{
+    id?: number;
+  }>;
+
   const [selectDialogVisible, setSelectDialogVisible] = React.useState(false);
 
   const [selectDialogSelectedItems, setSelectDialogSelectedItems] =
-    React.useState<SelectItem[] | undefined>(undefined);
+    React.useState<SelectType[] | undefined>(undefined);
 
   const showSelectDialog = () => setSelectDialogVisible(true);
 
   const hideSelectDialog = () => setSelectDialogVisible(false);
 
-  const onSelectItemsSelected = (selectedItems?: SelectItem[]) =>
+  const onSelectItemsSelected = (selectedItems?: SelectType[]) =>
     setSelectDialogSelectedItems(selectedItems);
 
-  const selectItems = [
+  const selectItems:SelectType[] = [
     {
       id: 1,
       key: 'select-item-1',
@@ -100,15 +104,15 @@ const MyComponent = () => {
 
 ### items
 
-Type: `Array<SelectItem>`
+Type: `Array<SelectItem<T>>`
 
-An `Array` of type [`SelectItem`](SelectItem.md) to be displayed for the user.
+An `Array` of type [`SelectItem<T>`](SelectItem.md) to be displayed for the user.
 
 ### selectedItems
 
-Type: `Array<SelectItem>`
+Type: `Array<SelectItem<T>>`
 
-An `Array` of type [`SelectItem`](SelectItem.md) to be marked as selected for the user.
+An `Array` of type [`SelectItem<T>`](SelectItem.md) to be marked as selected for the user.
 
 ### allowMultiSelect
 
@@ -120,7 +124,7 @@ Determines whether multi select mode is enabled or not.
 
 ### onItemsSelected
 
-Type: `(selectedItems: Array<SelectItem>) => void`
+Type: `(selectedItems: Array<SelectItem<T>>) => void`
 
 Callback that is called when the user press an item in the dialog.
 

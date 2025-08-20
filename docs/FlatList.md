@@ -6,9 +6,9 @@ Customized `FlatList` component which uses `ReactNative` `FlatList` component wi
 
 ### data (Required)
 
-Type: `Array<FlatListItem>`
+Type: `Array<T extends FlatListItem>`
 
-An `Array` of type [`FlatListItem`](FlatListItem.md) to be displayed for the user.
+An `Array` of type [`T extends FlatListItem`](FlatListItem.md) to be displayed for the user.
 
 ### refreshColor
 

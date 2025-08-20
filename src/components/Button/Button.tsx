@@ -9,9 +9,9 @@ import type { PropsWithTheme } from './Button.types';
 
 // Internal imports.
 import styles from './Button.styles';
-import { Text } from '../Text';
+import { Text } from '@src/components/Text';
 import Icon from './Icon';
-import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
+import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
 
 const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {

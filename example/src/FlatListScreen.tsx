@@ -16,10 +16,10 @@ export default function FlatListScreen() {
     styles.borderRadius8ms,
   ]);
 
-  interface ListType extends FlatListItem {
+  type ListType = FlatListItem<{
     title?: string;
     details?: string;
-  }
+  }>;
 
   const _items: ListType[] = [...Array(100).keys()].map((_item, index) => ({
     key: `item_${index}`,

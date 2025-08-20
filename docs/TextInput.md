@@ -28,15 +28,19 @@ import { View } from 'react-native';
 import { TextInput, SelectItem } from '@eslam-elmeniawy/react-native-common-components';
 
 const MyComponent = () => {
+  type SelectType = SelectItem<{
+    id?: number;
+  }>;
+
   const [value, setValue] = React.useState('');
 
   const [dialogSelectedItems, setDialogSelectedItems] = React.useState<
-    SelectItem[] | undefined
+    SelectType[] | undefined
   >(undefined);
 
   const onChangeText = (text: string) => setValue(text);
 
-  const onDialogItemsSelected = (selectedItems?: SelectItem[]) =>
+  const onDialogItemsSelected = (selectedItems?: SelectType[]) =>
     setDialogSelectedItems(selectedItems);
 
   const dialogItems = [
@@ -152,15 +156,15 @@ Default value: `'dialog'`
 
 #### SelectProps.items
 
-Type: `Array<SelectItem>`
+Type: `Array<SelectItem<T>>`
 
-An `Array` of type [`SelectItem`](SelectItem.md) to be displayed for the user.
+An `Array` of type [`SelectItem<T>`](SelectItem.md) to be displayed for the user.
 
 #### SelectProps.selectedItems
 
-Type: `Array<SelectItem>`
+Type: `Array<SelectItem<T>>`
 
-An `Array` of type [`SelectItem`](SelectItem.md) to be marked as selected for the user.
+An `Array` of type [`SelectItem<T>`](SelectItem.md) to be marked as selected for the user.
 
 #### SelectProps.allowMultiSelect
 
@@ -172,7 +176,7 @@ Determines whether multi select mode is enabled or not.
 
 #### SelectProps.onItemsSelected
 
-Type: `(selectedItems: Array<SelectItem>) => void`
+Type: `(selectedItems: Array<SelectItem<T>>) => void`
 
 Callback that is called when the user press an item in the select dialog or dropdown menu.
 

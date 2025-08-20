@@ -8,7 +8,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import type { PropsWithTheme } from './ScrollView.types';
 
 // Internal imports.
-import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
+import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
 
 const ScrollView = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {

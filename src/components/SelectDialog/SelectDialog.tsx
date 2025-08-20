@@ -5,7 +5,7 @@ import { View, I18nManager, StyleSheet } from 'react-native';
 
 // Types imports.
 import type { PropsWithTheme } from './SelectDialog.types';
-import type SelectItem from '../../types/SelectItem';
+import type { SelectItem } from '@src/types/SelectItem';
 
 // Internal imports.
 import styles from './SelectDialog.styles';

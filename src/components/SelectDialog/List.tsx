@@ -3,17 +3,17 @@ import * as React from 'react';
 
 // Types imports.
 import type { ListProps } from './SelectDialog.types';
-import type { SelectItem } from '../../types';
+import type { SelectItem } from '@src/types';
 
 // Internal imports.
 import styles from './SelectDialog.styles';
-import { FlatList } from '../FlatList';
-import { Checkbox } from '../CompoundButton';
+import { FlatList } from '@src/components/FlatList';
+import { Checkbox } from '@src/components/CompoundButton';
 
 const List = React.memo((props: ListProps): React.ReactElement => {
   const { items, theme, onItemPressed, isItemSelected } = props;
 
-  const _getListItem = (item: SelectItem): React.ReactElement => (
+  const _getListItem = <T extends SelectItem>(item: T): React.ReactElement => (
     <Checkbox
       style={styles.selectItem}
       onPress={() => onItemPressed(item)}
