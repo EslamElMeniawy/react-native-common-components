@@ -29,24 +29,20 @@ const Icon = React.memo((props: IconProps): null | React.ReactElement => {
       return (
         <VectorImage source={vector} style={_iconStyle} resizeMode="contain" />
       );
-    } catch (error) {
+    } catch (_error) {
       return null;
     }
   }
 
   if (iconName) {
     try {
-      const MaterialCommunityIcons =
-        require('react-native-vector-icons/MaterialCommunityIcons').default;
+      const MaterialDesignIcons =
+        require('@react-native-vector-icons/material-design-icons').MaterialDesignIcons;
 
       return (
-        <MaterialCommunityIcons
-          name={iconName}
-          color={color}
-          size={_iconSize}
-        />
+        <MaterialDesignIcons name={iconName} color={color} size={_iconSize} />
       );
-    } catch (error) {
+    } catch (_error) {
       return null;
     }
   }
