@@ -8,9 +8,9 @@ import type { PropsWithTheme } from './AlertDialog.types';
 
 // Internal imports.
 import styles from './AlertDialog.styles';
-import { Dialog } from '@src/components/Dialog';
-import { Text } from '@src/components/Text';
-import { Button } from '@src/components/Button';
+import { Dialog } from '../Dialog';
+import { Text } from '../Text';
+import { Button } from '../Button';
 
 const AlertDialog = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {

@@ -10,7 +10,7 @@ import type { SelectInputMenuProps } from './TextInput.types';
 import styles from './TextInput.styles';
 import SelectInputInput from './SelectInputInput';
 import SelectInputMenuItem from './SelectInputMenuItem';
-import { getStatusBarHeight } from '@src/utils';
+import { getStatusBarHeight } from '../../utils/StatusBarHeight';
 
 const SelectInputMenu = React.memo(
   (props: SelectInputMenuProps): React.ReactElement => {

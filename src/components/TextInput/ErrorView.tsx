@@ -7,7 +7,7 @@ import type { PropsWithTheme } from './TextInput.types';
 
 // Internal imports.
 import styles from './TextInput.styles';
-import { Text } from '@src/components/Text';
+import { Text } from '../Text';
 
 const ErrorView = React.memo(
   (props: PropsWithTheme): null | React.ReactElement => {

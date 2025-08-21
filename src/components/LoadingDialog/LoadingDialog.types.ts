@@ -4,7 +4,7 @@ import type {
   MD3Theme,
   ActivityIndicatorProps,
 } from 'react-native-paper';
-import type { DialogProps } from '@src/components/Dialog';
+import type { DialogProps } from '../Dialog';
 
 export interface Props {
   visible?: boolean;

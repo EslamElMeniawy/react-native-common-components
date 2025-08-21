@@ -4,7 +4,7 @@ import { I18nManager } from 'react-native';
 
 // Types imports.
 import type { SearchInputProps } from './SelectDialog.types';
-import DefaultInput from '@src/components/TextInput/DefaultInput';
+import DefaultInput from '../TextInput/DefaultInput';
 
 const SearchInput = React.memo(
   (props: SearchInputProps): React.ReactElement => {
