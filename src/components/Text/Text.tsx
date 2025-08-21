@@ -7,7 +7,7 @@ import { withTheme, Text as PaperText } from 'react-native-paper';
 import type { PropsWithTheme } from './Text.types';
 
 // Internal imports.
-import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const Text = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { size, type, variant, style, children, theme, ...other } = props;

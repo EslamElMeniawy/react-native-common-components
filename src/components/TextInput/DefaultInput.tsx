@@ -9,7 +9,7 @@ import type { Props } from './TextInput.types';
 
 // Internal imports.
 import styles from './TextInput.styles';
-import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const getLabel = (props: Props): undefined | string | React.ReactElement => {
   const { topLabelProps, isRequired, label } = props;

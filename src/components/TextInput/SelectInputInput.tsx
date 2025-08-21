@@ -10,7 +10,7 @@ import type { SelectInputInputProps } from './TextInput.types';
 // Internal imports.
 import styles from './TextInput.styles';
 import DefaultInput from './DefaultInput';
-import { trimStringToLength } from '@src/utils';
+import { trimStringToLength } from '../../utils/StringUtils';
 
 const SelectInputInput = React.memo(
   (props: SelectInputInputProps): React.ReactElement => {

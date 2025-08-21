@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // Types imports.
-import type { SelectItem } from '@src/types/SelectItem';
+import type { SelectItem } from '../../types/SelectItem';
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
 
 export interface Props<T extends SelectItem = SelectItem> {

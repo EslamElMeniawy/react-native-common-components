@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
 // Types imports.
-import type { IconProps } from '@src/components/IconButton';
+import type { IconProps } from '../IconButton';
 
 // Internal imports.
 import styles from './Button.styles';
-import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const Icon = React.memo((props: IconProps): null | React.ReactElement => {
   const { image, vector, iconName, size, color } = props;
