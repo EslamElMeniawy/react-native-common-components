@@ -6,7 +6,7 @@ import type { SelectInputMenuItemProps } from './TextInput.types';
 
 // Internal imports.
 import styles from './TextInput.styles';
-import { Checkbox } from '@src/components/CompoundButton';
+import { Checkbox } from '../CompoundButton';
 
 const SelectInputMenuItem = React.memo(
   (props: SelectInputMenuItemProps): React.ReactElement => {

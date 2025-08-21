@@ -2,7 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 // Internal imports.
-import ResponsiveDimensions from '@src/utils/ResponsiveDimensions';
+import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
 const styles = StyleSheet.create({
   container: { overflow: 'hidden' },

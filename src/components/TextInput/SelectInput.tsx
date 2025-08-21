@@ -6,13 +6,13 @@ import { omit } from 'lodash';
 
 // Types imports.
 import type { PropsWithTheme } from './TextInput.types';
-import type { SelectItem } from '@src/types';
+import type { SelectItem } from '../../types/SelectItem';
 
 // Internal imports.
 import styles from './TextInput.styles';
 import SelectInputMenu from './SelectInputMenu';
 import SelectInputInput from './SelectInputInput';
-import { SelectDialog } from '@src/components/SelectDialog';
+import { SelectDialog } from '../SelectDialog';
 
 const SelectInput = React.memo((props: PropsWithTheme): React.ReactElement => {
   const { style, selectProps, value: propsValue, editable } = props;

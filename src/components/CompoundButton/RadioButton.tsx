@@ -13,7 +13,7 @@ import type { PropsWithTheme } from './CompoundButton.types';
 
 // Internal imports.
 import styles from './CompoundButton.styles';
-import { Text } from '@src/components/Text';
+import { Text } from '../Text';
 
 const RadioButton = React.memo((props: PropsWithTheme): React.ReactElement => {
   const {

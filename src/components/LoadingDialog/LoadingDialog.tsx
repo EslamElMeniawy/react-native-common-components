@@ -8,7 +8,7 @@ import type { PropsWithTheme } from './LoadingDialog.types';
 
 // Internal imports.
 import styles from './LoadingDialog.styles';
-import { Dialog } from '@src/components/Dialog';
+import { Dialog } from '../Dialog';
 
 const LoadingDialog = React.memo(
   (props: PropsWithTheme): React.ReactElement => {

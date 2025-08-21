@@ -1,7 +1,7 @@
 // Types imports.
 import type { TextInputProps, MD2Theme, MD3Theme } from 'react-native-paper';
-import type { TextProps } from '@src/components/Text';
-import type { SelectItem } from '@src/types/SelectItem';
+import type { TextProps } from '../Text';
+import type { SelectItem } from '../../types/SelectItem';
 import type {
   DimensionValue,
   FlexAlignType,

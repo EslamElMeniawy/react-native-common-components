@@ -1,8 +1,8 @@
 // Types imports.
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
-import type { DialogProps } from '@src/components/Dialog';
-import type { TextProps } from '@src/components/Text';
-import type { ButtonProps } from '@src/components/Button';
+import type { DialogProps } from '../Dialog';
+import type { TextProps } from '../Text';
+import type { ButtonProps } from '../Button';
 
 export interface Action {
   action?: string;
