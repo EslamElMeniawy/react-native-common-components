@@ -8,9 +8,15 @@ export interface Props extends ViewProps {
   startImage?: number;
   startVector?: number;
   startIconName?: string;
+  startIconSize?: number;
+  startIconColor?: string;
+  noStartIconTint?: boolean;
   endImage?: number;
   endVector?: number;
   endIconName?: string;
+  endIconSize?: number;
+  endIconColor?: string;
+  noEndIconTint?: boolean;
   onPress?: () => void;
   onLongPress?: () => void;
   onPressIn?: () => void;
