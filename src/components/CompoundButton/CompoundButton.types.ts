@@ -1,6 +1,6 @@
 // Types imports.
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
-import type { ViewProps, FlexAlignType } from 'react-native';
+import type { ViewProps } from 'react-native';
 import type { TextProps } from '../Text';
 
 export interface Props extends ViewProps {
@@ -11,7 +11,7 @@ export interface Props extends ViewProps {
   checkedColor?: string;
   uncheckedColor?: string;
   textProps?: Omit<TextProps, 'children'>;
-  contentAlign?: FlexAlignType;
+  contentAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
 }
 
 export interface PropsWithTheme extends Props {
