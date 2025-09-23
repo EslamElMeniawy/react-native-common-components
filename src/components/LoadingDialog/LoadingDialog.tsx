@@ -10,7 +10,7 @@ import type { PropsWithTheme } from './LoadingDialog.types';
 import styles from './LoadingDialog.styles';
 import { Dialog } from '../Dialog';
 
-const LoadingDialog = React.memo(
+const LoadingDialog = React.memo<PropsWithTheme>(
   (props: PropsWithTheme): React.ReactElement => {
     const { visible, theme, dialogProps, loader, activityIndicatorProps } =
       props;

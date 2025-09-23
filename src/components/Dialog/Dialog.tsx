@@ -11,7 +11,7 @@ import type { Edge } from 'react-native-safe-area-context';
 // Internal imports.
 import styles from './Dialog.styles';
 
-const Dialog = React.memo(
+const Dialog = React.memo<PropsWithTheme>(
   (props: PropsWithTheme): null | React.ReactElement => {
     const {
       visible,
