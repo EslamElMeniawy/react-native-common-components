@@ -13,6 +13,6 @@ export interface Props {
   activityIndicatorProps?: Omit<ActivityIndicatorProps, 'animating'>;
 }
 
-export interface PropsWithTheme extends Props {
+export interface PropsWithTheme extends Partial<Props> {
   theme: MD2Theme | MD3Theme;
 }

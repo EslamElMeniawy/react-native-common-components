@@ -26,7 +26,7 @@ export interface TopLabelProps {
   textProps?: Omit<TextProps, 'children'>;
 }
 
-export interface Props extends Omit<TextInputProps, 'theme'> {
+export interface Props extends Partial<Omit<TextInputProps, 'theme'>> {
   style?: TextInputProps['style'] & { [key: string]: any };
   isRequired?: boolean;
   topLabelProps?: TopLabelProps;
@@ -37,18 +37,18 @@ export interface Props extends Omit<TextInputProps, 'theme'> {
   hasPasswordToggle?: boolean;
 }
 
-export interface PropsWithTheme extends Props {
+export interface PropsWithTheme extends Partial<Props> {
   theme: MD2Theme | MD3Theme;
 }
 
-export interface SelectInputInputProps extends Props {
+export interface SelectInputInputProps extends Partial<Props> {
   value: string;
   onPress?: (e: GestureResponderEvent) => void;
 }
 
 export interface SelectInputMenuProps
   extends PropsWithTheme,
-    Omit<SelectInputMenuItemProps, 'item' | 'theme'> {
+    Partial<Omit<SelectInputMenuItemProps, 'item' | 'theme'>> {
   value: string;
   isSelectVisible: boolean;
   dismissSelect: () => void;
@@ -62,8 +62,8 @@ export interface SelectInputMenuProps
 export interface SelectInputMenuItemProps<T extends SelectItem = SelectItem> {
   theme: MD2Theme | MD3Theme;
   item: T;
-  onItemPressed: (item: T) => void;
-  isItemSelected: (item: T) => boolean;
+  onItemPressed?: (item: T) => void;
+  isItemSelected?: (item: T) => boolean;
 }
 
 interface WidthHorizontalMarginStyleType {

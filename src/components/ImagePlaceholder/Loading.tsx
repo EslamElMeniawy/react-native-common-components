@@ -45,7 +45,7 @@ const Loading = React.memo(
           }
         >
           <Progress.Pie
-            indeterminate={progress <= 0}
+            indeterminate={(progress ?? 0) <= 0}
             size={progressSize}
             progress={progress}
             color={

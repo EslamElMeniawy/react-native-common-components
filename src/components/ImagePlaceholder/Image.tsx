@@ -78,7 +78,7 @@ const Image = React.memo((props: ImageProps): null | React.ReactElement => {
         break;
     }
 
-    let _shouldDisplayLoading: boolean = isLoading;
+    let _shouldDisplayLoading: boolean | undefined = isLoading;
 
     if (loadingProps?.showLoading === false) {
       _shouldDisplayLoading = false;
