@@ -45,7 +45,7 @@ const Checkbox = React.memo((props: PropsWithTheme): React.ReactElement => {
     paddingEnd,
     paddingRight,
     paddingLeft,
-  } = _flattenStyle;
+  } = _flattenStyle ?? {};
 
   const _borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
 

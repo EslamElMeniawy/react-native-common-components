@@ -2,11 +2,7 @@
 import type { TextInputProps, MD2Theme, MD3Theme } from 'react-native-paper';
 import type { TextProps } from '../Text';
 import type { SelectItem } from '../../types/SelectItem';
-import type {
-  DimensionValue,
-  FlexAlignType,
-  GestureResponderEvent,
-} from 'react-native';
+import type { DimensionValue, GestureResponderEvent } from 'react-native';
 
 export interface SelectProps<T extends SelectItem = SelectItem> {
   mode?: 'dialog' | 'dropdown';
@@ -77,5 +73,11 @@ interface WidthHorizontalMarginStyleType {
   marginEnd?: DimensionValue;
   marginLeft?: DimensionValue;
   marginRight?: DimensionValue;
-  alignSelf?: 'auto' | FlexAlignType;
+  alignSelf?:
+    | 'auto'
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'stretch'
+    | 'baseline';
 }

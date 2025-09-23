@@ -89,7 +89,7 @@ const Dialog = React.memo(
         <Portal>
           <Pressable
             style={overlayStyle}
-            onPress={isDialogDismissable ? onDismiss : null}
+            onPress={isDialogDismissable ? onDismiss : undefined}
           >
             <SafeAreaView
               edges={edges}
