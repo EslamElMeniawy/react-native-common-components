@@ -19,9 +19,15 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
     startImage,
     startVector,
     startIconName,
+    startIconSize,
+    startIconColor,
+    noStartIconTint,
     endImage,
     endVector,
     endIconName,
+    endIconSize,
+    endIconColor,
+    noEndIconTint,
     onPress,
     onLongPress,
     onPressIn,
@@ -46,7 +52,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const _buttonColor =
     StyleSheet.flatten(
       style ?? _buttonDefaultBackgroundStyle
-    ).backgroundColor?.toString() ?? theme.colors.primary;
+    )?.backgroundColor?.toString() ?? theme.colors.primary;
 
   const _defaultTextColorNonV3 = tinyColor(_buttonColor).isDark()
     ? '#ffffff'
@@ -59,11 +65,22 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
   const _textColor =
     textStyle == null || textStyle === undefined
       ? _defaultTextColor
-      : (StyleSheet.flatten(textStyle).color?.toString() ?? _defaultTextColor);
+      : (StyleSheet.flatten(textStyle)?.color?.toString() ?? _defaultTextColor);
 
   const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
-  const _iconSize: number = ResponsiveDimensions.ms(iconSize ?? 24);
-  const _iconColor = noIconTint ? undefined : _textColor;
+  const _startIconSize: number = ResponsiveDimensions.ms(
+    startIconSize ?? iconSize ?? 24
+  );
+  const _endIconSize: number = ResponsiveDimensions.ms(
+    endIconSize ?? iconSize ?? 24
+  );
+
+  const _startIconColor =
+    noStartIconTint || noIconTint ? undefined : (startIconColor ?? _textColor);
+
+  const _endIconColor =
+    noEndIconTint || noIconTint ? undefined : (endIconColor ?? _textColor);
+
   const _flattenStyle = StyleSheet.flatten(style ?? {});
 
   const {
@@ -76,7 +93,7 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
     paddingEnd,
     paddingRight,
     paddingLeft,
-  } = _flattenStyle;
+  } = _flattenStyle ?? {};
 
   const _borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
 
@@ -120,8 +137,8 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
             image={startImage}
             vector={startVector}
             iconName={startIconName}
-            size={_iconSize}
-            color={_iconColor}
+            size={_startIconSize}
+            color={_startIconColor}
           />
           <Text
             style={StyleSheet.flatten([
@@ -138,8 +155,8 @@ const Button = React.memo((props: PropsWithTheme): React.ReactElement => {
             image={endImage}
             vector={endVector}
             iconName={endIconName}
-            size={_iconSize}
-            color={_iconColor}
+            size={_endIconSize}
+            color={_endIconColor}
           />
         </View>
       </TouchableRipple>

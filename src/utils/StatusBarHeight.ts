@@ -86,7 +86,7 @@ export const isIPhoneWithMonobrow = (): boolean => isIPhoneWithMonobrow_v;
 export const getStatusBarHeight = (skipAndroid?: boolean): number => {
   return Platform.select({
     ios: statusBarHeight,
-    android: skipAndroid ? 0 : StatusBar.currentHeight,
+    android: skipAndroid ? 0 : (StatusBar.currentHeight ?? 0),
     default: 0,
   });
 };

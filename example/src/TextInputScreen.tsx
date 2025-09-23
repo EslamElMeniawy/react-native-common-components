@@ -70,11 +70,12 @@ export default function TextInputScreen() {
     },
   ];
 
-  const _inputStyle = StyleSheet.flatten([
-    styles.width90perc,
-    styles.alignSelfCenter,
-    styles.marginVertical8vs,
-  ]);
+  const _inputStyle =
+    StyleSheet.flatten([
+      styles.width90perc,
+      styles.alignSelfCenter,
+      styles.marginVertical8vs,
+    ]) ?? {};
 
   return (
     <ScrollView>

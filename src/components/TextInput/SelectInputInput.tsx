@@ -23,16 +23,18 @@ const SelectInputInput = React.memo(
         editable={false}
         value={trimStringToLength(value, selectProps?.trimLength)}
         right={right ?? <TextInput.Icon icon="menu-down" onPress={onPress} />}
-        style={StyleSheet.flatten([
-          styles.noVerticalMargin,
-          styles.selectInputInput,
-          omit(style ?? {}, [
-            'marginVertical',
-            'marginTop',
-            'marginBottom',
-            'width',
-          ]),
-        ])}
+        style={
+          StyleSheet.flatten([
+            styles.noVerticalMargin,
+            styles.selectInputInput,
+            omit(style ?? {}, [
+              'marginVertical',
+              'marginTop',
+              'marginBottom',
+              'width',
+            ]),
+          ]) ?? undefined
+        }
         {..._inputProps}
       />
     );
