@@ -15,92 +15,94 @@ import type { PropsWithTheme } from './CompoundButton.types';
 import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 
-const Checkbox = React.memo((props: PropsWithTheme): React.ReactElement => {
-  const {
-    text,
-    checked,
-    onPress,
-    disabled,
-    checkedColor,
-    uncheckedColor,
-    textProps,
-    contentAlign,
-    style,
-    theme,
-    ...other
-  } = props;
+const Checkbox = React.memo<PropsWithTheme>(
+  (props: PropsWithTheme): React.ReactElement => {
+    const {
+      text,
+      checked,
+      onPress,
+      disabled,
+      checkedColor,
+      uncheckedColor,
+      textProps,
+      contentAlign,
+      style,
+      theme,
+      ...other
+    } = props;
 
-  const { style: textStyle, ...rest } = textProps ?? {};
-  const _checkedColor: string = checkedColor ?? theme.colors.primary;
-  const _rippleColor = tinyColor(_checkedColor).setAlpha(0.25).toHex8String();
-  const _flattenStyle = StyleSheet.flatten(style ?? {});
+    const { style: textStyle, ...rest } = textProps ?? {};
+    const _checkedColor: string = checkedColor ?? theme.colors.primary;
+    const _rippleColor = tinyColor(_checkedColor).setAlpha(0.25).toHex8String();
+    const _flattenStyle = StyleSheet.flatten(style ?? {});
 
-  const {
-    padding,
-    paddingHorizontal,
-    paddingVertical,
-    paddingTop,
-    paddingBottom,
-    paddingStart,
-    paddingEnd,
-    paddingRight,
-    paddingLeft,
-  } = _flattenStyle ?? {};
+    const {
+      padding,
+      paddingHorizontal,
+      paddingVertical,
+      paddingTop,
+      paddingBottom,
+      paddingStart,
+      paddingEnd,
+      paddingRight,
+      paddingLeft,
+    } = _flattenStyle ?? {};
 
-  const _borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
+    const _borderRadius = (theme.isV3 ? 5 : 1) * theme.roundness;
 
-  return (
-    <View
-      style={StyleSheet.flatten([
-        styles.container,
-        { borderRadius: _borderRadius },
-        style,
-        styles.noPadding,
-      ])}
-      {...other}
-    >
-      <TouchableRipple
-        onPress={onPress}
-        disabled={disabled}
-        rippleColor={_rippleColor}
-        underlayColor={_rippleColor}
+    return (
+      <View
+        style={StyleSheet.flatten([
+          styles.container,
+          { borderRadius: _borderRadius },
+          style,
+          styles.noPadding,
+        ])}
+        {...other}
       >
-        <View
-          style={StyleSheet.flatten([
-            styles.rippleView,
-            {
-              padding,
-              paddingHorizontal,
-              paddingVertical,
-              paddingTop,
-              paddingBottom,
-              paddingStart,
-              paddingEnd,
-              paddingRight,
-              paddingLeft,
-              alignItems: contentAlign ?? 'center',
-            },
-          ])}
+        <TouchableRipple
+          onPress={onPress}
+          disabled={disabled}
+          rippleColor={_rippleColor}
+          underlayColor={_rippleColor}
         >
-          <PaperCheckbox.Android
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={onPress}
-            color={_checkedColor}
-            uncheckedColor={uncheckedColor}
-            disabled={disabled}
-          />
-          {Boolean(text) && Boolean(text?.length) && (
-            <Text
-              style={StyleSheet.flatten([styles.text, textStyle])}
-              {...rest}
-            >
-              {text}
-            </Text>
-          )}
-        </View>
-      </TouchableRipple>
-    </View>
-  );
-});
+          <View
+            style={StyleSheet.flatten([
+              styles.rippleView,
+              {
+                padding,
+                paddingHorizontal,
+                paddingVertical,
+                paddingTop,
+                paddingBottom,
+                paddingStart,
+                paddingEnd,
+                paddingRight,
+                paddingLeft,
+                alignItems: contentAlign ?? 'center',
+              },
+            ])}
+          >
+            <PaperCheckbox.Android
+              status={checked ? 'checked' : 'unchecked'}
+              onPress={onPress}
+              color={_checkedColor}
+              uncheckedColor={uncheckedColor}
+              disabled={disabled}
+            />
+            {Boolean(text) && Boolean(text?.length) && (
+              <Text
+                style={StyleSheet.flatten([styles.text, textStyle])}
+                {...rest}
+              >
+                {text}
+              </Text>
+            )}
+          </View>
+        </TouchableRipple>
+      </View>
+    );
+  }
+);
 
 export default withTheme(Checkbox);

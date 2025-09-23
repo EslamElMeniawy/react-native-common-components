@@ -12,7 +12,7 @@ import styles from './TextInput.styles';
 import DefaultInput from './DefaultInput';
 import { trimStringToLength } from '../../utils/StringUtils';
 
-const SelectInputInput = React.memo(
+const SelectInputInput = React.memo<SelectInputInputProps>(
   (props: SelectInputInputProps): React.ReactElement => {
     const { value, selectProps, right, onPress, style, ...other } = props;
     const _inputProps = omit(other, ['editable', 'value']);

@@ -12,7 +12,7 @@ import SelectInputInput from './SelectInputInput';
 import SelectInputMenuItem from './SelectInputMenuItem';
 import { getStatusBarHeight } from '../../utils/StatusBarHeight';
 
-const SelectInputMenu = React.memo(
+const SelectInputMenu = React.memo<SelectInputMenuProps>(
   (props: SelectInputMenuProps): React.ReactElement => {
     const {
       theme,

@@ -10,7 +10,7 @@ import styles from './SelectDialog.styles';
 import { FlatList } from '../FlatList';
 import { Checkbox } from '../CompoundButton';
 
-const List = React.memo((props: ListProps): React.ReactElement => {
+const List = React.memo<ListProps>((props: ListProps): React.ReactElement => {
   const { items, theme, onItemPressed, isItemSelected } = props;
 
   const _getListItem = <T extends SelectItem>(item: T): React.ReactElement => (

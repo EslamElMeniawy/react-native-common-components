@@ -8,7 +8,7 @@ import type { SelectInputMenuItemProps } from './TextInput.types';
 import styles from './TextInput.styles';
 import { Checkbox } from '../CompoundButton';
 
-const SelectInputMenuItem = React.memo(
+const SelectInputMenuItem = React.memo<SelectInputMenuItemProps>(
   (props: SelectInputMenuItemProps): React.ReactElement => {
     const { theme, item, onItemPressed, isItemSelected } = props;
 

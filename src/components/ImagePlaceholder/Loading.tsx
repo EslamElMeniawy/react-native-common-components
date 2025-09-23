@@ -9,7 +9,7 @@ import type { LayoutChangeEvent } from 'react-native';
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 
-const Loading = React.memo(
+const Loading = React.memo<ImageLoadingProps>(
   (props: ImageLoadingProps): null | React.ReactElement => {
     try {
       const Progress = require('react-native-progress');

@@ -30,7 +30,7 @@ const getPlaceholder = (props: Props): undefined | string => {
   return placeholder && isRequired ? `${placeholder} *` : placeholder;
 };
 
-const DefaultInput = React.memo((props: Props): React.ReactElement => {
+const DefaultInput = React.memo<Props>((props: Props): React.ReactElement => {
   const {
     dense,
     autoCapitalize,

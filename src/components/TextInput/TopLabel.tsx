@@ -9,7 +9,7 @@ import type { PropsWithTheme } from './TextInput.types';
 import styles from './TextInput.styles';
 import { Text } from '../Text';
 
-const TopLabel = React.memo(
+const TopLabel = React.memo<PropsWithTheme>(
   (props: PropsWithTheme): null | React.ReactElement => {
     const { topLabelProps, theme, isRequired, style: inputStyle } = props;
     const { label, textProps } = topLabelProps ?? {};
