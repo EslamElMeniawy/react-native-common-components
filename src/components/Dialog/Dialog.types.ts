@@ -15,6 +15,6 @@ export interface Props {
   children?: React.ReactNode;
 }
 
-export interface PropsWithTheme extends Props {
+export interface PropsWithTheme extends Partial<Props> {
   theme: MD2Theme | MD3Theme;
 }

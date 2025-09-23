@@ -16,8 +16,8 @@ const SelectInputMenuItem = React.memo(
       <Checkbox
         key={item.key}
         style={styles.selectItem}
-        onPress={() => onItemPressed(item)}
-        checked={isItemSelected(item)}
+        onPress={() => onItemPressed?.(item)}
+        checked={isItemSelected?.(item)}
         checkedColor={theme.colors.primary}
         uncheckedColor={theme.colors.onSurface}
         text={item.dropdownTitle}

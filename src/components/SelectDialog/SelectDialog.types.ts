@@ -19,7 +19,7 @@ export interface Props<T extends SelectItem = SelectItem> {
   closeText?: string;
 }
 
-export interface PropsWithTheme extends Props {
+export interface PropsWithTheme extends Partial<Props> {
   theme: MD2Theme | MD3Theme;
 }
 

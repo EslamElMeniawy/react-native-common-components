@@ -29,11 +29,13 @@ const FlatList = React.memo((props: PropsWithTheme): React.ReactElement => {
     contentContainerStyle,
     refreshControl,
     theme,
+    data,
     ...other
   } = props;
 
   return (
     <NativeFlatList
+      data={data}
       showsHorizontalScrollIndicator={showsHorizontalScrollIndicator ?? false}
       showsVerticalScrollIndicator={showsVerticalScrollIndicator ?? false}
       horizontal={horizontal}

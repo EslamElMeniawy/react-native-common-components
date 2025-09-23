@@ -18,6 +18,6 @@ export interface Props {
   actions?: Action[];
 }
 
-export interface PropsWithTheme extends Props {
+export interface PropsWithTheme extends Partial<Props> {
   theme: MD2Theme | MD3Theme;
 }
