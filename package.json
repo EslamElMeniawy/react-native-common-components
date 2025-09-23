@@ -1,6 +1,6 @@
 {
   "name": "@eslam-elmeniawy/react-native-common-components",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "description": "Common `ReactNative` components packed in library for usage in projects.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
