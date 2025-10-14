@@ -10,7 +10,7 @@ export interface Props {
   position?: 'top' | 'bottom' | 'center';
   onDismiss?: () => void;
   dismissable?: boolean;
-  style?: StyleProp<ViewStyle>;
+  style?: Partial<StyleProp<ViewStyle>>;
   overlayColor?: string;
   children?: React.ReactNode;
 }

@@ -14,6 +14,7 @@ export default function HomeScreen({
     styles.width90perc,
     styles.alignSelfCenter,
     styles.marginVertical8vs,
+    styles.paddingVertical4vs,
   ]);
 
   return (

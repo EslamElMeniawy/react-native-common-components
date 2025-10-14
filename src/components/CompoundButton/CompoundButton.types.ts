@@ -10,7 +10,7 @@ export interface Props extends Partial<ViewProps> {
   disabled?: boolean;
   checkedColor?: string;
   uncheckedColor?: string;
-  textProps?: Omit<TextProps, 'children'>;
+  textProps?: Omit<Partial<TextProps>, 'children'>;
   contentAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
 }
 

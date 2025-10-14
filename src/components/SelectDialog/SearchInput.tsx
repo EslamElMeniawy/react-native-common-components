@@ -3,11 +3,11 @@ import * as React from 'react';
 import { I18nManager } from 'react-native';
 
 // Types imports.
-import type { SearchInputProps } from './SelectDialog.types';
+import type { SearchInputPropsWithTheme } from './SelectDialog.types';
 import DefaultInput from '../TextInput/DefaultInput';
 
-const SearchInput = React.memo<SearchInputProps>(
-  (props: SearchInputProps): React.ReactElement => {
+const SearchInput = React.memo<SearchInputPropsWithTheme>(
+  (props: SearchInputPropsWithTheme): React.ReactElement => {
     const { searchComponent, searchLabel, theme, onChangeText } = props;
 
     if (searchComponent) {

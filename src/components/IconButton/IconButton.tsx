@@ -34,9 +34,7 @@ const IconButton = React.memo<PropsWithTheme>(
 
     const _size: number = ResponsiveDimensions.ms(size ?? 36);
     const _color: string = color ?? theme.colors.primary;
-
     const _enabledStyle = { opacity: disabled ? 0.5 : 1.0 };
-
     const _rippleColor = tinyColor(_color).setAlpha(0.25).toHex8String();
 
     return (
