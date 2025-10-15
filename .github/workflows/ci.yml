@@ -142,7 +142,6 @@ jobs:
       TURBO_CACHE_DIR: .turbo/ios
       RCT_USE_RN_DEP: 1
       RCT_USE_PREBUILT_RNCORE: 1
-      XCODE_FLAGS: "CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY="
 
     steps:
       - name: Checkout
@@ -189,4 +188,9 @@ jobs:
 
       - name: Build example for iOS
         run: |
+          cd example
+          export XCODE_XCCONFIG_FILE=$(mktemp)
+          echo "CODE_SIGN_IDENTITY=" >> $XCODE_XCCONFIG_FILE
+          echo "CODE_SIGNING_REQUIRED=NO" >> $XCODE_XCCONFIG_FILE
+          echo "CODE_SIGNING_ALLOWED=NO" >> $XCODE_XCCONFIG_FILE
           yarn turbo run build:ios --cache-dir="${{ env.TURBO_CACHE_DIR }}"

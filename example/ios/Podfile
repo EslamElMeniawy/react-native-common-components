@@ -29,39 +29,19 @@ target 'ReactNativeCommonComponentsExample' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  # --- START FIX FOR RN FIREBASE CI ERRORS ---
-  # Define the absolute path to React Native headers relative to the Pods directory
-  def react_native_root
-    # This reliably finds the node_modules path from the Podfile's location
-    return File.join(File.dirname(__FILE__), '../../node_modules/react-native')
-  end
-
   post_install do |installer|
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-
-        # FIX 1: Allow Non-Modular Includes (Addresses the core 'non-modular header' failure)
-        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
-
-        # FIX 2: Explicitly set Header Search Paths for Firebase Pods
-        # This addresses the 'declaration of RCTBridgeModule must be imported from module' error
-        # by ensuring the compiler finds React Native headers correctly.
-        if target.name.start_with?('RNFB') || target.name.include?('React-Core')
-          rn_path = react_native_root()
-
-          config.build_settings['HEADER_SEARCH_PATHS'] ||= '$(inherited)'
-
-          # Add the absolute path to the React-Core headers with recursive search
-          config.build_settings['HEADER_SEARCH_PATHS'] = config.build_settings['HEADER_SEARCH_PATHS'].to_s + " \"#{rn_path}/React\" \"#{rn_path}/ReactCommon/yoga\""
-        end
-      end
-    end
-
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # --- Fix Firebase static linking issues ---
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      end
+    end
   end
 end
