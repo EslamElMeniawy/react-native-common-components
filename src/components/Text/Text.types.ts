@@ -3,7 +3,7 @@ import type { MD2Theme, MD3Theme, TextProps } from 'react-native-paper';
 
 export type TextType = 'normal' | 'bold' | 'caption';
 
-export interface Props extends Partial<Omit<TextProps<never>, 'ref'>> {
+export interface Props extends Omit<Partial<TextProps<never>>, 'ref'> {
   size?: number;
   type?: TextType;
 }

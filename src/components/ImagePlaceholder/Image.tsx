@@ -2,18 +2,17 @@
 import * as React from 'react';
 
 // Types imports.
-import type { ImageProps } from './ImagePlaceholder.types';
+import type { ImagePropsWithTheme } from './ImagePlaceholder.types';
 
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 import Placeholder from './Placeholder';
 import Loading from './Loading';
 
-const Image = React.memo<ImageProps>(
-  (props: ImageProps): null | React.ReactElement => {
+const Image = React.memo<ImagePropsWithTheme>(
+  (props: ImagePropsWithTheme): null | React.ReactElement => {
     try {
       const FastImage = require('@d11/react-native-fast-image').default;
-      require('react-native-svg');
 
       const {
         source,
@@ -102,13 +101,13 @@ const Image = React.memo<ImageProps>(
               style={styles.image}
               source={{ uri: source, priority: _priority, cache: _cache }}
               resizeMode={_resizeMode}
-              onLoadStart={() => setLoadingState(true)}
-              onLoadEnd={() => setLoadingState(false)}
-              onError={() => setErrorState(true)}
+              onLoadStart={() => setLoadingState?.(true)}
+              onLoadEnd={() => setLoadingState?.(false)}
+              onError={() => setErrorState?.(true)}
               onProgress={(e: {
                 nativeEvent: { loaded: number; total: number };
               }) =>
-                setProgressState(
+                setProgressState?.(
                   e.nativeEvent.total > 0
                     ? e.nativeEvent.loaded / e.nativeEvent.total
                     : 0
@@ -128,6 +127,7 @@ const Image = React.memo<ImageProps>(
         </>
       );
     } catch (error) {
+      console.warn('Error loading `@d11/react-native-fast-image`:', error);
       return null;
     }
   }

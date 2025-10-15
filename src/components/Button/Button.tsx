@@ -70,9 +70,11 @@ const Button = React.memo<PropsWithTheme>(
           _defaultTextColor);
 
     const _rippleColor = tinyColor(_textColor).setAlpha(0.25).toHex8String();
+
     const _startIconSize: number = ResponsiveDimensions.ms(
       startIconSize ?? iconSize ?? 24
     );
+
     const _endIconSize: number = ResponsiveDimensions.ms(
       endIconSize ?? iconSize ?? 24
     );

@@ -26,8 +26,11 @@ export interface PropsWithTheme extends Partial<Props> {
 export interface SearchInputProps {
   searchLabel?: string;
   searchComponent?: React.ReactElement;
+  onChangeText?: ((text: string) => void) & Function;
+}
+
+export interface SearchInputPropsWithTheme extends Partial<SearchInputProps> {
   theme: MD2Theme | MD3Theme;
-  onChangeText: ((text: string) => void) & Function;
 }
 
 export interface NoDataProps {
