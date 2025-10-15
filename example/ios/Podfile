@@ -30,19 +30,17 @@ target 'ReactNativeCommonComponentsExample' do
   )
 
   post_install do |installer|
-    # This fixes the "include of non-modular header inside framework module" errors
+    # --- START FIX FOR RN FIREBASE CI ERRORS ---
+    # This is the essential fix for the 'non-modular header inside framework module' error.
+    # It allows React Native Firebase pods to find and include the core React Native headers.
     installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        # Apply the fix to all targets that may be causing the issue (Firebase, React-Core, etc.)
-        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
-
-        # For good measure, if you're using React-Native > 0.60
-        # You might also want to explicitly set the path for React headers if the issue persists
-        if target.name.start_with?('React-Core')
-          config.build_settings['HEADER_SEARCH_PATHS'] = '$(inherited) $(SRCROOT)/../../../node_modules/react-native/React'
+      if target.name.start_with?('RNFB')
+        target.build_configurations.each do |config|
+          config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
         end
       end
     end
+    # --- END FIX ---
     
     react_native_post_install(
       installer,
