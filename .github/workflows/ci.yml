@@ -142,6 +142,9 @@ jobs:
       TURBO_CACHE_DIR: .turbo/ios
       RCT_USE_RN_DEP: 1
       RCT_USE_PREBUILT_RNCORE: 1
+      USE_FRAMEWORKS: static
+      CODE_SIGNING_ALLOWED: "NO"
+      CODE_SIGN_IDENTITY: ""
 
     steps:
       - name: Checkout
@@ -183,6 +186,7 @@ jobs:
         run: |
           cd example
           bundle install
+          rm -rf ios/Pods ios/Podfile.lock
           bundle exec pod repo update --verbose
           bundle exec pod install --project-directory=ios
 
