@@ -30,6 +30,20 @@ target 'ReactNativeCommonComponentsExample' do
   )
 
   post_install do |installer|
+    # This fixes the "include of non-modular header inside framework module" errors
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        # Apply the fix to all targets that may be causing the issue (Firebase, React-Core, etc.)
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+
+        # For good measure, if you're using React-Native > 0.60
+        # You might also want to explicitly set the path for React headers if the issue persists
+        if target.name.start_with?('React-Core')
+          config.build_settings['HEADER_SEARCH_PATHS'] = '$(inherited) $(SRCROOT)/../../../node_modules/react-native/React'
+        end
+      end
+    end
+    
     react_native_post_install(
       installer,
       config[:reactNativePath],
