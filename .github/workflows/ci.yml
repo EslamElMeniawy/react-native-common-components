@@ -193,4 +193,5 @@ jobs:
           echo "CODE_SIGN_IDENTITY=" >> $XCODE_XCCONFIG_FILE
           echo "CODE_SIGNING_REQUIRED=NO" >> $XCODE_XCCONFIG_FILE
           echo "CODE_SIGNING_ALLOWED=NO" >> $XCODE_XCCONFIG_FILE
+          cd ..
           yarn turbo run build:ios --cache-dir="${{ env.TURBO_CACHE_DIR }}"
