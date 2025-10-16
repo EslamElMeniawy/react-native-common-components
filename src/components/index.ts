@@ -1,3 +1,4 @@
+export * from './Accordion';
 export * from './AlertDialog';
 export * from './Button';
 export * from './CompoundButton';
