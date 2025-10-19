@@ -19,7 +19,7 @@ export interface Props<T extends SelectItem = SelectItem> {
   closeText?: string;
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 
@@ -29,7 +29,7 @@ export interface SearchInputProps {
   onChangeText?: ((text: string) => void) & Function;
 }
 
-export interface SearchInputPropsWithTheme extends Partial<SearchInputProps> {
+export interface SearchInputPropsWithTheme extends SearchInputProps {
   theme: MD2Theme | MD3Theme;
 }
 

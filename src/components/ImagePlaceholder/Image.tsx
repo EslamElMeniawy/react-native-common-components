@@ -9,7 +9,7 @@ import styles from './ImagePlaceholder.styles';
 import Placeholder from './Placeholder';
 import Loading from './Loading';
 
-const Image = React.memo<ImagePropsWithTheme>(
+const Image = React.memo(
   (props: ImagePropsWithTheme): null | React.ReactElement => {
     try {
       const FastImage = require('@d11/react-native-fast-image').default;

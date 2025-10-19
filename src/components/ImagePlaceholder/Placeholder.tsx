@@ -8,8 +8,8 @@ import type { PlaceholderProps } from './ImagePlaceholder.types';
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 
-const Placeholder = React.memo<Partial<PlaceholderProps>>(
-  (props: Partial<PlaceholderProps>): null | React.ReactElement => {
+const Placeholder = React.memo(
+  (props: PlaceholderProps): null | React.ReactElement => {
     const {
       source,
       placeholder,

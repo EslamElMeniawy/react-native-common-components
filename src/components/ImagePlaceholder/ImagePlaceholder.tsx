@@ -4,14 +4,14 @@ import { StyleSheet, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme } from './ImagePlaceholder.types';
+import type { PropsWithTheme, Props } from './ImagePlaceholder.types';
 
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 import Image from './Image';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
-const ImagePlaceholder = React.memo<PropsWithTheme>(
+const ImagePlaceholder = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {
       size,
@@ -70,4 +70,4 @@ const ImagePlaceholder = React.memo<PropsWithTheme>(
   }
 );
 
-export default withTheme(ImagePlaceholder);
+export default withTheme(ImagePlaceholder) as React.ComponentType<Props>;

@@ -4,12 +4,12 @@ import { RefreshControl } from 'react-native';
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme } from './ScrollView.types';
+import type { PropsWithTheme, Props } from './ScrollView.types';
 
 // Internal imports.
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
-const ScrollView = React.memo<PropsWithTheme>(
+const ScrollView = React.memo(
   (props: PropsWithTheme): React.ReactElement | null => {
     try {
       const KeyboardAwareScrollView =
@@ -58,4 +58,4 @@ const ScrollView = React.memo<PropsWithTheme>(
   }
 );
 
-export default withTheme(ScrollView);
+export default withTheme(ScrollView) as React.ComponentType<Props>;

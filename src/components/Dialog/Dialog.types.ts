@@ -10,11 +10,11 @@ export interface Props {
   position?: 'top' | 'bottom' | 'center';
   onDismiss?: () => void;
   dismissable?: boolean;
-  style?: Partial<StyleProp<ViewStyle>>;
+  style?: StyleProp<ViewStyle>;
   overlayColor?: string;
   children?: React.ReactNode;
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
