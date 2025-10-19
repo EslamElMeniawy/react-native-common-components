@@ -12,7 +12,7 @@ import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 const Icon = React.memo<IconProps>(
   (props: IconProps): null | React.ReactElement => {
     const { image, vector, iconName, size, color } = props;
-    const _iconSize: number = ResponsiveDimensions.ms(size);
+    const _iconSize: number = size ?? ResponsiveDimensions.ms(24);
 
     const _iconStyle = StyleSheet.flatten([
       styles.icon,
@@ -35,7 +35,7 @@ const Icon = React.memo<IconProps>(
           />
         );
       } catch (error) {
-        console.error('Error loading `react-native-vector-image`:', error);
+        console.warn('Error loading `react-native-vector-image`:', error);
         return null;
       }
     }
@@ -49,7 +49,7 @@ const Icon = React.memo<IconProps>(
           <MaterialDesignIcons name={iconName} color={color} size={_iconSize} />
         );
       } catch (error) {
-        console.error(
+        console.warn(
           'Error loading `@react-native-vector-icons/material-design-icons`:',
           error
         );

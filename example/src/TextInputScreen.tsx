@@ -78,7 +78,7 @@ export default function TextInputScreen() {
     ]) ?? {};
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <TextInput
         style={_inputStyle}
         value={normalValue}

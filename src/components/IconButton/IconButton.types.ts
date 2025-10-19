@@ -25,7 +25,7 @@ export interface IconProps {
   image?: number;
   vector?: number;
   iconName?: string;
-  size: number;
+  size?: number;
   color?: string;
   iconPercent?: number;
   noIconTint?: boolean;

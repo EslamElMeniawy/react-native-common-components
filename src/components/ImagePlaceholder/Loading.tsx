@@ -3,14 +3,14 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 // Types imports.
-import type { ImageLoadingProps } from './ImagePlaceholder.types';
+import type { ImageLoadingPropsWithTheme } from './ImagePlaceholder.types';
 import type { LayoutChangeEvent } from 'react-native';
 
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
 
-const Loading = React.memo<ImageLoadingProps>(
-  (props: ImageLoadingProps): null | React.ReactElement => {
+const Loading = React.memo<ImageLoadingPropsWithTheme>(
+  (props: ImageLoadingPropsWithTheme): null | React.ReactElement => {
     try {
       const Progress = require('react-native-progress');
       require('react-native-svg');
@@ -37,7 +37,7 @@ const Loading = React.memo<ImageLoadingProps>(
             },
           ])}
           onLayout={(event: LayoutChangeEvent) =>
-            setProgressSizeState(
+            setProgressSizeState?.(
               (event.nativeEvent.layout.width > event.nativeEvent.layout.height
                 ? event.nativeEvent.layout.height
                 : event.nativeEvent.layout.width) / 2
@@ -57,6 +57,7 @@ const Loading = React.memo<ImageLoadingProps>(
         </View>
       );
     } catch (error) {
+      console.warn('Error loading `react-native-progress`:', error);
       return null;
     }
   }

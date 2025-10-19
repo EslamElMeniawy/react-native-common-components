@@ -18,7 +18,7 @@ export default function ImagePlaceholderScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <Text style={_textStyle}>Invalid Url</Text>
       <ImagePlaceholder
         style={_imageStyle}

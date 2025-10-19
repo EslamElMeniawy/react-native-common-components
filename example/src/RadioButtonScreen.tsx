@@ -18,7 +18,7 @@ export default function RadioButtonScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <RadioButton style={_radioButtonStyle} text="Unchecked" />
       <RadioButton style={_radioButtonStyle} text="Checked" checked />
       <RadioButton style={_radioButtonStyle} text="Disabled" disabled />

@@ -24,7 +24,7 @@ export interface Props extends Partial<ViewProps> {
   disabled?: boolean;
   iconSize?: number;
   noIconTint?: boolean;
-  textProps?: Omit<TextProps, 'children'>;
+  textProps?: Omit<Partial<TextProps>, 'children'>;
 }
 
 export interface PropsWithTheme extends Partial<Props> {

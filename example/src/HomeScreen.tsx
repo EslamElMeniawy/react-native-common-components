@@ -14,10 +14,16 @@ export default function HomeScreen({
     styles.width90perc,
     styles.alignSelfCenter,
     styles.marginVertical8vs,
+    styles.paddingVertical4vs,
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
+      <Button
+        style={_buttonStyle}
+        onPress={() => _openScreen('Accordion')}
+        text="Accordion"
+      />
       <Button
         style={_buttonStyle}
         onPress={() => _openScreen('AlertDialog')}

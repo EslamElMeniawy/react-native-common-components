@@ -25,7 +25,7 @@ export default function ButtonScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <Button style={_buttonStyle} onPress={_onPress} text="Simple Button" />
       <Button
         style={_buttonStyle}

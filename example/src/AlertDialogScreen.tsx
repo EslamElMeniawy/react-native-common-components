@@ -43,7 +43,7 @@ export default function AlertDialogScreen() {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
         <Button
           style={_buttonStyle}
           onPress={_showSingleActionAlertDialog}

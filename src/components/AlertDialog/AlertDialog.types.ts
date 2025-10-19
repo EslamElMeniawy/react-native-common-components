@@ -6,16 +6,16 @@ import type { ButtonProps } from '../Button';
 
 export interface Action {
   action?: string;
-  actionProps?: Omit<ButtonProps, 'text'>;
+  actionProps?: Omit<Partial<ButtonProps>, 'text'>;
 }
 
 export interface Props {
-  dialogProps?: DialogProps;
+  dialogProps?: Partial<DialogProps>;
   title?: string;
-  titleProps?: Omit<TextProps, 'children'>;
+  titleProps?: Omit<Partial<TextProps>, 'children'>;
   message?: string;
-  messageProps?: Omit<TextProps, 'children'>;
-  actions?: Action[];
+  messageProps?: Omit<Partial<TextProps>, 'children'>;
+  actions?: Partial<Action>[];
 }
 
 export interface PropsWithTheme extends Partial<Props> {

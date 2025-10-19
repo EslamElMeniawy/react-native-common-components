@@ -1,18 +1,25 @@
-import 'react-native-gesture-handler';
 import * as React from 'react';
-import { enableScreens } from 'react-native-screens';
-import { Provider, DefaultTheme } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useColorScheme } from 'react-native';
 import {
   configureLog,
   ResponsiveDimensions,
 } from '@eslam-elmeniawy/react-native-common-components';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
+import {
+  PaperProvider,
+  MD3LightTheme,
+  MD3DarkTheme,
+  adaptNavigationTheme,
+} from 'react-native-paper';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
+import {
+  NavigationContainer,
+  DefaultTheme as NavigationLightTheme,
+  DarkTheme as NavigationDarkTheme,
+} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './HomeScreen';
+import AccordionScreen from './AccordionScreen';
 import AlertDialogScreen from './AlertDialogScreen';
 import ButtonScreen from './ButtonScreen';
 import CheckboxScreen from './CheckboxScreen';
@@ -27,9 +34,12 @@ import TextInputScreen from './TextInputScreen';
 import TextScreen from './TextScreen';
 import UtilsScreen from './UtilsScreen';
 
-enableScreens();
-
 const Stack = createNativeStackNavigator();
+
+const { LightTheme, DarkTheme } = adaptNavigationTheme({
+  reactNavigationLight: NavigationLightTheme,
+  reactNavigationDark: NavigationDarkTheme,
+});
 
 export default function App() {
   React.useEffect(() => {
@@ -42,40 +52,37 @@ export default function App() {
     ResponsiveDimensions.setBaseDimensions({ width: 375, height: 812 });
   }, []);
 
+  const isDarkMode = useColorScheme() === 'dark';
+
   return (
-    <GestureHandlerRootView>
-      <Provider theme={DefaultTheme}>
-        <KeyboardProvider>
-          <StatusBar style="auto" />
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Home" component={HomeScreen} />
-              <Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
-              <Stack.Screen name="Button" component={ButtonScreen} />
-              <Stack.Screen name="Checkbox" component={CheckboxScreen} />
-              <Stack.Screen name="Dialog" component={DialogScreen} />
-              <Stack.Screen name="FlatList" component={FlatListScreen} />
-              <Stack.Screen name="IconButton" component={IconButtonScreen} />
-              <Stack.Screen
-                name="ImagePlaceholder"
-                component={ImagePlaceholderScreen}
-              />
-              <Stack.Screen
-                name="LoadingDialog"
-                component={LoadingDialogScreen}
-              />
-              <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
-              <Stack.Screen
-                name="SelectDialog"
-                component={SelectDialogScreen}
-              />
-              <Stack.Screen name="TextInput" component={TextInputScreen} />
-              <Stack.Screen name="Text" component={TextScreen} />
-              <Stack.Screen name="Utils" component={UtilsScreen} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </KeyboardProvider>
-      </Provider>
-    </GestureHandlerRootView>
+    <KeyboardProvider>
+      <PaperProvider theme={isDarkMode ? MD3DarkTheme : MD3LightTheme}>
+        <NavigationContainer theme={isDarkMode ? DarkTheme : LightTheme}>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Accordion" component={AccordionScreen} />
+            <Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
+            <Stack.Screen name="Button" component={ButtonScreen} />
+            <Stack.Screen name="Checkbox" component={CheckboxScreen} />
+            <Stack.Screen name="Dialog" component={DialogScreen} />
+            <Stack.Screen name="FlatList" component={FlatListScreen} />
+            <Stack.Screen name="IconButton" component={IconButtonScreen} />
+            <Stack.Screen
+              name="ImagePlaceholder"
+              component={ImagePlaceholderScreen}
+            />
+            <Stack.Screen
+              name="LoadingDialog"
+              component={LoadingDialogScreen}
+            />
+            <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
+            <Stack.Screen name="SelectDialog" component={SelectDialogScreen} />
+            <Stack.Screen name="TextInput" component={TextInputScreen} />
+            <Stack.Screen name="Text" component={TextScreen} />
+            <Stack.Screen name="Utils" component={UtilsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </KeyboardProvider>
   );
 }

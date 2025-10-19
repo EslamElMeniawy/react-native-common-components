@@ -76,6 +76,7 @@ Each component has its own usage part in the [documentation](docs).
 
 ## Components
 
+- [Accordion](docs/Accordion.md)
 - [AlertDialog](docs/AlertDialog.md)
 - [Button](docs/Button.md)
 - [Checkbox](docs/Checkbox.md)

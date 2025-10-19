@@ -30,7 +30,7 @@ export default function LoadingDialogScreen() {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
         <Button
           style={_buttonStyle}
           onPress={_showDialog}

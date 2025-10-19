@@ -7,14 +7,17 @@ import type { IconProps } from './IconButton.types';
 
 // Internal imports.
 import styles from './IconButton.styles';
+import { ResponsiveDimensions } from '../../utils';
 
-const Icon = React.memo<IconProps>(
-  (props: IconProps): null | React.ReactElement => {
+const Icon = React.memo<Partial<IconProps>>(
+  (props: Partial<IconProps>): null | React.ReactElement => {
     const { image, vector, iconName, size, color, iconPercent, noIconTint } =
       props;
 
     const _iconPercent: number = iconPercent ?? 60;
-    const _iconSize: number = (size * _iconPercent) / 100;
+
+    const _iconSize: number =
+      ((size ?? ResponsiveDimensions.ms(size ?? 36)) * _iconPercent) / 100;
 
     const _iconStyle = StyleSheet.flatten([
       styles.icon,

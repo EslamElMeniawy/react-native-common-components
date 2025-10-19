@@ -118,10 +118,8 @@ nitrogen/
 # Google Services (e.g. APIs or Firebase)
 google-services.json
 GoogleService-Info.plist
-
-# Example native folders.
-example/android
-example/ios
+**/google-services.json
+**/GoogleService-Info.plist
 
 # Qodo Gen (Codium VS Code)
 .qodo/

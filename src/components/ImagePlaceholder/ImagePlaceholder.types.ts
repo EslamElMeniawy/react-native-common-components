@@ -22,7 +22,7 @@ export interface Props extends Partial<ViewProps> {
   resizeMode?: ResizeModeType;
   priority?: PriorityType;
   cache?: CacheType;
-  loadingProps?: LoadingProps;
+  loadingProps?: Partial<LoadingProps>;
 }
 
 export interface PropsWithTheme extends Partial<Props> {
@@ -43,18 +43,24 @@ export interface PlaceholderProps {
 export interface ImageProps extends Partial<PlaceholderProps> {
   priority?: PriorityType;
   cache?: CacheType;
-  loadingProps?: LoadingProps;
+  loadingProps?: Partial<LoadingProps>;
+  setLoadingState?: React.Dispatch<React.SetStateAction<boolean>>;
+  setErrorState?: React.Dispatch<React.SetStateAction<boolean>>;
+  setProgressState?: React.Dispatch<React.SetStateAction<number>>;
+  setProgressSizeState?: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface ImagePropsWithTheme extends Partial<ImageProps> {
   theme: MD2Theme | MD3Theme;
-  setLoadingState: React.Dispatch<React.SetStateAction<boolean>>;
-  setErrorState: React.Dispatch<React.SetStateAction<boolean>>;
-  setProgressState: React.Dispatch<React.SetStateAction<number>>;
-  setProgressSizeState: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ImageLoadingProps {
-  loadingProps?: LoadingProps;
-  theme: MD2Theme | MD3Theme;
-  setProgressSizeState: React.Dispatch<React.SetStateAction<number>>;
+  loadingProps?: Partial<LoadingProps>;
+  setProgressSizeState?: React.Dispatch<React.SetStateAction<number>>;
   progress?: number;
   progressSize?: number;
+}
+
+export interface ImageLoadingPropsWithTheme extends Partial<ImageLoadingProps> {
+  theme: MD2Theme | MD3Theme;
 }

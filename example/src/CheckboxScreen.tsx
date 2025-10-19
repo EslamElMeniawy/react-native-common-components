@@ -17,7 +17,7 @@ export default function CheckboxScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <Checkbox style={_checkboxStyle} text="Unchecked" />
       <Checkbox style={_checkboxStyle} text="Checked" checked />
       <Checkbox style={_checkboxStyle} text="Disabled" disabled />

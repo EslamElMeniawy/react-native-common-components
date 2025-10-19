@@ -1,1 +1,1 @@
-export type BaseDimensions = { width?: number; height?: number };
+export type BaseDimensions = Partial<{ width?: number; height?: number }>;
