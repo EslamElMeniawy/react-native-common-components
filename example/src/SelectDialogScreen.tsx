@@ -91,7 +91,7 @@ export default function SelectDialogScreen() {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
         <Button
           style={_buttonStyle}
           onPress={_showSingleSelectDialog}

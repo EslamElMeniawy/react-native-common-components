@@ -19,6 +19,7 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './HomeScreen';
+import AccordionScreen from './AccordionScreen';
 import AlertDialogScreen from './AlertDialogScreen';
 import ButtonScreen from './ButtonScreen';
 import CheckboxScreen from './CheckboxScreen';
@@ -59,6 +60,7 @@ export default function App() {
         <NavigationContainer theme={isDarkMode ? DarkTheme : LightTheme}>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Accordion" component={AccordionScreen} />
             <Stack.Screen name="AlertDialog" component={AlertDialogScreen} />
             <Stack.Screen name="Button" component={ButtonScreen} />
             <Stack.Screen name="Checkbox" component={CheckboxScreen} />

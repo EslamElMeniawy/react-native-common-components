@@ -35,7 +35,7 @@ export default function DialogScreen() {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
         <Button
           style={_buttonStyle}
           onPress={_showSimpleDialog}

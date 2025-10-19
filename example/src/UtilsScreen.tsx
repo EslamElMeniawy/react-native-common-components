@@ -40,7 +40,7 @@ export default function UtilsScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <Text style={_textStyle}>
         <Text type="bold" size={13}>
           isIPhoneX:

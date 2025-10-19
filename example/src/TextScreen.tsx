@@ -14,7 +14,7 @@ export default function TextScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <Text style={_textStyle}>Normal Text</Text>
       <Text style={_textStyle} type="bold">
         Bold Text

@@ -22,7 +22,7 @@ export default function IconButtonScreen() {
   ]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.paddingVertical4vs}>
       <Text style={_textStyle}>Image</Text>
       <IconButton
         style={_iconStyle}
