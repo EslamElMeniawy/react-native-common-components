@@ -1,7 +1,7 @@
 // External imports.
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { withTheme } from 'react-native-paper';
+import { withTheme, TouchableRipple } from 'react-native-paper';
 
 // Types imports.
 import type { PropsWithTheme } from './Accordion.types';
@@ -104,14 +104,9 @@ const SafeAccordion = React.memo<PropsWithTheme>(
         ])}
       >
         <View style={styles.headerRow}>
-          <View
-            style={StyleSheet.flatten([
-              styles.headerContainer,
-              headerContainerStyle,
-            ])}
-          >
-            {headerContent}
-          </View>
+          <TouchableRipple style={styles.headerRipple} onPress={onTogglePress}>
+            <View style={headerContainerStyle}>{headerContent}</View>
+          </TouchableRipple>
           <Animated.View style={animatedArrowStyle}>
             <IconButton
               iconName={iconName ?? 'chevron-down'}
