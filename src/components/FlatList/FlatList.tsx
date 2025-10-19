@@ -8,68 +8,66 @@ import {
 import { withTheme } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme } from './FlatList.types';
+import type { PropsWithTheme, Props } from './FlatList.types';
 
 // Internal imports.
 import styles from './FlatList.styles';
 
-const FlatList = React.memo<PropsWithTheme>(
-  (props: PropsWithTheme): React.ReactElement => {
-    const {
-      refreshing,
-      onRefresh,
-      refreshColor,
-      showsHorizontalScrollIndicator,
-      showsVerticalScrollIndicator,
-      horizontal,
-      keyboardShouldPersistTaps,
-      keyboardDismissMode,
-      keyExtractor,
-      onEndReachedThreshold,
-      style,
-      contentContainerStyle,
-      refreshControl,
-      theme,
-      data,
-      renderItem,
-      ...other
-    } = props;
+const FlatList = React.memo((props: PropsWithTheme): React.ReactElement => {
+  const {
+    refreshing,
+    onRefresh,
+    refreshColor,
+    showsHorizontalScrollIndicator,
+    showsVerticalScrollIndicator,
+    horizontal,
+    keyboardShouldPersistTaps,
+    keyboardDismissMode,
+    keyExtractor,
+    onEndReachedThreshold,
+    style,
+    contentContainerStyle,
+    refreshControl,
+    theme,
+    data,
+    renderItem,
+    ...other
+  } = props;
 
-    return (
-      <NativeFlatList
-        data={data}
-        renderItem={renderItem}
-        showsHorizontalScrollIndicator={showsHorizontalScrollIndicator ?? false}
-        showsVerticalScrollIndicator={showsVerticalScrollIndicator ?? false}
-        horizontal={horizontal}
-        keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? 'handled'}
-        keyboardDismissMode={keyboardDismissMode ?? 'none'}
-        keyExtractor={keyExtractor ?? ((item) => item.key)}
-        onEndReachedThreshold={onEndReachedThreshold ?? 0.01}
-        style={StyleSheet.compose(styles.list, style)}
-        contentContainerStyle={
-          horizontal
-            ? StyleSheet.compose(
-                styles.horizontalContainerStyle,
-                contentContainerStyle
-              )
-            : contentContainerStyle
-        }
-        refreshing={refreshing}
-        refreshControl={
-          (refreshControl ?? onRefresh) ? (
-            <RefreshControl
-              colors={refreshColor ? [refreshColor] : [theme.colors.primary]}
-              tintColor={refreshColor ?? theme.colors.primary}
-              refreshing={refreshing ?? false}
-              onRefresh={onRefresh ?? undefined}
-            />
-          ) : undefined
-        }
-        {...other}
-      />
-    );
-  }
-);
+  return (
+    <NativeFlatList
+      data={data}
+      renderItem={renderItem}
+      showsHorizontalScrollIndicator={showsHorizontalScrollIndicator ?? false}
+      showsVerticalScrollIndicator={showsVerticalScrollIndicator ?? false}
+      horizontal={horizontal}
+      keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? 'handled'}
+      keyboardDismissMode={keyboardDismissMode ?? 'none'}
+      keyExtractor={keyExtractor ?? ((item) => item.key)}
+      onEndReachedThreshold={onEndReachedThreshold ?? 0.01}
+      style={StyleSheet.compose(styles.list, style)}
+      contentContainerStyle={
+        horizontal
+          ? StyleSheet.compose(
+              styles.horizontalContainerStyle,
+              contentContainerStyle
+            )
+          : contentContainerStyle
+      }
+      refreshing={refreshing}
+      refreshControl={
+        (refreshControl ?? onRefresh) ? (
+          <RefreshControl
+            colors={refreshColor ? [refreshColor] : [theme.colors.primary]}
+            tintColor={refreshColor ?? theme.colors.primary}
+            refreshing={refreshing ?? false}
+            onRefresh={onRefresh ?? undefined}
+          />
+        ) : undefined
+      }
+      {...other}
+    />
+  );
+});
 
-export default withTheme(FlatList);
+export default withTheme(FlatList) as React.ComponentType<Props>;

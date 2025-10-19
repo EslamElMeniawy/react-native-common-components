@@ -15,7 +15,7 @@ A collapsible container that shows/hides content with a smooth animated height a
 - `headerContainerStyle?: StyleProp<ViewStyle>` — style for the header (touchable) container.
 - `headerContent?: React.ReactNode` — node rendered inside the header area (left side).
 - `children?: React.ReactNode` — content to show/hide inside the accordion.
-- `iconButtonProps?: Partial<IconButtonProps>` — props forwarded to the right-side `IconButton`. Common fields:
+- `iconButtonProps?: IconButtonProps` — props forwarded to the right-side `IconButton`. Common fields:
   - `iconName?: string` — name of the icon (default: `chevron-down`).
   - `color?: string` — override icon color.
   - `onPress?: () => void` — called when icon is pressed (also toggles the accordion).

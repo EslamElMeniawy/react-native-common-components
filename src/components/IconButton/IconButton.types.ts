@@ -2,7 +2,7 @@
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
 import type { ViewProps } from 'react-native';
 
-export interface Props extends Partial<ViewProps> {
+export interface Props extends ViewProps {
   image?: number;
   vector?: number;
   iconName?: string;
@@ -17,7 +17,7 @@ export interface Props extends Partial<ViewProps> {
   noIconTint?: boolean;
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 

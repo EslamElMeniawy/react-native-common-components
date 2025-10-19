@@ -4,10 +4,10 @@ import type { KeyboardAwareScrollViewProps } from 'react-native-keyboard-control
 // Types imports.
 import type { MD2Theme, MD3Theme } from 'react-native-paper';
 
-export type Props = Partial<KeyboardAwareScrollViewProps> & {
+export type Props = KeyboardAwareScrollViewProps & {
   refreshing?: boolean;
   onRefresh?: () => void;
   refreshColor?: string;
 };
 
-export type PropsWithTheme = Partial<Props> & { theme: MD2Theme | MD3Theme };
+export type PropsWithTheme = Props & { theme: MD2Theme | MD3Theme };

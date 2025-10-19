@@ -8,11 +8,11 @@ import type { DialogProps } from '../Dialog';
 
 export interface Props {
   visible?: boolean;
-  dialogProps?: Omit<Partial<DialogProps>, 'visible'>;
+  dialogProps?: Omit<DialogProps, 'visible'>;
   loader?: React.ReactNode;
-  activityIndicatorProps?: Omit<Partial<ActivityIndicatorProps>, 'animating'>;
+  activityIndicatorProps?: Omit<ActivityIndicatorProps, 'animating'>;
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }

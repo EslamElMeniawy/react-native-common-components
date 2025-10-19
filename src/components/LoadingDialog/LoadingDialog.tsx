@@ -4,13 +4,13 @@ import { StyleSheet } from 'react-native';
 import { withTheme, ActivityIndicator } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme } from './LoadingDialog.types';
+import type { PropsWithTheme, Props } from './LoadingDialog.types';
 
 // Internal imports.
 import styles from './LoadingDialog.styles';
 import { Dialog } from '../Dialog';
 
-const LoadingDialog = React.memo<PropsWithTheme>(
+const LoadingDialog = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const { visible, theme, dialogProps, loader, activityIndicatorProps } =
       props;
@@ -44,4 +44,4 @@ const LoadingDialog = React.memo<PropsWithTheme>(
   }
 );
 
-export default withTheme(LoadingDialog);
+export default withTheme(LoadingDialog) as React.ComponentType<Props>;

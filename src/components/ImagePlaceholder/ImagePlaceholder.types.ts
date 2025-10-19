@@ -14,7 +14,7 @@ export interface LoadingProps {
   backgroundColor?: string;
 }
 
-export interface Props extends Partial<ViewProps> {
+export interface Props extends ViewProps {
   size?: number;
   source?: string;
   placeholder?: number;
@@ -22,10 +22,10 @@ export interface Props extends Partial<ViewProps> {
   resizeMode?: ResizeModeType;
   priority?: PriorityType;
   cache?: CacheType;
-  loadingProps?: Partial<LoadingProps>;
+  loadingProps?: LoadingProps;
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 
@@ -40,27 +40,27 @@ export interface PlaceholderProps {
   progressSize?: number;
 }
 
-export interface ImageProps extends Partial<PlaceholderProps> {
+export interface ImageProps extends PlaceholderProps {
   priority?: PriorityType;
   cache?: CacheType;
-  loadingProps?: Partial<LoadingProps>;
+  loadingProps?: LoadingProps;
   setLoadingState?: React.Dispatch<React.SetStateAction<boolean>>;
   setErrorState?: React.Dispatch<React.SetStateAction<boolean>>;
   setProgressState?: React.Dispatch<React.SetStateAction<number>>;
   setProgressSizeState?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export interface ImagePropsWithTheme extends Partial<ImageProps> {
+export interface ImagePropsWithTheme extends ImageProps {
   theme: MD2Theme | MD3Theme;
 }
 
 export interface ImageLoadingProps {
-  loadingProps?: Partial<LoadingProps>;
+  loadingProps?: LoadingProps;
   setProgressSizeState?: React.Dispatch<React.SetStateAction<number>>;
   progress?: number;
   progressSize?: number;
 }
 
-export interface ImageLoadingPropsWithTheme extends Partial<ImageLoadingProps> {
+export interface ImageLoadingPropsWithTheme extends ImageLoadingProps {
   theme: MD2Theme | MD3Theme;
 }

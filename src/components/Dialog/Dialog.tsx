@@ -5,13 +5,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { withTheme, Portal } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme } from './Dialog.types';
+import type { PropsWithTheme, Props } from './Dialog.types';
 import type { Edge } from 'react-native-safe-area-context';
 
 // Internal imports.
 import styles from './Dialog.styles';
 
-const Dialog = React.memo<PropsWithTheme>(
+const Dialog = React.memo(
   (props: PropsWithTheme): null | React.ReactElement => {
     const {
       visible,
@@ -122,4 +122,4 @@ const Dialog = React.memo<PropsWithTheme>(
   }
 );
 
-export default withTheme(Dialog);
+export default withTheme(Dialog) as React.ComponentType<Props>;
