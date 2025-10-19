@@ -9,7 +9,7 @@ import type { PropsWithTheme } from './TextInput.types';
 import DefaultInput from './DefaultInput';
 import SelectInput from './SelectInput';
 
-const TextInputInput = React.memo<PropsWithTheme>(
+const TextInputInput = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const { selectProps, ...other } = props;
 

@@ -18,44 +18,44 @@ export interface SelectProps<T extends SelectItem = SelectItem> {
 
 export interface ErrorProps {
   errorMessage?: string;
-  textProps?: Omit<Partial<TextProps>, 'children'>;
+  textProps?: Omit<TextProps, 'children'>;
 }
 
 export interface TopLabelProps {
   label?: string;
-  textProps?: Omit<Partial<TextProps>, 'children'>;
+  textProps?: Omit<TextProps, 'children'>;
 }
 
-export interface Props extends Omit<Partial<TextInputProps>, 'theme'> {
+export interface Props extends Omit<TextInputProps, 'theme'> {
   style?: TextInputProps['style'] & { [key: string]: any };
   isRequired?: boolean;
-  topLabelProps?: Partial<TopLabelProps>;
-  errorProps?: Partial<ErrorProps>;
-  selectProps?: Partial<SelectProps>;
+  topLabelProps?: TopLabelProps;
+  errorProps?: ErrorProps;
+  selectProps?: SelectProps;
   ref?: any;
   positiveNumbersOnly?: boolean;
   hasPasswordToggle?: boolean;
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
 
-export interface SelectInputInputProps extends Partial<Props> {
+export interface SelectInputInputProps extends Props {
   value: string;
   onPress?: (e: GestureResponderEvent) => void;
 }
 
 export interface SelectInputMenuProps
   extends PropsWithTheme,
-    Omit<Partial<SelectInputMenuItemProps>, 'item' | 'theme'> {
+    Omit<SelectInputMenuItemProps, 'item' | 'theme'> {
   value: string;
   isSelectVisible: boolean;
   dismissSelect: () => void;
   marginVertical?: DimensionValue;
   marginTop?: DimensionValue;
   marginBottom?: DimensionValue;
-  widthHorizontalMarginStyle: Partial<WidthHorizontalMarginStyleType>;
+  widthHorizontalMarginStyle: WidthHorizontalMarginStyleType;
   onPress?: (e: GestureResponderEvent) => void;
 }
 

@@ -6,7 +6,7 @@ import { I18nManager } from 'react-native';
 import type { SearchInputPropsWithTheme } from './SelectDialog.types';
 import DefaultInput from '../TextInput/DefaultInput';
 
-const SearchInput = React.memo<SearchInputPropsWithTheme>(
+const SearchInput = React.memo(
   (props: SearchInputPropsWithTheme): React.ReactElement => {
     const { searchComponent, searchLabel, theme, onChangeText } = props;
 

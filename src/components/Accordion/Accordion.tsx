@@ -4,14 +4,14 @@ import { StyleSheet, View } from 'react-native';
 import { withTheme, TouchableRipple } from 'react-native-paper';
 
 // Types imports.
-import type { PropsWithTheme } from './Accordion.types';
+import type { PropsWithTheme, Props } from './Accordion.types';
 import type { LayoutChangeEvent } from 'react-native';
 
 // Internal imports.
 import styles from './Accordion.styles';
 import { IconButton } from '../IconButton';
 
-const SafeAccordion = React.memo<PropsWithTheme>(
+const SafeAccordion = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {
       containerStyle,
@@ -130,7 +130,7 @@ const SafeAccordion = React.memo<PropsWithTheme>(
   }
 );
 
-const Accordion = React.memo<PropsWithTheme>(
+const Accordion = React.memo(
   (props: PropsWithTheme): React.ReactElement | null => {
     try {
       require('react-native-reanimated');
@@ -142,4 +142,4 @@ const Accordion = React.memo<PropsWithTheme>(
   }
 );
 
-export default withTheme(Accordion);
+export default withTheme(Accordion) as React.ComponentType<Props>;

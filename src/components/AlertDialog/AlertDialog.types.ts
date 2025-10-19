@@ -6,18 +6,18 @@ import type { ButtonProps } from '../Button';
 
 export interface Action {
   action?: string;
-  actionProps?: Omit<Partial<ButtonProps>, 'text'>;
+  actionProps?: Omit<ButtonProps, 'text'>;
 }
 
 export interface Props {
-  dialogProps?: Partial<DialogProps>;
+  dialogProps?: DialogProps;
   title?: string;
-  titleProps?: Omit<Partial<TextProps>, 'children'>;
+  titleProps?: Omit<TextProps, 'children'>;
   message?: string;
-  messageProps?: Omit<Partial<TextProps>, 'children'>;
-  actions?: Partial<Action>[];
+  messageProps?: Omit<TextProps, 'children'>;
+  actions?: Action[];
 }
 
-export interface PropsWithTheme extends Partial<Props> {
+export interface PropsWithTheme extends Props {
   theme: MD2Theme | MD3Theme;
 }
