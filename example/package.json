@@ -9,7 +9,7 @@
     "pods": "cd ios && bundle exec pod install --repo-update && cd ..",
     "start": "react-native start",
     "build:android": "react-native build-android --extra-params \"--no-daemon --console=plain -PreactNativeArchitectures=arm64-v8a\"",
-    "build:ios": "react-native build-ios --mode Debug"
+    "build:ios": "CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO react-native build-ios --mode Debug"
   },
   "dependencies": {
     "@d11/react-native-fast-image": "^8.12.0",
