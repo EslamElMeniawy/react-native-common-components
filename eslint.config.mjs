@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 
 export default defineConfig([
   {
-    ignores: ['node_modules/', 'lib/'],
+    ignores: ['node_modules/', 'lib/', 'coverage/'],
   },
   {
     extends: fixupConfigRules(compat.extends('@react-native', 'prettier')),
