@@ -90,6 +90,7 @@
     "@release-it/conventional-changelog": "^10.0.4",
     "@rnx-kit/align-deps": "^3.3.4",
     "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^13.3.3",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.21",
@@ -176,6 +177,9 @@
     "preset": "react-native",
     "setupFiles": [
       "<rootDir>/jest.setup.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.afterEnv.js"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",

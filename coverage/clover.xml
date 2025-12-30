@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1767102728629" clover="3.2.0">
-  <project timestamp="1767102728629" name="All files">
-    <metrics statements="661" coveredstatements="115" conditionals="595" coveredconditionals="28" methods="105" coveredmethods="8" elements="1361" coveredelements="151" complexity="0" loc="661" ncloc="661" packages="18" files="66" classes="66"/>
+<coverage generated="1767104328945" clover="3.2.0">
+  <project timestamp="1767104328945" name="All files">
+    <metrics statements="675" coveredstatements="115" conditionals="605" coveredconditionals="28" methods="112" coveredmethods="8" elements="1392" coveredelements="151" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
     <package name="src">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="NativeReactNativeCommonComponents.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/NativeReactNativeCommonComponents.ts">
@@ -701,10 +701,30 @@
       </file>
     </package>
     <package name="src.test-utils">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="15" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/test-utils/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
       <file name="mockTheme.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/test-utils/mockTheme.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="14" type="stmt"/>
+      </file>
+      <file name="testHelpers.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/test-utils/testHelpers.tsx">
+        <metrics statements="14" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="87" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="88" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
     </package>
     <package name="src.types">

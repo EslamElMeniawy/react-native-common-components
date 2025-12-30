@@ -133,23 +133,37 @@ jest.mock('react-native/Libraries/Utilities/PixelRatio', () => ({
   roundToNearestPixel: jest.fn((layoutSize) => Math.round(layoutSize)),
 }));
 
-// Mock StyleSheet to avoid PixelRatio issues
-jest.mock('react-native/Libraries/StyleSheet/StyleSheet', () => ({
-  create: (styles) => styles,
-  flatten: (style) => style,
-  compose: (style1, style2) => [style1, style2],
-  absoluteFill: 0,
-  absoluteFillObject: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-  },
-  hairlineWidth: 1,
-}));
+// Mock StyleSheet to avoid touching PixelRatio internals at require time
+jest.mock('react-native/Libraries/StyleSheet/StyleSheetExports', () => {
+  const flatten = (input) => {
+    if (Array.isArray(input)) {
+      return Object.assign({}, ...input.filter(Boolean));
+    }
+    return input || {};
+  };
 
-// Mock Dimensions API FIRST with fixed values
+  return {
+    hairlineWidth: 1,
+    compose: (style1, style2) => ({ ...flatten(style1), ...flatten(style2) }),
+    create: (styles) => styles,
+    flatten,
+  };
+});
+
+jest.mock('react-native/Libraries/StyleSheet/StyleSheet', () => {
+  const exports = jest.requireMock(
+    'react-native/Libraries/StyleSheet/StyleSheetExports'
+  );
+
+  return {
+    ...exports,
+    absoluteFill: {},
+    absoluteFillObject: {},
+    setStyleAttributePreprocessor: jest.fn(),
+  };
+});
+
+// Dimensions API FIRST with fixed values
 jest.mock('react-native/Libraries/Utilities/Dimensions', () => ({
   get: jest.fn(() => ({ width: 375, height: 812 })),
   addEventListener: jest.fn(),
@@ -205,26 +219,45 @@ jest.mock('react-native-paper', () => {
   };
 });
 
-// Mock NativeModules
+// Mock NativeModules - defer StyleSheet patching to afterEnv
 jest.mock('react-native', () => {
-  const RN = jest.requireActual('react-native');
+  const React = require('react');
+  const RN = jest.requireActual('react-native/jest/mock');
+  const StyleSheet = jest.requireMock(
+    'react-native/Libraries/StyleSheet/StyleSheet'
+  );
+  const Platform = jest.requireMock(
+    'react-native/Libraries/Utilities/Platform'
+  );
+  const PixelRatio = jest.requireMock(
+    'react-native/Libraries/Utilities/PixelRatio'
+  );
+  const Dimensions = jest.requireMock(
+    'react-native/Libraries/Utilities/Dimensions'
+  );
 
-  // Mock the multiply method if NativeModules is available
-  try {
-    Object.defineProperty(RN, 'NativeModules', {
-      value: {
-        ...RN.NativeModules,
-        ReactNativeCommonComponents: {
-          multiply: jest.fn((a, b) => Promise.resolve(a * b)),
-        },
+  const createComponent = (name) =>
+    React.forwardRef((props, ref) =>
+      React.createElement(name, { ...props, ref }, props.children)
+    );
+
+  return {
+    ...RN,
+    NativeModules: {
+      ...RN.NativeModules,
+      ReactNativeCommonComponents: {
+        multiply: jest.fn((a, b) => Promise.resolve(a * b)),
       },
-      writable: true,
-    });
-  } catch {
-    // If we can't modify it, just return as is
-  }
-
-  return RN;
+    },
+    StyleSheet,
+    Platform,
+    PixelRatio,
+    Dimensions,
+    View: createComponent('View'),
+    Text: createComponent('Text'),
+    TouchableOpacity: createComponent('TouchableOpacity'),
+    TouchableWithoutFeedback: createComponent('TouchableWithoutFeedback'),
+  };
 });
 
 // Mock react-native-reanimated (optional dependency)
@@ -324,9 +357,11 @@ jest.mock('tinycolor2', () => {
     toRgbString: () => color,
     setAlpha: jest.fn(() => ({
       toRgbString: () => color,
+      toHex8String: () => color,
     })),
     isDark: () => false,
     isLight: () => true,
+    toHex8String: () => color,
   }));
 });
 
