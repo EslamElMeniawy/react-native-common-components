@@ -11,7 +11,7 @@ import styles from './ImagePlaceholder.styles';
 import Image from './Image';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
-const ImagePlaceholder = React.memo(
+const ImagePlaceholderComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {
       size,
@@ -70,4 +70,9 @@ const ImagePlaceholder = React.memo(
   }
 );
 
-export default withTheme(ImagePlaceholder) as React.ComponentType<Props>;
+const ImagePlaceholder = withTheme(
+  ImagePlaceholderComponent
+) as React.ComponentType<Props>;
+
+export { ImagePlaceholderComponent };
+export default ImagePlaceholder;
