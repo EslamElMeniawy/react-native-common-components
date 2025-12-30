@@ -151,7 +151,9 @@
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,7 +171,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -231,12 +234,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// External imports.
@@ -257,67 +261,69 @@ import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
  * IconButton component (unwrapped, for testing)
  * Renders an icon button with ripple effect
  */
-export const IconButtonComponent = React.memo(<span class="fstat-no" title="function not covered" >(p</span>rops: PropsWithTheme): React.ReactElement =&gt; {
-  const {
-    image,
-    vector,
-    iconName,
-    size,
-    color,
-    onPress,
-    onLongPress,
-    onPressIn,
-    onPressOut,
-    disabled,
-    iconPercent,
-    style,
-    theme,
-    noIconTint,
-    ...other
-  } = <span class="cstat-no" title="statement not covered" >props;</span>
+export const IconButtonComponent = React.memo(
+<span class="fstat-no" title="function not covered" >  (p</span>rops: PropsWithTheme): React.ReactElement =&gt; {
+    const {
+      image,
+      vector,
+      iconName,
+      size,
+      color,
+      onPress,
+      onLongPress,
+      onPressIn,
+      onPressOut,
+      disabled,
+      iconPercent,
+      style,
+      theme,
+      noIconTint,
+      ...other
+    } = <span class="cstat-no" title="statement not covered" >props;</span>
 &nbsp;
-  const _size: number = <span class="cstat-no" title="statement not covered" >ResponsiveDimensions.ms(size ?? 36);</span>
-  const _color: string = <span class="cstat-no" title="statement not covered" >color ?? theme.colors.primary;</span>
-  const _enabledStyle = <span class="cstat-no" title="statement not covered" >{ opacity: disabled ? 0.5 : 1.0 };</span>
-  const _rippleColor = <span class="cstat-no" title="statement not covered" >tinyColor(_color).setAlpha(0.25).toHex8String();</span>
+    const _size: number = <span class="cstat-no" title="statement not covered" >ResponsiveDimensions.ms(size ?? 36);</span>
+    const _color: string = <span class="cstat-no" title="statement not covered" >color ?? theme.colors.primary;</span>
+    const _enabledStyle = <span class="cstat-no" title="statement not covered" >{ opacity: disabled ? 0.5 : 1.0 };</span>
+    const _rippleColor = <span class="cstat-no" title="statement not covered" >tinyColor(_color).setAlpha(0.25).toHex8String();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;View
-      style={StyleSheet.flatten([
-        styles.container,
-        { borderRadius: _size / 2 },
-        style,
-        { width: _size, height: _size },
-        _enabledStyle,
-        styles.noPadding,
-      ])}
-      {...other}
-    &gt;
-      &lt;TouchableRipple
-        style={styles.ripple}
-        onPress={onPress}
-        onLongPress={onLongPress}
-        onPressIn={onPressIn}
-        onPressOut={onPressOut}
-        disabled={disabled}
-        rippleColor={_rippleColor}
-        underlayColor={_rippleColor}
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;View
+        style={StyleSheet.flatten([
+          styles.container,
+          { borderRadius: _size / 2 },
+          style,
+          { width: _size, height: _size },
+          _enabledStyle,
+          styles.noPadding,
+        ])}
+        {...other}
       &gt;
-        &lt;View style={StyleSheet.flatten([styles.ripple, styles.rippleView])}&gt;
-          &lt;Icon
-            image={image}
-            vector={vector}
-            iconName={iconName}
-            size={_size}
-            color={_color}
-            iconPercent={iconPercent}
-            noIconTint={noIconTint}
-          /&gt;
-        &lt;/View&gt;
-      &lt;/TouchableRipple&gt;
-    &lt;/View&gt;
-  );
-});
+        &lt;TouchableRipple
+          style={styles.ripple}
+          onPress={onPress}
+          onLongPress={onLongPress}
+          onPressIn={onPressIn}
+          onPressOut={onPressOut}
+          disabled={disabled}
+          rippleColor={_rippleColor}
+          underlayColor={_rippleColor}
+        &gt;
+          &lt;View style={StyleSheet.flatten([styles.ripple, styles.rippleView])}&gt;
+            &lt;Icon
+              image={image}
+              vector={vector}
+              iconName={iconName}
+              size={_size}
+              color={_color}
+              iconPercent={iconPercent}
+              noIconTint={noIconTint}
+            /&gt;
+          &lt;/View&gt;
+        &lt;/TouchableRipple&gt;
+      &lt;/View&gt;
+    );
+  }
+);
 &nbsp;
 IconButtonComponent.displayName = 'IconButtonComponent';
 &nbsp;
@@ -334,7 +340,7 @@ export default IconButton;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-30T12:00:04.424Z
+                at 2025-12-30T13:52:07.945Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

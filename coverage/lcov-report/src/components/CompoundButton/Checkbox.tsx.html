@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
@@ -169,10 +169,29 @@
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,19 +207,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -272,6 +278,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -292,95 +302,100 @@ import type { PropsWithTheme, Props } from './CompoundButton.types';
 import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 &nbsp;
-const Checkbox = <span class="cstat-no" title="statement not covered" >React.memo(<span class="fstat-no" title="function not covered" >(p</span>rops: PropsWithTheme): React.ReactElement =&gt; {</span>
-  const {
-    text,
-    checked,
-    onPress,
-    disabled,
-    checkedColor,
-    uncheckedColor,
-    textProps,
-    contentAlign,
-    style,
-    theme,
-    ...other
-  } = <span class="cstat-no" title="statement not covered" >props;</span>
+const CheckboxComponent = React.memo(
+<span class="fstat-no" title="function not covered" >  (p</span>rops: PropsWithTheme): React.ReactElement =&gt; {
+    const {
+      text,
+      checked,
+      onPress,
+      disabled,
+      checkedColor,
+      uncheckedColor,
+      textProps,
+      contentAlign,
+      style,
+      theme,
+      ...other
+    } = <span class="cstat-no" title="statement not covered" >props;</span>
 &nbsp;
-  const { style: textStyle, ...rest } = <span class="cstat-no" title="statement not covered" >textProps ?? {};</span>
-  const _checkedColor: string = <span class="cstat-no" title="statement not covered" >checkedColor ?? theme.colors.primary;</span>
-  const _rippleColor = <span class="cstat-no" title="statement not covered" >tinyColor(_checkedColor).setAlpha(0.25).toHex8String();</span>
-  const _flattenStyle = <span class="cstat-no" title="statement not covered" >StyleSheet.flatten(style ?? {});</span>
+    const { style: textStyle, ...rest } = <span class="cstat-no" title="statement not covered" >textProps ?? {};</span>
+    const _checkedColor: string = <span class="cstat-no" title="statement not covered" >checkedColor ?? theme.colors.primary;</span>
+    const _rippleColor = <span class="cstat-no" title="statement not covered" >tinyColor(_checkedColor).setAlpha(0.25).toHex8String();</span>
+    const _flattenStyle = <span class="cstat-no" title="statement not covered" >StyleSheet.flatten(style ?? {});</span>
 &nbsp;
-  const {
-    padding,
-    paddingHorizontal,
-    paddingVertical,
-    paddingTop,
-    paddingBottom,
-    paddingStart,
-    paddingEnd,
-    paddingRight,
-    paddingLeft,
-  } = <span class="cstat-no" title="statement not covered" >_flattenStyle ?? {};</span>
+    const {
+      padding,
+      paddingHorizontal,
+      paddingVertical,
+      paddingTop,
+      paddingBottom,
+      paddingStart,
+      paddingEnd,
+      paddingRight,
+      paddingLeft,
+    } = <span class="cstat-no" title="statement not covered" >_flattenStyle ?? {};</span>
 &nbsp;
-  const _borderRadius = <span class="cstat-no" title="statement not covered" >(theme.isV3 ? 5 : 1) * theme.roundness;</span>
+    const _borderRadius = <span class="cstat-no" title="statement not covered" >(theme.isV3 ? 5 : 1) * theme.roundness;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;View
-      style={StyleSheet.flatten([
-        styles.container,
-        { borderRadius: _borderRadius },
-        style,
-        styles.noPadding,
-      ])}
-      {...other}
-    &gt;
-      &lt;TouchableRipple
-        onPress={onPress}
-        disabled={disabled}
-        rippleColor={_rippleColor}
-        underlayColor={_rippleColor}
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;View
+        style={StyleSheet.flatten([
+          styles.container,
+          { borderRadius: _borderRadius },
+          style,
+          styles.noPadding,
+        ])}
+        {...other}
       &gt;
-        &lt;View
-          style={StyleSheet.flatten([
-            styles.rippleView,
-            {
-              padding,
-              paddingHorizontal,
-              paddingVertical,
-              paddingTop,
-              paddingBottom,
-              paddingStart,
-              paddingEnd,
-              paddingRight,
-              paddingLeft,
-              alignItems: contentAlign ?? 'center',
-            },
-          ])}
+        &lt;TouchableRipple
+          onPress={onPress}
+          disabled={disabled}
+          rippleColor={_rippleColor}
+          underlayColor={_rippleColor}
         &gt;
-          &lt;PaperCheckbox.Android
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={onPress}
-            color={_checkedColor}
-            uncheckedColor={uncheckedColor}
-            disabled={disabled}
-          /&gt;
-          {Boolean(text) &amp;&amp; Boolean(text?.length) &amp;&amp; (
-            &lt;Text
-              style={StyleSheet.flatten([styles.text, textStyle])}
-              {...rest}
-            &gt;
-              {text}
-            &lt;/Text&gt;
-          )}
-        &lt;/View&gt;
-      &lt;/TouchableRipple&gt;
-    &lt;/View&gt;
-  );
-});
+          &lt;View
+            style={StyleSheet.flatten([
+              styles.rippleView,
+              {
+                padding,
+                paddingHorizontal,
+                paddingVertical,
+                paddingTop,
+                paddingBottom,
+                paddingStart,
+                paddingEnd,
+                paddingRight,
+                paddingLeft,
+                alignItems: contentAlign ?? 'center',
+              },
+            ])}
+          &gt;
+            &lt;PaperCheckbox.Android
+              status={checked ? 'checked' : 'unchecked'}
+              onPress={onPress}
+              color={_checkedColor}
+              uncheckedColor={uncheckedColor}
+              disabled={disabled}
+            /&gt;
+            {Boolean(text) &amp;&amp; Boolean(text?.length) &amp;&amp; (
+              &lt;Text
+                style={StyleSheet.flatten([styles.text, textStyle])}
+                {...rest}
+              &gt;
+                {text}
+              &lt;/Text&gt;
+            )}
+          &lt;/View&gt;
+        &lt;/TouchableRipple&gt;
+      &lt;/View&gt;
+    );
+  }
+);
 &nbsp;
-export default withTheme(Checkbox) as React.ComponentType&lt;Props&gt;;
+const Checkbox = withTheme(CheckboxComponent) as React.ComponentType&lt;Props&gt;;
+&nbsp;
+export { CheckboxComponent };
+export default Checkbox;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -388,7 +403,7 @@ export default withTheme(Checkbox) as React.ComponentType&lt;Props&gt;;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-30T12:00:04.424Z
+                at 2025-12-30T13:52:07.945Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
