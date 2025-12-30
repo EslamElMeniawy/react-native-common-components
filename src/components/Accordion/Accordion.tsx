@@ -130,7 +130,7 @@ const SafeAccordion = React.memo(
   }
 );
 
-const Accordion = React.memo(
+const AccordionWithFallback = React.memo(
   (props: PropsWithTheme): React.ReactElement | null => {
     try {
       require('react-native-reanimated');
@@ -142,4 +142,9 @@ const Accordion = React.memo(
   }
 );
 
-export default withTheme(Accordion) as React.ComponentType<Props>;
+const Accordion = withTheme(
+  AccordionWithFallback
+) as React.ComponentType<Props>;
+
+export { AccordionWithFallback as AccordionComponent };
+export default Accordion;

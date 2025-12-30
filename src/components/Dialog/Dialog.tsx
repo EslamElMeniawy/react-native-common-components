@@ -11,7 +11,7 @@ import type { Edge } from 'react-native-safe-area-context';
 // Internal imports.
 import styles from './Dialog.styles';
 
-const Dialog = React.memo(
+const DialogComponent = React.memo(
   (props: PropsWithTheme): null | React.ReactElement => {
     const {
       visible,
@@ -122,4 +122,7 @@ const Dialog = React.memo(
   }
 );
 
-export default withTheme(Dialog) as React.ComponentType<Props>;
+const Dialog = withTheme(DialogComponent) as React.ComponentType<Props>;
+
+export { DialogComponent };
+export default Dialog;

@@ -13,40 +13,57 @@ import TopLabel from './TopLabel';
 import TextInputInput from './TextInputInput';
 import ErrorView from './ErrorView';
 
-const TextInput = React.memo((props: PropsWithTheme): React.ReactElement => {
-  const { topLabelProps, errorProps } = props;
-  const { marginVertical, marginTop, marginBottom } = props.style ?? {};
+const TextInputComponent = React.memo(
+  (props: PropsWithTheme): React.ReactElement => {
+    const { topLabelProps, errorProps } = props;
+    const { marginVertical, marginTop, marginBottom } = props.style ?? {};
 
-  let _inputStyle;
+    let _inputStyle;
 
-  if (topLabelProps && errorProps) {
-    _inputStyle = StyleSheet.flatten([
-      styles.noVerticalMargin,
-      omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
-    ]);
-  } else if (topLabelProps) {
-    _inputStyle = StyleSheet.flatten([
-      styles.noVerticalMargin,
-      omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
-      { marginBottom: marginVertical ?? marginBottom },
-    ]);
-  } else if (errorProps) {
-    _inputStyle = StyleSheet.flatten([
-      styles.noVerticalMargin,
-      omit(props.style ?? {}, ['marginVertical', 'marginTop', 'marginBottom']),
-      { marginTop: marginVertical ?? marginTop },
-    ]);
-  } else {
-    _inputStyle = props.style;
+    if (topLabelProps && errorProps) {
+      _inputStyle = StyleSheet.flatten([
+        styles.noVerticalMargin,
+        omit(props.style ?? {}, [
+          'marginVertical',
+          'marginTop',
+          'marginBottom',
+        ]),
+      ]);
+    } else if (topLabelProps) {
+      _inputStyle = StyleSheet.flatten([
+        styles.noVerticalMargin,
+        omit(props.style ?? {}, [
+          'marginVertical',
+          'marginTop',
+          'marginBottom',
+        ]),
+        { marginBottom: marginVertical ?? marginBottom },
+      ]);
+    } else if (errorProps) {
+      _inputStyle = StyleSheet.flatten([
+        styles.noVerticalMargin,
+        omit(props.style ?? {}, [
+          'marginVertical',
+          'marginTop',
+          'marginBottom',
+        ]),
+        { marginTop: marginVertical ?? marginTop },
+      ]);
+    } else {
+      _inputStyle = props.style;
+    }
+
+    return (
+      <>
+        <TopLabel {...props} />
+        <TextInputInput {...set(props, 'style', _inputStyle)} />
+        <ErrorView {...props} />
+      </>
+    );
   }
+);
 
-  return (
-    <>
-      <TopLabel {...props} />
-      <TextInputInput {...set(props, 'style', _inputStyle)} />
-      <ErrorView {...props} />
-    </>
-  );
-});
+const TextInput = withTheme(TextInputComponent) as React.ComponentType<Props>;
 
-export default withTheme(TextInput) as React.ComponentType<Props>;
+export { TextInputComponent };
+export default TextInput;

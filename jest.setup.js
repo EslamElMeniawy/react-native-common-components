@@ -9,7 +9,7 @@ jest.mock('./src/utils/StatusBarHeight', () => ({
 
 jest.mock('./src/utils/ResponsiveDimensions', () => ({
   __esModule: true,
-  ResponsiveDimensions: {
+  default: {
     ms: (size, factor) => size * (factor || 1),
     mvs: (size, factor) => size * (factor || 1),
     s: (size) => size,
@@ -31,6 +31,97 @@ jest.mock('./src/components/LoadingDialog/LoadingDialog.styles', () => ({
   __esModule: true,
   default: {
     dialog: {},
+  },
+}));
+
+jest.mock('./src/components/Button/Button.styles', () => ({
+  __esModule: true,
+  default: {
+    container: {},
+    noPadding: {},
+    button: {},
+    ripple: {},
+    buttonContent: {},
+    icon: {},
+    text: {},
+  },
+}));
+
+jest.mock('./src/components/Dialog/Dialog.styles', () => ({
+  __esModule: true,
+  default: {
+    overlay: {},
+    safeArea: {},
+    dialog: {},
+  },
+}));
+
+jest.mock('./src/components/AlertDialog/AlertDialog.styles', () => ({
+  __esModule: true,
+  default: {
+    dialog: {},
+    actionsContainer: {},
+    actionsContainerRow: {},
+    actionsContainerColumn: {},
+  },
+}));
+
+jest.mock('./src/components/TextInput/TextInput.styles', () => ({
+  __esModule: true,
+  default: {
+    input: {},
+    container: {},
+    label: {},
+    error: {},
+  },
+}));
+
+jest.mock('./src/components/Accordion/Accordion.styles', () => ({
+  __esModule: true,
+  default: {
+    headerRow: {},
+    headerRipple: {},
+    measuringContainer: {},
+  },
+}));
+
+jest.mock('./src/components/CompoundButton/CompoundButton.styles', () => ({
+  __esModule: true,
+  default: {
+    container: {},
+    noPadding: {},
+    button: {},
+    ripple: {},
+    buttonContent: {},
+    icon: {},
+    text: {},
+  },
+}));
+
+jest.mock('./src/components/SelectDialog/SelectDialog.styles', () => ({
+  __esModule: true,
+  default: {
+    dialog: {},
+    searchBox: {},
+    listContainer: {},
+    itemContainer: {},
+  },
+}));
+
+jest.mock('./src/components/FlatList/FlatList.styles', () => ({
+  __esModule: true,
+  default: {
+    container: {},
+    contentContainer: {},
+  },
+}));
+
+jest.mock('./src/components/ImagePlaceholder/ImagePlaceholder.styles', () => ({
+  __esModule: true,
+  default: {
+    container: {},
+    image: {},
+    placeholder: {},
   },
 }));
 
