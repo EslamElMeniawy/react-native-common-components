@@ -16,6 +16,9 @@ const compat = new FlatCompat({
 
 export default defineConfig([
   {
+    ignores: ['node_modules/', 'lib/'],
+  },
+  {
     extends: fixupConfigRules(compat.extends('@react-native', 'prettier')),
     plugins: { prettier },
     rules: {
@@ -24,6 +27,27 @@ export default defineConfig([
     },
   },
   {
-    ignores: ['node_modules/', 'lib/'],
+    files: [
+      'jest.setup.js',
+      'src/**/__tests__/**/*.{ts,tsx}',
+      '**/*.test.{ts,tsx}',
+    ],
+    languageOptions: {
+      globals: {
+        // Jest globals
+        afterAll: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        beforeEach: 'readonly',
+        describe: 'readonly',
+        expect: 'readonly',
+        it: 'readonly',
+        jest: 'readonly',
+        test: 'readonly',
+      },
+    },
+    rules: {
+      'no-undef': 'off',
+    },
   },
 ]);

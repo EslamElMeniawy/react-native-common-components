@@ -1,0 +1,250 @@
+// Mock utils that call Dimensions.get() at module level
+jest.mock('./src/utils/StatusBarHeight', () => ({
+  __esModule: true,
+  default: 20,
+  statusBarHeight: 20,
+  isIPhoneX: () => false,
+  ifIPhoneX: (iphoneXHeight, regularHeight) => regularHeight,
+}));
+
+jest.mock('./src/utils/ResponsiveDimensions', () => ({
+  __esModule: true,
+  ResponsiveDimensions: {
+    ms: (size, factor) => size * (factor || 1),
+    mvs: (size, factor) => size * (factor || 1),
+    s: (size) => size,
+    vs: (size) => size,
+  },
+}));
+
+// Mock all .styles.ts files to return empty style objects
+jest.mock('./src/components/IconButton/IconButton.styles', () => ({
+  __esModule: true,
+  default: {
+    container: {},
+    noPadding: {},
+    icon: {},
+  },
+}));
+
+jest.mock('./src/components/LoadingDialog/LoadingDialog.styles', () => ({
+  __esModule: true,
+  default: {
+    dialog: {},
+  },
+}));
+
+// Mock PixelRatio for StyleSheet
+jest.mock('react-native/Libraries/Utilities/PixelRatio', () => ({
+  get: jest.fn(() => 2),
+  getFontScale: jest.fn(() => 1),
+  getPixelSizeForLayoutSize: jest.fn((layoutSize) => layoutSize * 2),
+  roundToNearestPixel: jest.fn((layoutSize) => Math.round(layoutSize)),
+}));
+
+// Mock StyleSheet to avoid PixelRatio issues
+jest.mock('react-native/Libraries/StyleSheet/StyleSheet', () => ({
+  create: (styles) => styles,
+  flatten: (style) => style,
+  compose: (style1, style2) => [style1, style2],
+  absoluteFill: 0,
+  absoluteFillObject: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  hairlineWidth: 1,
+}));
+
+// Mock Dimensions API FIRST with fixed values
+jest.mock('react-native/Libraries/Utilities/Dimensions', () => ({
+  get: jest.fn(() => ({ width: 375, height: 812 })),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+}));
+
+// Mock Platform FIRST before anything else - must return actual values
+jest.mock('react-native/Libraries/Utilities/Platform', () => ({
+  OS: 'ios',
+  select: (obj) => {
+    if (!obj) return undefined;
+    if (obj.ios !== undefined) return obj.ios;
+    if (obj.default !== undefined) return obj.default;
+    if (obj.native !== undefined) return obj.native;
+    return undefined;
+  },
+  Version: 14,
+  isPad: false,
+  isTV: false,
+}));
+
+// Mock react-native-paper early to prevent Platform issues
+jest.mock('react-native-paper', () => {
+  const React = require('react');
+  const RN = require('react-native');
+
+  return {
+    withTheme: (Component) => (props) => {
+      const mockTheme = {
+        colors: {
+          primary: '#6200ee',
+          surface: '#ffffff',
+          background: '#f6f6f6',
+        },
+        isV3: true,
+        fonts: {
+          bodyMedium: { fontSize: 14, lineHeight: 20 },
+          bodySmall: { fontSize: 12, lineHeight: 16 },
+          titleLarge: { fontSize: 22, lineHeight: 28 },
+        },
+      };
+      return React.createElement(Component, { ...props, theme: mockTheme });
+    },
+    Text: (props) => React.createElement(RN.Text, props, props.children),
+    ActivityIndicator: (props) =>
+      React.createElement(RN.ActivityIndicator, props),
+    TouchableRipple: ({ children, ...props }) => {
+      return React.createElement(RN.TouchableOpacity, props, children);
+    },
+    Portal: ({ children }) => children,
+    Modal: ({ children, visible }) => (visible ? children : null),
+    Provider: ({ children }) => children,
+  };
+});
+
+// Mock NativeModules
+jest.mock('react-native', () => {
+  const RN = jest.requireActual('react-native');
+
+  // Mock the multiply method if NativeModules is available
+  try {
+    Object.defineProperty(RN, 'NativeModules', {
+      value: {
+        ...RN.NativeModules,
+        ReactNativeCommonComponents: {
+          multiply: jest.fn((a, b) => Promise.resolve(a * b)),
+        },
+      },
+      writable: true,
+    });
+  } catch {
+    // If we can't modify it, just return as is
+  }
+
+  return RN;
+});
+
+// Mock react-native-reanimated (optional dependency)
+jest.mock('react-native-reanimated', () => {
+  const Reanimated = require('react-native-reanimated/mock');
+
+  // Mock additional functions if needed
+  Reanimated.default.call = () => {};
+
+  return Reanimated;
+});
+
+// Mock react-native-keyboard-controller (optional dependency)
+jest.mock('react-native-keyboard-controller', () => ({
+  KeyboardAwareScrollView: jest.fn(({ children }) => children),
+  KeyboardStickyView: jest.fn(({ children }) => children),
+  KeyboardProvider: jest.fn(({ children }) => children),
+  useKeyboardAnimation: jest.fn(() => ({
+    height: { value: 0 },
+    progress: { value: 0 },
+  })),
+}));
+
+// Mock react-native-safe-area-context
+jest.mock('react-native-safe-area-context', () => ({
+  SafeAreaProvider: jest.fn(({ children }) => children),
+  SafeAreaView: jest.fn(({ children }) => children),
+  useSafeAreaInsets: jest.fn(() => ({
+    top: 44,
+    bottom: 34,
+    left: 0,
+    right: 0,
+  })),
+}));
+
+// Mock @react-native-vector-icons/material-design-icons
+jest.mock(
+  '@react-native-vector-icons/material-design-icons',
+  () => 'MaterialIcon'
+);
+
+// Mock @d11/react-native-fast-image (optional dependency)
+jest.mock('@d11/react-native-fast-image', () => {
+  const React = require('react');
+  return {
+    __esModule: true,
+    default: React.forwardRef((props, ref) => {
+      return React.createElement('Image', { ...props, ref });
+    }),
+    FastImage: React.forwardRef((props, ref) => {
+      return React.createElement('Image', { ...props, ref });
+    }),
+  };
+});
+
+// Mock Reactotron (optional dependency)
+jest.mock('reactotron-react-native', () => {
+  const mockReactotron = {
+    configure: jest.fn(function () {
+      return this;
+    }),
+    useReactNative: jest.fn(function () {
+      return this;
+    }),
+    connect: jest.fn(function () {
+      return this;
+    }),
+    use: jest.fn(function () {
+      return this;
+    }),
+    clear: jest.fn(),
+    log: jest.fn(),
+    warn: jest.fn(),
+    error: jest.fn(),
+    display: jest.fn(),
+  };
+
+  return {
+    __esModule: true,
+    default: mockReactotron,
+  };
+});
+
+// Mock @react-native-firebase/crashlytics (optional dependency)
+jest.mock('@react-native-firebase/crashlytics', () => ({
+  __esModule: true,
+  default: jest.fn(() => ({
+    log: jest.fn(),
+    recordError: jest.fn(),
+    setAttributes: jest.fn(),
+  })),
+}));
+
+// Mock tinycolor2
+jest.mock('tinycolor2', () => {
+  return jest.fn((color) => ({
+    toRgbString: () => color,
+    setAlpha: jest.fn(() => ({
+      toRgbString: () => color,
+    })),
+    isDark: () => false,
+    isLight: () => true,
+  }));
+});
+
+// Don't mock react-native-paper - let it work naturally with the Provider in tests
+// The withTheme HOC will work correctly when wrapped with PaperProvider
+
+// Silence console warnings in tests
+global.console = {
+  ...console,
+  warn: jest.fn(),
+  error: jest.fn(),
+};
