@@ -9,7 +9,7 @@ import type { PropsWithTheme, Props } from './ScrollView.types';
 // Internal imports.
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
-const ScrollView = React.memo(
+const ScrollViewComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement | null => {
     try {
       const KeyboardAwareScrollView =
@@ -58,4 +58,8 @@ const ScrollView = React.memo(
   }
 );
 
-export default withTheme(ScrollView) as React.ComponentType<Props>;
+const ScrollView = withTheme(ScrollViewComponent) as React.ComponentType<Props>;
+
+export { ScrollViewComponent };
+
+export default ScrollView;
