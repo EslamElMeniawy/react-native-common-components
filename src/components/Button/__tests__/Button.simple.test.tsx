@@ -186,6 +186,226 @@ describe('Button Component - Rendering', () => {
         );
       }).not.toThrow();
     });
+
+    // Enhanced Icon Tests for Coverage
+    it('should render with various start icon names', () => {
+      const iconNames = ['menu', 'close', 'search', 'delete', 'edit', 'add'];
+      iconNames.forEach((iconName) => {
+        expect(() => {
+          render(
+            <ButtonComponent
+              theme={mockTheme}
+              text={`Icon: ${iconName}`}
+              startIconName={iconName}
+            />
+          );
+        }).not.toThrow();
+      });
+    });
+
+    it('should render with various end icon names', () => {
+      const iconNames = [
+        'arrow-right',
+        'arrow-left',
+        'check',
+        'close',
+        'star',
+        'heart',
+      ];
+      iconNames.forEach((iconName) => {
+        expect(() => {
+          render(
+            <ButtonComponent
+              theme={mockTheme}
+              text={`Icon: ${iconName}`}
+              endIconName={iconName}
+            />
+          );
+        }).not.toThrow();
+      });
+    });
+
+    it('should render with various icon sizes', () => {
+      const sizes = [16, 20, 24, 28, 32, 40];
+      sizes.forEach((size) => {
+        expect(() => {
+          render(
+            <ButtonComponent
+              theme={mockTheme}
+              text={`Size: ${size}`}
+              startIconName="home"
+              startIconSize={size}
+            />
+          );
+        }).not.toThrow();
+      });
+    });
+
+    it('should render with various icon colors', () => {
+      const colors = [
+        '#FF0000',
+        '#00FF00',
+        '#0000FF',
+        '#FFFF00',
+        '#FF00FF',
+        '#00FFFF',
+      ];
+      colors.forEach((color) => {
+        expect(() => {
+          render(
+            <ButtonComponent
+              theme={mockTheme}
+              text="Icon Color"
+              startIconName="home"
+              startIconColor={color}
+            />
+          );
+        }).not.toThrow();
+      });
+    });
+
+    it('should render with start and end icons of different sizes', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Different Sizes"
+            startIconName="home"
+            startIconSize={20}
+            endIconName="arrow-right"
+            endIconSize={32}
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with start and end icons of different colors', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Different Colors"
+            startIconName="home"
+            startIconColor="#FF0000"
+            endIconName="arrow-right"
+            endIconColor="#00FF00"
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with iconSize prop', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Icon Size"
+            iconSize={28}
+            startIconName="home"
+            endIconName="arrow-right"
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with individual sizes overriding iconSize', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Override Size"
+            iconSize={24}
+            startIconName="home"
+            startIconSize={32}
+            endIconName="arrow-right"
+            endIconSize={28}
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with noIconTint and specific icon colors', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="No Tint with Color"
+            noIconTint={true}
+            startIconName="home"
+            startIconColor="#FF0000"
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with mixed tint settings', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Mixed Tint"
+            noStartIconTint={true}
+            startIconName="home"
+            noEndIconTint={false}
+            endIconName="arrow-right"
+            endIconColor="#00FF00"
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render icons without text', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            startIconName="home"
+            endIconName="arrow-right"
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with start icon only, no text', () => {
+      expect(() => {
+        render(<ButtonComponent theme={mockTheme} startIconName="add" />);
+      }).not.toThrow();
+    });
+
+    it('should render with end icon only, no text', () => {
+      expect(() => {
+        render(<ButtonComponent theme={mockTheme} endIconName="arrow-right" />);
+      }).not.toThrow();
+    });
+
+    it('should render disabled button with icons', () => {
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Disabled"
+            disabled={true}
+            startIconName="lock"
+            endIconName="info"
+          />
+        );
+      }).not.toThrow();
+    });
+
+    it('should render with icons and custom style', () => {
+      const style = { marginVertical: 10, backgroundColor: '#CCCCCC' };
+      expect(() => {
+        render(
+          <ButtonComponent
+            theme={mockTheme}
+            text="Styled Icons"
+            startIconName="home"
+            endIconName="arrow-right"
+            style={style}
+          />
+        );
+      }).not.toThrow();
+    });
   });
 
   describe('Event Handlers', () => {
