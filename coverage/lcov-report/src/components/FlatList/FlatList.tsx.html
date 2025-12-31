@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">96.15% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>25/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -176,18 +176,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,7 +235,7 @@ import type { PropsWithTheme, Props } from './FlatList.types';
 import styles from './FlatList.styles';
 &nbsp;
 const FlatListComponent = React.memo(
-<span class="fstat-no" title="function not covered" >  (p</span>rops: PropsWithTheme): React.ReactElement =&gt; {
+  (props: PropsWithTheme): React.ReactElement =&gt; {
     const {
       refreshing,
       onRefresh,
@@ -254,9 +254,9 @@ const FlatListComponent = React.memo(
       data,
       renderItem,
       ...other
-    } = <span class="cstat-no" title="statement not covered" >props;</span>
+    } = props;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;NativeFlatList
         data={data}
         renderItem={renderItem}
@@ -265,7 +265,7 @@ const FlatListComponent = React.memo(
         horizontal={horizontal}
         keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? 'handled'}
         keyboardDismissMode={keyboardDismissMode ?? 'none'}
-        keyExtractor={keyExtractor ?? (<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.key)</span>}
+        keyExtractor={keyExtractor ?? ((item) =&gt; item.key)}
         onEndReachedThreshold={onEndReachedThreshold ?? 0.01}
         style={StyleSheet.compose(styles.list, style)}
         contentContainerStyle={
@@ -282,7 +282,7 @@ const FlatListComponent = React.memo(
             &lt;RefreshControl
               colors={refreshColor ? [refreshColor] : [theme.colors.primary]}
               tintColor={refreshColor ?? theme.colors.primary}
-              refreshing={refreshing ?? false}
+              refreshing={refreshing ?? <span class="branch-1 cbranch-no" title="branch not covered" >false}</span>
               onRefresh={onRefresh ?? undefined}
             /&gt;
           ) : undefined
@@ -304,7 +304,7 @@ export default FlatList;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-31T08:48:34.201Z
+                at 2025-12-31T09:38:02.134Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

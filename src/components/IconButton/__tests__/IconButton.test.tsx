@@ -2,7 +2,6 @@ import { render } from '@testing-library/react-native';
 import { IconButtonComponent } from '../IconButton';
 import { mockTheme } from '../../../test-utils/mockTheme';
 
-// Mock ResponsiveDimensions
 jest.mock('../../../utils/ResponsiveDimensions', () => ({
   __esModule: true,
   default: {
@@ -13,349 +12,215 @@ jest.mock('../../../utils/ResponsiveDimensions', () => ({
   },
 }));
 
-// Mock Icon component to prevent import errors
 jest.mock('../Icon', () => {
-  return function MockIcon() {
-    return null;
+  const ReactLib = require('react');
+  return function MockIcon(props: any) {
+    return ReactLib.createElement('Icon', { testID: 'icon', ...props });
   };
 });
 
+const renderIconButton = (props?: Record<string, unknown>) =>
+  render(
+    <IconButtonComponent
+      theme={mockTheme}
+      iconName="menu"
+      testID="icon-button"
+      {...props}
+    />
+  );
+
 describe('IconButton Component', () => {
   describe('Basic Rendering', () => {
-    it('should render without error', () => {
-      expect(() => {
-        render(<IconButtonComponent theme={mockTheme} iconName="menu" />);
-      }).not.toThrow();
+    it('renders without crashing', () => {
+      expect(() => renderIconButton()).not.toThrow();
     });
 
-    it('should accept iconName prop', () => {
-      expect(() => {
-        render(<IconButtonComponent theme={mockTheme} iconName="menu" />);
-      }).not.toThrow();
+    it('renders container View with testID', () => {
+      const { getByTestId } = renderIconButton();
+      expect(getByTestId('icon-button')).toBeTruthy();
     });
 
-    it('should accept different iconNames', () => {
-      const iconNames = ['close', 'settings', 'home', 'search'];
-
-      iconNames.forEach((iconName) => {
-        const { unmount } = render(
-          <IconButtonComponent theme={mockTheme} iconName={iconName} />
-        );
-        unmount();
-      });
+    it('renders Icon component', () => {
+      const { getByTestId } = renderIconButton();
+      expect(getByTestId('icon')).toBeTruthy();
     });
   });
 
-  describe('Sizing', () => {
-    it('should accept size prop', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent theme={mockTheme} iconName="menu" size={48} />
-        );
-      }).not.toThrow();
-    });
-
-    it('should accept different size values', () => {
-      const sizes = [24, 32, 36, 48, 56];
-
-      sizes.forEach((size) => {
-        const { unmount } = render(
-          <IconButtonComponent theme={mockTheme} iconName="menu" size={size} />
-        );
-        unmount();
+  describe('Size Handling', () => {
+    it('uses default size of 36 when not provided', () => {
+      const { getByTestId } = renderIconButton();
+      const container = getByTestId('icon-button');
+      expect(container.props.style).toMatchObject({
+        width: 36,
+        height: 36,
+        borderRadius: 18,
       });
     });
 
-    it('should use default size when not provided', () => {
-      expect(() => {
-        render(<IconButtonComponent theme={mockTheme} iconName="menu" />);
-      }).not.toThrow();
-    });
-  });
-
-  describe('Coloring', () => {
-    it('should accept color prop', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            color="#ff0000"
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should use theme primary color as default', () => {
-      expect(() => {
-        render(<IconButtonComponent theme={mockTheme} iconName="menu" />);
-      }).not.toThrow();
-    });
-
-    it('should accept different color formats', () => {
-      const colors = ['#ff0000', '#00ff00', '#0000ff', 'rgb(255,0,0)'];
-
-      colors.forEach((color) => {
-        const { unmount } = render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            color={color}
-          />
-        );
-        unmount();
+    it('applies custom size prop', () => {
+      const { getByTestId } = renderIconButton({ size: 48 });
+      const container = getByTestId('icon-button');
+      expect(container.props.style).toMatchObject({
+        width: 48,
+        height: 48,
+        borderRadius: 24,
       });
     });
 
-    it('should accept noIconTint prop', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            noIconTint={true}
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should accept iconPercent prop', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            iconPercent={0.8}
-          />
-        );
-      }).not.toThrow();
+    it('passes size to Icon component', () => {
+      const { getByTestId } = renderIconButton({ size: 56 });
+      const icon = getByTestId('icon');
+      expect(icon.props.size).toBe(56);
     });
   });
 
-  describe('Interactions', () => {
-    it('should accept onPress handler', () => {
-      const onPress = jest.fn();
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            onPress={onPress}
-          />
-        );
-      }).not.toThrow();
+  describe('Color Handling', () => {
+    it('uses theme primary color by default', () => {
+      const { getByTestId } = renderIconButton();
+      const icon = getByTestId('icon');
+      expect(icon.props.color).toBe(mockTheme.colors.primary);
     });
 
-    it('should accept onLongPress handler', () => {
-      const onLongPress = jest.fn();
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            onLongPress={onLongPress}
-          />
-        );
-      }).not.toThrow();
+    it('applies custom color prop', () => {
+      const { getByTestId } = renderIconButton({ color: '#ff0000' });
+      const icon = getByTestId('icon');
+      expect(icon.props.color).toBe('#ff0000');
     });
 
-    it('should accept onPressIn handler', () => {
-      const onPressIn = jest.fn();
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            onPressIn={onPressIn}
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should accept onPressOut handler', () => {
-      const onPressOut = jest.fn();
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            onPressOut={onPressOut}
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should accept disabled prop', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={true}
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should render as disabled when disabled prop is true', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={true}
-          />
-        );
-      }).not.toThrow();
+    it('passes noIconTint to Icon', () => {
+      const { getByTestId } = renderIconButton({ noIconTint: true });
+      const icon = getByTestId('icon');
+      expect(icon.props.noIconTint).toBe(true);
     });
   });
 
-  describe('Styling', () => {
-    it('should accept style prop', () => {
-      const style = { marginTop: 10 };
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            style={style}
-          />
-        );
-      }).not.toThrow();
+  describe('Icon Props', () => {
+    it('passes iconName to Icon component', () => {
+      const { getByTestId } = renderIconButton({ iconName: 'settings' });
+      const icon = getByTestId('icon');
+      expect(icon.props.iconName).toBe('settings');
     });
 
-    it('should accept complex styles', () => {
-      const style = {
-        marginHorizontal: 8,
-        paddingVertical: 4,
-        backgroundColor: 'transparent',
-      };
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            style={style}
-          />
-        );
-      }).not.toThrow();
+    it('passes image prop to Icon', () => {
+      const imageSource = 123;
+      const { getByTestId } = renderIconButton({ image: imageSource });
+      const icon = getByTestId('icon');
+      expect(icon.props.image).toBe(imageSource);
+    });
+
+    it('passes vector prop to Icon', () => {
+      const vectorSource = 456;
+      const { getByTestId } = renderIconButton({ vector: vectorSource });
+      const icon = getByTestId('icon');
+      expect(icon.props.vector).toBe(vectorSource);
+    });
+
+    it('passes iconPercent to Icon', () => {
+      const { getByTestId } = renderIconButton({ iconPercent: 80 });
+      const icon = getByTestId('icon');
+      expect(icon.props.iconPercent).toBe(80);
     });
   });
 
-  describe('Image Sources', () => {
-    it('should accept vector prop', () => {
-      expect(() => {
-        render(<IconButtonComponent theme={mockTheme} vector={1} />);
-      }).not.toThrow();
-    });
-  });
-
-  describe('Combined Props', () => {
-    it('should work with multiple props', () => {
-      const onPress = jest.fn();
-      const style = { padding: 5 };
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="settings"
-            size={32}
-            color="#00ff00"
-            onPress={onPress}
-            style={style}
-          />
-        );
-      }).not.toThrow();
+  describe('Disabled State', () => {
+    it('applies full opacity when enabled', () => {
+      const { getByTestId } = renderIconButton({ disabled: false });
+      const container = getByTestId('icon-button');
+      expect(container.props.style).toMatchObject({ opacity: 1.0 });
     });
 
-    it('should render with all interaction handlers', () => {
-      const handlers = {
-        onPress: jest.fn(),
-        onLongPress: jest.fn(),
-        onPressIn: jest.fn(),
-        onPressOut: jest.fn(),
-      };
-
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            {...handlers}
-          />
-        );
-      }).not.toThrow();
+    it('applies reduced opacity when disabled', () => {
+      const { getByTestId } = renderIconButton({ disabled: true });
+      const container = getByTestId('icon-button');
+      expect(container.props.style).toMatchObject({ opacity: 0.5 });
     });
 
-    it('should render disabled state with custom styling', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={true}
-            color="#ff0000"
-            size={48}
-            style={{ margin: 10 }}
-          />
-        );
-      }).not.toThrow();
-    });
-  });
-
-  describe('Different States', () => {
-    it('should render enabled state', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={false}
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should render disabled state', () => {
-      expect(() => {
-        render(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={true}
-          />
-        );
-      }).not.toThrow();
-    });
-
-    it('should transition between states', () => {
-      const { rerender } = render(
-        <IconButtonComponent
-          theme={mockTheme}
-          iconName="menu"
-          disabled={false}
-        />
+    it('passes disabled to TouchableRipple', () => {
+      const { UNSAFE_getByType } = renderIconButton({ disabled: true });
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
       );
+      expect(touchable.props.disabled).toBe(true);
+    });
+  });
 
-      expect(() => {
-        rerender(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={true}
-          />
-        );
-      }).not.toThrow();
+  describe('Press Handlers', () => {
+    it('passes onPress to TouchableRipple', () => {
+      const onPress = jest.fn();
+      const { UNSAFE_getByType } = renderIconButton({ onPress });
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
+      );
+      expect(touchable.props.onPress).toBe(onPress);
+    });
 
-      expect(() => {
-        rerender(
-          <IconButtonComponent
-            theme={mockTheme}
-            iconName="menu"
-            disabled={false}
-          />
-        );
-      }).not.toThrow();
+    it('passes onLongPress to TouchableRipple', () => {
+      const onLongPress = jest.fn();
+      const { UNSAFE_getByType } = renderIconButton({ onLongPress });
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
+      );
+      expect(touchable.props.onLongPress).toBe(onLongPress);
+    });
+
+    it('passes onPressIn to TouchableRipple', () => {
+      const onPressIn = jest.fn();
+      const { UNSAFE_getByType } = renderIconButton({ onPressIn });
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
+      );
+      expect(touchable.props.onPressIn).toBe(onPressIn);
+    });
+
+    it('passes onPressOut to TouchableRipple', () => {
+      const onPressOut = jest.fn();
+      const { UNSAFE_getByType } = renderIconButton({ onPressOut });
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
+      );
+      expect(touchable.props.onPressOut).toBe(onPressOut);
+    });
+  });
+
+  describe('Style Composition', () => {
+    it('applies custom style prop', () => {
+      const customStyle = { marginTop: 10, backgroundColor: 'red' };
+      const { getByTestId } = renderIconButton({ style: customStyle });
+      const container = getByTestId('icon-button');
+      expect(container.props.style).toMatchObject(customStyle);
+    });
+
+    it('merges custom style with default styles', () => {
+      const customStyle = { marginHorizontal: 8 };
+      const { getByTestId } = renderIconButton({
+        style: customStyle,
+        size: 40,
+      });
+      const container = getByTestId('icon-button');
+      expect(container.props.style).toMatchObject({
+        width: 40,
+        height: 40,
+        marginHorizontal: 8,
+      });
+    });
+  });
+
+  describe('Ripple Color', () => {
+    it('generates ripple color with alpha from icon color', () => {
+      const { UNSAFE_getByType } = renderIconButton({ color: '#ff0000' });
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
+      );
+      expect(touchable.props.rippleColor).toBeDefined();
+      expect(typeof touchable.props.rippleColor).toBe('string');
+    });
+
+    it('generates ripple color from theme primary when no color provided', () => {
+      const { UNSAFE_getByType } = renderIconButton();
+      const touchable = UNSAFE_getByType(
+        require('react-native-paper').TouchableRipple
+      );
+      expect(touchable.props.rippleColor).toBeDefined();
     });
   });
 });

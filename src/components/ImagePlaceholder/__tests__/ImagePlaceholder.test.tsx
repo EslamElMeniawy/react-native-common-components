@@ -1,7 +1,7 @@
+import { render } from '@testing-library/react-native';
 import { ImagePlaceholderComponent } from '../ImagePlaceholder';
 import { mockTheme } from '../../../test-utils/mockTheme';
 
-// Mock ResponsiveDimensions
 jest.mock('../../../utils/ResponsiveDimensions', () => ({
   __esModule: true,
   default: {
@@ -9,102 +9,201 @@ jest.mock('../../../utils/ResponsiveDimensions', () => ({
   },
 }));
 
+jest.mock('../Image', () => {
+  const ReactLib = require('react');
+  return function MockImage(props: any) {
+    return ReactLib.createElement('Image', { testID: 'image', ...props });
+  };
+});
+
+const renderImagePlaceholder = (props?: Record<string, unknown>) =>
+  render(
+    <ImagePlaceholderComponent
+      theme={mockTheme}
+      testID="placeholder"
+      {...props}
+    />
+  );
+
 describe('ImagePlaceholder Component', () => {
-  it('should accept size prop', () => {
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} size={100} />
-    );
-    expect(component.props.size).toBe(100);
+  describe('Basic Rendering', () => {
+    it('renders without crashing', () => {
+      expect(() => renderImagePlaceholder()).not.toThrow();
+    });
+
+    it('renders container View with testID', () => {
+      const { getByTestId } = renderImagePlaceholder();
+      expect(getByTestId('placeholder')).toBeTruthy();
+    });
+
+    it('renders Image component', () => {
+      const { getByTestId } = renderImagePlaceholder();
+      expect(getByTestId('image')).toBeTruthy();
+    });
   });
 
-  it('should accept source prop', () => {
-    const source = 'https://example.com/image.png';
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} source={source} />
-    );
-    expect(component.props.source).toBe(source);
+  describe('Size Handling', () => {
+    it('applies size to container width and height', () => {
+      const { getByTestId } = renderImagePlaceholder({ size: 100 });
+      const container = getByTestId('placeholder');
+      expect(container.props.style).toMatchObject({
+        width: 100,
+        height: 100,
+      });
+    });
+
+    it('handles no size prop with undefined dimensions', () => {
+      const { getByTestId } = renderImagePlaceholder();
+      const container = getByTestId('placeholder');
+      expect(container.props.style).toMatchObject({
+        width: undefined,
+        height: undefined,
+      });
+    });
+
+    it('scales size using ResponsiveDimensions', () => {
+      const { getByTestId } = renderImagePlaceholder({ size: 150 });
+      const container = getByTestId('placeholder');
+      expect(container.props.style).toMatchObject({
+        width: 150,
+        height: 150,
+      });
+    });
   });
 
-  it('should accept placeholder prop', () => {
-    const placeholder = 123;
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} placeholder={placeholder} />
-    );
-    expect(component.props.placeholder).toBe(placeholder);
+  describe('Image Props Passthrough', () => {
+    it('passes source to Image component', () => {
+      const source = 'https://example.com/image.png';
+      const { getByTestId } = renderImagePlaceholder({ source });
+      const image = getByTestId('image');
+      expect(image.props.source).toBe(source);
+    });
+
+    it('passes placeholder to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder({ placeholder: 123 });
+      const image = getByTestId('image');
+      expect(image.props.placeholder).toBe(123);
+    });
+
+    it('passes vectorPlaceholder to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder({
+        vectorPlaceholder: 456,
+      });
+      const image = getByTestId('image');
+      expect(image.props.vectorPlaceholder).toBe(456);
+    });
+
+    it('passes resizeMode to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder({ resizeMode: 'cover' });
+      const image = getByTestId('image');
+      expect(image.props.resizeMode).toBe('cover');
+    });
+
+    it('passes priority to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder({ priority: 'high' });
+      const image = getByTestId('image');
+      expect(image.props.priority).toBe('high');
+    });
+
+    it('passes cache to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder({ cache: 'immutable' });
+      const image = getByTestId('image');
+      expect(image.props.cache).toBe('immutable');
+    });
+
+    it('passes loadingProps to Image component', () => {
+      const loadingProps = { showLoading: true, color: '#0066cc' };
+      const { getByTestId } = renderImagePlaceholder({ loadingProps });
+      const image = getByTestId('image');
+      expect(image.props.loadingProps).toBe(loadingProps);
+    });
+
+    it('passes theme to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder();
+      const image = getByTestId('image');
+      expect(image.props.theme).toBe(mockTheme);
+    });
   });
 
-  it('should accept vectorPlaceholder prop', () => {
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} vectorPlaceholder={456} />
-    );
-    expect(component.props.vectorPlaceholder).toBe(456);
+  describe('State Management', () => {
+    it('provides state setters to Image component', () => {
+      const { getByTestId } = renderImagePlaceholder();
+      const image = getByTestId('image');
+      expect(typeof image.props.setLoadingState).toBe('function');
+      expect(typeof image.props.setErrorState).toBe('function');
+      expect(typeof image.props.setProgressState).toBe('function');
+      expect(typeof image.props.setProgressSizeState).toBe('function');
+    });
+
+    it('initializes state values passed to Image', () => {
+      const { getByTestId } = renderImagePlaceholder();
+      const image = getByTestId('image');
+      expect(image.props.isLoading).toBe(false);
+      expect(image.props.isError).toBe(false);
+      expect(image.props.progress).toBe(0);
+      expect(image.props.progressSize).toBe(0);
+    });
   });
 
-  it('should accept resizeMode prop', () => {
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} resizeMode="cover" />
-    );
-    expect(component.props.resizeMode).toBe('cover');
+  describe('Style Composition', () => {
+    it('applies custom style prop', () => {
+      const customStyle = { borderRadius: 8, margin: 10 };
+      const { getByTestId } = renderImagePlaceholder({ style: customStyle });
+      const container = getByTestId('placeholder');
+      expect(container.props.style).toMatchObject(customStyle);
+    });
+
+    it('merges custom style with size', () => {
+      const customStyle = { borderRadius: 12 };
+      const { getByTestId } = renderImagePlaceholder({
+        size: 200,
+        style: customStyle,
+      });
+      const container = getByTestId('placeholder');
+      expect(container.props.style).toMatchObject({
+        width: 200,
+        height: 200,
+        borderRadius: 12,
+      });
+    });
   });
 
-  it('should accept priority prop', () => {
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} priority="high" />
-    );
-    expect(component.props.priority).toBe('high');
-  });
+  describe('Combined Props', () => {
+    it('handles all props together', () => {
+      const source = 'https://example.com/image.png';
+      const loadingProps = { showLoading: true, color: '#999999' };
+      const customStyle = { borderRadius: 12 };
 
-  it('should accept cache prop', () => {
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} cache="immutable" />
-    );
-    expect(component.props.cache).toBe('immutable');
-  });
+      const { getByTestId } = renderImagePlaceholder({
+        size: 150,
+        source,
+        placeholder: 789,
+        vectorPlaceholder: 456,
+        resizeMode: 'contain',
+        priority: 'high',
+        cache: 'web',
+        loadingProps,
+        style: customStyle,
+      });
 
-  it('should accept loadingProps prop', () => {
-    const loadingProps = { showLoading: true, color: '#0066cc' };
-    const component = (
-      <ImagePlaceholderComponent
-        theme={mockTheme}
-        loadingProps={loadingProps}
-      />
-    );
-    expect(component.props.loadingProps).toBe(loadingProps);
-  });
+      const container = getByTestId('placeholder');
+      const image = getByTestId('image');
 
-  it('should accept style prop', () => {
-    const style = { borderRadius: 8 };
-    const component = (
-      <ImagePlaceholderComponent theme={mockTheme} style={style} />
-    );
-    expect(component.props.style).toBe(style);
-  });
+      expect(container.props.style).toMatchObject({
+        width: 150,
+        height: 150,
+        borderRadius: 12,
+      });
 
-  it('should accept multiple props', () => {
-    const source = 'https://example.com/image.png';
-    const loadingProps = { showLoading: true, color: '#999999' };
-    const style = { borderRadius: 12 };
-    const component = (
-      <ImagePlaceholderComponent
-        theme={mockTheme}
-        size={150}
-        source={source}
-        vectorPlaceholder={789}
-        resizeMode="contain"
-        priority="high"
-        cache="web"
-        loadingProps={loadingProps}
-        style={style}
-      />
-    );
-    expect(component.props.size).toBe(150);
-    expect(component.props.source).toBe(source);
-    expect(component.props.vectorPlaceholder).toBe(789);
-    expect(component.props.resizeMode).toBe('contain');
-  });
-
-  it('should work without optional props', () => {
-    const component = <ImagePlaceholderComponent theme={mockTheme} />;
-    expect(component.props.theme).toBe(mockTheme);
+      expect(image.props).toMatchObject({
+        source,
+        placeholder: 789,
+        vectorPlaceholder: 456,
+        resizeMode: 'contain',
+        priority: 'high',
+        cache: 'web',
+        loadingProps,
+      });
+    });
   });
 });

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -168,19 +168,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -233,7 +233,7 @@ import Image from './Image';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 &nbsp;
 const ImagePlaceholderComponent = React.memo(
-<span class="fstat-no" title="function not covered" >  (p</span>rops: PropsWithTheme): React.ReactElement =&gt; {
+  (props: PropsWithTheme): React.ReactElement =&gt; {
     const {
       size,
       source,
@@ -246,19 +246,19 @@ const ImagePlaceholderComponent = React.memo(
       style,
       theme,
       ...other
-    } = <span class="cstat-no" title="statement not covered" >props;</span>
+    } = props;
 &nbsp;
-    const [isLoading, setIsLoading] = <span class="cstat-no" title="statement not covered" >React.useState(false);</span>
-    const [isError, setIsError] = <span class="cstat-no" title="statement not covered" >React.useState(false);</span>
-    const [progress, setProgress] = <span class="cstat-no" title="statement not covered" >React.useState(0);</span>
-    const [progressSize, setProgressSize] = <span class="cstat-no" title="statement not covered" >React.useState(0);</span>
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [isError, setIsError] = React.useState(false);
+    const [progress, setProgress] = React.useState(0);
+    const [progressSize, setProgressSize] = React.useState(0);
 &nbsp;
     const _scaledSize: number | undefined =
-<span class="cstat-no" title="statement not covered" >      size == null || size === undefined</span>
+      size == null || size === undefined
         ? undefined
         : ResponsiveDimensions.ms(size);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;View
         style={StyleSheet.flatten([
           styles.container,
@@ -304,7 +304,7 @@ export default ImagePlaceholder;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-31T08:48:34.201Z
+                at 2025-12-31T09:38:02.134Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
