@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -139,13 +139,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,11 +157,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,7 +168,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,7 +188,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,12 +205,12 @@ import styles from './TextInput.styles';
 import { Text } from '../Text';
 &nbsp;
 const ErrorView = React.memo(
-<span class="fstat-no" title="function not covered" >  (p</span>rops: PropsWithTheme): null | React.ReactElement =&gt; {
-    const { errorProps, theme, style: inputStyle } = <span class="cstat-no" title="statement not covered" >props;</span>
-    const { errorMessage, textProps } = <span class="cstat-no" title="statement not covered" >errorProps ?? {};</span>
+  (props: PropsWithTheme): null | React.ReactElement =&gt; {
+    const { errorProps, theme, style: inputStyle } = props;
+    const { errorMessage, textProps } = errorProps ?? {};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (errorMessage) {</span>
-      const { type, style, ...rest } = <span class="cstat-no" title="statement not covered" >textProps ?? {};</span>
+    if (errorMessage) {
+      const { type, style, ...rest } = textProps ?? {};
 &nbsp;
       const {
         marginVertical,
@@ -222,9 +222,9 @@ const ErrorView = React.memo(
         marginLeft,
         marginRight,
         alignSelf,
-      } = <span class="cstat-no" title="statement not covered" >inputStyle ?? {};</span>
+      } = inputStyle ?? {};
 &nbsp;
-      const _widthHorizontalMarginStyle = <span class="cstat-no" title="statement not covered" >{</span>
+      const _widthHorizontalMarginStyle = {
         width,
         marginHorizontal,
         marginStart,
@@ -234,7 +234,7 @@ const ErrorView = React.memo(
         alignSelf,
       };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return (</span>
+      return (
         &lt;Text
           type={type ?? 'caption'}
           style={StyleSheet.flatten([
@@ -253,7 +253,7 @@ const ErrorView = React.memo(
       );
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return null;</span>
+    return null;
   }
 );
 &nbsp;
@@ -265,7 +265,7 @@ export default ErrorView;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-31T12:46:36.193Z
+                at 2025-12-31T13:52:17.762Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

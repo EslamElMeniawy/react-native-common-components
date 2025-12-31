@@ -88,7 +88,7 @@ describe('Accordion Component', () => {
 
     it('applies container background color from theme', () => {
       const { UNSAFE_getAllByType } = renderAccordion();
-      const outer = UNSAFE_getAllByType(View)[0];
+      const outer = UNSAFE_getAllByType(View)[0]!;
       expect(outer.props.style).toEqual(
         expect.objectContaining({
           backgroundColor: mockTheme.colors.background,
@@ -195,7 +195,7 @@ describe('Accordion Component', () => {
 
       expect(headerWrapper?.props?.style).toEqual(headerContainerStyle);
 
-      const outer = UNSAFE_getAllByType(View)[0];
+      const outer = UNSAFE_getAllByType(View)[0]!;
       expect(outer.props.style).toEqual(
         expect.objectContaining(containerStyle)
       );
