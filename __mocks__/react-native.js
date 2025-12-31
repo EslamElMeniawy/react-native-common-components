@@ -76,6 +76,7 @@ const I18nManager = {
   getConstants: () => ({
     isRTL: false,
     doLeftAndRightSwapInRTL: false,
+    localeIdentifier: 'en-US',
   }),
 };
 
