@@ -96,6 +96,12 @@ module.exports = {
   Animated,
   Easing,
   I18nManager,
+  BackHandler: {
+    addEventListener: jest.fn(() => ({
+      remove: jest.fn(),
+    })),
+    removeEventListener: jest.fn(),
+  },
   View: createComponent('View'),
   Text: createComponent('Text'),
   Pressable: createComponent('Pressable'),

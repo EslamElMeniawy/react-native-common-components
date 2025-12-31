@@ -1,3 +1,11 @@
+// Mock BackHandler globally
+global.BackHandler = {
+  addEventListener: jest.fn(() => ({
+    remove: jest.fn(),
+  })),
+  removeEventListener: jest.fn(),
+};
+
 // Mock utils that call Dimensions.get() at module level
 jest.mock('./src/utils/StatusBarHeight', () => ({
   __esModule: true,
@@ -441,6 +449,17 @@ jest.mock('tinycolor2', () => {
 
 // Don't mock react-native-paper - let it work naturally with the Provider in tests
 // The withTheme HOC will work correctly when wrapped with PaperProvider
+
+// Mock the wrappers module to use test-friendly implementations
+jest.mock('./src/components/wrappers');
+
+// Mock BackHandler for Dialog tests
+jest.mock('react-native/Libraries/Utilities/BackHandler', () => ({
+  addEventListener: jest.fn(() => ({
+    remove: jest.fn(),
+  })),
+  removeEventListener: jest.fn(),
+}));
 
 // Silence console warnings in tests
 global.console = {

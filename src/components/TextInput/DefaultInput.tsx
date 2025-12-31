@@ -1,7 +1,6 @@
 // External imports.
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { TextInput } from 'react-native-paper';
 import { omit } from 'lodash';
 
 // Types imports.
@@ -10,6 +9,7 @@ import type { Props } from './TextInput.types';
 // Internal imports.
 import styles from './TextInput.styles';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
+import { TextInput } from '../wrappers';
 
 const getLabel = (props: Props): undefined | string | React.ReactElement => {
   const { topLabelProps, isRequired, label } = props;

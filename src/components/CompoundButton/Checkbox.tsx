@@ -1,11 +1,7 @@
 // External imports.
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import {
-  withTheme,
-  TouchableRipple,
-  Checkbox as PaperCheckbox,
-} from 'react-native-paper';
+import { withTheme, TouchableRipple } from 'react-native-paper';
 import tinyColor from 'tinycolor2';
 
 // Types imports.
@@ -14,6 +10,7 @@ import type { PropsWithTheme, Props } from './CompoundButton.types';
 // Internal imports.
 import styles from './CompoundButton.styles';
 import { Text } from '../Text';
+import { Checkbox as PaperCheckbox } from '../wrappers';
 
 const CheckboxComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
