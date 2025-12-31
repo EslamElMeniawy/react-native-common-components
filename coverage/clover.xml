@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1767170111802" clover="3.2.0">
-  <project timestamp="1767170111803" name="All files">
-    <metrics statements="675" coveredstatements="176" conditionals="605" coveredconditionals="113" methods="112" coveredmethods="16" elements="1392" coveredelements="305" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
+<coverage generated="1767170914333" clover="3.2.0">
+  <project timestamp="1767170914333" name="All files">
+    <metrics statements="675" coveredstatements="180" conditionals="605" coveredconditionals="125" methods="112" coveredmethods="17" elements="1392" coveredelements="322" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
     <package name="src">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="NativeReactNativeCommonComponents.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/NativeReactNativeCommonComponents.ts">
@@ -371,18 +371,18 @@
       </file>
     </package>
     <package name="src.components.LoadingDialog">
-      <metrics statements="8" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="7" conditionals="12" coveredconditionals="12" methods="1" coveredmethods="1"/>
       <file name="LoadingDialog.styles.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/components/LoadingDialog/LoadingDialog.styles.ts">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
       <file name="LoadingDialog.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/LoadingDialog/LoadingDialog.tsx">
-        <metrics statements="7" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="7" coveredstatements="7" conditionals="12" coveredconditionals="12" methods="1" coveredmethods="1"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="20" count="58" type="stmt"/>
+        <line num="26" count="58" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="58" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="58" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
       </file>
