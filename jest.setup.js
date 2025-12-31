@@ -226,6 +226,8 @@ jest.mock('react-native', () => {
   const StyleSheet = jest.requireMock(
     'react-native/Libraries/StyleSheet/StyleSheet'
   );
+  StyleSheet.compose = (style1, style2) => [style1, style2];
+  StyleSheet.create = (styles) => styles;
   const Platform = jest.requireMock(
     'react-native/Libraries/Utilities/Platform'
   );
@@ -240,6 +242,14 @@ jest.mock('react-native', () => {
     React.forwardRef((props, ref) =>
       React.createElement(name, { ...props, ref }, props.children)
     );
+
+  const flatListMock = jest.fn((props) =>
+    React.createElement('FlatList', props, props.children)
+  );
+
+  const refreshControlMock = jest.fn((props) =>
+    React.createElement('RefreshControl', props, props.children)
+  );
 
   return {
     ...RN,
@@ -257,6 +267,12 @@ jest.mock('react-native', () => {
     Text: createComponent('Text'),
     TouchableOpacity: createComponent('TouchableOpacity'),
     TouchableWithoutFeedback: createComponent('TouchableWithoutFeedback'),
+    FlatList: flatListMock,
+    RefreshControl: refreshControlMock,
+    __mock: {
+      flatListMock,
+      refreshControlMock,
+    },
   };
 });
 

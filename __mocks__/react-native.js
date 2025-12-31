@@ -79,6 +79,13 @@ const I18nManager = {
   }),
 };
 
+const flatListMock = jest.fn((props) =>
+  React.createElement('FlatList', props, props.children)
+);
+const refreshControlMock = jest.fn((props) =>
+  React.createElement('RefreshControl', props, props.children)
+);
+
 module.exports = {
   ...RN,
   StyleSheet,
@@ -93,6 +100,8 @@ module.exports = {
   Pressable: createComponent('Pressable'),
   TouchableOpacity: createComponent('TouchableOpacity'),
   TouchableWithoutFeedback: createComponent('TouchableWithoutFeedback'),
+  FlatList: flatListMock,
+  RefreshControl: refreshControlMock,
   NativeModules: {
     ...RN.NativeModules,
     ReactNativeCommonComponents: {
@@ -101,5 +110,9 @@ module.exports = {
     RNCSafeAreaContext: {
       getConstants: () => ({ initialWindowMetrics: null }),
     },
+  },
+  __mock: {
+    flatListMock,
+    refreshControlMock,
   },
 };
