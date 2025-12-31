@@ -40,6 +40,6 @@ try {
       return style || {};
     };
   }
-} catch (e) {
+} catch {
   // ignore
 }

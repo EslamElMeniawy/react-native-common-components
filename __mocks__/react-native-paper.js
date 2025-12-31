@@ -23,7 +23,7 @@ module.exports = {
     React.createElement(RN.ActivityIndicator, props),
   TouchableRipple: ({ children, ...props }) =>
     React.createElement(RN.TouchableOpacity, props, children),
-  Portal: ({ children }) => children,
+  Portal: ({ children }) => React.createElement(React.Fragment, null, children),
   Modal: ({ children, visible }) => (visible ? children : null),
   Provider: ({ children }) => children,
 };

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.26% </span>
+                <span class="strong">57.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/19</span>
+                <span class='fraction'>11/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.26% </span>
+                <span class="strong">57.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/19</span>
+                <span class='fraction'>11/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -133,7 +133,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,30 +154,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,7 +177,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -192,20 +192,20 @@ import type { IconProps } from '../IconButton';
 import styles from './Button.styles';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 &nbsp;
-const Icon = React.memo(<span class="fstat-no" title="function not covered" >(p</span>rops: IconProps): null | React.ReactElement =&gt; {
-  const { image, vector, iconName, size, color } = <span class="cstat-no" title="statement not covered" >props;</span>
-  const _iconSize: number = <span class="cstat-no" title="statement not covered" >size ?? ResponsiveDimensions.ms(24);</span>
+const Icon = React.memo((props: IconProps): null | React.ReactElement =&gt; {
+  const { image, vector, iconName, size, color } = props;
+  const _iconSize: number = size ?? <span class="branch-1 cbranch-no" title="branch not covered" >ResponsiveDimensions.ms(24);</span>
 &nbsp;
-  const _iconStyle = <span class="cstat-no" title="statement not covered" >StyleSheet.flatten([</span>
+  const _iconStyle = StyleSheet.flatten([
     styles.icon,
     { width: _iconSize, height: _iconSize, tintColor: color },
   ]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (image) {</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (image) {
 <span class="cstat-no" title="statement not covered" >    return &lt;Image source={image} style={_iconStyle} resizeMode="contain" /&gt;;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (vector) {</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (vector) {
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const VectorImage = <span class="cstat-no" title="statement not covered" >require('react-native-vector-image').default;</span>
 &nbsp;
@@ -218,12 +218,12 @@ const Icon = React.memo(<span class="fstat-no" title="function not covered" >(p<
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (iconName) {</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
+  if (iconName) {
+    try {
       const MaterialDesignIcons =
-<span class="cstat-no" title="statement not covered" >        require('@react-native-vector-icons/material-design-icons').MaterialDesignIcons;</span>
+        require('@react-native-vector-icons/material-design-icons').MaterialDesignIcons;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return (</span>
+      return (
         &lt;MaterialDesignIcons name={iconName} color={color} size={_iconSize} /&gt;
       );
     } catch (error) {
@@ -236,7 +236,7 @@ const Icon = React.memo(<span class="fstat-no" title="function not covered" >(p<
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return null;</span>
+  return null;
 });
 &nbsp;
 export default Icon;
@@ -247,7 +247,7 @@ export default Icon;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-30T14:18:48.276Z
+                at 2025-12-31T07:23:51.508Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1767104328945" clover="3.2.0">
-  <project timestamp="1767104328945" name="All files">
-    <metrics statements="675" coveredstatements="115" conditionals="605" coveredconditionals="28" methods="112" coveredmethods="8" elements="1392" coveredelements="151" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
+<coverage generated="1767165832205" clover="3.2.0">
+  <project timestamp="1767165832205" name="All files">
+    <metrics statements="675" coveredstatements="158" conditionals="605" coveredconditionals="77" methods="112" coveredmethods="14" elements="1392" coveredelements="249" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
     <package name="src">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="NativeReactNativeCommonComponents.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/NativeReactNativeCommonComponents.ts">
@@ -85,54 +85,54 @@
       </file>
     </package>
     <package name="src.components.Button">
-      <metrics statements="39" coveredstatements="3" conditionals="52" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="39" coveredstatements="30" conditionals="52" coveredconditionals="41" methods="2" coveredmethods="2"/>
       <file name="Button.styles.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/components/Button/Button.styles.ts">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
       </file>
       <file name="Button.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/Button/Button.tsx">
-        <metrics statements="19" coveredstatements="2" conditionals="44" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="67" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="83" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="88" count="0" type="cond" truecount="0" falsecount="6"/>
-        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="102" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="106" count="0" type="stmt"/>
-        <line num="177" count="4" type="stmt"/>
+        <metrics statements="19" coveredstatements="19" conditionals="44" coveredconditionals="36" methods="1" coveredmethods="1"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="43" count="27" type="stmt"/>
+        <line num="45" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="27" type="stmt"/>
+        <line num="54" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="58" count="27" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="27" type="cond" truecount="1" falsecount="1"/>
+        <line num="67" count="27" type="cond" truecount="2" falsecount="2"/>
+        <line num="72" count="27" type="stmt"/>
+        <line num="74" count="27" type="stmt"/>
+        <line num="78" count="27" type="stmt"/>
+        <line num="83" count="27" type="cond" truecount="4" falsecount="0"/>
+        <line num="88" count="27" type="cond" truecount="6" falsecount="0"/>
+        <line num="90" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="102" count="27" type="cond" truecount="1" falsecount="1"/>
+        <line num="104" count="27" type="cond" truecount="1" falsecount="1"/>
+        <line num="106" count="27" type="stmt"/>
+        <line num="177" count="5" type="stmt"/>
       </file>
       <file name="Icon.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/Button/Icon.tsx">
-        <metrics statements="19" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="19" coveredstatements="11" conditionals="8" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="54" type="stmt"/>
+        <line num="14" count="54" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="54" type="stmt"/>
+        <line num="21" count="54" type="cond" truecount="1" falsecount="1"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="54" type="cond" truecount="1" falsecount="1"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="38" count="54" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="15" type="stmt"/>
+        <line num="41" count="15" type="stmt"/>
+        <line num="43" count="15" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
+        <line num="56" count="39" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/components/Button/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -498,36 +498,36 @@
       </file>
     </package>
     <package name="src.components.Text">
-      <metrics statements="27" coveredstatements="3" conditionals="18" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="27" coveredstatements="19" conditionals="18" coveredconditionals="8" methods="4" coveredmethods="4"/>
       <file name="Text.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/Text/Text.tsx">
-        <metrics statements="27" coveredstatements="3" conditionals="18" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="16" count="7" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="3"/>
+        <metrics statements="27" coveredstatements="19" conditionals="18" coveredconditionals="8" methods="4" coveredmethods="4"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="18" count="27" type="stmt"/>
+        <line num="20" count="27" type="stmt"/>
+        <line num="21" count="27" type="cond" truecount="1" falsecount="2"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
+        <line num="25" count="27" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="31" count="27" type="stmt"/>
+        <line num="32" count="27" type="cond" truecount="1" falsecount="1"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="36" count="27" type="cond" truecount="2" falsecount="2"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="40" count="27" type="stmt"/>
+        <line num="43" count="27" type="stmt"/>
+        <line num="45" count="27" type="stmt"/>
+        <line num="46" count="27" type="cond" truecount="2" falsecount="2"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="61" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="27" type="stmt"/>
+        <line num="53" count="27" type="stmt"/>
+        <line num="61" count="27" type="cond" truecount="1" falsecount="1"/>
         <line num="62" count="0" type="stmt"/>
-        <line num="69" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="69" count="27" type="cond" truecount="1" falsecount="2"/>
         <line num="71" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
+        <line num="78" count="27" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
-        <line num="94" count="7" type="stmt"/>
-        <line num="99" count="7" type="stmt"/>
+        <line num="94" count="8" type="stmt"/>
+        <line num="99" count="8" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/components/Text/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -707,7 +707,7 @@
       </file>
       <file name="mockTheme.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/test-utils/mockTheme.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="14" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
       </file>
       <file name="testHelpers.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/test-utils/testHelpers.tsx">
         <metrics statements="14" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
@@ -722,9 +722,9 @@
         <line num="73" count="0" type="stmt"/>
         <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="86" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="87" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="88" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
     </package>
     <package name="src.types">

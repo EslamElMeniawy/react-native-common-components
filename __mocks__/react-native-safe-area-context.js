@@ -1,6 +1,10 @@
+const React = require('react');
+const RN = require('react-native');
+
 module.exports = {
-  SafeAreaProvider: jest.fn(({ children }) => children),
-  SafeAreaView: jest.fn(({ children }) => children),
+  SafeAreaProvider: ({ children }) => children,
+  SafeAreaView: ({ children, ...props }) =>
+    React.createElement(RN.View, props, children),
   useSafeAreaInsets: jest.fn(() => ({
     top: 44,
     bottom: 34,

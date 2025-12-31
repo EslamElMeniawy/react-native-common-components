@@ -90,6 +90,7 @@ module.exports = {
   I18nManager,
   View: createComponent('View'),
   Text: createComponent('Text'),
+  Pressable: createComponent('Pressable'),
   TouchableOpacity: createComponent('TouchableOpacity'),
   TouchableWithoutFeedback: createComponent('TouchableWithoutFeedback'),
   NativeModules: {
