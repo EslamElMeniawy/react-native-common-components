@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1767165832205" clover="3.2.0">
-  <project timestamp="1767165832205" name="All files">
-    <metrics statements="675" coveredstatements="158" conditionals="605" coveredconditionals="77" methods="112" coveredmethods="14" elements="1392" coveredelements="249" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
+<coverage generated="1767169539222" clover="3.2.0">
+  <project timestamp="1767169539222" name="All files">
+    <metrics statements="675" coveredstatements="168" conditionals="605" coveredconditionals="103" methods="112" coveredmethods="16" elements="1392" coveredelements="287" complexity="0" loc="675" ncloc="675" packages="18" files="68" classes="68"/>
     <package name="src">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="NativeReactNativeCommonComponents.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/NativeReactNativeCommonComponents.ts">
@@ -237,10 +237,10 @@
       </file>
     </package>
     <package name="src.components.IconButton">
-      <metrics statements="28" coveredstatements="4" conditionals="20" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="28" coveredstatements="10" conditionals="20" coveredconditionals="6" methods="2" coveredmethods="1"/>
       <file name="Icon.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/IconButton/Icon.tsx">
         <metrics statements="18" coveredstatements="1" conditionals="14" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="4"/>
@@ -264,14 +264,14 @@
         <line num="4" count="0" type="stmt"/>
       </file>
       <file name="IconButton.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/IconButton/IconButton.tsx">
-        <metrics statements="9" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="37" count="38" type="stmt"/>
+        <line num="39" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="38" type="stmt"/>
+        <line num="44" count="38" type="stmt"/>
         <line num="83" count="2" type="stmt"/>
         <line num="88" count="2" type="stmt"/>
       </file>
@@ -391,14 +391,14 @@
       </file>
     </package>
     <package name="src.components.ScrollView">
-      <metrics statements="8" coveredstatements="2" conditionals="20" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="6" conditionals="20" coveredconditionals="20" methods="1" coveredmethods="1"/>
       <file name="ScrollView.tsx" path="/Users/eslam/ReactNative/react-native-common-components/src/components/ScrollView/ScrollView.tsx">
-        <metrics statements="8" coveredstatements="2" conditionals="20" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="6" conditionals="20" coveredconditionals="20" methods="1" coveredmethods="1"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
+        <line num="14" count="28" type="stmt"/>
+        <line num="16" count="28" type="stmt"/>
+        <line num="30" count="28" type="stmt"/>
+        <line num="32" count="28" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
@@ -743,16 +743,16 @@
       <metrics statements="175" coveredstatements="64" conditionals="88" coveredconditionals="28" methods="27" coveredmethods="8"/>
       <file name="LogConfig.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/utils/LogConfig.ts">
         <metrics statements="70" coveredstatements="57" conditionals="34" coveredconditionals="25" methods="8" coveredmethods="7"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="30" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
         <line num="31" count="23" type="cond" truecount="2" falsecount="0"/>
         <line num="32" count="23" type="cond" truecount="2" falsecount="0"/>
         <line num="34" count="23" type="cond" truecount="2" falsecount="0"/>
         <line num="36" count="23" type="stmt"/>
         <line num="37" count="23" type="stmt"/>
         <line num="40" count="23" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
         <line num="46" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="47" count="0" type="stmt"/>
@@ -763,7 +763,7 @@
         <line num="62" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="63" count="1" type="stmt"/>
         <line num="65" count="1" type="stmt"/>
-        <line num="73" count="3" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
         <line num="74" count="8" type="stmt"/>
         <line num="76" count="8" type="cond" truecount="2" falsecount="0"/>
         <line num="77" count="1" type="stmt"/>
@@ -774,7 +774,7 @@
         <line num="92" count="8" type="cond" truecount="2" falsecount="0"/>
         <line num="93" count="7" type="stmt"/>
         <line num="95" count="7" type="stmt"/>
-        <line num="103" count="3" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
         <line num="104" count="1" type="stmt"/>
         <line num="106" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="107" count="0" type="stmt"/>
@@ -785,7 +785,7 @@
         <line num="122" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="123" count="1" type="stmt"/>
         <line num="125" count="1" type="stmt"/>
-        <line num="134" count="3" type="stmt"/>
+        <line num="134" count="2" type="stmt"/>
         <line num="135" count="2" type="stmt"/>
         <line num="137" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="138" count="2" type="stmt"/>
@@ -796,7 +796,7 @@
         <line num="156" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="157" count="2" type="stmt"/>
         <line num="159" count="2" type="stmt"/>
-        <line num="168" count="3" type="stmt"/>
+        <line num="168" count="2" type="stmt"/>
         <line num="169" count="23" type="stmt"/>
         <line num="170" count="23" type="stmt"/>
         <line num="171" count="23" type="stmt"/>
@@ -805,7 +805,7 @@
         <line num="174" count="23" type="stmt"/>
         <line num="175" count="23" type="stmt"/>
         <line num="176" count="23" type="stmt"/>
-        <line num="179" count="3" type="stmt"/>
+        <line num="179" count="2" type="stmt"/>
         <line num="180" count="23" type="stmt"/>
         <line num="181" count="23" type="stmt"/>
         <line num="184" count="23" type="cond" truecount="2" falsecount="0"/>
@@ -920,16 +920,16 @@
       </file>
       <file name="StringUtils.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/utils/StringUtils.ts">
         <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="8" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="9" count="28" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="ValidationUtils.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/utils/ValidationUtils.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="43" count="4" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/eslam/ReactNative/react-native-common-components/src/utils/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
