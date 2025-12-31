@@ -190,32 +190,76 @@ jest.mock('react-native-paper', () => {
   const React = require('react');
   const RN = require('react-native');
 
+  const mockTheme = {
+    colors: {
+      primary: '#6200ee',
+      surface: '#ffffff',
+      background: '#f6f6f6',
+      text: '#000000',
+      onSurface: '#000000',
+      placeholder: '#666666',
+      disabled: '#999999',
+      error: '#B00020',
+    },
+    isV3: true,
+    roundness: 4,
+    fonts: {
+      bodyMedium: { fontSize: 14, lineHeight: 20 },
+      bodySmall: { fontSize: 12, lineHeight: 16 },
+      titleLarge: { fontSize: 22, lineHeight: 28 },
+    },
+  };
+
+  const DialogTitle = ({ children, ...props }) =>
+    React.createElement(RN.Text, props, children);
+  const DialogContent = ({ children, ...props }) =>
+    React.createElement(RN.View, props, children);
+  const DialogActions = ({ children, ...props }) =>
+    React.createElement(RN.View, props, children);
+
+  const MockDialog = ({ children, ...props }) =>
+    React.createElement(RN.View, props, children);
+
+  MockDialog.Title = DialogTitle;
+  MockDialog.Content = DialogContent;
+  MockDialog.Actions = DialogActions;
+
+  const MockTextInput = React.forwardRef((props, ref) => {
+    const { onChangeText, value, ...otherProps } = props;
+    return React.createElement(RN.TextInput, {
+      ...otherProps,
+      onChangeText,
+      value,
+      ref,
+    });
+  });
+
   return {
-    withTheme: (Component) => (props) => {
-      const mockTheme = {
-        colors: {
-          primary: '#6200ee',
-          surface: '#ffffff',
-          background: '#f6f6f6',
-        },
-        isV3: true,
-        fonts: {
-          bodyMedium: { fontSize: 14, lineHeight: 20 },
-          bodySmall: { fontSize: 12, lineHeight: 16 },
-          titleLarge: { fontSize: 22, lineHeight: 28 },
-        },
-      };
-      return React.createElement(Component, { ...props, theme: mockTheme });
+    withTheme: (Component) => {
+      const ThemedComponent = React.forwardRef((props, ref) => {
+        return React.createElement(Component, {
+          ...props,
+          theme: mockTheme,
+          ref,
+        });
+      });
+      ThemedComponent.displayName = `withTheme(${Component.displayName || Component.name || 'Component'})`;
+      return ThemedComponent;
     },
     Text: (props) => React.createElement(RN.Text, props, props.children),
+    TextInput: MockTextInput,
     ActivityIndicator: (props) =>
       React.createElement(RN.ActivityIndicator, props),
     TouchableRipple: ({ children, ...props }) => {
       return React.createElement(RN.TouchableOpacity, props, children);
     },
-    Portal: ({ children }) => children,
-    Modal: ({ children, visible }) => (visible ? children : null),
-    Provider: ({ children }) => children,
+    Portal: ({ children }) =>
+      React.createElement(React.Fragment, null, children),
+    Modal: ({ children, visible }) =>
+      visible ? React.createElement(React.Fragment, null, children) : null,
+    Provider: ({ children }) =>
+      React.createElement(React.Fragment, null, children),
+    Dialog: MockDialog,
   };
 });
 
@@ -251,6 +295,19 @@ jest.mock('react-native', () => {
     React.createElement('RefreshControl', props, props.children)
   );
 
+  const I18nManager = {
+    isRTL: false,
+    allowRTL: jest.fn(),
+    forceRTL: jest.fn(),
+    doLeftAndRightSwapInRTL: false,
+    swapLeftAndRightInRTL: jest.fn(),
+    getConstants: jest.fn(() => ({
+      isRTL: false,
+      doLeftAndRightSwapInRTL: false,
+      localeIdentifier: 'en-US',
+    })),
+  };
+
   return {
     ...RN,
     NativeModules: {
@@ -263,6 +320,7 @@ jest.mock('react-native', () => {
     Platform,
     PixelRatio,
     Dimensions,
+    I18nManager,
     View: createComponent('View'),
     Text: createComponent('Text'),
     TouchableOpacity: createComponent('TouchableOpacity'),
