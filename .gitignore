@@ -124,3 +124,8 @@ GoogleService-Info.plist
 # Qodo Gen (Codium VS Code)
 .qodo/
 .qodo
+
+# Test coverage
+coverage/
+*.lcov
+*.coverage
