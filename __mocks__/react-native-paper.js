@@ -26,4 +26,15 @@ module.exports = {
   Portal: ({ children }) => React.createElement(React.Fragment, null, children),
   Modal: ({ children, visible }) => (visible ? children : null),
   Provider: ({ children }) => children,
+  Checkbox: {
+    Android: (props) =>
+      React.createElement(RN.View, { testID: props.testID }, null),
+  },
+  RadioButton: {
+    Android: (props) =>
+      React.createElement(RN.View, { testID: props.testID }, null),
+  },
+  TextInput: React.forwardRef((props, ref) =>
+    React.createElement(RN.TextInput, { ...props, ref }, null)
+  ),
 };
