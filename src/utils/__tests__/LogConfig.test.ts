@@ -1,3 +1,5 @@
+import type { PluginCreator } from 'reactotron-core-client';
+import type { ReactotronReactNative } from 'reactotron-react-native';
 import { configureLog } from '../LogConfig';
 
 // Mock dependencies
@@ -12,6 +14,7 @@ jest.mock('reactotron-react-native', () => ({
     useReactNative: jest.fn(() => ({
       connect: jest.fn(),
     })),
+    use: jest.fn(),
     connect: jest.fn(),
     clear: jest.fn(),
     display: jest.fn(),
@@ -198,6 +201,33 @@ describe('LogConfig', () => {
       expect(() => console.error('Test error')).not.toThrow();
     });
 
+    it('logs to Firebase crashlytics when levels include LOG and ERROR', () => {
+      const crashlyticsMock = jest.requireMock(
+        '@react-native-firebase/crashlytics'
+      );
+
+      configureLog({
+        firebaseLogLevels: ['LOG', 'ERROR'],
+        isLocalLogEnable: false,
+      });
+
+      console.log('firebase log message', { foo: 'bar' });
+      console.error('firebase error message', { baz: 'qux' });
+
+      expect(crashlyticsMock.log).toHaveBeenCalled();
+      expect(crashlyticsMock.log.mock.calls[0][0]).toBe(
+        'mockCrashlyticsInstance'
+      );
+      expect(crashlyticsMock.log.mock.calls[0][1]).toContain('LOG');
+      expect(crashlyticsMock.log.mock.calls[0][1]).toContain(
+        'firebase log message'
+      );
+      expect(crashlyticsMock.recordError).toHaveBeenCalledWith(
+        'mockCrashlyticsInstance',
+        expect.any(Error)
+      );
+    });
+
     it('should not attempt Firebase logging for non-configured levels', () => {
       configureLog({
         firebaseLogLevels: ['ERROR'],
@@ -207,6 +237,45 @@ describe('LogConfig', () => {
       // INFO and WARN should not attempt Firebase logging
       expect(() => console.info('Info')).not.toThrow();
       expect(() => console.warn('Warning')).not.toThrow();
+    });
+  });
+
+  describe('Reactotron logging', () => {
+    it('sends local logs to reactotron when enabled', () => {
+      const reactotronMock = jest.requireMock(
+        'reactotron-react-native'
+      ).default;
+
+      configureLog({ isLocalLogEnable: true });
+
+      console.warn('reactotron warning', { reason: 'test' });
+
+      expect(reactotronMock.display).toHaveBeenCalledWith(
+        expect.objectContaining({
+          name: 'WARN',
+          value: {
+            message: 'reactotron warning',
+            optionalParams: [{ reason: 'test' }],
+          },
+          important: true,
+        })
+      );
+    });
+
+    it('uses plugin creators when provided', () => {
+      const reactotronMock = jest.requireMock(
+        'reactotron-react-native'
+      ).default;
+      const pluginCreator: PluginCreator<ReactotronReactNative> = () => ({
+        onConnect() {},
+      });
+
+      configureLog({
+        isLocalLogEnable: true,
+        pluginCreators: [pluginCreator],
+      });
+
+      expect(reactotronMock.use).toHaveBeenCalledWith(pluginCreator);
     });
   });
 
