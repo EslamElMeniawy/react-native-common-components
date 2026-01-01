@@ -188,6 +188,7 @@
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!src/**/*.types.{ts,tsx}",
+      "!src/**/*.styles.{ts,tsx}",
       "!src/index.tsx",
       "!src/**/__tests__/**",
       "!src/**/__mocks__/**"
