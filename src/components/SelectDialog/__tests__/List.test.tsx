@@ -11,6 +11,13 @@ describe('SelectDialog List Component', () => {
     { key: '3', dropdownTitle: 'Item 3' },
   ];
 
+  afterEach(() => {
+    const { __mock } = jest.requireMock('react-native') as {
+      __mock: { flatListMock: jest.Mock };
+    };
+    __mock.flatListMock.mockClear();
+  });
+
   it('should render list with items without crashing', () => {
     expect(() => {
       render(
@@ -52,29 +59,48 @@ describe('SelectDialog List Component', () => {
 
   it('should call onItemPressed when item is selected', () => {
     const mockOnItemPressed = jest.fn();
-    expect(() => {
-      render(
-        <List
-          items={mockItems}
-          onItemPressed={mockOnItemPressed}
-          isItemSelected={jest.fn(() => false)}
-          theme={mockTheme}
-        />
-      );
-    }).not.toThrow();
+
+    const { __mock } = jest.requireMock('react-native') as {
+      __mock: { flatListMock: jest.Mock };
+    };
+
+    render(
+      <List
+        items={mockItems}
+        onItemPressed={mockOnItemPressed}
+        isItemSelected={jest.fn(() => false)}
+        theme={mockTheme}
+      />
+    );
+
+    const flatListProps = __mock.flatListMock.mock.calls.at(-1)?.[0];
+    const renderedItem = flatListProps?.renderItem?.({ item: mockItems[0] });
+
+    renderedItem?.props.onPress();
+
+    expect(mockOnItemPressed).toHaveBeenCalledWith(mockItems[0]);
   });
 
   it('should apply theme colors', () => {
-    expect(() => {
-      render(
-        <List
-          items={mockItems}
-          onItemPressed={jest.fn()}
-          isItemSelected={jest.fn(() => false)}
-          theme={mockTheme}
-        />
-      );
-    }).not.toThrow();
+    const { __mock } = jest.requireMock('react-native') as {
+      __mock: { flatListMock: jest.Mock };
+    };
+
+    render(
+      <List
+        items={mockItems}
+        onItemPressed={jest.fn()}
+        isItemSelected={jest.fn(() => true)}
+        theme={mockTheme}
+      />
+    );
+
+    const flatListProps = __mock.flatListMock.mock.calls.at(-1)?.[0];
+    const renderedItem = flatListProps?.renderItem?.({ item: mockItems[0] });
+
+    expect(renderedItem?.props.checked).toBe(true);
+    expect(renderedItem?.props.checkedColor).toBe(mockTheme.colors.primary);
+    expect(renderedItem?.props.uncheckedColor).toBe(mockTheme.colors.onSurface);
   });
 
   it('should render multiple selected items', () => {

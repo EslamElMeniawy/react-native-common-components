@@ -1,12 +1,22 @@
 import { render } from '@testing-library/react-native';
+import { I18nManager } from 'react-native';
 
 import NoData from '../NoData';
 
 describe('SelectDialog NoData Component', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+    jest.spyOn(I18nManager, 'getConstants').mockReturnValue({
+      isRTL: false,
+      doLeftAndRightSwapInRTL: false,
+      localeIdentifier: 'en-US',
+    });
+  });
+
   it('should render with default message', () => {
-    expect(() => {
-      render(<NoData />);
-    }).not.toThrow();
+    const { getByText } = render(<NoData />);
+
+    expect(getByText('No data available')).toBeTruthy();
   });
 
   it('should render with custom message', () => {
@@ -35,9 +45,15 @@ describe('SelectDialog NoData Component', () => {
   });
 
   it('should render RTL localized message', () => {
-    expect(() => {
-      render(<NoData noDataMessage="لا توجد بيانات" />);
-    }).not.toThrow();
+    jest.spyOn(I18nManager, 'getConstants').mockReturnValue({
+      isRTL: true,
+      doLeftAndRightSwapInRTL: false,
+      localeIdentifier: 'ar',
+    });
+
+    const { getByText } = render(<NoData />);
+
+    expect(getByText('لا تتوافر بيانات!')).toBeTruthy();
   });
 
   it('should apply theme colors', () => {
