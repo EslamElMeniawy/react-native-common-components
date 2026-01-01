@@ -47,8 +47,7 @@ export interface SelectInputInputProps extends Props {
 }
 
 export interface SelectInputMenuProps
-  extends PropsWithTheme,
-    Omit<SelectInputMenuItemProps, 'item' | 'theme'> {
+  extends PropsWithTheme, Omit<SelectInputMenuItemProps, 'item' | 'theme'> {
   value: string;
   isSelectVisible: boolean;
   dismissSelect: () => void;

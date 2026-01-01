@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Pressable, BackHandler, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { withTheme, Portal } from 'react-native-paper';
+import { withTheme } from 'react-native-paper';
 
 // Types imports.
 import type { PropsWithTheme, Props } from './Dialog.types';
@@ -10,8 +10,13 @@ import type { Edge } from 'react-native-safe-area-context';
 
 // Internal imports.
 import styles from './Dialog.styles';
+import { Portal } from '../wrappers';
 
-const Dialog = React.memo(
+/**
+ * DialogComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
+const DialogComponent = React.memo(
   (props: PropsWithTheme): null | React.ReactElement => {
     const {
       visible,
@@ -122,4 +127,7 @@ const Dialog = React.memo(
   }
 );
 
-export default withTheme(Dialog) as React.ComponentType<Props>;
+const Dialog = withTheme(DialogComponent) as React.ComponentType<Props>;
+
+export { DialogComponent };
+export default Dialog;

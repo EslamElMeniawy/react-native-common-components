@@ -10,7 +10,12 @@ import type { PropsWithTheme, Props } from './LoadingDialog.types';
 import styles from './LoadingDialog.styles';
 import { Dialog } from '../Dialog';
 
-const LoadingDialog = React.memo(
+/**
+ * LoadingDialog component (unwrapped, for testing)
+ * Displays a loading dialog with an activity indicator
+ * @internal For testing purposes only. Do not use in production code.
+ */
+export const LoadingDialogComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const { visible, theme, dialogProps, loader, activityIndicatorProps } =
       props;
@@ -44,4 +49,13 @@ const LoadingDialog = React.memo(
   }
 );
 
-export default withTheme(LoadingDialog) as React.ComponentType<Props>;
+LoadingDialogComponent.displayName = 'LoadingDialogComponent';
+
+/**
+ * LoadingDialog component (wrapped with theme, for production)
+ */
+const LoadingDialog = withTheme(
+  LoadingDialogComponent
+) as React.ComponentType<Props>;
+
+export default LoadingDialog;
