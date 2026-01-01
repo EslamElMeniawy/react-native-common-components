@@ -4,6 +4,9 @@
   <a href="https://www.npmjs.com/package/@eslam-elmeniawy/react-native-common-components">
     <img alt="npm Version" src="https://img.shields.io/npm/v/@eslam-elmeniawy/react-native-common-components.svg" />
   </a>
+  <a href="https://codecov.io/gh/EslamElMeniawy/react-native-common-components">
+    <img alt="Code Coverage" src="https://codecov.io/gh/EslamElMeniawy/react-native-common-components/branch/main/graph/badge.svg" />
+  </a>
   <a href="https://github.com/EslamElMeniawy/react-native-common-components#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/Documented%3F-yes-brightgreen.svg" />
   </a>
