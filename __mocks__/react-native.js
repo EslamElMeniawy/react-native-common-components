@@ -48,6 +48,8 @@ const PixelRatio = {
   roundToNearestPixel: (layoutSize) => Math.round(layoutSize),
 };
 
+const Image = createComponent('Image');
+
 const Dimensions = {
   get: () => ({ width: 375, height: 812 }),
   addEventListener: jest.fn(),
@@ -96,12 +98,16 @@ module.exports = {
   Animated,
   Easing,
   I18nManager,
+  StatusBar: {
+    currentHeight: 0,
+  },
   BackHandler: {
     addEventListener: jest.fn(() => ({
       remove: jest.fn(),
     })),
     removeEventListener: jest.fn(),
   },
+  Image,
   View: createComponent('View'),
   Text: createComponent('Text'),
   Pressable: createComponent('Pressable'),

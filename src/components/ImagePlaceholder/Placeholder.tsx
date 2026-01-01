@@ -1,12 +1,29 @@
 // External imports.
 import * as React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 // Types imports.
 import type { PlaceholderProps } from './ImagePlaceholder.types';
 
 // Internal imports.
 import styles from './ImagePlaceholder.styles';
+
+let Image: any = null;
+let VectorImage: any = null;
+
+try {
+  Image = require('react-native').Image;
+} catch (error) {
+  console.warn('Error loading Image from react-native:', error);
+  Image = null;
+}
+
+try {
+  VectorImage = require('react-native-vector-image').default;
+} catch (error) {
+  console.warn('Error loading `react-native-vector-image`:', error);
+  VectorImage = null;
+}
 
 const Placeholder = React.memo(
   (props: PlaceholderProps): null | React.ReactElement => {
@@ -22,37 +39,26 @@ const Placeholder = React.memo(
     if (!source || isError || isLoading) {
       const _resizeMode = resizeMode ?? 'cover';
 
-      if (placeholder) {
-        return (
-          <Image
-            source={placeholder}
-            style={StyleSheet.flatten([
-              styles.image,
-              { resizeMode: _resizeMode },
-            ])}
-            resizeMode={_resizeMode}
-          />
-        );
+      if (placeholder && Image) {
+        return React.createElement(Image, {
+          source: placeholder,
+          style: StyleSheet.flatten([
+            styles.image,
+            { resizeMode: _resizeMode },
+          ]),
+          resizeMode: _resizeMode,
+        });
       }
 
-      if (vectorPlaceholder) {
-        try {
-          const VectorImage = require('react-native-vector-image').default;
-
-          return (
-            <VectorImage
-              source={vectorPlaceholder}
-              style={StyleSheet.flatten([
-                styles.image,
-                { resizeMode: _resizeMode },
-              ])}
-              resizeMode={_resizeMode}
-            />
-          );
-        } catch (error) {
-          console.warn('Error loading `react-native-vector-image`:', error);
-          return null;
-        }
+      if (vectorPlaceholder && VectorImage) {
+        return React.createElement(VectorImage, {
+          source: vectorPlaceholder,
+          style: StyleSheet.flatten([
+            styles.image,
+            { resizeMode: _resizeMode },
+          ]),
+          resizeMode: _resizeMode,
+        });
       }
 
       return null;

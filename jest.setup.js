@@ -375,11 +375,27 @@ jest.mock('react-native-safe-area-context', () => ({
   })),
 }));
 
+// Mock react-native-vector-image (optional dependency)
+jest.mock('react-native-vector-image', () => {
+  const React = require('react');
+  return {
+    __esModule: true,
+    default: React.forwardRef((props, ref) => {
+      return React.createElement('VectorImage', { ...props, ref });
+    }),
+  };
+});
+
 // Mock @react-native-vector-icons/material-design-icons
-jest.mock(
-  '@react-native-vector-icons/material-design-icons',
-  () => 'MaterialIcon'
-);
+jest.mock('@react-native-vector-icons/material-design-icons', () => {
+  const React = require('react');
+  return {
+    __esModule: true,
+    MaterialDesignIcons: (props) => {
+      return React.createElement('MaterialDesignIcons', props);
+    },
+  };
+});
 
 // Mock @d11/react-native-fast-image (optional dependency)
 jest.mock('@d11/react-native-fast-image', () => {

@@ -26,11 +26,21 @@ class ResponsiveDimensions {
   }
 
   static get windowWidth() {
-    return Dimensions.get('window').width;
+    const dimensionsGetter = (Dimensions as any)?.get;
+    if (typeof dimensionsGetter !== 'function') {
+      return this._baseWidth;
+    }
+
+    return dimensionsGetter('window').width;
   }
 
   static get windowHeight() {
-    return Dimensions.get('window').height;
+    const dimensionsGetter = (Dimensions as any)?.get;
+    if (typeof dimensionsGetter !== 'function') {
+      return this._baseHeight;
+    }
+
+    return dimensionsGetter('window').height;
   }
 
   /**
@@ -130,4 +140,5 @@ class ResponsiveDimensions {
   static readonly ph = this.percentHeight;
 }
 
+export { ResponsiveDimensions };
 export default ResponsiveDimensions;

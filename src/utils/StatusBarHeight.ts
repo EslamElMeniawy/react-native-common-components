@@ -84,9 +84,26 @@ export const isIPhone16Max = (): boolean => isIPhone16Max_v;
 export const isIPhoneWithMonobrow = (): boolean => isIPhoneWithMonobrow_v;
 
 export const getStatusBarHeight = (skipAndroid?: boolean): number => {
-  return Platform.select({
-    ios: statusBarHeight,
-    android: skipAndroid ? 0 : (StatusBar.currentHeight ?? 0),
-    default: 0,
-  });
+  if (Platform.OS === 'ios') {
+    return statusBarHeight;
+  }
+
+  if (Platform.OS === 'android') {
+    const currentHeight = StatusBar?.currentHeight ?? 0;
+    return skipAndroid ? 0 : currentHeight;
+  }
+
+  return 0;
+};
+
+export default {
+  isIPhoneX,
+  isIPhoneXMax,
+  isIPhone12,
+  isIPhone12Max,
+  isIPhone14Pro,
+  isIPhone14Max,
+  isIPhone16Max,
+  isIPhoneWithMonobrow,
+  getStatusBarHeight,
 };
