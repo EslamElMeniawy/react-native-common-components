@@ -15,6 +15,7 @@ import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 /**
  * IconButton component (unwrapped, for testing)
  * Renders an icon button with ripple effect
+ * @internal For testing purposes only. Do not use in production code.
  */
 export const IconButtonComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {

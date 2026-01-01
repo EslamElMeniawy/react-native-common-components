@@ -146,5 +146,9 @@ const Accordion = withTheme(
   AccordionWithFallback
 ) as React.ComponentType<Props>;
 
+/**
+ * AccordionComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 export { AccordionWithFallback as AccordionComponent };
 export default Accordion;

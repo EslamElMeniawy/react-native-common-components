@@ -13,6 +13,10 @@ import type { PropsWithTheme, Props } from './FlatList.types';
 // Internal imports.
 import styles from './FlatList.styles';
 
+/**
+ * FlatListComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const FlatListComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {

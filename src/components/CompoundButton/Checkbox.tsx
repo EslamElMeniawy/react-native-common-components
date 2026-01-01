@@ -12,6 +12,10 @@ import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 import { Checkbox as PaperCheckbox } from '../wrappers';
 
+/**
+ * CheckboxComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const CheckboxComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {

@@ -12,6 +12,7 @@ import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 /**
  * Text component (unwrapped, for testing)
  * Renders text with responsive sizing and theme support
+ * @internal For testing purposes only. Do not use in production code.
  */
 export const TextComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {

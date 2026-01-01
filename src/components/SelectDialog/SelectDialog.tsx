@@ -15,6 +15,10 @@ import List from './List';
 import NoData from './NoData';
 import { Button } from '../Button';
 
+/**
+ * SelectDialogComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const SelectDialogComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {

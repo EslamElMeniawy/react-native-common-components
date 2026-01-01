@@ -13,6 +13,10 @@ import TopLabel from './TopLabel';
 import TextInputInput from './TextInputInput';
 import ErrorView from './ErrorView';
 
+/**
+ * TextInputComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const TextInputComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const { topLabelProps, errorProps } = props;

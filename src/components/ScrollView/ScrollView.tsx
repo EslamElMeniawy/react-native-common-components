@@ -9,6 +9,10 @@ import type { PropsWithTheme, Props } from './ScrollView.types';
 // Internal imports.
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
+/**
+ * ScrollViewComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const ScrollViewComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement | null => {
     try {

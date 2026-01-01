@@ -12,6 +12,10 @@ import type { Edge } from 'react-native-safe-area-context';
 import styles from './Dialog.styles';
 import { Portal } from '../wrappers';
 
+/**
+ * DialogComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const DialogComponent = React.memo(
   (props: PropsWithTheme): null | React.ReactElement => {
     const {

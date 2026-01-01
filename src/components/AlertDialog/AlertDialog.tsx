@@ -12,6 +12,10 @@ import { Dialog } from '../Dialog';
 import { Text } from '../Text';
 import { Button } from '../Button';
 
+/**
+ * AlertDialogComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const AlertDialogComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {

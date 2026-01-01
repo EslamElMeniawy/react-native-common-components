@@ -10,6 +10,7 @@ import { mockTheme } from './mockTheme';
 /**
  * Custom render function that wraps component with PaperProvider and theme.
  * Use this instead of the plain render from @testing-library/react-native.
+ * @internal For testing purposes only. Do not use in production code.
  *
  * @example
  * const { getByText } = renderWithTheme(<Button text="Click me" />);
@@ -28,6 +29,7 @@ export const renderWithTheme = (
 /**
  * Creates mock callback functions for testing interactions.
  * All callbacks are jest.fn() mocks that can be inspected.
+ * @internal For testing purposes only. Do not use in production code.
  *
  * @example
  * const callbacks = createMockCallbacks();
@@ -50,6 +52,7 @@ export const createMockCallbacks = () => ({
 
 /**
  * Accessibility test helpers.
+ * @internal For testing purposes only. Do not use in production code.
  */
 export const accessibility = {
   /**

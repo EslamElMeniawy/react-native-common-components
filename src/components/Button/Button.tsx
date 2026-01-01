@@ -13,6 +13,10 @@ import { Text } from '../Text';
 import Icon from './Icon';
 import ResponsiveDimensions from '../../utils/ResponsiveDimensions';
 
+/**
+ * ButtonComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const ButtonComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {

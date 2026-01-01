@@ -12,6 +12,10 @@ import styles from './CompoundButton.styles';
 import { Text } from '../Text';
 import { RadioButton as PaperRadioButton } from '../wrappers';
 
+/**
+ * RadioButtonComponent (unwrapped, for testing)
+ * @internal For testing purposes only. Do not use in production code.
+ */
 const RadioButtonComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {
     const {

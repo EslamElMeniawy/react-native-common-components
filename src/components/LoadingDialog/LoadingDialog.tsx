@@ -13,6 +13,7 @@ import { Dialog } from '../Dialog';
 /**
  * LoadingDialog component (unwrapped, for testing)
  * Displays a loading dialog with an activity indicator
+ * @internal For testing purposes only. Do not use in production code.
  */
 export const LoadingDialogComponent = React.memo(
   (props: PropsWithTheme): React.ReactElement => {

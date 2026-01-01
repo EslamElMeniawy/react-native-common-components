@@ -1,5 +1,9 @@
 import type { MD3Theme } from 'react-native-paper';
 
+/**
+ * Mock MD3Theme for testing purposes.
+ * @internal For testing purposes only. Do not use in production code.
+ */
 export const mockTheme: MD3Theme = {
   dark: false,
   roundness: 4,
